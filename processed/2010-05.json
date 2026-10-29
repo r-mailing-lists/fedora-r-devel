@@ -1,0 +1,63 @@
+{
+  "list": "fedora-r-devel",
+  "description": "",
+  "month": "2010-05",
+  "messages": [
+    {
+      "id": "msg-421c4c2eea64",
+      "message_id": "<1273063973.14245.9.camel@cyan.pingoured.fr>",
+      "from_name": "Pierre-Yves Chibon",
+      "from_email_hash": "47e30c199d3131f08c959f22c4f67ea9e57a1a82a5b6363bb242a1766ac73fe5",
+      "date": "2010-05-05T12:52:53Z",
+      "subject": "[Fedora-r-devel-list] R2spec - 3.0.0",
+      "subject_clean": "[Fedora-r-devel-list] R2spec - 3.0.0",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hi all,\n\nAs announced on my blog, I have released the new version of R2spec\n(version 3.0.0) containing R2rpm.\n\nBelow[2] is the full changelog for this release.\n\nThanks for your comments/feedbacks on this release.\nFeel free to test it again and add karma on Bodhi [1]\n\nThanks to all of you again,\n\nPierre\n\n\n[1]\nhttps://admin.fedoraproject.org/updates/R2spec-3.0.0-1.fc13\nhttps://admin.fedoraproject.org/updates/R2spec-3.0.0-1.fc12\nhttps://admin.fedoraproject.org/updates/R2spec-3.0.0-1.fc11\nhttps://admin.fedoraproject.org/updates/R2spec-3.0.0-1.el4\nhttps://admin.fedoraproject.org/updates/R2spec-3.0.0-1.el5\n\n[2]\nChangelog:\n----------\nVersion 3.0.0 -- 05th May 2019\n- Features added\n  * R2spec can now be called from an external script\n  * Use template via jinja2 to generate the spec files (Based on an idea\nof Allen S. Rout)\n  * Create the R2rpm script which directly builds the rpm\n  * Add a man page for R2rpm\n  * Add the -p option which enable to build a spec from a package name\n  * Parse the PACKAGES file from the repositories to find the\ninformation for the packages\n  * Make the print of the TODO optional in the API\n  * Give the opportunity to use mock to build the RPMs (rpmbuild being\nthe default)\n  * Enable to specify the mock command in the conf file\n  * Enable to change the argument given to rpmbuild via the conf file \n      (to build srpm instead of rpm for example)\n- Bugs correction\n  * Fix the addition of the R- prefix to the dependencies\n  * Rewrite the reading of the DESCRIPTION file from R\n  * Do not enforce the spec and the source directory, reads the\nrpmmacros instead\n     Thanks to José Matos for this function\n  * Fix the summary if it ends with a dot \".\"\n  * Capitalize the summary by default\n  * Change UTF-8 to utf-8 to make emacs happy\n  * Fix the spec file for the dependencies of this new release\n  * Fix some bugs while trying to generate the RPM/SPEC from a tarball",
+      "body_snippet": "Hi all,\n\nAs announced on my blog, I have released the new version of R2spec\n(version 3.0.0) containing R2rpm.\n\nBelow[2] is the full changelog for this release.\n\nThanks for your comments/feedbacks on t",
+      "thread_id": "thread-421c4c2eea64",
+      "thread_depth": 0,
+      "month": "2010-05"
+    },
+    {
+      "id": "msg-e44cf20e4d93",
+      "message_id": "<1275298560.8580.28.camel@lab.localdomain>",
+      "from_name": "Pierre-Yves Chibon",
+      "from_email_hash": "47e30c199d3131f08c959f22c4f67ea9e57a1a82a5b6363bb242a1766ac73fe5",
+      "date": "2010-05-31T09:36:00Z",
+      "subject": "[Fedora-r-devel-list] [Fwd: [R] R 2.11.1 is released]",
+      "subject_clean": "[Fedora-r-devel-list] [Fwd: [R] R 2.11.1 is released]",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "-------------- next part --------------\nWzxlbWFpbC5tZXNzYWdlLk1lc3NhZ2UgaW5zdGFuY2UgYXQgMHgzZjA1NzU4Pl0=",
+      "body_snippet": "-------------- next part --------------\nWzxlbWFpbC5tZXNzYWdlLk1lc3NhZ2UgaW5zdGFuY2UgYXQgMHgzZjA1NzU4Pl0=",
+      "thread_id": "thread-e44cf20e4d93",
+      "thread_depth": 0,
+      "month": "2010-05"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-421c4c2eea64",
+      "subject": "[Fedora-r-devel-list] R2spec - 3.0.0",
+      "message_count": 1,
+      "participants": [
+        "Pierre-Yves Chibon"
+      ],
+      "started": "2010-05-05T12:52:53Z",
+      "last_reply": "2010-05-05T12:52:53Z",
+      "root_message_id": "msg-421c4c2eea64"
+    },
+    {
+      "id": "thread-e44cf20e4d93",
+      "subject": "[Fedora-r-devel-list] [Fwd: [R] R 2.11.1 is released]",
+      "message_count": 1,
+      "participants": [
+        "Pierre-Yves Chibon"
+      ],
+      "started": "2010-05-31T09:36:00Z",
+      "last_reply": "2010-05-31T09:36:00Z",
+      "root_message_id": "msg-e44cf20e4d93"
+    }
+  ]
+}

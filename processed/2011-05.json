@@ -1,0 +1,36 @@
+{
+  "list": "fedora-r-devel",
+  "description": "",
+  "month": "2011-05",
+  "messages": [
+    {
+      "id": "msg-17ebd639f747",
+      "message_id": "<87fwov532u.fsf@ufl.edu>",
+      "from_name": "Allen S. Rout",
+      "from_email_hash": "daab5e2a3be01a71a28f5aaeadf6670eb8b6207f60048fe46968e068daeb44b6",
+      "date": "2011-05-03T13:24:57Z",
+      "subject": "Re: [Fedora-r-devel-list] Errors in constructing SPEC from local source.",
+      "subject_clean": "[Fedora-r-devel-list] Errors in constructing SPEC from local source.",
+      "in_reply_to": "<201104141522.46888.jamatos@fc.up.pt>",
+      "references": [],
+      "body_plain": "José Matos <jamatos-BxEiAy0842I(a)public.gmane.org> writes:\n\n> It would be nice to have a plan for this.\n>\n> A boostrap stage where the dependencies are reduced just to build \n> dependencies.\n\nSo here \n\nhttp://article.gmane.org/gmane.linux.redhat.fedora.r.devel/177\n\nis the farthest I've gotten in formalizing that path.  I've waved that\naround a few times; it doesn't seem to pick up a lot of traction.  If\nthe topic were simple, I'd tl;dr it, but I don't think it can really be\ndone.\n\n\n> The identification of core packages required by other packages.\n\nI think that's what I'd call the \"Narrow dependency graph\"; that is,\n\"packages which are needed to install other packages\", as opposed to\n\"Packages which are needed to CMD CHECK other packages\".\n\n\nSo; if we take R2rpm as a building block, then I suggest the following\npseudocode, to build a repo:\n\n\nbuild_a_repo()\n\nMake a list from CRAN, consult some local metadata about busted\npackages.\n\nPick an unbuilt package at random, and build it, until done. \n\n-----\n\nbuild_a_package()\n\n generate the narrow and wide dependency graphs for your package. \n \n generate the narrow graph of your wide dependencies.  \n (everything you need to install to run (everything you need to check (package p ))) \n I'll call that G'.\n\n Remove from G' everything already installed. \n\n Build everything in G' , disabling CHECK and ignoring Suggests,\n Enhances.  [ Can we also avoid the build-it-once, check %files, build\n it again step at this stage? ]\n\n Install everything in G'. \n\n Build everything in G', enabling CHECK.   \n\n Packages that build and CHECK may be signed, and removed from the list\n of packages to be built.\n\n-----\n\n\nI split it up this way because it permits also the \"Build this package\nand its depgraph\", which is where I came in. :)\n\nThis process also suggests some additional caching, at least the package\nmetadata from all the repos; It's going to be necessary to trace deps\nacross repos, of course.  If anyone has opinions about where that ought\nto go, fire away.  I figure it'd go in /var/tmp/[something] , and not\nexpire for a week or more.  Since the build process is going to be\nmulti-day, anthing shorter than that will just be insane.\n\n\n\n- Allen S. Rout",
+      "body_snippet": "José Matos <jamatos-BxEiAy0842I(a)public.gmane.org> writes:\n\n> It would be nice to have a plan for this.\n>\n> A boostrap stage where the dependencies are reduced just to build \n> dependencies.\n\nSo here",
+      "thread_id": "thread-17ebd639f747",
+      "thread_depth": 0,
+      "month": "2011-05"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-17ebd639f747",
+      "subject": "[Fedora-r-devel-list] Errors in constructing SPEC from local source.",
+      "message_count": 1,
+      "participants": [
+        "Allen S. Rout"
+      ],
+      "started": "2011-05-03T13:24:57Z",
+      "last_reply": "2011-05-03T13:24:57Z",
+      "root_message_id": "msg-17ebd639f747"
+    }
+  ]
+}

@@ -1,0 +1,112 @@
+{
+  "list": "fedora-r-devel",
+  "description": "",
+  "month": "2010-07",
+  "messages": [
+    {
+      "id": "msg-3dc452c23838",
+      "message_id": "<ec2b5f3d85c6e3e6ad8eb843a1af9d22@planetpingou.org>",
+      "from_name": "Pierre-Yves Chibon",
+      "from_email_hash": "47e30c199d3131f08c959f22c4f67ea9e57a1a82a5b6363bb242a1766ac73fe5",
+      "date": "2010-07-01T09:16:22Z",
+      "subject": "[Fedora-r-devel-list] Review Request: R-GenomicRanges",
+      "subject_clean": "[Fedora-r-devel-list] Review Request: R-GenomicRanges",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hi,\n\nIf someone could have a look at this review I would be pleased. I need\nit to update R-BSgenome which is needed for R-hgu95av2probe.\n\nhttps://bugzilla.redhat.com/show_bug.cgi?id=609079\n\n\nThis might be of some help to save time:\nhttp://pingou.fedorapeople.org/reviewHelper.py\n(comments are welcome of course)\n\nThanks,\n\nPierre",
+      "body_snippet": "Hi,\n\nIf someone could have a look at this review I would be pleased. I need\nit to update R-BSgenome which is needed for R-hgu95av2probe.\n\nhttps://bugzilla.redhat.com/show_bug.cgi?id=609079\n\n\nThis migh",
+      "thread_id": "thread-3dc452c23838",
+      "thread_depth": 0,
+      "month": "2010-07"
+    },
+    {
+      "id": "msg-7a9484535fdf",
+      "message_id": "<1278329112.8488.13.camel@lab.localdomain>",
+      "from_name": "Pierre-Yves Chibon",
+      "from_email_hash": "47e30c199d3131f08c959f22c4f67ea9e57a1a82a5b6363bb242a1766ac73fe5",
+      "date": "2010-07-05T11:25:12Z",
+      "subject": "Re: [Fedora-r-devel-list] Review Request: R-GenomicRanges",
+      "subject_clean": "[Fedora-r-devel-list] Review Request: R-GenomicRanges",
+      "in_reply_to": "<ec2b5f3d85c6e3e6ad8eb843a1af9d22@planetpingou.org>",
+      "references": [],
+      "body_plain": "On Thu, 2010-07-01 at 11:16 +0200, Pierre-Yves wrote:\n> Hi,\n> \n> If someone could have a look at this review I would be pleased. I need\n> it to update R-BSgenome which is needed for R-hgu95av2probe.\n> \n> https://bugzilla.redhat.com/show_bug.cgi?id=609079\n> \nNo taker ?\n\nPierre",
+      "body_snippet": "On Thu, 2010-07-01 at 11:16 +0200, Pierre-Yves wrote:\n> Hi,\n> \n> If someone could have a look at this review I would be pleased. I need\n> it to update R-BSgenome which is needed for R-hgu95av2probe.\n>",
+      "thread_id": "thread-3dc452c23838",
+      "thread_depth": 1,
+      "month": "2010-07"
+    },
+    {
+      "id": "msg-6accb9e92882",
+      "message_id": "<1278414660.30951.25.camel@lab.localdomain>",
+      "from_name": "Pierre-Yves Chibon",
+      "from_email_hash": "47e30c199d3131f08c959f22c4f67ea9e57a1a82a5b6363bb242a1766ac73fe5",
+      "date": "2010-07-06T11:11:00Z",
+      "subject": "Re: [Fedora-r-devel-list] R-multcomp and a lot of new R packages",
+      "subject_clean": "[Fedora-r-devel-list] R-multcomp and a lot of new R packages",
+      "in_reply_to": "<1263973048.8180.4.camel@localhost.localdomain>",
+      "references": [],
+      "body_plain": "On Wed, 2010-01-20 at 08:37 +0100, Pierre-Yves wrote:\n> On Tue, 2010-01-19 at 22:57 -0500, Tom \"spot\" Callaway wrote:\n> > Is there any interest in helping me maintain and review these new R\n> > packages in Fedora? The packages are already done, its just the\n> > reviews\n> > and upkeep that I'd need help with.\n> > \n> > Here's the packages:\n> > \n> > http://auroralinux.org/people/spot/review/R-multcomp/\n> > \n> > These are the R packages I made today:\n> > \n> > coin, colorspace, ipred, lme4, mboost, mlbench, modeltools, multicore,\n> > party, robustbase, sandwich, strucchange, vcd, xtable\n> > \n> > If any of these look interesting to you, speak up! If no one cares, I\n> > might just let R-multcomp orphan off, but if there are some willing\n> > helpers, I'll keep it alive with its new dependencies.\n> \n> Hi all,\n> \n> Even though I do not use them, I am always in favour of getting new R\n> packages into Fedora (and/or keeping them in).\n> I am therefore willing to help reviewing and/or maintain some if you\n> like.\n\nIt starts to be some time ago, but as I said I am willing to do the\nreviews and be co-maintainer (can I do the review and be co-maintainer?)\n\n>>From the original list, red has already pushed xtable into Fedora but\nthat's the only new one I see.\n\nPierre",
+      "body_snippet": "On Wed, 2010-01-20 at 08:37 +0100, Pierre-Yves wrote:\n> On Tue, 2010-01-19 at 22:57 -0500, Tom \"spot\" Callaway wrote:\n> > Is there any interest in helping me maintain and review these new R\n> > packag",
+      "thread_id": "thread-6accb9e92882",
+      "thread_depth": 0,
+      "month": "2010-07"
+    },
+    {
+      "id": "msg-8e2bd16fae76",
+      "message_id": "<AANLkTikmI6QhU8uP4QJ02ePFldqFpGDY3nkLfE7aBBMY@mail.gmail.com>",
+      "from_name": "Dan Bolser",
+      "from_email_hash": "67a9076c733a86ea6e6c9bc7ba8c0b60fbdecc5e9e6a4791158310dfba72fe51",
+      "date": "2010-07-06T12:23:44Z",
+      "subject": "Re: [Fedora-r-devel-list] Review Request: R-GenomicRanges",
+      "subject_clean": "[Fedora-r-devel-list] Review Request: R-GenomicRanges",
+      "in_reply_to": "<1278329112.8488.13.camel@lab.localdomain>",
+      "references": [],
+      "body_plain": "Sorry for the dumb question, but can you link me to a step by step\nreview process?\n\nI'd like to do an 'internal review' if not a propper review.\n\n\nDan.\n\nOn 5 July 2010 12:25, Pierre-Yves <pingou(a)pingoured.fr> wrote:\n> On Thu, 2010-07-01 at 11:16 +0200, Pierre-Yves wrote:\n>> Hi,\n>>\n>> If someone could have a look at this review I would be pleased. I need\n>> it to update R-BSgenome which is needed for R-hgu95av2probe.\n>>\n>> https://bugzilla.redhat.com/show_bug.cgi?id=609079\n>>\n> No taker ?\n>\n> Pierre\n> _______________________________________________\n> r-devel mailing list\n> r-devel(a)lists.fedoraproject.org\n> https://admin.fedoraproject.org/mailman/listinfo/r-devel\n>",
+      "body_snippet": "Sorry for the dumb question, but can you link me to a step by step\nreview process?\n\nI'd like to do an 'internal review' if not a propper review.\n\n\nDan.\n\nOn 5 July 2010 12:25, Pierre-Yves <pingou(a)pin",
+      "thread_id": "thread-3dc452c23838",
+      "thread_depth": 2,
+      "month": "2010-07"
+    },
+    {
+      "id": "msg-ae55338573ce",
+      "message_id": "<1278425163.8808.5.camel@lab.localdomain>",
+      "from_name": "Pierre-Yves Chibon",
+      "from_email_hash": "47e30c199d3131f08c959f22c4f67ea9e57a1a82a5b6363bb242a1766ac73fe5",
+      "date": "2010-07-06T14:06:03Z",
+      "subject": "Re: [Fedora-r-devel-list] Review Request: R-GenomicRanges",
+      "subject_clean": "[Fedora-r-devel-list] Review Request: R-GenomicRanges",
+      "in_reply_to": "<AANLkTikmI6QhU8uP4QJ02ePFldqFpGDY3nkLfE7aBBMY@mail.gmail.com>",
+      "references": [],
+      "body_plain": "On Tue, 2010-07-06 at 13:23 +0100, Dan Bolser wrote:\n> Sorry for the dumb question, but can you link me to a step by step\n> review process?\n> \n> I'd like to do an 'internal review' if not a propper review.\n\nHi Dan,\n\nIndeed you will not be able to do an official review until you have been\napproved as packager.\nThe idea of the review is to check the quality of the package and make\nsure that it follows the guidelines.\n\nThe process to join the packagers is described here:\nhttp://fedoraproject.org/wiki/PackageMaintainers/Join\n\nR packages should follow the official packaging guidelines:\nhttp://fedoraproject.org/wiki/Packaging:Guidelines\nand the R specific guidelines:\nhttp://fedoraproject.org/wiki/Packaging:R\n\n\nThe guidelines for the review itself can be found there:\nhttp://fedoraproject.org/wiki/Packaging:ReviewGuidelines\n\n\nThanks in advance,\n\nPierre",
+      "body_snippet": "On Tue, 2010-07-06 at 13:23 +0100, Dan Bolser wrote:\n> Sorry for the dumb question, but can you link me to a step by step\n> review process?\n> \n> I'd like to do an 'internal review' if not a propper re",
+      "thread_id": "thread-3dc452c23838",
+      "thread_depth": 3,
+      "month": "2010-07"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-3dc452c23838",
+      "subject": "[Fedora-r-devel-list] Review Request: R-GenomicRanges",
+      "message_count": 4,
+      "participants": [
+        "Dan Bolser",
+        "Pierre-Yves Chibon"
+      ],
+      "started": "2010-07-01T09:16:22Z",
+      "last_reply": "2010-07-06T14:06:03Z",
+      "root_message_id": "msg-3dc452c23838"
+    },
+    {
+      "id": "thread-6accb9e92882",
+      "subject": "[Fedora-r-devel-list] R-multcomp and a lot of new R packages",
+      "message_count": 1,
+      "participants": [
+        "Pierre-Yves Chibon"
+      ],
+      "started": "2010-07-06T11:11:00Z",
+      "last_reply": "2010-07-06T11:11:00Z",
+      "root_message_id": "msg-6accb9e92882"
+    }
+  ]
+}

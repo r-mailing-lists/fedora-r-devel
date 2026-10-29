@@ -1,0 +1,36 @@
+{
+  "list": "fedora-r-devel",
+  "description": "",
+  "month": "2009-10",
+  "messages": [
+    {
+      "id": "msg-8e9f58ec5186",
+      "message_id": "<200910191843.15984.jamatos@fc.up.pt>",
+      "from_name": "José Abílio Matos",
+      "from_email_hash": "1830ccfc475fe0f52edb74ac1163b69778ceb8ac957cc168f6b6335828c0e855",
+      "date": "2009-10-19T17:43:15Z",
+      "subject": "[Fedora-r-devel-list] Request for rpy1 in Fedora",
+      "subject_clean": "[Fedora-r-devel-list] Request for rpy1 in Fedora",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hi,\n\tI got a request for rpy1 in Fedora:\n\thttps://bugzilla.redhat.com/show_bug.cgi?id=528664\n\n\tI am seriously considering to provide it (submitting a new package) on the \nbasis that the two versions are installable side by side and there are no \nconflicts on a file level.\n\n\tWould anyone oppose such a move for F11+?\n\n\tRegards,\n-- \nJosé Abílio",
+      "body_snippet": "Hi,\n\tI got a request for rpy1 in Fedora:\n\thttps://bugzilla.redhat.com/show_bug.cgi?id=528664\n\n\tI am seriously considering to provide it (submitting a new package) on the \nbasis that the two versions a",
+      "thread_id": "thread-8e9f58ec5186",
+      "thread_depth": 0,
+      "month": "2009-10"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-8e9f58ec5186",
+      "subject": "[Fedora-r-devel-list] Request for rpy1 in Fedora",
+      "message_count": 1,
+      "participants": [
+        "José Abílio Matos"
+      ],
+      "started": "2009-10-19T17:43:15Z",
+      "last_reply": "2009-10-19T17:43:15Z",
+      "root_message_id": "msg-8e9f58ec5186"
+    }
+  ]
+}

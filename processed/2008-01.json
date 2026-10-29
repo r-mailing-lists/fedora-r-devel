@@ -1,0 +1,97 @@
+{
+  "list": "fedora-r-devel",
+  "description": "",
+  "month": "2008-01",
+  "messages": [
+    {
+      "id": "msg-966f73b6c115",
+      "message_id": "<693ataf2uo.fsf@allele2.eebweb.arizona.edu>",
+      "from_name": "Alex Lancaster",
+      "from_email_hash": "ca2ea0e8cc83c3fd818996ce3f6e3079ece4d81ba254bb32a17afa952a5f95de",
+      "date": "2008-01-07T08:37:35Z",
+      "subject": "[Fedora-r-devel-list] problems with building R packages on rawhide",
+      "subject_clean": "[Fedora-r-devel-list] problems with building R packages on rawhide",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hey folks,\n\nThere seems to be problems with building any R packages with the\nversion of R currently in rawhide.  These packages build fine on F-8,\ne.g.:\n\nR-multtest (in review):\nhttp://koji.fedoraproject.org/koji/taskinfo?taskID=330245\n\nR-Biobase (already in CVS):\nhttp://koji.fedoraproject.org/koji/taskinfo?taskID=330288\n\nAlex",
+      "body_snippet": "Hey folks,\n\nThere seems to be problems with building any R packages with the\nversion of R currently in rawhide.  These packages build fine on F-8,\ne.g.:\n\nR-multtest (in review):\nhttp://koji.fedoraproj",
+      "thread_id": "thread-966f73b6c115",
+      "thread_depth": 0,
+      "month": "2008-01"
+    },
+    {
+      "id": "msg-310051d2bf01",
+      "message_id": "<3857.47379.qm@web30505.mail.mud.yahoo.com>",
+      "from_name": "D.Enrique ESCOBAR ESPINOZA",
+      "from_email_hash": "ce7fa1b95bfeb03d93ccf78cb7a401bc2d3e9fa98b9b661a3fa4c04326f7a153",
+      "date": "2008-01-07T17:49:28Z",
+      "subject": "[Fedora-r-devel-list] R packages",
+      "subject_clean": "[Fedora-r-devel-list] R packages",
+      "in_reply_to": "<20080107170033.F2F1673945@hormel.redhat.com>",
+      "references": [],
+      "body_plain": "Hi\n\nI am happy to see your constant effort to improve fedora distro.\n\nHappy new year 2008 and I hope all your projects will be completed.\n\nPersonally, I will be extremely happy seeing the following useful\nmodules packaged:\n\nabind\nadSplit\naffxparser\naffy\naffycomp\naffydata\naffyio\naffylmGUI\naffypdnn\naffyPLM\nannaffy\nannotate\narrayMagic\nBiobase\nbioDist\nBiostrings\nBolstad\nBufferedMatrix\nBufferedMatrixMethods\nCategory\ncMAP\ncyp450cdf\nDBI\nDynDoc\nellipse\ngcrma\ngenefilter\nGeneMeta\ngeneplotter\nGeneR\nGGtools\nglobaltest\nGO\nGOstats\ngoTools\ngp53cdf\ngpls\ngraph\nhgfocus\nhgfocuscdf\nhgfocusprobe\nhgu133a\nhgu133acdf\nhgu133aprobe\nhgu95av2\nhgu95av2cdf\nhgu95av2probe\nIcens\nIDPmisc\nimpute\nKEGG\nlimma\nlimmaGUI\nmaanova\nmakecdfenv\nmarray\nmatchprobes\nMatrix\nmgu74av2\nmgu74av2cdf\nmgu74av2probe\nmulttest\npamr\nPFAM\npvclust\nR2HTML\nRankProd\nRBGL\nR-BioC.sh\nR.cache\nRColorBrewer\nRCurl\nRdbi\nRdbiPgSQL\nreposTools\nRgraphviz\nR.huge\nRMySQL\nROC\nR.oo\nRSPerl\nRSPython\nRSQLite\nRSvgDevice\nRSVGTipsDevice\nRUnit\nR.utils\nsamr\nscatterplot3d\nsiggenes\nsma\nsom\nSparseM\nstatmod\ntkrplot\ntkWidgets\nVR\nvsn\nwidgetTools\nXML\nxtable\nYEAST\n\ncheers, Enrique\n\n\n\n      ____________________________________________________________________________________\nBe a better friend, newshound, and \nknow-it-all with Yahoo! Mobile.  Try it now.  http://mobile.yahoo.com/;_ylt=Ahu06i62sR8HDtDypao8Wcj9tAcJ",
+      "body_snippet": "Hi\n\nI am happy to see your constant effort to improve fedora distro.\n\nHappy new year 2008 and I hope all your projects will be completed.\n\nPersonally, I will be extremely happy seeing the following us",
+      "thread_id": "thread-310051d2bf01",
+      "thread_depth": 0,
+      "month": "2008-01"
+    },
+    {
+      "id": "msg-654e7f7e6ca5",
+      "message_id": "<4782675F.2090206@yahoo.fr>",
+      "from_name": "pingou",
+      "from_email_hash": "f8cc247920d6e32e5cc5a95c54569d12b4aa06dbff169bafe7e0d3aeae53a4d2",
+      "date": "2008-01-07T17:54:39Z",
+      "subject": "Re: [Fedora-r-devel-list] R packages",
+      "subject_clean": "[Fedora-r-devel-list] R packages",
+      "in_reply_to": "<3857.47379.qm@web30505.mail.mud.yahoo.com>",
+      "references": [],
+      "body_plain": "D.Enrique ESCOBAR ESPINOZA wrote:\n> Personally, I will be extremely happy seeing the following useful\n> modules packaged:\n> \n> abind\n> adSplit\n> affxparser\n> affy\ndone\n> affycomp\n> affydata\ndone\n> affyio\ndone\n> affylmGUI\n> affypdnn\n> affyPLM\ndone\n> annaffy\ndone\n> annotate\ndone\n> arrayMagic\n> Biobase\ndone and present on fedora repo\n> bioDist\n> Biostrings\ndone\n> Bolstad\n> BufferedMatrix\ndone and present on fedora repo\n> BufferedMatrixMethods\ndone and present on fedora repo\n> Category\n> cMAP\n> cyp450cdf\n> DBI\n> DynDoc\ndone and present on fedora repo\n> ellipse\n> gcrma\ndone\n> genefilter\ndone\n> GeneMeta\n> geneplotter\ndone\n> GeneR\n> GGtools\n> globaltest\n> GO\ndone\n> GOstats\n> goTools\n> gp53cdf\n> gpls\n> graph\n> hgfocus\n> hgfocuscdf\n> hgfocusprobe\n> hgu133a\ndone\n> hgu133acdf\ndone\n> hgu133aprobe\ndone\n> hgu95av2\ndone\n> hgu95av2cdf\ndone\n> hgu95av2probe\ndone\n> Icens\n> IDPmisc\n> impute\n> KEGG\ndone\n> limma\n> limmaGUI\n> maanova\ndone and approved for fedora repo\n> makecdfenv\n> marray\n> matchprobes\ndone\n> Matrix\n> mgu74av2\n> mgu74av2cdf\n> mgu74av2probe\n> multtest\ndone\n> pamr\n> PFAM\n> pvclust\n> R2HTML\ndone\n> RankProd\n> RBGL\n> R-BioC.sh\n> R.cache\n> RColorBrewer\ndone\n> RCurl\n> Rdbi\n> RdbiPgSQL\n> reposTools\n> Rgraphviz\ndone but not sure it works fine\n> R.huge\n> RMySQL\n> ROC\n> R.oo\n> RSPerl\n> RSPython\n> RSQLite\ndone\n> RSvgDevice\n> RSVGTipsDevice\n> RUnit\ndone\n> R.utils\n> samr\n> scatterplot3d\n> siggenes\ndone\n> sma\n> som\n> SparseM\n> statmod\n> tkrplot\n> tkWidgets\ndone and present on fedora repo\n> VR\n> vsn\n> widgetTools\n> XML\ndone\n> xtable\ndone\n\nI probably forgot some...\nYou can find them there\nhttp://pingoured.dyndns.org/public/fedora/\n\nFeel free to package the other :)\n\nRegards,\nP.Yves\n\n\t\n\n\t\n\t\t\n___________________________________________________________________________ \nYahoo! Mail réinvente le mail ! Découvrez le nouveau Yahoo! Mail et son interface révolutionnaire.\nhttp://fr.mail.yahoo.com",
+      "body_snippet": "D.Enrique ESCOBAR ESPINOZA wrote:\n> Personally, I will be extremely happy seeing the following useful\n> modules packaged:\n> \n> abind\n> adSplit\n> affxparser\n> affy\ndone\n> affycomp\n> affydata\ndone\n> aff",
+      "thread_id": "thread-310051d2bf01",
+      "thread_depth": 1,
+      "month": "2008-01"
+    },
+    {
+      "id": "msg-4fb410af48dd",
+      "message_id": "<1199730264.22969.1.camel@localhost.localdomain>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2008-01-07T18:24:24Z",
+      "subject": "Re: [Fedora-r-devel-list] problems with building R packages on rawhide",
+      "subject_clean": "[Fedora-r-devel-list] problems with building R packages on rawhide",
+      "in_reply_to": "<693ataf2uo.fsf@allele2.eebweb.arizona.edu>",
+      "references": [],
+      "body_plain": "On Mon, 2008-01-07 at 01:37 -0700, Alex Lancaster wrote:\n> Hey folks,\n> \n> There seems to be problems with building any R packages with the\n> version of R currently in rawhide. \n\nTracked this down as due to a change I made, where the INSTALL binary\nmoved into R-devel in rawhide. I gave it some thought, and moved it back\nto R, because I can see that some users installing noarch bits from CRAN\nmight expect that to work without the other R-devel bits installed.\n\nFedora packages should still BuildRequires: R-devel though.\n\n~spot",
+      "body_snippet": "On Mon, 2008-01-07 at 01:37 -0700, Alex Lancaster wrote:\n> Hey folks,\n> \n> There seems to be problems with building any R packages with the\n> version of R currently in rawhide. \n\nTracked this down as ",
+      "thread_id": "thread-966f73b6c115",
+      "thread_depth": 1,
+      "month": "2008-01"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-966f73b6c115",
+      "subject": "[Fedora-r-devel-list] problems with building R packages on rawhide",
+      "message_count": 2,
+      "participants": [
+        "Alex Lancaster",
+        "Tom Callaway"
+      ],
+      "started": "2008-01-07T08:37:35Z",
+      "last_reply": "2008-01-07T18:24:24Z",
+      "root_message_id": "msg-966f73b6c115"
+    },
+    {
+      "id": "thread-310051d2bf01",
+      "subject": "[Fedora-r-devel-list] R packages",
+      "message_count": 2,
+      "participants": [
+        "D.Enrique ESCOBAR ESPINOZA",
+        "pingou"
+      ],
+      "started": "2008-01-07T17:49:28Z",
+      "last_reply": "2008-01-07T17:54:39Z",
+      "root_message_id": "msg-310051d2bf01"
+    }
+  ]
+}

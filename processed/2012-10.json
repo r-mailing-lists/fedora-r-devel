@@ -1,0 +1,53 @@
+{
+  "list": "fedora-r-devel",
+  "description": "",
+  "month": "2012-10",
+  "messages": [
+    {
+      "id": "msg-b3abd2a4ca96",
+      "message_id": "<507ECF1C.5020704@fc.up.pt>",
+      "from_name": "José Abílio Matos",
+      "from_email_hash": "1830ccfc475fe0f52edb74ac1163b69778ceb8ac957cc168f6b6335828c0e855",
+      "date": "2012-10-17T15:30:36Z",
+      "subject": "Re: [Fedora-r-devel-list] Building RPMs for Fedora with circular \"suggest\" dependencies",
+      "subject_clean": "[Fedora-r-devel-list] Building RPMs for Fedora with circular \"suggest\" dependencies",
+      "in_reply_to": "<1370054582-1339766864-cardhu_decombobulator_blackberry.rim.net-1456546733-@b2.c1.bise3.blackberry>",
+      "references": [],
+      "body_plain": "On 06/15/2012 02:25 PM, William Emmanuel S. Yu wrote:\n> Hi Allen,\n>\n> Thanks for the quick reply.\n>\n> I actually encountered this point of yours and that is why I found this mailing list.\n>\n> On your solution, I did try putting 'export _R_CHECK_FORCE_SUGGESTS_ = false; R CMD check' in the spec file. But now, it fails again again doing a test that requires foreach while building iterator. \n>\n> Thanks again.\n> \"Sent via BlackBerry from Smart\"\n\nHi,\n    have you been able to proceed here?\n\nI suppose that the only real option is to proceed in several steps in a\nkind of bootstrapping setup, first ignoring the suggests and the checks\nand on a second round adding those back. Probably this is easier said\nthen done. :-)\n\nRegards,\n\n-- \nJosé Matos",
+      "body_snippet": "On 06/15/2012 02:25 PM, William Emmanuel S. Yu wrote:\n> Hi Allen,\n>\n> Thanks for the quick reply.\n>\n> I actually encountered this point of yours and that is why I found this mailing list.\n>\n> On your ",
+      "thread_id": "thread-b3abd2a4ca96",
+      "thread_depth": 0,
+      "month": "2012-10"
+    },
+    {
+      "id": "msg-593931753eb5",
+      "message_id": "<1699522191-1350509085-cardhu_decombobulator_blackberry.rim.net-1095701399-@b4.c1.bise3.blackberry>",
+      "from_name": "William Emmanuel S. Yu",
+      "from_email_hash": "b2c03c2cbe77ff206823adbdbf0cb971a37edd1d0426f77fc606ee9dd4178c9c",
+      "date": "2012-10-17T21:24:25Z",
+      "subject": "Re: [Fedora-r-devel-list] Building RPMs for Fedora with circular \"suggest\" dependencies",
+      "subject_clean": "[Fedora-r-devel-list] Building RPMs for Fedora with circular \"suggest\" dependencies",
+      "in_reply_to": "<507ECF1C.5020704@fc.up.pt>",
+      "references": [],
+      "body_plain": "Well. I just built the RPMs to ignore the depedencies and installed them manually (force). Not elegant but it works and still uses RPM.\n\"Sent on the move.\"\n\n-----Original Message-----\nFrom: José Matos <jamatos(a)fc.up.pt>\nSender: r-devel-bounces(a)lists.fedoraproject.org\nDate: Wed, 17 Oct 2012 16:30:36 \nTo: <r-devel(a)lists.fedoraproject.org>\nReply-To: r-devel(a)lists.fedoraproject.org\nSubject: Re: [Fedora-r-devel-list] Building RPMs for Fedora with circular\n \"suggest\" dependencies\n\nOn 06/15/2012 02:25 PM, William Emmanuel S. Yu wrote:\n> Hi Allen,\n>\n> Thanks for the quick reply.\n>\n> I actually encountered this point of yours and that is why I found this mailing list.\n>\n> On your solution, I did try putting 'export _R_CHECK_FORCE_SUGGESTS_ = false; R CMD check' in the spec file. But now, it fails again again doing a test that requires foreach while building iterator. \n>\n> Thanks again.\n> \"Sent via BlackBerry from Smart\"\n\nHi,\n    have you been able to proceed here?\n\nI suppose that the only real option is to proceed in several steps in a\nkind of bootstrapping setup, first ignoring the suggests and the checks\nand on a second round adding those back. Probably this is easier said\nthen done. :-)\n\nRegards,\n\n-- \nJosé Matos\n\n_______________________________________________\nr-devel mailing list\nr-devel(a)lists.fedoraproject.org\nhttps://admin.fedoraproject.org/mailman/listinfo/r-devel",
+      "body_snippet": "Well. I just built the RPMs to ignore the depedencies and installed them manually (force). Not elegant but it works and still uses RPM.\n\"Sent on the move.\"\n\n-----Original Message-----\nFrom: José Matos",
+      "thread_id": "thread-b3abd2a4ca96",
+      "thread_depth": 1,
+      "month": "2012-10"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-b3abd2a4ca96",
+      "subject": "[Fedora-r-devel-list] Building RPMs for Fedora with circular \"suggest\" dependencies",
+      "message_count": 2,
+      "participants": [
+        "José Abílio Matos",
+        "William Emmanuel S. Yu"
+      ],
+      "started": "2012-10-17T15:30:36Z",
+      "last_reply": "2012-10-17T21:24:25Z",
+      "root_message_id": "msg-b3abd2a4ca96"
+    }
+  ]
+}

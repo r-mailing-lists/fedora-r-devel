@@ -1,0 +1,36 @@
+{
+  "list": "fedora-r-devel",
+  "description": "",
+  "month": "2017-02",
+  "messages": [
+    {
+      "id": "msg-c0c6658d7468",
+      "message_id": "<3127039.7R1mYh9oVj@myth>",
+      "from_name": "José Abílio Matos",
+      "from_email_hash": "1830ccfc475fe0f52edb74ac1163b69778ceb8ac957cc168f6b6335828c0e855",
+      "date": "2017-02-16T09:12:44Z",
+      "subject": "[Fedora-r-devel-list] Rebuild packages for F26",
+      "subject_clean": "[Fedora-r-devel-list] Rebuild packages for F26",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hi,\n\treading http://dl.fedoraproject.org/pub/alt/mass-rebuild/f26-failures.html \nwe can see that all the R packages that depend on Fortran need to be rebuild \nfor F-26, due to the mass rebuild (gcc upgrade).\n\n\tMy question is what is the best way to proceed: should this be done in a \ncentralized way or done individually by each packager?\n\nRegards,\n-- \nJosé Abílio",
+      "body_snippet": "Hi,\n\treading http://dl.fedoraproject.org/pub/alt/mass-rebuild/f26-failures.html \nwe can see that all the R packages that depend on Fortran need to be rebuild \nfor F-26, due to the mass rebuild (gcc up",
+      "thread_id": "thread-c0c6658d7468",
+      "thread_depth": 0,
+      "month": "2017-02"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-c0c6658d7468",
+      "subject": "[Fedora-r-devel-list] Rebuild packages for F26",
+      "message_count": 1,
+      "participants": [
+        "José Abílio Matos"
+      ],
+      "started": "2017-02-16T09:12:44Z",
+      "last_reply": "2017-02-16T09:12:44Z",
+      "root_message_id": "msg-c0c6658d7468"
+    }
+  ]
+}

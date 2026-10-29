@@ -1,0 +1,96 @@
+{
+  "list": "fedora-r-devel",
+  "description": "",
+  "month": "2020-03",
+  "messages": [
+    {
+      "id": "msg-d0bc35f7200a",
+      "message_id": "<574125130.1043716.1584306346673@mail.yahoo.com>",
+      "from_name": "Orlando Ramirez",
+      "from_email_hash": "3cf702777f242260cda3175fcf8aa33c2a6fd0dd2dc625e994bb512649c67e40",
+      "date": "2020-03-15T21:05:46Z",
+      "subject": "[Fedora-r-devel-list] \" Rstudio \" on my fedora desktop  disapear of my programs.....why  ????",
+      "subject_clean": "[Fedora-r-devel-list] \" Rstudio \" on my fedora desktop  disapear of my programs.....why  ????",
+      "in_reply_to": "<574125130.1043716.1584306346673.ref@mail.yahoo.com>",
+      "references": [],
+      "body_plain": "Hi i installed 4 times \" Rstudio \" on my fedora desktop in the last 2 weeks...i don't know why   \" Rstudio \" disapear of my programs...........i install it again , it works between 3 or 6 times and then disapear of my programs again...why ???? can you please help me...and thanks again",
+      "body_snippet": "Hi i installed 4 times \" Rstudio \" on my fedora desktop in the last 2 weeks...i don't know why   \" Rstudio \" disapear of my programs...........i install it again , it works between 3 or 6 times and th",
+      "thread_id": "thread-d0bc35f7200a",
+      "thread_depth": 0,
+      "month": "2020-03"
+    },
+    {
+      "id": "msg-90bf95296b18",
+      "message_id": "<5487135.MhkbZ0Pkbq@myth>",
+      "from_name": "José Abílio Matos",
+      "from_email_hash": "1830ccfc475fe0f52edb74ac1163b69778ceb8ac957cc168f6b6335828c0e855",
+      "date": "2020-03-15T21:24:13Z",
+      "subject": "[Fedora-r-devel-list] Re: \" Rstudio \" on my fedora desktop  disapear of my  programs.....why ????",
+      "subject_clean": "[Fedora-r-devel-list] Re: \" Rstudio \" on my fedora desktop  disapear of my  programs.....why ????",
+      "in_reply_to": "<574125130.1043716.1584306346673@mail.yahoo.com>",
+      "references": [],
+      "body_plain": "On Sunday, 15 March 2020 21.05.46 WET Orlando Ramirez wrote:\n> Hi i installed 4 times \" Rstudio \" on my fedora desktop in the last 2\n> weeks...i don't know why  \" Rstudio \" disapear of my programs....... ....i\n> install it again , it works between 3 or 6 times and then disapear of my\n> programs again...why ???? can you please help me...and thanks again\n\nWhat do you mean by disappear?\nDoes it disappears from the menu, from the installed programs?\n\nHow did you install it?\n\nBy the way do you know that you can install it from Fedora (starting from \nFedora 31)?\n\nsudo dnf install rstudio-desktop\n\n-- \nJosé Abílio",
+      "body_snippet": "On Sunday, 15 March 2020 21.05.46 WET Orlando Ramirez wrote:\n> Hi i installed 4 times \" Rstudio \" on my fedora desktop in the last 2\n> weeks...i don't know why  \" Rstudio \" disapear of my programs....",
+      "thread_id": "thread-d0bc35f7200a",
+      "thread_depth": 1,
+      "month": "2020-03"
+    },
+    {
+      "id": "msg-dae1c71a8252",
+      "message_id": "<1307720628.1055534.1584309293820@mail.yahoo.com>",
+      "from_name": "Orlando Ramirez",
+      "from_email_hash": "3cf702777f242260cda3175fcf8aa33c2a6fd0dd2dc625e994bb512649c67e40",
+      "date": "2020-03-15T21:54:53Z",
+      "subject": "[Fedora-r-devel-list] Re: \" Rstudio \" on my fedora desktop   disapear of my programs.....why ????",
+      "subject_clean": "[Fedora-r-devel-list] Re: \" Rstudio \" on my fedora desktop   disapear of my programs.....why ????",
+      "in_reply_to": "<5487135.MhkbZ0Pkbq@myth>",
+      "references": [],
+      "body_plain": "Hi Jose:when i said disappear is ....disappear... i can start R on my console and that's works ok...... but Rstudio icon is not longer, even the .R files have no more Rstudio icons i try use the search window and there is not  Rstudio  program, at my left bar (favorites) the Rstudio icon is not more and when i open my \"Show Applications\" icon in my favorites bar the Rstudio  icon is gone...so i go to Rstudio web site, i install it again and the icon stay at  my favorites bar 1 week or 2....thaks lot of\n\n                                              orlandomontreal(a)yahoo.com             \n\n    On Sunday, March 15, 2020, 5:24:38 p.m. EDT, José Abílio Matos <jamatos(a)fc.up.pt> wrote:  \n \n On Sunday, 15 March 2020 21.05.46 WET Orlando Ramirez wrote:\n> Hi i installed 4 times \" Rstudio \" on my fedora desktop in the last 2\n> weeks...i don't know why  \" Rstudio \" disapear of my programs....... ....i\n> install it again , it works between 3 or 6 times and then disapear of my\n> programs again...why ???? can you please help me...and thanks again\n\nWhat do you mean by disappear?\nDoes it disappears from the menu, from the installed programs?\n\nHow did you install it?\n\nBy the way do you know that you can install it from Fedora (starting from \nFedora 31)?\n\nsudo dnf install rstudio-desktop\n\n-- \nJosé Abílio\n\n_______________________________________________\nr-devel mailing list -- r-devel(a)lists.fedoraproject.org\nTo unsubscribe send an email to r-devel-leave(a)lists.fedoraproject.org\nFedora Code of Conduct: https://docs.fedoraproject.org/en-US/project/code-of-conduct/\nList Guidelines: https://fedoraproject.org/wiki/Mailing_list_guidelines\nList Archives: https://lists.fedoraproject.org/archives/list/r-devel(a)lists.fedoraproject.org",
+      "body_snippet": "Hi Jose:when i said disappear is ....disappear... i can start R on my console and that's works ok...... but Rstudio icon is not longer, even the .R files have no more Rstudio icons i try use the searc",
+      "thread_id": "thread-d0bc35f7200a",
+      "thread_depth": 2,
+      "month": "2020-03"
+    },
+    {
+      "id": "msg-22c0d31657fd",
+      "message_id": "<1023816298.1278932.1584693999089@mail.yahoo.com>",
+      "from_name": "Orlando Ramirez",
+      "from_email_hash": "3cf702777f242260cda3175fcf8aa33c2a6fd0dd2dc625e994bb512649c67e40",
+      "date": "2020-03-20T08:46:39Z",
+      "subject": "[Fedora-r-devel-list] no copy and paste",
+      "subject_clean": "[Fedora-r-devel-list] no copy and paste",
+      "in_reply_to": "<1023816298.1278932.1584693999089.ref@mail.yahoo.com>",
+      "references": [],
+      "body_plain": "Fedora version :\n[root(a)ACERORESCRITORIO ~]# uname -a \nLinux ACERORESCRITORIO 5.5.9-200.fc31.x86_64 #1 SMP Thu Mar 12 13:55:19 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux \n[root(a)ACERORESCRITORIO ~]#  \n\nRstudio Version:Version 1.2.5033\n© 2009-2020 RStudio, Inc.\n\"Orange Blossom\" (330255dd, 2020-02-28)\nMozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) QtWebEngine/5.13.2 Chrome/73.0.3683.105 Safari/537.36\n\nGood Morning :these are my versions (fedora and Rstudio), but i can not make  \" copy and paste \" from firefox to Rstudio, neither  from .pdf file  to Rstudio, neither  from   libre office to Rstudio.its like  \" copy and paste \" is working ok between all the programs under linux but  all the programs under linux no connection whith  Rstudio....why ????even when i start R from terminal   \" copy and paste \" is working ok between all the programs under linux and R console....its like the problem only happend whith Rstudio,,......thanks\n\n\n                                              orlandomontreal(a)yahoo.com",
+      "body_snippet": "Fedora version :\n[root(a)ACERORESCRITORIO ~]# uname -a \nLinux ACERORESCRITORIO 5.5.9-200.fc31.x86_64 #1 SMP Thu Mar 12 13:55:19 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux \n[root(a)ACERORESCRITORIO ~]#  \n",
+      "thread_id": "thread-22c0d31657fd",
+      "thread_depth": 0,
+      "month": "2020-03"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-d0bc35f7200a",
+      "subject": "[Fedora-r-devel-list] \" Rstudio \" on my fedora desktop  disapear of my programs.....why  ????",
+      "message_count": 3,
+      "participants": [
+        "José Abílio Matos",
+        "Orlando Ramirez"
+      ],
+      "started": "2020-03-15T21:05:46Z",
+      "last_reply": "2020-03-15T21:54:53Z",
+      "root_message_id": "msg-d0bc35f7200a"
+    },
+    {
+      "id": "thread-22c0d31657fd",
+      "subject": "[Fedora-r-devel-list] no copy and paste",
+      "message_count": 1,
+      "participants": [
+        "Orlando Ramirez"
+      ],
+      "started": "2020-03-20T08:46:39Z",
+      "last_reply": "2020-03-20T08:46:39Z",
+      "root_message_id": "msg-22c0d31657fd"
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "list": "fedora-r-devel",
+  "description": "",
+  "month": "2009-07",
+  "messages": [
+    {
+      "id": "msg-304e961c6e45",
+      "message_id": "<4A57636E.3000802@redhat.com>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2009-07-10T15:51:10Z",
+      "subject": "[Fedora-r-devel-list] R 2.9.1 (and corresponding rpy)",
+      "subject_clean": "[Fedora-r-devel-list] R 2.9.1 (and corresponding rpy)",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "I've pushed updates for R-2.9.1 for all branches (including EL-4 and\nEL-5). In Fedora, I've also pushed updates for rpy.\n\nPlease let me know if there are any issues, as usual. :)\n\n~spot",
+      "body_snippet": "I've pushed updates for R-2.9.1 for all branches (including EL-4 and\nEL-5). In Fedora, I've also pushed updates for rpy.\n\nPlease let me know if there are any issues, as usual. :)\n\n~spot",
+      "thread_id": "thread-304e961c6e45",
+      "thread_depth": 0,
+      "month": "2009-07"
+    },
+    {
+      "id": "msg-8ae0fbc67bd5",
+      "message_id": "<1247496405.10525.14.camel@localhost.localdomain>",
+      "from_name": "Pierre-Yves Chibon",
+      "from_email_hash": "47e30c199d3131f08c959f22c4f67ea9e57a1a82a5b6363bb242a1766ac73fe5",
+      "date": "2009-07-13T14:46:45Z",
+      "subject": "[Fedora-r-devel-list] .deb",
+      "subject_clean": "[Fedora-r-devel-list] .deb",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Dear list,\n\nI came across this post on the R planet[1]:\nhttp://dirk.eddelbuettel.com/blog/2009/07/13#cran2deb_announcement\nquote:\n\n\"As I mentioned in my quick write-up of UseR 2009, one of my talks was\nabout cran2deb: a system to turn (essentially) all CRAN packages into\ndirectly apt-get-able binary packages.\n\n[...]\n\nThe CRAN hosts provided us with a (virtual Xen) machine to build on, and\nwe are now ready to more publically announce the availability of the\nrepositories for i386 and amd64\n\"\n\nWe are not there yet :)\n\nRegards,\n\nPierre\n\n\n\n[1] http://planetr.stderr.org/",
+      "body_snippet": "Dear list,\n\nI came across this post on the R planet[1]:\nhttp://dirk.eddelbuettel.com/blog/2009/07/13#cran2deb_announcement\nquote:\n\n\"As I mentioned in my quick write-up of UseR 2009, one of my talks wa",
+      "thread_id": "thread-8ae0fbc67bd5",
+      "thread_depth": 0,
+      "month": "2009-07"
+    },
+    {
+      "id": "msg-0f13ce458cef",
+      "message_id": "<alpine.LRH.2.00.0907131052410.13293@arj.bjyevire.pbz>",
+      "from_name": "R P Herrold",
+      "from_email_hash": "fbd00a6d807b904d02f38ce043653aaf614702440f15acf5b7c9fda8b7279c59",
+      "date": "2009-07-13T14:55:05Z",
+      "subject": "[Fedora-r-devel-list] .deb",
+      "subject_clean": "[Fedora-r-devel-list] .deb",
+      "in_reply_to": "<1247496405.10525.14.camel@localhost.localdomain>",
+      "references": [],
+      "body_plain": "On Mon, 13 Jul 2009, Pierre-Yves wrote:\n\n> I came across this post on the R planet[1]:\n> http://dirk.eddelbuettel.com/blog/2009/07/13#cran2deb_announcement\n   ... snip\n\n> We are not there yet :)\n\nI saw it as well .. I have packaging R packages pretty well \ndown to an art\n\n[herrold(a)centos-5 ~]$ cd build\n[herrold(a)centos-5 build]$ cd R\n[herrold(a)centos-5 R]$ cd R2spec/\n[herrold(a)centos-5 R2spec]$ ls *.spec | wc -l\n284\n\nbut it is not at all clear how the make check part is being \nfinnessed, as I get at least three solution path variants.\n\nLooking at Dirk's latest is on my docket.\n\n-- Russ herrold",
+      "body_snippet": "On Mon, 13 Jul 2009, Pierre-Yves wrote:\n\n> I came across this post on the R planet[1]:\n> http://dirk.eddelbuettel.com/blog/2009/07/13#cran2deb_announcement\n   ... snip\n\n> We are not there yet :)\n\nI sa",
+      "thread_id": "thread-8ae0fbc67bd5",
+      "thread_depth": 1,
+      "month": "2009-07"
+    },
+    {
+      "id": "msg-dd08dbcb491b",
+      "message_id": "<BLU129-W210A385E64DF6DBAB335EECA190@phx.gbl>",
+      "from_name": "Jack Tanner",
+      "from_email_hash": "eb551c3f5ddd6c6fdcee8e277b450b1545ca32bf724ce40af3e20de143939bde",
+      "date": "2009-07-24T21:01:02Z",
+      "subject": "[Fedora-r-devel-list] rapache",
+      "subject_clean": "[Fedora-r-devel-list] rapache",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "I assume this will be a somewhat ambitious packaging project... So if you have some time on your hands, please feel free. :)\n\nhttp://biostat.mc.vanderbilt.edu/rapache/\n\nI'd love to run R as a web service so that I can POST scripts & data to it, and get results over HTTP.\n\n_________________________________________________________________\nWindows Live™ Hotmail®: Celebrate the moment with your favorite sports pics. Check it out.\nhttp://www.windowslive.com/Online/Hotmail/Campaign/QuickAdd?ocid=TXT_TAGLM_WL_QA_HM_sports_photos_072009&cat=sports",
+      "body_snippet": "I assume this will be a somewhat ambitious packaging project... So if you have some time on your hands, please feel free. :)\n\nhttp://biostat.mc.vanderbilt.edu/rapache/\n\nI'd love to run R as a web serv",
+      "thread_id": "thread-dd08dbcb491b",
+      "thread_depth": 0,
+      "month": "2009-07"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-304e961c6e45",
+      "subject": "[Fedora-r-devel-list] R 2.9.1 (and corresponding rpy)",
+      "message_count": 1,
+      "participants": [
+        "Tom Callaway"
+      ],
+      "started": "2009-07-10T15:51:10Z",
+      "last_reply": "2009-07-10T15:51:10Z",
+      "root_message_id": "msg-304e961c6e45"
+    },
+    {
+      "id": "thread-8ae0fbc67bd5",
+      "subject": "[Fedora-r-devel-list] .deb",
+      "message_count": 2,
+      "participants": [
+        "Pierre-Yves Chibon",
+        "R P Herrold"
+      ],
+      "started": "2009-07-13T14:46:45Z",
+      "last_reply": "2009-07-13T14:55:05Z",
+      "root_message_id": "msg-8ae0fbc67bd5"
+    },
+    {
+      "id": "thread-dd08dbcb491b",
+      "subject": "[Fedora-r-devel-list] rapache",
+      "message_count": 1,
+      "participants": [
+        "Jack Tanner"
+      ],
+      "started": "2009-07-24T21:01:02Z",
+      "last_reply": "2009-07-24T21:01:02Z",
+      "root_message_id": "msg-dd08dbcb491b"
+    }
+  ]
+}

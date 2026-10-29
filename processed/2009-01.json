@@ -1,0 +1,177 @@
+{
+  "list": "fedora-r-devel",
+  "description": "",
+  "month": "2009-01",
+  "messages": [
+    {
+      "id": "msg-8d0c89f46800",
+      "message_id": "<soeizlxof7.fsf@allele2.eebweb.arizona.edu>",
+      "from_name": "Alex Lancaster",
+      "from_email_hash": "ca2ea0e8cc83c3fd818996ce3f6e3079ece4d81ba254bb32a17afa952a5f95de",
+      "date": "2009-01-02T23:45:32Z",
+      "subject": "[Fedora-r-devel-list] Re: useR! 2008",
+      "subject_clean": "[Fedora-r-devel-list] Re: useR! 2008",
+      "in_reply_to": "<48A0226C.6010303@pingoured.fr>",
+      "references": [],
+      "body_plain": ">>>>> \"P\" == Pierre-Yves   writes:\n\n[...]\n\nP> José Matos wrote:\n\n>> I will also take the opportunity to hear feedback from several\n>> types of users regarding the state of R in Fedora. If there is\n>> anything relevant I will report back to this list.\n\nP> I would like to know how the think on the difference between\nP> suggests and depends dependences of a library. (I still have in my\nP> mind the Bioconductor issue).  Do they install both ?  Do they care\nP> about the suggests ?  Do they want them ?\n\nHi José,\n\nJust curious if you got any feedback at userR! from R developers\nregarding Fedora packaging (e.g. Bioconductor etc.)\n\nAlex",
+      "body_snippet": ">>>>> \"P\" == Pierre-Yves   writes:\n\n[...]\n\nP> José Matos wrote:\n\n>> I will also take the opportunity to hear feedback from several\n>> types of users regarding the state of R in Fedora. If there is\n>> ",
+      "thread_id": "thread-8d0c89f46800",
+      "thread_depth": 0,
+      "month": "2009-01"
+    },
+    {
+      "id": "msg-f9e1e85b6ca2",
+      "message_id": "<1231079857.3132.27.camel@localhost.localdomain>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2009-01-04T14:37:37Z",
+      "subject": "[Fedora-r-devel-list] Re: [R-sig-Fedora] R 2.8.1",
+      "subject_clean": "[Fedora-r-devel-list] Re: [R-sig-Fedora] R 2.8.1",
+      "in_reply_to": "<49609EA6.5010006@biostat.ku.dk>",
+      "references": [],
+      "body_plain": "On Sun, 2009-01-04 at 12:33 +0100, Peter Dalgaard wrote:\n\n> Finally got around to testing it (sorry, but it didn't reach testing \n> till the 24th, and we have this thing call Christmas around here...).\n> \n> However, it now seems that I cannot update the karma system. Yesterday, \n> I got an \"internal error\" or some such when submitting, and now I can \n> submit, but only the text comes through, not my email addr. nor the \n> \"works for me\". So there's now two \"anonymous tester\" entries with a \n> bland smiley icon.\n\nHmm, they came through to my inbox with your name/email. Very odd. :)\n\n~spot",
+      "body_snippet": "On Sun, 2009-01-04 at 12:33 +0100, Peter Dalgaard wrote:\n\n> Finally got around to testing it (sorry, but it didn't reach testing \n> till the 24th, and we have this thing call Christmas around here...)",
+      "thread_id": "thread-f9e1e85b6ca2",
+      "thread_depth": 0,
+      "month": "2009-01"
+    },
+    {
+      "id": "msg-0f1a0e400da2",
+      "message_id": "<4960DEA0.4050304@pingoured.fr>",
+      "from_name": "Pierre-Yves Chibon",
+      "from_email_hash": "47e30c199d3131f08c959f22c4f67ea9e57a1a82a5b6363bb242a1766ac73fe5",
+      "date": "2009-01-04T16:06:56Z",
+      "subject": "[Fedora-r-devel-list] How to predict the files installed ?",
+      "subject_clean": "[Fedora-r-devel-list] How to predict the files installed ?",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Dear list(s),\n\nSeveral people are actually really interested to package the CRAN or \nBioconductor in RPM using R2spec.\nOne of the features that R2spec should handle is the %file section of \nthe spec file, to handle it I would like to be able to predict which \nfiles are installed while running the `R CMD INSTALL package_name` \ncommand from the tarball directly.\nI could always make R2spec compiling the spec files but I would prefer \nnot to.\n\nI have started to look at it but I have not find my way to do it yet, so \nI am asking here if anyone has an idea how I could do this. How I could \nfrom the tarball predict the file that are installed and thus that \nshould be listed in the %file section.\n\nThanks in advance for your help,\n\nBest regards,\n\nPierre\n\n\nPS:\nI am emailing the lists fedora-r-devel-list and r-sig-fedora, feel free \nto remove one of the two while replying, I follow both.",
+      "body_snippet": "Dear list(s),\n\nSeveral people are actually really interested to package the CRAN or \nBioconductor in RPM using R2spec.\nOne of the features that R2spec should handle is the %file section of \nthe spec f",
+      "thread_id": "thread-0f1a0e400da2",
+      "thread_depth": 0,
+      "month": "2009-01"
+    },
+    {
+      "id": "msg-867754eefde6",
+      "message_id": "<1231168169.18570.24.camel@localhost.localdomain>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2009-01-05T15:09:29Z",
+      "subject": "[Fedora-r-devel-list] Re: [R-sig-Fedora] R 2.8.1",
+      "subject_clean": "[Fedora-r-devel-list] Re: [R-sig-Fedora] R 2.8.1",
+      "in_reply_to": "<1231155085.2945.16.camel@localhost.localdomain>",
+      "references": [],
+      "body_plain": "On Mon, 2009-01-05 at 12:31 +0100, Martyn Plummer wrote:\n\n> I think we need to add pango-devel as a build requirement, so that the\n> cairo graphics device uses the pango layout engine.\n> \n> If you want to test this, I have rebuilt the RPMS with mock, after\n> adding pango-devel to BuildRequires, and put them here:\n> http://calvin.iarc.fr/~martyn/R-2.8.1/\n> \n> I don't get the same \"missing mu\" bug, but I have some commercial fonts\n> installed. I do get error messages about missing font metrics, however,\n> which would be due to the lack of pango.\n> \n> \n> I also noticed that libRmath-devel does not pull in the right release of\n> libRmath. The requirements for libRmath-devel are currently:\n> \n> Requires: libRmath = %{version}, pkgconfig\n> \n> but should be:\n> \n> Requires: libRmath = %{version}-%{release}, pkgconfig\n\nSee, this is why testing the updates is such a good thing. :)\n\nThanks Martyn and Peter for figuring this out, I'll do new builds right\nnow.\n\n~spot",
+      "body_snippet": "On Mon, 2009-01-05 at 12:31 +0100, Martyn Plummer wrote:\n\n> I think we need to add pango-devel as a build requirement, so that the\n> cairo graphics device uses the pango layout engine.\n> \n> If you wan",
+      "thread_id": "thread-867754eefde6",
+      "thread_depth": 0,
+      "month": "2009-01"
+    },
+    {
+      "id": "msg-1af36c818d66",
+      "message_id": "<1231182282.3428.2.camel@localhost.localdomain>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2009-01-05T19:04:42Z",
+      "subject": "[Fedora-r-devel-list] Re: [R-sig-Fedora] R 2.8.1",
+      "subject_clean": "[Fedora-r-devel-list] Re: [R-sig-Fedora] R 2.8.1",
+      "in_reply_to": "<1231168169.18570.24.camel@localhost.localdomain>",
+      "references": [],
+      "body_plain": "On Mon, 2009-01-05 at 10:09 -0500, Tom \"spot\" Callaway wrote:\n> On Mon, 2009-01-05 at 12:31 +0100, Martyn Plummer wrote:\n> \n> > I think we need to add pango-devel as a build requirement, so that the\n> > cairo graphics device uses the pango layout engine.\n> > \n> > If you want to test this, I have rebuilt the RPMS with mock, after\n> > adding pango-devel to BuildRequires, and put them here:\n> > http://calvin.iarc.fr/~martyn/R-2.8.1/\n> > \n> > I don't get the same \"missing mu\" bug, but I have some commercial fonts\n> > installed. I do get error messages about missing font metrics, however,\n> > which would be due to the lack of pango.\n> > \n> > \n> > I also noticed that libRmath-devel does not pull in the right release of\n> > libRmath. The requirements for libRmath-devel are currently:\n> > \n> > Requires: libRmath = %{version}, pkgconfig\n> > \n> > but should be:\n> > \n> > Requires: libRmath = %{version}-%{release}, pkgconfig\n> \n> See, this is why testing the updates is such a good thing. :)\n> \n> Thanks Martyn and Peter for figuring this out, I'll do new builds right\n> now.\n\nIt has not pushed to testing yet, but here are the URLs for the updated\nbuilds:\n\nhttps://admin.fedoraproject.org/updates/R-2.8.1-2.fc9\nhttps://admin.fedoraproject.org/updates/R-2.8.1-2.fc10\n\n~spot",
+      "body_snippet": "On Mon, 2009-01-05 at 10:09 -0500, Tom \"spot\" Callaway wrote:\n> On Mon, 2009-01-05 at 12:31 +0100, Martyn Plummer wrote:\n> \n> > I think we need to add pango-devel as a build requirement, so that the\n>",
+      "thread_id": "thread-867754eefde6",
+      "thread_depth": 1,
+      "month": "2009-01"
+    },
+    {
+      "id": "msg-c316f21604de",
+      "message_id": "<200901051957.59666.jamatos@fc.up.pt>",
+      "from_name": "José Abílio Matos",
+      "from_email_hash": "1830ccfc475fe0f52edb74ac1163b69778ceb8ac957cc168f6b6335828c0e855",
+      "date": "2009-01-05T19:57:58Z",
+      "subject": "Re: [Fedora-r-devel-list] Re: useR! 2008",
+      "subject_clean": "[Fedora-r-devel-list] Re: useR! 2008",
+      "in_reply_to": "<soeizlxof7.fsf@allele2.eebweb.arizona.edu>",
+      "references": [],
+      "body_plain": "On Friday 02 January 2009 23:45:32 Alex Lancaster wrote:\n> Hi José,\n>\n> Just curious if you got any feedback at userR! from R developers\n> regarding Fedora packaging (e.g. Bioconductor etc.)\n\nNope. I met and talked with Martyn, Peter Dalgaard and Marc Schwartz that are \nalso subscribers from r-sig-fedora(a)r-project.org.\n\n> Alex\n\n-- \nJosé Abílio",
+      "body_snippet": "On Friday 02 January 2009 23:45:32 Alex Lancaster wrote:\n> Hi José,\n>\n> Just curious if you got any feedback at userR! from R developers\n> regarding Fedora packaging (e.g. Bioconductor etc.)\n\nNope. I ",
+      "thread_id": "thread-8d0c89f46800",
+      "thread_depth": 1,
+      "month": "2009-01"
+    },
+    {
+      "id": "msg-336210f58612",
+      "message_id": "<1231191133.3428.8.camel@localhost.localdomain>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2009-01-05T21:32:13Z",
+      "subject": "[Fedora-r-devel-list] Re: [R-sig-Fedora] R 2.8.1",
+      "subject_clean": "[Fedora-r-devel-list] Re: [R-sig-Fedora] R 2.8.1",
+      "in_reply_to": "<49627545.1040908@biostat.ku.dk>",
+      "references": [],
+      "body_plain": "On Mon, 2009-01-05 at 22:01 +0100, Peter Dalgaard wrote:\n\n> Package R-devel-2.8.1-2.fc9.i386.rpm is not signed\n> \n> Is this to be expected?\n\nYes. Packages are signed as part of the updates push process, and this\nupdate hasn't been pushed yet.\n\n~spot",
+      "body_snippet": "On Mon, 2009-01-05 at 22:01 +0100, Peter Dalgaard wrote:\n\n> Package R-devel-2.8.1-2.fc9.i386.rpm is not signed\n> \n> Is this to be expected?\n\nYes. Packages are signed as part of the updates push proces",
+      "thread_id": "thread-336210f58612",
+      "thread_depth": 0,
+      "month": "2009-01"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-8d0c89f46800",
+      "subject": "[Fedora-r-devel-list] Re: useR! 2008",
+      "message_count": 2,
+      "participants": [
+        "Alex Lancaster",
+        "José Abílio Matos"
+      ],
+      "started": "2009-01-02T23:45:32Z",
+      "last_reply": "2009-01-05T19:57:58Z",
+      "root_message_id": "msg-8d0c89f46800"
+    },
+    {
+      "id": "thread-f9e1e85b6ca2",
+      "subject": "[Fedora-r-devel-list] Re: [R-sig-Fedora] R 2.8.1",
+      "message_count": 1,
+      "participants": [
+        "Tom Callaway"
+      ],
+      "started": "2009-01-04T14:37:37Z",
+      "last_reply": "2009-01-04T14:37:37Z",
+      "root_message_id": "msg-f9e1e85b6ca2"
+    },
+    {
+      "id": "thread-0f1a0e400da2",
+      "subject": "[Fedora-r-devel-list] How to predict the files installed ?",
+      "message_count": 1,
+      "participants": [
+        "Pierre-Yves Chibon"
+      ],
+      "started": "2009-01-04T16:06:56Z",
+      "last_reply": "2009-01-04T16:06:56Z",
+      "root_message_id": "msg-0f1a0e400da2"
+    },
+    {
+      "id": "thread-867754eefde6",
+      "subject": "[Fedora-r-devel-list] Re: [R-sig-Fedora] R 2.8.1",
+      "message_count": 2,
+      "participants": [
+        "Tom Callaway"
+      ],
+      "started": "2009-01-05T15:09:29Z",
+      "last_reply": "2009-01-05T19:04:42Z",
+      "root_message_id": "msg-867754eefde6"
+    },
+    {
+      "id": "thread-336210f58612",
+      "subject": "[Fedora-r-devel-list] Re: [R-sig-Fedora] R 2.8.1",
+      "message_count": 1,
+      "participants": [
+        "Tom Callaway"
+      ],
+      "started": "2009-01-05T21:32:13Z",
+      "last_reply": "2009-01-05T21:32:13Z",
+      "root_message_id": "msg-336210f58612"
+    }
+  ]
+}

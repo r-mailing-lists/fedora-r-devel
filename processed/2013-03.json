@@ -1,0 +1,36 @@
+{
+  "list": "fedora-r-devel",
+  "description": "",
+  "month": "2013-03",
+  "messages": [
+    {
+      "id": "msg-a2db3c9926fb",
+      "message_id": "<1362420359.24893.33.camel@ambre.pingoured.fr>",
+      "from_name": "Pierre-Yves Chibon",
+      "from_email_hash": "47e30c199d3131f08c959f22c4f67ea9e57a1a82a5b6363bb242a1766ac73fe5",
+      "date": "2013-03-04T18:05:59Z",
+      "subject": "[Fedora-r-devel-list] R package ownership changed",
+      "subject_clean": "[Fedora-r-devel-list] R package ownership changed",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hi,\n\nFor the record, I took over the ownership of the following package from\nSandro (aka red):\nR-ROC\nR-affydata \nR-fibroEset\nR-hgu133acdf\nR-hgu95av2cdf\nR-statmod\nR-timeDate\nR-xtable\n\nPierre",
+      "body_snippet": "Hi,\n\nFor the record, I took over the ownership of the following package from\nSandro (aka red):\nR-ROC\nR-affydata \nR-fibroEset\nR-hgu133acdf\nR-hgu95av2cdf\nR-statmod\nR-timeDate\nR-xtable\n\nPierre",
+      "thread_id": "thread-a2db3c9926fb",
+      "thread_depth": 0,
+      "month": "2013-03"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-a2db3c9926fb",
+      "subject": "[Fedora-r-devel-list] R package ownership changed",
+      "message_count": 1,
+      "participants": [
+        "Pierre-Yves Chibon"
+      ],
+      "started": "2013-03-04T18:05:59Z",
+      "last_reply": "2013-03-04T18:05:59Z",
+      "root_message_id": "msg-a2db3c9926fb"
+    }
+  ]
+}

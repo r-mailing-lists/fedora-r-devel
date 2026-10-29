@@ -1,0 +1,86 @@
+{
+  "list": "fedora-r-devel",
+  "description": "",
+  "month": "2015-07",
+  "messages": [
+    {
+      "id": "msg-de781763638d",
+      "message_id": "<1436363302.17829.104.camel@r-project.org>",
+      "from_name": "Martyn Plummer",
+      "from_email_hash": "a172213f54d02d8c46cd36ac95c2aaea4439b79c8fce553fb5a7295ac50db5d7",
+      "date": "2015-07-08T13:48:22Z",
+      "subject": "[Fedora-r-devel-list] Libcurl support",
+      "subject_clean": "[Fedora-r-devel-list] Libcurl support",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "R has support for libcurl (>= 7.28.0) since R version 3.2.0. This\nfeature allows the functions functions url() and download.file() to\naccess secure URLs. With the US government adopting an https-only policy\nfor federal websites and web services it is increasingly important to\noffer secure download facilities to R users. Users will also benefit\nfrom the increased security of downloading and installing R packages\nfrom a CRAN mirror that supports https.\n\nUsers can test whether libcurl is supported with:\n\n> capabilities(\"libcurl\")\nlibcurl \n  FALSE \n\nFedora binaries for R do not currently support libcurl. It would be very\nhelpful if they did. It suffices to have libcurl-devel as a build\nrequirement and it will be picked up by the configure script.\n\nMartyn\n\n-----------------------------------------------------------------------\nThis message and its attachments are strictly confidential. If you are\nnot the intended recipient of this message, please immediately notify \nthe sender and delete it. Since its integrity cannot be guaranteed, \nits content cannot involve the sender's responsibility. Any misuse, \nany disclosure or publication of its content, either whole or partial, \nis prohibited, exception made of formally approved use\n-----------------------------------------------------------------------",
+      "body_snippet": "R has support for libcurl (>= 7.28.0) since R version 3.2.0. This\nfeature allows the functions functions url() and download.file() to\naccess secure URLs. With the US government adopting an https-only ",
+      "thread_id": "thread-de781763638d",
+      "thread_depth": 0,
+      "month": "2015-07"
+    },
+    {
+      "id": "msg-319e4e46f5eb",
+      "message_id": "<2102028.PEIoAdGf3Q@ulysses>",
+      "from_name": "José Abílio Matos",
+      "from_email_hash": "1830ccfc475fe0f52edb74ac1163b69778ceb8ac957cc168f6b6335828c0e855",
+      "date": "2015-07-08T14:18:50Z",
+      "subject": "Re: [Fedora-r-devel-list] Libcurl support",
+      "subject_clean": "[Fedora-r-devel-list] Libcurl support",
+      "in_reply_to": "<1436363302.17829.104.camel@r-project.org>",
+      "references": [],
+      "body_plain": "On Wednesday 08 July 2015 15:48:22 Martyn Plummer wrote:\n> Fedora binaries for R do not currently support libcurl. It would be very\n> helpful if they did. It suffices to have libcurl-devel as a build\n> requirement and it will be picked up by the configure script.\n> \n> Martyn\n\nThat seems quite straightforward and something that goes along our goals.\n\nRegarding this issue are there any other capabilities that you think would be worthwhile to include in Fedora packages that are not yet enabled?\n\nRegards,\n-- \nJosé Abílio",
+      "body_snippet": "On Wednesday 08 July 2015 15:48:22 Martyn Plummer wrote:\n> Fedora binaries for R do not currently support libcurl. It would be very\n> helpful if they did. It suffices to have libcurl-devel as a build\n",
+      "thread_id": "thread-de781763638d",
+      "thread_depth": 1,
+      "month": "2015-07"
+    },
+    {
+      "id": "msg-fb3ac066082b",
+      "message_id": "<3326999.Zs0c9ggZqq@ulysses>",
+      "from_name": "José Abílio Matos",
+      "from_email_hash": "1830ccfc475fe0f52edb74ac1163b69778ceb8ac957cc168f6b6335828c0e855",
+      "date": "2015-07-08T14:25:20Z",
+      "subject": "Re: [Fedora-r-devel-list] Libcurl support",
+      "subject_clean": "[Fedora-r-devel-list] Libcurl support",
+      "in_reply_to": "<2102028.PEIoAdGf3Q@ulysses>",
+      "references": [],
+      "body_plain": "On Wednesday 08 July 2015 15:18:50 José Matos wrote:\n> Regarding this issue are there any other capabilities that you think would be worthwhile to include in Fedora packages that are not yet enabled?\n\nIgnore that request. The answer is easy and obvious :-) :\n\n> capabilities()\n       jpeg         png        tiff       tcltk         X11        aqua \n       TRUE        TRUE        TRUE        TRUE        TRUE       FALSE \n   http/ftp     sockets      libxml        fifo      cledit       iconv \n       TRUE        TRUE        TRUE        TRUE        TRUE        TRUE \n        NLS     profmem       cairo         ICU long.double     libcurl \n       TRUE       FALSE        TRUE        TRUE        TRUE       FALSE \n\nRegards,\n-- \nJosé Abílio",
+      "body_snippet": "On Wednesday 08 July 2015 15:18:50 José Matos wrote:\n> Regarding this issue are there any other capabilities that you think would be worthwhile to include in Fedora packages that are not yet enabled?\n",
+      "thread_id": "thread-de781763638d",
+      "thread_depth": 2,
+      "month": "2015-07"
+    },
+    {
+      "id": "msg-83fe0e0f7452",
+      "message_id": "<55A00502.2040909@redhat.com>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2015-07-10T17:46:42Z",
+      "subject": "Re: [Fedora-r-devel-list] Libcurl support",
+      "subject_clean": "[Fedora-r-devel-list] Libcurl support",
+      "in_reply_to": "<1436363302.17829.104.camel@r-project.org>",
+      "references": [],
+      "body_plain": "On 07/08/2015 09:48 AM, Martyn Plummer wrote:\n> Fedora binaries for R do not currently support libcurl. It would be very\n> helpful if they did. It suffices to have libcurl-devel as a build\n> requirement and it will be picked up by the configure script.\n\nThis is now done in R-3.2.1-2. Thanks for the note.\n\n~tom\n\n==\nRed Hat",
+      "body_snippet": "On 07/08/2015 09:48 AM, Martyn Plummer wrote:\n> Fedora binaries for R do not currently support libcurl. It would be very\n> helpful if they did. It suffices to have libcurl-devel as a build\n> requireme",
+      "thread_id": "thread-de781763638d",
+      "thread_depth": 1,
+      "month": "2015-07"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-de781763638d",
+      "subject": "[Fedora-r-devel-list] Libcurl support",
+      "message_count": 4,
+      "participants": [
+        "José Abílio Matos",
+        "Martyn Plummer",
+        "Tom Callaway"
+      ],
+      "started": "2015-07-08T13:48:22Z",
+      "last_reply": "2015-07-10T17:46:42Z",
+      "root_message_id": "msg-de781763638d"
+    }
+  ]
+}

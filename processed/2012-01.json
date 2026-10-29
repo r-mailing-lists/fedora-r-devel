@@ -1,0 +1,80 @@
+{
+  "list": "fedora-r-devel",
+  "description": "",
+  "month": "2012-01",
+  "messages": [
+    {
+      "id": "msg-28e54fc3f073",
+      "message_id": "<1325666605.21884.6.camel@pingouambre.dyndns.org>",
+      "from_name": "Pierre-Yves Chibon",
+      "from_email_hash": "47e30c199d3131f08c959f22c4f67ea9e57a1a82a5b6363bb242a1766ac73fe5",
+      "date": "2012-01-04T08:43:25Z",
+      "subject": "[Fedora-r-devel-list] R-repo",
+      "subject_clean": "[Fedora-r-devel-list] R-repo",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Dear all,\n\nTo the great despair of spot, I have started to build CRAN and\nBioconductor :-)\nThis time, I am trying to make things cleaner and more accessible.\n\nI just uploaded all the spec files on github:\nhttps://github.com/pypingou/R-repo-spec\nand the scripts on:\nhttps://github.com/pypingou/R-repo-utility\n\nThe whole project is hosted at http://r-repo.org\n\nAt the moment everything is still in a early stage (for example, the\nr-repo-release rpm is not even done yet), but if you configure the repo\nby hand, you should be able to get RPMs.\n\nAt least this time, if work becomes overwhelming again, what has been\ndone will remain accessible :-)\n\nI would prefer to not announce this officially just yet, but some\nfeedback be nice (thus this email). So if you feel like testing and are\nfacing problem, let me know!\n\nHope this helps,\nBest regards,\nPierre",
+      "body_snippet": "Dear all,\n\nTo the great despair of spot, I have started to build CRAN and\nBioconductor :-)\nThis time, I am trying to make things cleaner and more accessible.\n\nI just uploaded all the spec files on git",
+      "thread_id": "thread-28e54fc3f073",
+      "thread_depth": 0,
+      "month": "2012-01"
+    },
+    {
+      "id": "msg-a55a08d78617",
+      "message_id": "<CAP5prOjzgG7dFW3s3bkbxKn6HNJihEfEWm_2=N5s90HOEVL3ug@mail.gmail.com>",
+      "from_name": "Adam Huffman",
+      "from_email_hash": "88bc4a5862167153c1af3f46585be4126a283e752041f7009ecde1bbe1ab1560",
+      "date": "2012-01-04T10:27:52Z",
+      "subject": "Re: [Fedora-r-devel-list] R-repo",
+      "subject_clean": "[Fedora-r-devel-list] R-repo",
+      "in_reply_to": "<1325666605.21884.6.camel@pingouambre.dyndns.org>",
+      "references": [],
+      "body_plain": "On Wed, Jan 4, 2012 at 8:43 AM, Pierre-Yves Chibon <pingou(a)pingoured.fr> wrote:\n> Dear all,\n>\n> To the great despair of spot, I have started to build CRAN and\n> Bioconductor :-)\n> This time, I am trying to make things cleaner and more accessible.\n>\n> I just uploaded all the spec files on github:\n> https://github.com/pypingou/R-repo-spec\n> and the scripts on:\n> https://github.com/pypingou/R-repo-utility\n>\n> The whole project is hosted at http://r-repo.org\n>\n> At the moment everything is still in a early stage (for example, the\n> r-repo-release rpm is not even done yet), but if you configure the repo\n> by hand, you should be able to get RPMs.\n>\n> At least this time, if work becomes overwhelming again, what has been\n> done will remain accessible :-)\n>\n> I would prefer to not announce this officially just yet, but some\n> feedback be nice (thus this email). So if you feel like testing and are\n> facing problem, let me know!\n>\n> Hope this helps,\n> Best regards,\n> Pierre\n>\n\nPierre,\n\nMany thanks for this.  I've been working on some of the Bioinformatics\nR packages off and on and it will be very helpful.  I'll send you any\nuseful changes I already have.\n\nCheers,\nAdam",
+      "body_snippet": "On Wed, Jan 4, 2012 at 8:43 AM, Pierre-Yves Chibon <pingou(a)pingoured.fr> wrote:\n> Dear all,\n>\n> To the great despair of spot, I have started to build CRAN and\n> Bioconductor :-)\n> This time, I am tr",
+      "thread_id": "thread-28e54fc3f073",
+      "thread_depth": 1,
+      "month": "2012-01"
+    },
+    {
+      "id": "msg-0908a575bc15",
+      "message_id": "<1326297195.18287.17.camel@pingouambre.dyndns.org>",
+      "from_name": "Pierre-Yves Chibon",
+      "from_email_hash": "47e30c199d3131f08c959f22c4f67ea9e57a1a82a5b6363bb242a1766ac73fe5",
+      "date": "2012-01-11T15:53:15Z",
+      "subject": "[Fedora-r-devel-list] [Fwd: Re: [Rd] Changed behaviour of 'R CMD INSTALL']",
+      "subject_clean": "[Fedora-r-devel-list] [Fwd: Re: [Rd] Changed behaviour of 'R CMD INSTALL']",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hi all,\n\nAlthough using the latest version of R from updates-testing:\nhttps://admin.fedoraproject.org/updates/FEDORA-2012-0119/\nI could however recompile successfully R-zoo (arch specific) and\nR-widgetTools (noarch) from their latest git version without errors. I\nthink this is worth noting.\n\nGood day,\nPierre\n\n-------------- next part --------------\nWzxlbWFpbC5tZXNzYWdlLk1lc3NhZ2UgaW5zdGFuY2UgYXQgMHgzZjA1MzY4Pl0=",
+      "body_snippet": "Hi all,\n\nAlthough using the latest version of R from updates-testing:\nhttps://admin.fedoraproject.org/updates/FEDORA-2012-0119/\nI could however recompile successfully R-zoo (arch specific) and\nR-widge",
+      "thread_id": "thread-0908a575bc15",
+      "thread_depth": 0,
+      "month": "2012-01"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-28e54fc3f073",
+      "subject": "[Fedora-r-devel-list] R-repo",
+      "message_count": 2,
+      "participants": [
+        "Adam Huffman",
+        "Pierre-Yves Chibon"
+      ],
+      "started": "2012-01-04T08:43:25Z",
+      "last_reply": "2012-01-04T10:27:52Z",
+      "root_message_id": "msg-28e54fc3f073"
+    },
+    {
+      "id": "thread-0908a575bc15",
+      "subject": "[Fedora-r-devel-list] [Fwd: Re: [Rd] Changed behaviour of 'R CMD INSTALL']",
+      "message_count": 1,
+      "participants": [
+        "Pierre-Yves Chibon"
+      ],
+      "started": "2012-01-11T15:53:15Z",
+      "last_reply": "2012-01-11T15:53:15Z",
+      "root_message_id": "msg-0908a575bc15"
+    }
+  ]
+}

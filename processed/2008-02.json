@@ -1,0 +1,113 @@
+{
+  "list": "fedora-r-devel",
+  "description": "",
+  "month": "2008-02",
+  "messages": [
+    {
+      "id": "msg-c637cf10dcaa",
+      "message_id": "<47B3303F.2010709@yahoo.fr>",
+      "from_name": "pingou",
+      "from_email_hash": "f8cc247920d6e32e5cc5a95c54569d12b4aa06dbff169bafe7e0d3aeae53a4d2",
+      "date": "2008-02-13T18:00:31Z",
+      "subject": "[Fedora-r-devel-list] R2spec",
+      "subject_clean": "[Fedora-r-devel-list] R2spec",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Dear all,\n\nI have recently tried to learn some python through an idea that I had.\nAs exist the cpan2spec, I have tried to create a R2spec in python.\n\nYou can find the result of my trials there\nhttp://pingoulaptop.dyndns.org/R2spec_1.0.py\n\nIf you have some time to test it, and if it is worth enough I could\nsubmit it as a package...\n\nIf you think of any feature, anythings to correct in it just let me know...\n\nkind regards,\nPierre",
+      "body_snippet": "Dear all,\n\nI have recently tried to learn some python through an idea that I had.\nAs exist the cpan2spec, I have tried to create a R2spec in python.\n\nYou can find the result of my trials there\nhttp://",
+      "thread_id": "thread-c637cf10dcaa",
+      "thread_depth": 0,
+      "month": "2008-02"
+    },
+    {
+      "id": "msg-3613194625ef",
+      "message_id": "<20080213182236.GC8152@free.fr>",
+      "from_name": "Patrice Dumas",
+      "from_email_hash": "175027c067de6b8c82d986b6fdb65d7cd0b27af4fbba56feaf32d146ecb22d36",
+      "date": "2008-02-13T18:22:36Z",
+      "subject": "Re: [Fedora-r-devel-list] R2spec",
+      "subject_clean": "[Fedora-r-devel-list] R2spec",
+      "in_reply_to": "<47B3303F.2010709@yahoo.fr>",
+      "references": [],
+      "body_plain": "On Wed, Feb 13, 2008 at 07:00:31PM +0100, pingou wrote:\n> Dear all,\n>\n> I have recently tried to learn some python through an idea that I had.\n> As exist the cpan2spec, I have tried to create a R2spec in python.\n>\n> You can find the result of my trials there\n> http://pingoulaptop.dyndns.org/R2spec_1.0.py\n\nJose made something similar. I hope he can give himself the last\nversion, otherwise I can try to find it.\n\n--\nPat",
+      "body_snippet": "On Wed, Feb 13, 2008 at 07:00:31PM +0100, pingou wrote:\n> Dear all,\n>\n> I have recently tried to learn some python through an idea that I had.\n> As exist the cpan2spec, I have tried to create a R2spec",
+      "thread_id": "thread-c637cf10dcaa",
+      "thread_depth": 1,
+      "month": "2008-02"
+    },
+    {
+      "id": "msg-21a79b18ece9",
+      "message_id": "<200802131903.50267.jamatos@fc.up.pt>",
+      "from_name": "José Abílio Matos",
+      "from_email_hash": "1830ccfc475fe0f52edb74ac1163b69778ceb8ac957cc168f6b6335828c0e855",
+      "date": "2008-02-13T19:03:49Z",
+      "subject": "Re: [Fedora-r-devel-list] R2spec",
+      "subject_clean": "[Fedora-r-devel-list] R2spec",
+      "in_reply_to": "<20080213182236.GC8152@free.fr>",
+      "references": [],
+      "body_plain": "On Wednesday 13 February 2008 18:22:36 Patrice Dumas wrote:\n>\n> Jose made something similar. I hope he can give himself the last\n> version, otherwise I can try to find it.\n\n  Yes, and I called it cran2rpmspec. :-)\n\n  http://www.fc.up.pt/pessoas/jamatos/R/cran2rpmspec\n\n  I have in my todo list to update this to the latest guidelines. :-)\n\nI welcome any help and/or I am available to improve some other tool that does \nthe same. python is a bonus BTW. :-)\n\n> --\n> Pat\n\n-- \nJosé Abílio",
+      "body_snippet": "On Wednesday 13 February 2008 18:22:36 Patrice Dumas wrote:\n>\n> Jose made something similar. I hope he can give himself the last\n> version, otherwise I can try to find it.\n\n  Yes, and I called it cran",
+      "thread_id": "thread-c637cf10dcaa",
+      "thread_depth": 2,
+      "month": "2008-02"
+    },
+    {
+      "id": "msg-e6193ada29c2",
+      "message_id": "<47B98983.2050605@yahoo.fr>",
+      "from_name": "pingou",
+      "from_email_hash": "f8cc247920d6e32e5cc5a95c54569d12b4aa06dbff169bafe7e0d3aeae53a4d2",
+      "date": "2008-02-18T13:34:59Z",
+      "subject": "[Fedora-r-devel-list] Cran URL",
+      "subject_clean": "[Fedora-r-devel-list] Cran URL",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Dear all,\n\nChecking at my packages earlier I have seen that the URL on the cran\nrepository have changed.\n\nI have updated my package to take this changed into account...\n\nJust to let you know if you have not seen it.\n\nRegards,\nPierre",
+      "body_snippet": "Dear all,\n\nChecking at my packages earlier I have seen that the URL on the cran\nrepository have changed.\n\nI have updated my package to take this changed into account...\n\nJust to let you know if you ha",
+      "thread_id": "thread-e6193ada29c2",
+      "thread_depth": 0,
+      "month": "2008-02"
+    },
+    {
+      "id": "msg-0452569544be",
+      "message_id": "<47B9D01F.9050305@yahoo.fr>",
+      "from_name": "pingou",
+      "from_email_hash": "f8cc247920d6e32e5cc5a95c54569d12b4aa06dbff169bafe7e0d3aeae53a4d2",
+      "date": "2008-02-18T18:36:15Z",
+      "subject": "Re: [Fedora-r-devel-list] R2spec",
+      "subject_clean": "[Fedora-r-devel-list] R2spec",
+      "in_reply_to": "<200802131903.50267.jamatos@fc.up.pt>",
+      "references": [],
+      "body_plain": "José Matos wrote:\n> On Wednesday 13 February 2008 18:22:36 Patrice Dumas wrote:\n>> Jose made something similar. I hope he can give himself the last\n>> version, otherwise I can try to find it.\n> \n>   Yes, and I called it cran2rpmspec. :-)\n> \n>   http://www.fc.up.pt/pessoas/jamatos/R/cran2rpmspec\n> \n>   I have in my todo list to update this to the latest guidelines. :-)\n> \n> I welcome any help and/or I am available to improve some other tool that does \n> the same. python is a bonus BTW. :-)\n>\n\nI have take some time to look at your script, they are indeed pretty \nmuch doing the same...\n\nI do know which one is the best, probably yours since I have just \nstarted to play with Python...\n\nBut anyway I think it could be nice to push one of those to the official \nrepository... no matter which one we decide to improve and push.\n\nIf some people around have tested the 2 scripts, do you have any comments ?\n\nRegards,\nPierre",
+      "body_snippet": "José Matos wrote:\n> On Wednesday 13 February 2008 18:22:36 Patrice Dumas wrote:\n>> Jose made something similar. I hope he can give himself the last\n>> version, otherwise I can try to find it.\n> \n>   Y",
+      "thread_id": "thread-c637cf10dcaa",
+      "thread_depth": 3,
+      "month": "2008-02"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-c637cf10dcaa",
+      "subject": "[Fedora-r-devel-list] R2spec",
+      "message_count": 4,
+      "participants": [
+        "José Abílio Matos",
+        "Patrice Dumas",
+        "pingou"
+      ],
+      "started": "2008-02-13T18:00:31Z",
+      "last_reply": "2008-02-18T18:36:15Z",
+      "root_message_id": "msg-c637cf10dcaa"
+    },
+    {
+      "id": "thread-e6193ada29c2",
+      "subject": "[Fedora-r-devel-list] Cran URL",
+      "message_count": 1,
+      "participants": [
+        "pingou"
+      ],
+      "started": "2008-02-18T13:34:59Z",
+      "last_reply": "2008-02-18T13:34:59Z",
+      "root_message_id": "msg-e6193ada29c2"
+    }
+  ]
+}

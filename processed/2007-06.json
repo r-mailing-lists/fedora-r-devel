@@ -1,0 +1,150 @@
+{
+  "list": "fedora-r-devel",
+  "description": "",
+  "month": "2007-06",
+  "messages": [
+    {
+      "id": "msg-a3eb4491160f",
+      "message_id": "<466F121C.1000505@yahoo.fr>",
+      "from_name": "pingou",
+      "from_email_hash": "f8cc247920d6e32e5cc5a95c54569d12b4aa06dbff169bafe7e0d3aeae53a4d2",
+      "date": "2007-06-12T21:37:32Z",
+      "subject": "[Fedora-r-devel-list] spectemplate-R.spec",
+      "subject_clean": "[Fedora-r-devel-list] spectemplate-R.spec",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hello,\n\nI was thinking tonight to make a template of a R spec file to be able to\nbuild R rpm faster.\nI have indeed observed that most of the spec file look the same (until\nthey arrive to the rpmlint verification :-D )\n\nI wanted to ask for your comment on that template.\n\nIf it is fine feel free to use it of course\nPut it in /etc/rpmdevtools/\nThe command to create the spec is then\n rpmdev-newspec -t R foo.spec\n\nYou can also remove the French summary and description ;-)\n\nRegards,\n\nPingou\n\n%define packname \n\nName:           R-%{packname}\nVersion:        \nRelease:        1%{?dist}\nSummary:        \nSummary(fr):    \n\nGroup:          \nLicense:        \nURL:            \nSource0:         \nBuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)\n\nBuildRequires:  R \n\n%description\n\n%description -l fr\n\n%prep\n%setup -q -n %{packname}\n\n%build\n\n%install\n%{__rm} -rf %{buildroot}\n\n\ncd ..;\nmkdir -p %{buildroot}%{_libdir}/R/library ; R CMD INSTALL %{packname} -l %{buildroot}%{_libdir}/R/library\n%{__rm} -rf %{buildroot}%{_libdir}/R/library/R.css\n\n%clean\n%{__rm} -rf %{buildroot}\n\n%post\n%{__cat} %{_libdir}/R/library/*/CONTENTS > %{_libdir}/R/doc/html/search/index.txt\n\n%postun\n%{__cat} %{_libdir}/R/library/*/CONTENTS > %{_libdir}/R/doc/html/search/index.txt\n\n%files\n%defattr(-, root, root, -)\n%{_libdir}/R/library/%{packname}\n%doc inst/doc/*\n\n\n%changelog",
+      "body_snippet": "Hello,\n\nI was thinking tonight to make a template of a R spec file to be able to\nbuild R rpm faster.\nI have indeed observed that most of the spec file look the same (until\nthey arrive to the rpmlint v",
+      "thread_id": "thread-a3eb4491160f",
+      "thread_depth": 0,
+      "month": "2007-06"
+    },
+    {
+      "id": "msg-54af5ed990e1",
+      "message_id": "<4670181C.3090708@yahoo.fr>",
+      "from_name": "pingou",
+      "from_email_hash": "f8cc247920d6e32e5cc5a95c54569d12b4aa06dbff169bafe7e0d3aeae53a4d2",
+      "date": "2007-06-13T16:15:24Z",
+      "subject": "Re: [Fedora-r-devel-list] spectemplate-R.spec",
+      "subject_clean": "[Fedora-r-devel-list] spectemplate-R.spec",
+      "in_reply_to": "<466F121C.1000505@yahoo.fr>",
+      "references": [],
+      "body_plain": "pingou wrote:\n> Hello,\n> \n> I was thinking tonight to make a template of a R spec file to be able to\n> build R rpm faster.\n\nAs I forgot to put the %check part in the spec, there is a corrected\nversion.\nI have also include the group as default value as I usually put the group.\n\nAny mind ?\n\nRegards,\n\npingou\n\n%define packname \n\nName:           R-%{packname}\nVersion:        \nRelease:        1%{?dist}\nSummary:        \nSummary(fr):    \n\nGroup:         Applications/Productivity \nLicense:        \nURL:            \nSource0:         \nBuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)\n\nBuildRequires:  R \n\n%description\n\n%description -l fr\n\n%prep\n%setup -q -n %{packname}\n\n%build\n\n%install\n%{__rm} -rf %{buildroot}\n\n\ncd ..;\nmkdir -p %{buildroot}%{_libdir}/R/library ; R CMD INSTALL %{packname} -l %{buildroot}%{_libdir}/R/library\n%{__rm} -rf %{buildroot}%{_libdir}/R/library/R.css\n\n%check\ncd ..;%{_bindir}/R CMD check %{packname}\n\n%clean\n%{__rm} -rf %{buildroot}\n\n%post\n%{__cat} %{_libdir}/R/library/*/CONTENTS > %{_libdir}/R/doc/html/search/index.txt\n\n%postun\n%{__cat} %{_libdir}/R/library/*/CONTENTS > %{_libdir}/R/doc/html/search/index.txt\n\n%files\n%defattr(-, root, root, -)\n%{_libdir}/R/library/%{packname}\n%doc \n\n\n%changelog",
+      "body_snippet": "pingou wrote:\n> Hello,\n> \n> I was thinking tonight to make a template of a R spec file to be able to\n> build R rpm faster.\n\nAs I forgot to put the %check part in the spec, there is a corrected\nversion",
+      "thread_id": "thread-a3eb4491160f",
+      "thread_depth": 1,
+      "month": "2007-06"
+    },
+    {
+      "id": "msg-cf4b7710ceba",
+      "message_id": "<46701EA3.8020902@yahoo.fr>",
+      "from_name": "pingou",
+      "from_email_hash": "f8cc247920d6e32e5cc5a95c54569d12b4aa06dbff169bafe7e0d3aeae53a4d2",
+      "date": "2007-06-13T16:43:15Z",
+      "subject": "[Fedora-r-devel-list] Desktop file ",
+      "subject_clean": "[Fedora-r-devel-list] Desktop file",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hello,\n\nI realised today that GNU-Octave has a .desktop file in the rpm, I was\nguessing that it might be nice to have one for R to.\nI briefly made one using the GNU-Octave one.\nI also use the Cran logo to do a R logo.\n\nWhat do you think of it ?\n\nBest regards,\n\npingou\n\n-------------- next part --------------\nA non-text attachment was scrubbed...\nName: R.desktop\nType: application/x-desktop\nSize: 284 bytes\n\n-------------- next part --------------\nA non-text attachment was scrubbed...\nName: Rlogo2.jpg\nType: image/jpeg\nSize: 1221 bytes",
+      "body_snippet": "Hello,\n\nI realised today that GNU-Octave has a .desktop file in the rpm, I was\nguessing that it might be nice to have one for R to.\nI briefly made one using the GNU-Octave one.\nI also use the Cran log",
+      "thread_id": "thread-cf4b7710ceba",
+      "thread_depth": 0,
+      "month": "2007-06"
+    },
+    {
+      "id": "msg-1c2796f50d52",
+      "message_id": "<1181753159.4593.21.camel@localhost.localdomain>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2007-06-13T16:45:59Z",
+      "subject": "Re: [Fedora-r-devel-list] Desktop file",
+      "subject_clean": "[Fedora-r-devel-list] Desktop file",
+      "in_reply_to": "<46701EA3.8020902@yahoo.fr>",
+      "references": [],
+      "body_plain": "On Wed, 2007-06-13 at 18:43 +0200, pingou wrote:\n> Hello,\n> \n> I realised today that GNU-Octave has a .desktop file in the rpm, I was\n> guessing that it might be nice to have one for R to.\n> I briefly made one using the GNU-Octave one.\n> I also use the Cran logo to do a R logo.\n\nR isn't a graphical application. Doesn't really make much sense to have\na desktop entry for it.\n\n~spot",
+      "body_snippet": "On Wed, 2007-06-13 at 18:43 +0200, pingou wrote:\n> Hello,\n> \n> I realised today that GNU-Octave has a .desktop file in the rpm, I was\n> guessing that it might be nice to have one for R to.\n> I briefly",
+      "thread_id": "thread-cf4b7710ceba",
+      "thread_depth": 1,
+      "month": "2007-06"
+    },
+    {
+      "id": "msg-6a5df00de51f",
+      "message_id": "<46717ACC.5030901@yahoo.fr>",
+      "from_name": "pingou",
+      "from_email_hash": "f8cc247920d6e32e5cc5a95c54569d12b4aa06dbff169bafe7e0d3aeae53a4d2",
+      "date": "2007-06-14T17:28:44Z",
+      "subject": "[Fedora-r-devel-list] R-pls et R-maanova",
+      "subject_clean": "[Fedora-r-devel-list] R-pls et R-maanova",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "-----BEGIN PGP SIGNED MESSAGE-----\nHash: SHA1\n\nHey,\n\nI have asked for review on bugzilla 2 new R RPMs,\nR-pls https://bugzilla.redhat.com/bugzilla/show_bug.cgi?id=244237\nR-maanova https://bugzilla.redhat.com/bugzilla/show_bug.cgi?id=244234\n\nKind regards,\n\npingou\n-----BEGIN PGP SIGNATURE-----\nVersion: GnuPG v1.4.7 (GNU/Linux)\nComment: Using GnuPG with Remi - http://enigmail.mozdev.org\n\niD8DBQFGcXrMMywLXnSiMyoRAi71AJ4i8JqzilaUInRGXFjd02ONbb48nACglxPu\nAE5gQiJ4WFiu6pHZ6efU8GY=\n=gDKg\n-----END PGP SIGNATURE-----\n\n\t\n\n\t\n\t\t\n___________________________________________________________________________ \nYahoo! Mail réinvente le mail ! Découvrez le nouveau Yahoo! Mail et son interface révolutionnaire.\nhttp://fr.mail.yahoo.com",
+      "body_snippet": "-----BEGIN PGP SIGNED MESSAGE-----\nHash: SHA1\n\nHey,\n\nI have asked for review on bugzilla 2 new R RPMs,\nR-pls https://bugzilla.redhat.com/bugzilla/show_bug.cgi?id=244237\nR-maanova https://bugzilla.redh",
+      "thread_id": "thread-6a5df00de51f",
+      "thread_depth": 0,
+      "month": "2007-06"
+    },
+    {
+      "id": "msg-b272c5d375ac",
+      "message_id": "<4675B0D2.1030806@yahoo.fr>",
+      "from_name": "pingou",
+      "from_email_hash": "f8cc247920d6e32e5cc5a95c54569d12b4aa06dbff169bafe7e0d3aeae53a4d2",
+      "date": "2007-06-17T22:08:18Z",
+      "subject": "[Fedora-r-devel-list] RKWard",
+      "subject_clean": "[Fedora-r-devel-list] RKWard",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hi,\n\nLooking at the wish list of Fedora [1], I have discover this\napplication: RKWard\n\nI decided to make it, and I submited it for review:\nBug 244597 [2]\n\nIf you use it, I hope you will enjoy it :-)\n\nBest regards,\n\n~pingou\n\n[1]\nhttp://fedoraproject.org/wiki/PackageMaintainers/WishList?action=show&redirect=Extras%2FWishList\n[2] https://bugzilla.redhat.com/bugzilla/show_bug.cgi?id=244597\n\n\t\n\n\t\n\t\t\n___________________________________________________________________________ \nYahoo! Mail réinvente le mail ! Découvrez le nouveau Yahoo! Mail et son interface révolutionnaire.\nhttp://fr.mail.yahoo.com",
+      "body_snippet": "Hi,\n\nLooking at the wish list of Fedora [1], I have discover this\napplication: RKWard\n\nI decided to make it, and I submited it for review:\nBug 244597 [2]\n\nIf you use it, I hope you will enjoy it :-)\n\n",
+      "thread_id": "thread-b272c5d375ac",
+      "thread_depth": 0,
+      "month": "2007-06"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-a3eb4491160f",
+      "subject": "[Fedora-r-devel-list] spectemplate-R.spec",
+      "message_count": 2,
+      "participants": [
+        "pingou"
+      ],
+      "started": "2007-06-12T21:37:32Z",
+      "last_reply": "2007-06-13T16:15:24Z",
+      "root_message_id": "msg-a3eb4491160f"
+    },
+    {
+      "id": "thread-cf4b7710ceba",
+      "subject": "[Fedora-r-devel-list] Desktop file",
+      "message_count": 2,
+      "participants": [
+        "Tom Callaway",
+        "pingou"
+      ],
+      "started": "2007-06-13T16:43:15Z",
+      "last_reply": "2007-06-13T16:45:59Z",
+      "root_message_id": "msg-cf4b7710ceba"
+    },
+    {
+      "id": "thread-6a5df00de51f",
+      "subject": "[Fedora-r-devel-list] R-pls et R-maanova",
+      "message_count": 1,
+      "participants": [
+        "pingou"
+      ],
+      "started": "2007-06-14T17:28:44Z",
+      "last_reply": "2007-06-14T17:28:44Z",
+      "root_message_id": "msg-6a5df00de51f"
+    },
+    {
+      "id": "thread-b272c5d375ac",
+      "subject": "[Fedora-r-devel-list] RKWard",
+      "message_count": 1,
+      "participants": [
+        "pingou"
+      ],
+      "started": "2007-06-17T22:08:18Z",
+      "last_reply": "2007-06-17T22:08:18Z",
+      "root_message_id": "msg-b272c5d375ac"
+    }
+  ]
+}

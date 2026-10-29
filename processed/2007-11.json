@@ -1,0 +1,96 @@
+{
+  "list": "fedora-r-devel",
+  "description": "",
+  "month": "2007-11",
+  "messages": [
+    {
+      "id": "msg-9f4db8f69a35",
+      "message_id": "<200711082156.36123.jamatos@fc.up.pt>",
+      "from_name": "José Abílio Matos",
+      "from_email_hash": "1830ccfc475fe0f52edb74ac1163b69778ceb8ac957cc168f6b6335828c0e855",
+      "date": "2007-11-08T21:56:36Z",
+      "subject": "[Fedora-r-devel-list] R-patched in Fedora (feedback from R-devel)",
+      "subject_clean": "[Fedora-r-devel-list] R-patched in Fedora (feedback from R-devel)",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hi,\n\twhile reading the Rdevel list I found this quote from Peter Dalgaard:\nhttps://stat.ethz.ch/pipermail/r-devel/2007-November/047366.html\n\n\"(Fedora incorporated patches in their RPM updates for a while, which I\nwas beginning to believe was a good idea, all things considered, but\nthey haven't done it (yet?) for 2.6.0.)\"\n\n\tFunny. :-)\n-- \nJosé Abílio",
+      "body_snippet": "Hi,\n\twhile reading the Rdevel list I found this quote from Peter Dalgaard:\nhttps://stat.ethz.ch/pipermail/r-devel/2007-November/047366.html\n\n\"(Fedora incorporated patches in their RPM updates for a wh",
+      "thread_id": "thread-9f4db8f69a35",
+      "thread_depth": 0,
+      "month": "2007-11"
+    },
+    {
+      "id": "msg-68d4f304e0f5",
+      "message_id": "<200711191009.24826.jamatos@fc.up.pt>",
+      "from_name": "José Abílio Matos",
+      "from_email_hash": "1830ccfc475fe0f52edb74ac1163b69778ceb8ac957cc168f6b6335828c0e855",
+      "date": "2007-11-19T10:09:23Z",
+      "subject": "[Fedora-r-devel-list] [Idea]: pre 2.6.1 in updates-testing?",
+      "subject_clean": "[Fedora-r-devel-list] [Idea]: pre 2.6.1 in updates-testing?",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "There are release candidates for R 2.6.1 that is expected to be release next \nMonday (26).\n\nThose daily release candidates are placed here \nhttp://cran.r-project.org/src/base-prerelease/\n\nI think that we could push those release candidates to updates-testing to \ndetect earlier problems. In any case we have to deal in the first push of the \nnew version with the dependency of rpy.\n\nRegards,\n\n-- \nJosé Abílio",
+      "body_snippet": "There are release candidates for R 2.6.1 that is expected to be release next \nMonday (26).\n\nThose daily release candidates are placed here \nhttp://cran.r-project.org/src/base-prerelease/\n\nI think that",
+      "thread_id": "thread-68d4f304e0f5",
+      "thread_depth": 0,
+      "month": "2007-11"
+    },
+    {
+      "id": "msg-0fe9288a19df",
+      "message_id": "<1195587694.27963.49.camel@localhost.localdomain>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2007-11-20T19:41:34Z",
+      "subject": "Re: [Fedora-r-devel-list] [Idea]: pre 2.6.1 in updates-testing?",
+      "subject_clean": "[Fedora-r-devel-list] [Idea]: pre 2.6.1 in updates-testing?",
+      "in_reply_to": "<200711191009.24826.jamatos@fc.up.pt>",
+      "references": [],
+      "body_plain": "On Mon, 2007-11-19 at 10:09 +0000, José Matos wrote:\n> There are release candidates for R 2.6.1 that is expected to be release next \n> Monday (26).\n> \n> Those daily release candidates are placed here \n> http://cran.r-project.org/src/base-prerelease/\n> \n> I think that we could push those release candidates to updates-testing to \n> detect earlier problems. In any case we have to deal in the first push of the \n> new version with the dependency of rpy.\n\nI think, given the holidays, we're not going to see any additional\ntesting. I'll just bump to 2.6.1 when it releases, and handle rpy at the\nsame time.\n\n~spot",
+      "body_snippet": "On Mon, 2007-11-19 at 10:09 +0000, José Matos wrote:\n> There are release candidates for R 2.6.1 that is expected to be release next \n> Monday (26).\n> \n> Those daily release candidates are placed here ",
+      "thread_id": "thread-68d4f304e0f5",
+      "thread_depth": 1,
+      "month": "2007-11"
+    },
+    {
+      "id": "msg-390b31c0a276",
+      "message_id": "<200711211322.47637.jamatos@fc.up.pt>",
+      "from_name": "José Abílio Matos",
+      "from_email_hash": "1830ccfc475fe0f52edb74ac1163b69778ceb8ac957cc168f6b6335828c0e855",
+      "date": "2007-11-21T13:22:46Z",
+      "subject": "Re: [Fedora-r-devel-list] [Idea]: pre 2.6.1 in updates-testing?",
+      "subject_clean": "[Fedora-r-devel-list] [Idea]: pre 2.6.1 in updates-testing?",
+      "in_reply_to": "<1195587694.27963.49.camel@localhost.localdomain>",
+      "references": [],
+      "body_plain": "On Tuesday 20 November 2007 19:41:34 Tom \"spot\" Callaway wrote:\n> I think, given the holidays, we're not going to see any additional\n> testing. I'll just bump to 2.6.1 when it releases, and handle rpy at the\n> same time.\n\n  That is fair. Enjoy the holidays. :-)\n\n  I will take the change to update the rpy version, to 1.0.0, released \nyesterday (for F8+) but this is orthogonal to the new R version.\n\n> ~spot\n\n-- \nJosé Abílio",
+      "body_snippet": "On Tuesday 20 November 2007 19:41:34 Tom \"spot\" Callaway wrote:\n> I think, given the holidays, we're not going to see any additional\n> testing. I'll just bump to 2.6.1 when it releases, and handle rpy",
+      "thread_id": "thread-68d4f304e0f5",
+      "thread_depth": 2,
+      "month": "2007-11"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-9f4db8f69a35",
+      "subject": "[Fedora-r-devel-list] R-patched in Fedora (feedback from R-devel)",
+      "message_count": 1,
+      "participants": [
+        "José Abílio Matos"
+      ],
+      "started": "2007-11-08T21:56:36Z",
+      "last_reply": "2007-11-08T21:56:36Z",
+      "root_message_id": "msg-9f4db8f69a35"
+    },
+    {
+      "id": "thread-68d4f304e0f5",
+      "subject": "[Fedora-r-devel-list] [Idea]: pre 2.6.1 in updates-testing?",
+      "message_count": 3,
+      "participants": [
+        "José Abílio Matos",
+        "Tom Callaway"
+      ],
+      "started": "2007-11-19T10:09:23Z",
+      "last_reply": "2007-11-21T13:22:46Z",
+      "root_message_id": "msg-68d4f304e0f5"
+    }
+  ]
+}

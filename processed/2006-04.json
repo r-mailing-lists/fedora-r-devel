@@ -1,0 +1,79 @@
+{
+  "list": "fedora-r-devel",
+  "description": "",
+  "month": "2006-04",
+  "messages": [
+    {
+      "id": "msg-f3c4eff2b148",
+      "message_id": "<1145923775.22894.39.camel@localhost.localdomain>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2006-04-25T00:09:35Z",
+      "subject": "[Fedora-r-devel-list] R 2.3.0 about to hit Fedora Extras",
+      "subject_clean": "[Fedora-r-devel-list] R 2.3.0 about to hit Fedora Extras",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Since José and me are the only R maintainers, this only really affects\nus, but there is always the possibility that other people care:\n\nR 2.3.0 is about to hit Fedora Extras. I like to keep it current. The R\nfolks like us to keep it current. :)\n\nPlease test any addons against it, and report failures either in\nbugzilla or on fedora-r-devel-list.\n\nThanks,\n\n~spot\n-- \nTom \"spot\" Callaway: Red Hat Senior Sales Engineer || GPG ID: 93054260\nFedora Extras Steering Committee Member (RPM Standards and Practices)\nAurora Linux Project Leader: http://auroralinux.org\nLemurs, llamas, and sparcs, oh my!",
+      "body_snippet": "Since José and me are the only R maintainers, this only really affects\nus, but there is always the possibility that other people care:\n\nR 2.3.0 is about to hit Fedora Extras. I like to keep it current",
+      "thread_id": "thread-f3c4eff2b148",
+      "thread_depth": 0,
+      "month": "2006-04"
+    },
+    {
+      "id": "msg-6d81ba6f8a93",
+      "message_id": "<200604261218.30503.jamatos@fc.up.pt>",
+      "from_name": "José Abílio Matos",
+      "from_email_hash": "1830ccfc475fe0f52edb74ac1163b69778ceb8ac957cc168f6b6335828c0e855",
+      "date": "2006-04-26T11:18:30Z",
+      "subject": "[Fedora-r-devel-list] Re: rpy needs to be rebuilt in time for next push",
+      "subject_clean": "[Fedora-r-devel-list] Re: rpy needs to be rebuilt in time for next push",
+      "in_reply_to": "<bsvesxyy0v.fsf@allele2.biol.berkeley.edu>",
+      "references": [],
+      "body_plain": "On Wednesday 26 April 2006 01:35, Alex Lancaster wrote:\n>\n> Well, it's broken again!  Grr.\n>\n> https://bugzilla.redhat.com/bugzilla/show_bug.cgi?id=189946\n>\n> Would it be possible to hold back the upgrade of the R release until\n> you have heard from maintainers of dependent packages like (JosÃ) that\n> they know to rebuild their packages, or rebuild it for them?\n>\n> Either way would prevent \"yum upgrade\" breaking, which it is right\n> now.\n\n  Yesterday was public holiday here...\n\n  The fix is not as straight forward as I would like:\nhttp://buildsys.fedoraproject.org/logs/fedora-development-extras/8338-rpy-0.4.6-8.fc6/\n\n  I will investigate further...\n\n> Alex\n\n  PS: I have subscribed to fedora-r-devel-list now.\n\n  PPS: It would be interesting to announce this mailing list in some of the \nother lists. Just an idea.\n\n-- \nJosé Abílio",
+      "body_snippet": "On Wednesday 26 April 2006 01:35, Alex Lancaster wrote:\n>\n> Well, it's broken again!  Grr.\n>\n> https://bugzilla.redhat.com/bugzilla/show_bug.cgi?id=189946\n>\n> Would it be possible to hold back the upg",
+      "thread_id": "thread-6d81ba6f8a93",
+      "thread_depth": 0,
+      "month": "2006-04"
+    },
+    {
+      "id": "msg-cbc2fbf7b124",
+      "message_id": "<200604261606.24722.jamatos@fc.up.pt>",
+      "from_name": "José Abílio Matos",
+      "from_email_hash": "1830ccfc475fe0f52edb74ac1163b69778ceb8ac957cc168f6b6335828c0e855",
+      "date": "2006-04-26T15:06:24Z",
+      "subject": "Re: [Fedora-r-devel-list] Re: rpy needs to be rebuilt in time for next push",
+      "subject_clean": "[Fedora-r-devel-list] Re: rpy needs to be rebuilt in time for next push",
+      "in_reply_to": "<200604261218.30503.jamatos@fc.up.pt>",
+      "references": [],
+      "body_plain": "On Wednesday 26 April 2006 12:18, Jose' Matos wrote:\n>   The fix is not as straight forward as I would like:\n> http://buildsys.fedoraproject.org/logs/fedora-development-extras/8338-rpy-0\n>.4.6-8.fc6/\n>\n>   I will investigate further...\n\n  Fixed. The fix was easy. :-)\n\n  As I suspected the cause is displayed in the release notes of R:\n\n o   The version string shown in the startup message and by\n       \"R --version\", and that stored in variable R.version.string\n       are now in exactly the same format.\n\n$ R --version\nR version 2.3.0 (2006-04-24)\n...\n\npreviously \"version\" was not there (first line).\n\n  I had also to fight with the (inter)dependence between texinfo and tetex.\n\nBuildRequires texinfo implies tetex for FC-4 and FC-5 but not for FC-3 and \nFC-6. :-)\n\n  All versions have been built now and they should be available in the next \niteration of Extras.\n-- \nJosé Abílio",
+      "body_snippet": "On Wednesday 26 April 2006 12:18, Jose' Matos wrote:\n>   The fix is not as straight forward as I would like:\n> http://buildsys.fedoraproject.org/logs/fedora-development-extras/8338-rpy-0\n>.4.6-8.fc6/\n",
+      "thread_id": "thread-6d81ba6f8a93",
+      "thread_depth": 1,
+      "month": "2006-04"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-f3c4eff2b148",
+      "subject": "[Fedora-r-devel-list] R 2.3.0 about to hit Fedora Extras",
+      "message_count": 1,
+      "participants": [
+        "Tom Callaway"
+      ],
+      "started": "2006-04-25T00:09:35Z",
+      "last_reply": "2006-04-25T00:09:35Z",
+      "root_message_id": "msg-f3c4eff2b148"
+    },
+    {
+      "id": "thread-6d81ba6f8a93",
+      "subject": "[Fedora-r-devel-list] Re: rpy needs to be rebuilt in time for next push",
+      "message_count": 2,
+      "participants": [
+        "José Abílio Matos"
+      ],
+      "started": "2006-04-26T11:18:30Z",
+      "last_reply": "2006-04-26T15:06:24Z",
+      "root_message_id": "msg-6d81ba6f8a93"
+    }
+  ]
+}

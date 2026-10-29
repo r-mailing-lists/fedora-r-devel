@@ -1,0 +1,36 @@
+{
+  "list": "fedora-r-devel",
+  "description": "",
+  "month": "2012-07",
+  "messages": [
+    {
+      "id": "msg-a796bd305f38",
+      "message_id": "<4FF46305.1030701@fc.up.pt>",
+      "from_name": "José Abílio Matos",
+      "from_email_hash": "1830ccfc475fe0f52edb74ac1163b69778ceb8ac957cc168f6b6335828c0e855",
+      "date": "2012-07-04T15:36:37Z",
+      "subject": "[Fedora-r-devel-list] R packages that depend explicitly on texlive-latex",
+      "subject_clean": "[Fedora-r-devel-list] R packages that depend explicitly on texlive-latex",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Such as R itself, fixed in the version present in updates-testing, there\nare R packages that depend explicitly on texlive-latex. Although that is\nnot a problem now I would be better to replace that with a requirement\non tex(latex) that also works now and it will work when tex is update to\nthe latest texlive.\n\nFWIW I am having this problem because I have texlive-2012 installed from\nJindrich Novy's repo.\n\nThe affected packages are:\n\nR-RCurl\nR-rtracklayer\nR-biomaRt\nR-bigmemory\nR-Rcompression\n\nRegards,\n\n-- \nJosé Matos",
+      "body_snippet": "Such as R itself, fixed in the version present in updates-testing, there\nare R packages that depend explicitly on texlive-latex. Although that is\nnot a problem now I would be better to replace that wi",
+      "thread_id": "thread-a796bd305f38",
+      "thread_depth": 0,
+      "month": "2012-07"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-a796bd305f38",
+      "subject": "[Fedora-r-devel-list] R packages that depend explicitly on texlive-latex",
+      "message_count": 1,
+      "participants": [
+        "José Abílio Matos"
+      ],
+      "started": "2012-07-04T15:36:37Z",
+      "last_reply": "2012-07-04T15:36:37Z",
+      "root_message_id": "msg-a796bd305f38"
+    }
+  ]
+}

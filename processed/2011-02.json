@@ -1,0 +1,36 @@
+{
+  "list": "fedora-r-devel",
+  "description": "",
+  "month": "2011-02",
+  "messages": [
+    {
+      "id": "msg-ae5adf8dbd1f",
+      "message_id": "<1298650872.2615.3.camel@cyan.pingoured.fr>",
+      "from_name": "Pierre-Yves Chibon",
+      "from_email_hash": "47e30c199d3131f08c959f22c4f67ea9e57a1a82a5b6363bb242a1766ac73fe5",
+      "date": "2011-02-25T16:21:11Z",
+      "subject": "[Fedora-r-devel-list] [Fwd: [R] R 2.12.2 is released]",
+      "subject_clean": "[Fedora-r-devel-list] [Fwd: [R] R 2.12.2 is released]",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "FYI :-)\n\nPierre\n\n-------------- next part --------------\nWzxlbWFpbC5tZXNzYWdlLk1lc3NhZ2UgaW5zdGFuY2UgYXQgMHgzZjA1NTE4Pl0=",
+      "body_snippet": "FYI :-)\n\nPierre\n\n-------------- next part --------------\nWzxlbWFpbC5tZXNzYWdlLk1lc3NhZ2UgaW5zdGFuY2UgYXQgMHgzZjA1NTE4Pl0=",
+      "thread_id": "thread-ae5adf8dbd1f",
+      "thread_depth": 0,
+      "month": "2011-02"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-ae5adf8dbd1f",
+      "subject": "[Fedora-r-devel-list] [Fwd: [R] R 2.12.2 is released]",
+      "message_count": 1,
+      "participants": [
+        "Pierre-Yves Chibon"
+      ],
+      "started": "2011-02-25T16:21:11Z",
+      "last_reply": "2011-02-25T16:21:11Z",
+      "root_message_id": "msg-ae5adf8dbd1f"
+    }
+  ]
+}

@@ -1,0 +1,113 @@
+{
+  "list": "fedora-r-devel",
+  "description": "",
+  "month": "2009-06",
+  "messages": [
+    {
+      "id": "msg-111c09ec138e",
+      "message_id": "<1244034540.19270.21.camel@localhost.localdomain>",
+      "from_name": "Pierre-Yves Chibon",
+      "from_email_hash": "47e30c199d3131f08c959f22c4f67ea9e57a1a82a5b6363bb242a1766ac73fe5",
+      "date": "2009-06-03T13:09:00Z",
+      "subject": "Re: [Fedora-r-devel-list] R2spec and version number",
+      "subject_clean": "[Fedora-r-devel-list] R2spec and version number",
+      "in_reply_to": "<200905291053.58554.jamatos@fc.up.pt>",
+      "references": [],
+      "body_plain": "On Fri, 2009-05-29 at 10:53 +0100, José Matos wrote:\n> On Friday 29 May 2009 06:53:54 Pierre-Yves wrote:\n> > Dear all,\n> >\n> > I would like your opinion regarding: [Bug 503108] New: R2spec-2.5.2\n> > loses Version information\n> >\n> > It basically says that when the package version is 2.3-50 R2spec only\n> > retrieve 2.3 as being the version number.\n> > To me and based on the packages R-abind, R-acepack, R-mAR (and some\n> > other that I didn't list) this is not a bug.\n> >\n> > Do you agree with me ?\n> \n> I agree that we are loosing information in the version and that on the other \n> hand the dash is just a fancy replacement for the dot.\n> \n> So we could agree to replace all the dashes in R package versions by dots and \n> be done with it.\n> \n> Whatever we decide we should apply this uniformly to all R packages that have \n> this numbering.\n\nThanks for the feedback José :)\n\nSpot, does the guideline say something about this ?\nShould they ?\nShould we bring the discussion to a broader audience ?\n\nRegards,\nPierre",
+      "body_snippet": "On Fri, 2009-05-29 at 10:53 +0100, José Matos wrote:\n> On Friday 29 May 2009 06:53:54 Pierre-Yves wrote:\n> > Dear all,\n> >\n> > I would like your opinion regarding: [Bug 503108] New: R2spec-2.5.2\n> > l",
+      "thread_id": "thread-111c09ec138e",
+      "thread_depth": 0,
+      "month": "2009-06"
+    },
+    {
+      "id": "msg-3d02dcb28d98",
+      "message_id": "<1244047836.9709.76.camel@localhost.localdomain>",
+      "from_name": "Martyn Plummer",
+      "from_email_hash": "a172213f54d02d8c46cd36ac95c2aaea4439b79c8fce553fb5a7295ac50db5d7",
+      "date": "2009-06-03T16:50:36Z",
+      "subject": "Re: [Fedora-r-devel-list] R2spec and version number",
+      "subject_clean": "[Fedora-r-devel-list] R2spec and version number",
+      "in_reply_to": "<1244034540.19270.21.camel@localhost.localdomain>",
+      "references": [],
+      "body_plain": "On Wed, 2009-06-03 at 15:09 +0200, Pierre-Yves wrote:\n> On Fri, 2009-05-29 at 10:53 +0100, José Matos wrote:\n> > On Friday 29 May 2009 06:53:54 Pierre-Yves wrote:\n> > > Dear all,\n> > >\n> > > I would like your opinion regarding: [Bug 503108] New: R2spec-2.5.2\n> > > loses Version information\n> > >\n> > > It basically says that when the package version is 2.3-50 R2spec only\n> > > retrieve 2.3 as being the version number.\n> > > To me and based on the packages R-abind, R-acepack, R-mAR (and some\n> > > other that I didn't list) this is not a bug.\n> > >\n> > > Do you agree with me ?\n> > \n> > I agree that we are loosing information in the version and that on the other \n> > hand the dash is just a fancy replacement for the dot.\n> > \n> > So we could agree to replace all the dashes in R package versions by dots and \n> > be done with it.\n> > \n> > Whatever we decide we should apply this uniformly to all R packages that have \n> > this numbering.\n> \n> Thanks for the feedback José :)\n> \n> Spot, does the guideline say something about this ?\n> Should they ?\n> Should we bring the discussion to a broader audience ?\n> \n> Regards,\n> Pierre\n\nFor R, there is no difference between \"-\" and \".\" in package version\nnumbers. Here is what the R Extension manual says:\n\n\"The version is a sequence of at least two (and usually three)\nnon-negative integers separated by single ‘.’ or ‘-’ characters. The\ncanonical form is as shown in the example [0.5-1 - Martyn], and a\nversion such as ‘0.01’ or ‘0.01.0’ will be handled as if it were\n‘0.1-0’.\"\n\nSo you should just replace dashes with dots.\n\nMartyn\n\n-----------------------------------------------------------------------\nThis message and its attachments are strictly confidential. If you are\nnot the intended recipient of this message, please immediately notify \nthe sender and delete it. Since its integrity cannot be guaranteed, \nits content cannot involve the sender's responsibility. Any misuse, \nany disclosure or publication of its content, either whole or partial, \nis prohibited, exception made of formally approved use\n-----------------------------------------------------------------------",
+      "body_snippet": "On Wed, 2009-06-03 at 15:09 +0200, Pierre-Yves wrote:\n> On Fri, 2009-05-29 at 10:53 +0100, José Matos wrote:\n> > On Friday 29 May 2009 06:53:54 Pierre-Yves wrote:\n> > > Dear all,\n> > >\n> > > I would l",
+      "thread_id": "thread-111c09ec138e",
+      "thread_depth": 1,
+      "month": "2009-06"
+    },
+    {
+      "id": "msg-584cbcb6889d",
+      "message_id": "<4A26E607.90401@redhat.com>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2009-06-03T21:07:19Z",
+      "subject": "Re: [Fedora-r-devel-list] R2spec and version number",
+      "subject_clean": "[Fedora-r-devel-list] R2spec and version number",
+      "in_reply_to": "<1244047836.9709.76.camel@localhost.localdomain>",
+      "references": [],
+      "body_plain": "On 06/03/2009 12:50 PM, Martyn Plummer wrote:\n\n> For R, there is no difference between \"-\" and \".\" in package version\n> numbers. Here is what the R Extension manual says:\n> \n> \"The version is a sequence of at least two (and usually three)\n> non-negative integers separated by single ‘.’ or ‘-’ characters. The\n> canonical form is as shown in the example [0.5-1 - Martyn], and a\n> version such as ‘0.01’ or ‘0.01.0’ will be handled as if it were\n> ‘0.1-0’.\"\n> \n> So you should just replace dashes with dots.\n\nBased on that, I'd say we should be embedding the whole version (with\ndot, not dash). Pretty much every R package is going to need to be fixed\nfor this, include the core R.\n\n~spot",
+      "body_snippet": "On 06/03/2009 12:50 PM, Martyn Plummer wrote:\n\n> For R, there is no difference between \"-\" and \".\" in package version\n> numbers. Here is what the R Extension manual says:\n> \n> \"The version is a sequen",
+      "thread_id": "thread-111c09ec138e",
+      "thread_depth": 2,
+      "month": "2009-06"
+    },
+    {
+      "id": "msg-0498f19a56e3",
+      "message_id": "<1244094748.3272.0.camel@red.localdomain>",
+      "from_name": "Pierre-Yves Chibon",
+      "from_email_hash": "47e30c199d3131f08c959f22c4f67ea9e57a1a82a5b6363bb242a1766ac73fe5",
+      "date": "2009-06-04T05:52:28Z",
+      "subject": "Re: [Fedora-r-devel-list] R2spec and version number",
+      "subject_clean": "[Fedora-r-devel-list] R2spec and version number",
+      "in_reply_to": "<4A26E607.90401@redhat.com>",
+      "references": [],
+      "body_plain": "On Wed, 2009-06-03 at 17:07 -0400, Tom \"spot\" Callaway wrote:\n> On 06/03/2009 12:50 PM, Martyn Plummer wrote:\n> \n> > For R, there is no difference between \"-\" and \".\" in package version\n> > numbers. Here is what the R Extension manual says:\n> > \n> > \"The version is a sequence of at least two (and usually three)\n> > non-negative integers separated by single ‘.’ or ‘-’ characters. The\n> > canonical form is as shown in the example [0.5-1 - Martyn], and a\n> > version such as ‘0.01’ or ‘0.01.0’ will be handled as if it were\n> > ‘0.1-0’.\"\n> > \n> > So you should just replace dashes with dots.\n> \n> Based on that, I'd say we should be embedding the whole version (with\n> dot, not dash). Pretty much every R package is going to need to be fixed\n> for this, include the core R.\n\nI'd also propose that we put a small note on the packaging guidelines :)\n\nThanks all,\n\nPierre",
+      "body_snippet": "On Wed, 2009-06-03 at 17:07 -0400, Tom \"spot\" Callaway wrote:\n> On 06/03/2009 12:50 PM, Martyn Plummer wrote:\n> \n> > For R, there is no difference between \"-\" and \".\" in package version\n> > numbers. H",
+      "thread_id": "thread-111c09ec138e",
+      "thread_depth": 3,
+      "month": "2009-06"
+    },
+    {
+      "id": "msg-23b8aefef6ad",
+      "message_id": "<1244760733.7027.9.camel@red.localdomain>",
+      "from_name": "Pierre-Yves Chibon",
+      "from_email_hash": "47e30c199d3131f08c959f22c4f67ea9e57a1a82a5b6363bb242a1766ac73fe5",
+      "date": "2009-06-11T22:52:13Z",
+      "subject": "[Fedora-r-devel-list] [Fwd: [R-sig-Fedora] License quandry in the Fedora sub-space of all R packages]",
+      "subject_clean": "[Fedora-r-devel-list] [Fwd: [R-sig-Fedora] License quandry in the Fedora sub-space of all R packages]",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Dear list,\n\nIt seems that the address used originally for this mail was wrong there\nis therefore a forward from the r-sig-fedora mailing list.\n\nRegards,\nPierre\n\n-------------- next part --------------\nWzxlbWFpbC5tZXNzYWdlLk1lc3NhZ2UgaW5zdGFuY2UgYXQgMHgzZjA1NzEwPl0=",
+      "body_snippet": "Dear list,\n\nIt seems that the address used originally for this mail was wrong there\nis therefore a forward from the r-sig-fedora mailing list.\n\nRegards,\nPierre\n\n-------------- next part --------------",
+      "thread_id": "thread-23b8aefef6ad",
+      "thread_depth": 0,
+      "month": "2009-06"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-111c09ec138e",
+      "subject": "[Fedora-r-devel-list] R2spec and version number",
+      "message_count": 4,
+      "participants": [
+        "Martyn Plummer",
+        "Pierre-Yves Chibon",
+        "Tom Callaway"
+      ],
+      "started": "2009-06-03T13:09:00Z",
+      "last_reply": "2009-06-04T05:52:28Z",
+      "root_message_id": "msg-111c09ec138e"
+    },
+    {
+      "id": "thread-23b8aefef6ad",
+      "subject": "[Fedora-r-devel-list] [Fwd: [R-sig-Fedora] License quandry in the Fedora sub-space of all R packages]",
+      "message_count": 1,
+      "participants": [
+        "Pierre-Yves Chibon"
+      ],
+      "started": "2009-06-11T22:52:13Z",
+      "last_reply": "2009-06-11T22:52:13Z",
+      "root_message_id": "msg-23b8aefef6ad"
+    }
+  ]
+}

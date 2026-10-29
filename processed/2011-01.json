@@ -1,0 +1,36 @@
+{
+  "list": "fedora-r-devel",
+  "description": "",
+  "month": "2011-01",
+  "messages": [
+    {
+      "id": "msg-d142efe09b89",
+      "message_id": "<1296312372.2949.6.camel@cyan.pingoured.fr>",
+      "from_name": "Pierre-Yves Chibon",
+      "from_email_hash": "47e30c199d3131f08c959f22c4f67ea9e57a1a82a5b6363bb242a1766ac73fe5",
+      "date": "2011-01-29T14:46:12Z",
+      "subject": "[Fedora-r-devel-list] review request",
+      "subject_clean": "[Fedora-r-devel-list] review request",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hi,\n\nI have submitted 4 new reviews which are (directly or not) needed update\nthe R-GenomicFeatures package (which if not done will lead to a FTBFS at\nsome point).\n\nR-Rcompression:\nhttps://bugzilla.redhat.com/show_bug.cgi?id=673658\nR-RCurl:\nhttps://bugzilla.redhat.com/show_bug.cgi?id=673660\nR-ALL:\nhttps://bugzilla.redhat.com/show_bug.cgi?id=673661\nR-XML:\nhttps://bugzilla.redhat.com/show_bug.cgi?id=673665\n\nThanks for the help,\nCheers,\nPierre",
+      "body_snippet": "Hi,\n\nI have submitted 4 new reviews which are (directly or not) needed update\nthe R-GenomicFeatures package (which if not done will lead to a FTBFS at\nsome point).\n\nR-Rcompression:\nhttps://bugzilla.re",
+      "thread_id": "thread-d142efe09b89",
+      "thread_depth": 0,
+      "month": "2011-01"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-d142efe09b89",
+      "subject": "[Fedora-r-devel-list] review request",
+      "message_count": 1,
+      "participants": [
+        "Pierre-Yves Chibon"
+      ],
+      "started": "2011-01-29T14:46:12Z",
+      "last_reply": "2011-01-29T14:46:12Z",
+      "root_message_id": "msg-d142efe09b89"
+    }
+  ]
+}

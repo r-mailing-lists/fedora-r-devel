@@ -1,0 +1,141 @@
+{
+  "list": "fedora-r-devel",
+  "description": "",
+  "month": "2008-12",
+  "messages": [
+    {
+      "id": "msg-6273b7c30dfd",
+      "message_id": "<493D5BEA.3070400@pingoured.fr>",
+      "from_name": "Pierre-Yves Chibon",
+      "from_email_hash": "47e30c199d3131f08c959f22c4f67ea9e57a1a82a5b6363bb242a1766ac73fe5",
+      "date": "2008-12-08T17:39:54Z",
+      "subject": "[Fedora-r-devel-list] [Fwd: [R] R 2.8.1 is scheduled for December 22]",
+      "subject_clean": "[Fedora-r-devel-list] [Fwd: [R] R 2.8.1 is scheduled for December 22]",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "-------- Original Message --------\nSubject: [R] R 2.8.1 is scheduled for December 22\nDate: Mon, 08 Dec 2008 18:31:02 +0100\nFrom: Peter Dalgaard <p.dalgaard(a)biostat.ku.dk>\nTo: R-announce(a)r-project.org\n\nThis is to announce that we plan to release R version 2.8.1 on Monday,\nDecember 22, 2008.\n\nRelease procedures start Friday, December 12.\n\nThose directly involved should review the generic schedule at\nhttp://developer.r-project.org/release-checklist.html\n\nThe source tarballs will be made available daily (barring build\ntroubles) and the tarballs can be picked up at\n\nhttp://cran.r-project.org/src/base-prerelease/\n\na little later.\n\nBinary builds are expected to appear starting Monday 15 at the latest.\n\n\tFor the Core Team\n\tPeter Dalgaard\n\n\n-- \n   O__  ---- Peter Dalgaard             Øster Farimagsgade 5, Entr.B\n  c/ /'_ --- Dept. of Biostatistics     PO Box 2099, 1014 Cph. K\n(*) \\(*) -- University of Copenhagen   Denmark      Ph:  (+45) 35327918\n~~~~~~~~~~ - (p.dalgaard(a)biostat.ku.dk)              FAX: (+45) 35327907\n\n_______________________________________________\nR-announce(a)stat.math.ethz.ch mailing list\nhttps://stat.ethz.ch/mailman/listinfo/r-announce\n\n______________________________________________\nR-help(a)r-project.org mailing list\nhttps://stat.ethz.ch/mailman/listinfo/r-help\nPLEASE do read the posting guide http://www.R-project.org/posting-guide.html\nand provide commented, minimal, self-contained, reproducible code.\n\n_______________________________________________\nR-announce(a)stat.math.ethz.ch mailing list\nhttps://stat.ethz.ch/mailman/listinfo/r-announce",
+      "body_snippet": "-------- Original Message --------\nSubject: [R] R 2.8.1 is scheduled for December 22\nDate: Mon, 08 Dec 2008 18:31:02 +0100\nFrom: Peter Dalgaard <p.dalgaard(a)biostat.ku.dk>\nTo: R-announce(a)r-project.",
+      "thread_id": "thread-6273b7c30dfd",
+      "thread_depth": 0,
+      "month": "2008-12"
+    },
+    {
+      "id": "msg-cb4d5d728bc9",
+      "message_id": "<2c8757af0812081004s2be067c1ic7e65aa511cb5887@mail.gmail.com>",
+      "from_name": "Dan Bolser",
+      "from_email_hash": "67a9076c733a86ea6e6c9bc7ba8c0b60fbdecc5e9e6a4791158310dfba72fe51",
+      "date": "2008-12-08T18:04:37Z",
+      "subject": "Re: [Fedora-r-devel-list] [Fwd: [R] R 2.8.1 is scheduled for December 22]",
+      "subject_clean": "[Fedora-r-devel-list] [Fwd: [R] R 2.8.1 is scheduled for December 22]",
+      "in_reply_to": "<493D5BEA.3070400@pingoured.fr>",
+      "references": [],
+      "body_plain": "Is there an official R repo for bleeding edge R?\n\nI mean I know this list is for getting R into F, but as a 'test bed'\nfor early F/R yum adopters like us?\n\n\n2008/12/8 Pierre-Yves <pingou(a)pingoured.fr>:\n>\n>\n> -------- Original Message --------\n> Subject: [R] R 2.8.1 is scheduled for December 22\n> Date: Mon, 08 Dec 2008 18:31:02 +0100\n> From: Peter Dalgaard <p.dalgaard(a)biostat.ku.dk>\n> To: R-announce(a)r-project.org\n>\n> This is to announce that we plan to release R version 2.8.1 on Monday,\n> December 22, 2008.\n>\n> Release procedures start Friday, December 12.\n>\n> Those directly involved should review the generic schedule at\n> http://developer.r-project.org/release-checklist.html\n>\n> The source tarballs will be made available daily (barring build\n> troubles) and the tarballs can be picked up at\n>\n> http://cran.r-project.org/src/base-prerelease/\n>\n> a little later.\n>\n> Binary builds are expected to appear starting Monday 15 at the latest.\n>\n>        For the Core Team\n>        Peter Dalgaard\n>\n>\n> --\n>  O__  ---- Peter Dalgaard             Øster Farimagsgade 5, Entr.B\n>  c/ /'_ --- Dept. of Biostatistics     PO Box 2099, 1014 Cph. K\n> (*) \\(*) -- University of Copenhagen   Denmark      Ph:  (+45) 35327918\n> ~~~~~~~~~~ - (p.dalgaard(a)biostat.ku.dk)              FAX: (+45) 35327907\n>\n> _______________________________________________\n> R-announce(a)stat.math.ethz.ch mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-announce\n>\n> ______________________________________________\n> R-help(a)r-project.org mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-help\n> PLEASE do read the posting guide http://www.R-project.org/posting-guide.html\n> and provide commented, minimal, self-contained, reproducible code.\n>\n> _______________________________________________\n> R-announce(a)stat.math.ethz.ch mailing list\n> https://stat.ethz.ch/mailman/listinfo/r-announce\n>\n> _______________________________________________\n> Fedora-r-devel-list mailing list\n> Fedora-r-devel-list(a)redhat.com\n> http://www.redhat.com/mailman/listinfo/fedora-r-devel-list\n>",
+      "body_snippet": "Is there an official R repo for bleeding edge R?\n\nI mean I know this list is for getting R into F, but as a 'test bed'\nfor early F/R yum adopters like us?\n\n\n2008/12/8 Pierre-Yves <pingou(a)pingoured.f",
+      "thread_id": "thread-6273b7c30dfd",
+      "thread_depth": 1,
+      "month": "2008-12"
+    },
+    {
+      "id": "msg-6f1ede7fcce8",
+      "message_id": "<22af238a0812081115w358b94efxb55fbe8b876b7217@mail.gmail.com>",
+      "from_name": "George N. White III",
+      "from_email_hash": "4160d858a879aa7ead9c46b2eda88ee4d78cd9eb9a9dee3da7686391a0554be7",
+      "date": "2008-12-08T19:15:41Z",
+      "subject": "Re: [Fedora-r-devel-list] [Fwd: [R] R 2.8.1 is scheduled for December 22]",
+      "subject_clean": "[Fedora-r-devel-list] [Fwd: [R] R 2.8.1 is scheduled for December 22]",
+      "in_reply_to": "<2c8757af0812081004s2be067c1ic7e65aa511cb5887@mail.gmail.com>",
+      "references": [],
+      "body_plain": "On Mon, Dec 8, 2008 at 2:04 PM, Dan Bolser <dan.bolser(a)gmail.com> wrote:\n\n> Is there an official R repo for bleeding edge R?\n>\n> I mean I know this list is for getting R into F, but as a 'test bed'\n> for early F/R yum adopters like us?\n\nIt generally isn't a big job to tweak R.spec to either apply\nthe R-patched diffs or to build a newer version of R.\nFor people who have R code to maintain it is nice to test\nwhenever a non-trivial patch appears rather than wait for\npeople to find problems when a new release arrives.\n\n-- \nGeorge N. White III <aa056(a)chebucto.ns.ca>\nHead of St. Margarets Bay, Nova Scotia",
+      "body_snippet": "On Mon, Dec 8, 2008 at 2:04 PM, Dan Bolser <dan.bolser(a)gmail.com> wrote:\n\n> Is there an official R repo for bleeding edge R?\n>\n> I mean I know this list is for getting R into F, but as a 'test bed'\n",
+      "thread_id": "thread-6273b7c30dfd",
+      "thread_depth": 2,
+      "month": "2008-12"
+    },
+    {
+      "id": "msg-acb37ce8a96e",
+      "message_id": "<1228769032.21023.18.camel@localhost.localdomain>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2008-12-08T20:43:51Z",
+      "subject": "Re: [Fedora-r-devel-list] [Fwd: [R] R 2.8.1 is scheduled for December 22]",
+      "subject_clean": "[Fedora-r-devel-list] [Fwd: [R] R 2.8.1 is scheduled for December 22]",
+      "in_reply_to": "<2c8757af0812081004s2be067c1ic7e65aa511cb5887@mail.gmail.com>",
+      "references": [],
+      "body_plain": "On Mon, 2008-12-08 at 18:04 +0000, Dan Bolser wrote:\n> Is there an official R repo for bleeding edge R?\n> \n> I mean I know this list is for getting R into F, but as a 'test bed'\n> for early F/R yum adopters like us?\n\nNo, but the new R packages hit rawhide first. You could always do:\n\nyum --enablerepo=rawhide update R\n\nOf course, that might drag in other things from rawhide if any of its\ndependencies have notably changed, but its the best thing I can offer.\n\nAlternately, I will announce when I've built R for the other Fedora\ntargets, you can then download them from the testing updates and give\nkarma so it goes into stable faster.\n\nIt only takes three votes to move an update from testing to stable. :)\n\n~spot",
+      "body_snippet": "On Mon, 2008-12-08 at 18:04 +0000, Dan Bolser wrote:\n> Is there an official R repo for bleeding edge R?\n> \n> I mean I know this list is for getting R into F, but as a 'test bed'\n> for early F/R yum ad",
+      "thread_id": "thread-6273b7c30dfd",
+      "thread_depth": 2,
+      "month": "2008-12"
+    },
+    {
+      "id": "msg-4e8f276c9238",
+      "message_id": "<1229980888.4528.53.camel@localhost.localdomain>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2008-12-22T21:21:28Z",
+      "subject": "[Fedora-r-devel-list] R 2.8.1",
+      "subject_clean": "[Fedora-r-devel-list] R 2.8.1",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "R 2.8.1 is packaged up and queued up for testing. Please test this out:\n\nFedora 9:\nhttps://admin.fedoraproject.org/updates/rpy-1.0.3-6.fc9,R-2.8.1-1.fc9\nFedora 10:\nhttps://admin.fedoraproject.org/updates/rpy-1.0.3-6.fc10,R-2.8.1-1.fc10\n\nOnce you've tested it, please, please, go to the update URL above and\nclick \"Add A Comment\". If it works for you, click \"Works for me\" and\nwrite a little bit about how you tested it. That counts as a \"+1\" of\nkarma for that update. When it gets to +3, the system automatically\nflags the update to be pushed to stable.\n\nYou don't have to specifically test rpy to give karma on the update, I\nhave a high degree of confidence in rpy continuing to work. \n\nThanks in advance,\n\n~spot",
+      "body_snippet": "R 2.8.1 is packaged up and queued up for testing. Please test this out:\n\nFedora 9:\nhttps://admin.fedoraproject.org/updates/rpy-1.0.3-6.fc9,R-2.8.1-1.fc9\nFedora 10:\nhttps://admin.fedoraproject.org/upda",
+      "thread_id": "thread-4e8f276c9238",
+      "thread_depth": 0,
+      "month": "2008-12"
+    },
+    {
+      "id": "msg-68e3eff373c5",
+      "message_id": "<1229983083.4528.58.camel@localhost.localdomain>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2008-12-22T21:58:03Z",
+      "subject": "[Fedora-r-devel-list] Re: [R-sig-Fedora] R 2.8.1",
+      "subject_clean": "[Fedora-r-devel-list] Re: [R-sig-Fedora] R 2.8.1",
+      "in_reply_to": "<49500BA6.6010200@biostat.ku.dk>",
+      "references": [],
+      "body_plain": "On Mon, 2008-12-22 at 22:50 +0100, Peter Dalgaard wrote:\n\n> Er, I don't think you can be sure that everyone knows the magic \n> incantations...\n> \n> Is this it?\n> \n>   yum --enablerepo=updates-testing-newkey update R\n> \n> but, first we need to wait for the package to move from pending to \n> testing, right?\n\nThat's F-9, yes. F-10 should be just updates-testing (I think)\n\nYou could also manually download the files locally, and call:\n\nyum update R-*.rpm libRmath-*\n\n~spot",
+      "body_snippet": "On Mon, 2008-12-22 at 22:50 +0100, Peter Dalgaard wrote:\n\n> Er, I don't think you can be sure that everyone knows the magic \n> incantations...\n> \n> Is this it?\n> \n>   yum --enablerepo=updates-testing-",
+      "thread_id": "thread-68e3eff373c5",
+      "thread_depth": 0,
+      "month": "2008-12"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-6273b7c30dfd",
+      "subject": "[Fedora-r-devel-list] [Fwd: [R] R 2.8.1 is scheduled for December 22]",
+      "message_count": 4,
+      "participants": [
+        "Dan Bolser",
+        "George N. White III",
+        "Pierre-Yves Chibon",
+        "Tom Callaway"
+      ],
+      "started": "2008-12-08T17:39:54Z",
+      "last_reply": "2008-12-08T20:43:51Z",
+      "root_message_id": "msg-6273b7c30dfd"
+    },
+    {
+      "id": "thread-4e8f276c9238",
+      "subject": "[Fedora-r-devel-list] R 2.8.1",
+      "message_count": 1,
+      "participants": [
+        "Tom Callaway"
+      ],
+      "started": "2008-12-22T21:21:28Z",
+      "last_reply": "2008-12-22T21:21:28Z",
+      "root_message_id": "msg-4e8f276c9238"
+    },
+    {
+      "id": "thread-68e3eff373c5",
+      "subject": "[Fedora-r-devel-list] Re: [R-sig-Fedora] R 2.8.1",
+      "message_count": 1,
+      "participants": [
+        "Tom Callaway"
+      ],
+      "started": "2008-12-22T21:58:03Z",
+      "last_reply": "2008-12-22T21:58:03Z",
+      "root_message_id": "msg-68e3eff373c5"
+    }
+  ]
+}

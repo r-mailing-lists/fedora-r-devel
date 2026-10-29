@@ -1,0 +1,86 @@
+{
+  "list": "fedora-r-devel",
+  "description": "",
+  "month": "2007-08",
+  "messages": [
+    {
+      "id": "msg-48ea04ee984b",
+      "message_id": "<46B24C61.5070305@yahoo.fr>",
+      "from_name": "pingou",
+      "from_email_hash": "f8cc247920d6e32e5cc5a95c54569d12b4aa06dbff169bafe7e0d3aeae53a4d2",
+      "date": "2007-08-02T21:28:01Z",
+      "subject": "[Fedora-r-devel-list] R CMD check",
+      "subject_clean": "[Fedora-r-devel-list] R CMD check",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hi all,\n\nMaking some packages, and having \"some\" problems with the dependencies,\nI was wondering if it possible to increment a sort of R CMD check2 that\ndo all the steps of the R CMD check except the \"* checking package\ndependencies\".\n\nThat would help to process all the check command and avoid the circular\nreferences problem, which is quite common.\nThis command would obviously be used only if the normal command can not\nbe used.\n\nWhat do you think of ?\nIs it possible ?\n\nThanks in advance\n~pingou\n\n\t\n\n\t\n\t\t\n___________________________________________________________________________ \nYahoo! Mail réinvente le mail ! Découvrez le nouveau Yahoo! Mail et son interface révolutionnaire.\nhttp://fr.mail.yahoo.com",
+      "body_snippet": "Hi all,\n\nMaking some packages, and having \"some\" problems with the dependencies,\nI was wondering if it possible to increment a sort of R CMD check2 that\ndo all the steps of the R CMD check except the ",
+      "thread_id": "thread-48ea04ee984b",
+      "thread_depth": 0,
+      "month": "2007-08"
+    },
+    {
+      "id": "msg-821b8613c705",
+      "message_id": "<20070802213326.GD2946@free.fr>",
+      "from_name": "Patrice Dumas",
+      "from_email_hash": "175027c067de6b8c82d986b6fdb65d7cd0b27af4fbba56feaf32d146ecb22d36",
+      "date": "2007-08-02T21:33:26Z",
+      "subject": "Re: [Fedora-r-devel-list] R CMD check",
+      "subject_clean": "[Fedora-r-devel-list] R CMD check",
+      "in_reply_to": "<46B24C61.5070305@yahoo.fr>",
+      "references": [],
+      "body_plain": "On Thu, Aug 02, 2007 at 11:28:01PM +0200, pingou wrote:\n> Hi all,\n> \n> What do you think of ?\n\nI agree that it would be very usefull. But I don't have any idea about \nthe feasability.\n\n--\nPat",
+      "body_snippet": "On Thu, Aug 02, 2007 at 11:28:01PM +0200, pingou wrote:\n> Hi all,\n> \n> What do you think of ?\n\nI agree that it would be very usefull. But I don't have any idea about \nthe feasability.\n\n--\nPat",
+      "thread_id": "thread-48ea04ee984b",
+      "thread_depth": 1,
+      "month": "2007-08"
+    },
+    {
+      "id": "msg-d520af399882",
+      "message_id": "<1186145107.9748.235.camel@localhost.localdomain>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2007-08-03T12:45:07Z",
+      "subject": "Re: [Fedora-r-devel-list] R CMD check",
+      "subject_clean": "[Fedora-r-devel-list] R CMD check",
+      "in_reply_to": "<20070802213326.GD2946@free.fr>",
+      "references": [],
+      "body_plain": "On Thu, 2007-08-02 at 23:33 +0200, Patrice Dumas wrote:\n> On Thu, Aug 02, 2007 at 11:28:01PM +0200, pingou wrote:\n> > Hi all,\n> > \n> > What do you think of ?\n> \n> I agree that it would be very usefull. But I don't have any idea about \n> the feasability.\n\nI'm buried in licensing at the moment, but if someone wanted to\nimplement this, I'd be willing to look at a patch and throw it at\nupstream to get their thoughts.\n\n~spot",
+      "body_snippet": "On Thu, 2007-08-02 at 23:33 +0200, Patrice Dumas wrote:\n> On Thu, Aug 02, 2007 at 11:28:01PM +0200, pingou wrote:\n> > Hi all,\n> > \n> > What do you think of ?\n> \n> I agree that it would be very usefull",
+      "thread_id": "thread-48ea04ee984b",
+      "thread_depth": 2,
+      "month": "2007-08"
+    },
+    {
+      "id": "msg-8420f793c406",
+      "message_id": "<46B3336E.7090506@yahoo.fr>",
+      "from_name": "pingou",
+      "from_email_hash": "f8cc247920d6e32e5cc5a95c54569d12b4aa06dbff169bafe7e0d3aeae53a4d2",
+      "date": "2007-08-03T13:53:50Z",
+      "subject": "Re: [Fedora-r-devel-list] R CMD check",
+      "subject_clean": "[Fedora-r-devel-list] R CMD check",
+      "in_reply_to": "<1186145107.9748.235.camel@localhost.localdomain>",
+      "references": [],
+      "body_plain": "Tom \"spot\" Callaway wrote:\n> On Thu, 2007-08-02 at 23:33 +0200, Patrice Dumas wrote:\n>> On Thu, Aug 02, 2007 at 11:28:01PM +0200, pingou wrote:\n>>> Hi all,\n>>>\n>>> What do you think of ?\n>> I agree that it would be very usefull. But I don't have any idea about \n>> the feasability.\n> \n> I'm buried in licensing at the moment, but if someone wanted to\n> implement this, I'd be willing to look at a patch and throw it at\n> upstream to get their thoughts.\n> \nLooking at the code I have found the paragraph following under in \n/usr/lib/R/bin/check\n\nI believe there are tow ways to do what we would like,\n\n*either make a copy of the files in a check2 file and patch it to avoid \nthe check on suggested libraries ( I think it is a bit \"dirty\" to do it \nin such a way)\n*or we can also either patch or sed the DESCRIPTION files in the spec to \n  comment the lines \"Suggests\"\n\nI do not know what you think about these propositions and I do not know \nif there are better ones but I believe these are not the optimal solution.\nMy problems is that my knowledge are too low to be able to propose \ndirectly the correct patch/solution.\n\nI hope this help, if one of you  would like to do it.\n\nBest regards,\n~pingou\n\n\n\n$log->checking(\"package dependencies\");\n             ## Everything listed in Depends or Suggests or Imports\n             ## should be available for successfully running R CMD check.\n             ## \\VignetteDepends{} entries not \"required\" by the package \ncode\n             ## must be in Suggests.  Note also that some of us think that a\n             ## package vignette must require its own package, which OTOH is\n             ## not required in the package DESCRIPTION file.\n             ## Namespace imports must really be in Depends.\n             my $Rcmd = \"options(warn=1,warnEscapes=FALSE); \ntools:::.check_package_depends(\\\"${pkgdir}\\\")\\n\";\n             my @out = R_runR($Rcmd, \"${R_opts} --quiet\",\n                              \"R_DEFAULT_PACKAGES=NULL\");\n             @out = grep(!/^\\>/, @out);\n             if(scalar(@out) > 0) {\n                 $log->error();\n                 $log->print(join(\"\\n\", @out) . \"\\n\");\n                 $log->print(wrap(\"\", \"\", @msg_DESCRIPTION));\n                 exit(1);\n             } else {\n                 $log->result(\"OK\");\n             }\n         }\n\n\n\t\n\n\t\n\t\t\n___________________________________________________________________________ \nYahoo! Mail réinvente le mail ! Découvrez le nouveau Yahoo! Mail et son interface révolutionnaire.\nhttp://fr.mail.yahoo.com",
+      "body_snippet": "Tom \"spot\" Callaway wrote:\n> On Thu, 2007-08-02 at 23:33 +0200, Patrice Dumas wrote:\n>> On Thu, Aug 02, 2007 at 11:28:01PM +0200, pingou wrote:\n>>> Hi all,\n>>>\n>>> What do you think of ?\n>> I agree th",
+      "thread_id": "thread-48ea04ee984b",
+      "thread_depth": 3,
+      "month": "2007-08"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-48ea04ee984b",
+      "subject": "[Fedora-r-devel-list] R CMD check",
+      "message_count": 4,
+      "participants": [
+        "Patrice Dumas",
+        "Tom Callaway",
+        "pingou"
+      ],
+      "started": "2007-08-02T21:28:01Z",
+      "last_reply": "2007-08-03T13:53:50Z",
+      "root_message_id": "msg-48ea04ee984b"
+    }
+  ]
+}

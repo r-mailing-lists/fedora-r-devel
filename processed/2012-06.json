@@ -1,0 +1,69 @@
+{
+  "list": "fedora-r-devel",
+  "description": "",
+  "month": "2012-06",
+  "messages": [
+    {
+      "id": "msg-95d8f649c0cb",
+      "message_id": "<1587893079-1339763404-cardhu_decombobulator_blackberry.rim.net-1027785363-@b2.c1.bise3.blackberry>",
+      "from_name": "William Emmanuel S. Yu",
+      "from_email_hash": "b2c03c2cbe77ff206823adbdbf0cb971a37edd1d0426f77fc606ee9dd4178c9c",
+      "date": "2012-06-15T12:27:42Z",
+      "subject": "[Fedora-r-devel-list] Building RPMs for Fedora with circular \"suggest\" dependencies",
+      "subject_clean": "[Fedora-r-devel-list] Building RPMs for Fedora with circular \"suggest\" dependencies",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hello,\n\nI am new to this list and in the process of building some RPMs for R packages. I have been rolling my own packages for a few years now and post them for public use. I am a heavy user of R2spec with spec file tweaks of course. Thanks for the author for making life easier.\n\nEvery so often, I encounter the circular dependency issue with \"suggest\". For example, I am building R-reshape that depends on a bunch of packages including R-iterator and R-foreach. Unfortunately, R-iterator and R-foreach both suggest each other. \n\nI used to be able to force ignoring suggests but this causes problems with check and test and skipping check and test isn't exactly what I want to do either.\n\nI would like to know what the \"proper\" way of building RPMs for the both of these R packages. \n\nThank you!\n\"Sent via BlackBerry from Smart\"",
+      "body_snippet": "Hello,\n\nI am new to this list and in the process of building some RPMs for R packages. I have been rolling my own packages for a few years now and post them for public use. I am a heavy user of R2spec",
+      "thread_id": "thread-95d8f649c0cb",
+      "thread_depth": 0,
+      "month": "2012-06"
+    },
+    {
+      "id": "msg-9ff553920ad1",
+      "message_id": "<4FDB3404.2050306@ufl.edu>",
+      "from_name": "Allen S. Rout",
+      "from_email_hash": "daab5e2a3be01a71a28f5aaeadf6670eb8b6207f60048fe46968e068daeb44b6",
+      "date": "2012-06-15T13:09:24Z",
+      "subject": "Re: [Fedora-r-devel-list] Building RPMs for Fedora with circular \"suggest\" dependencies",
+      "subject_clean": "[Fedora-r-devel-list] Building RPMs for Fedora with circular \"suggest\" dependencies",
+      "in_reply_to": "<1587893079-1339763404-cardhu_decombobulator_blackberry.rim.net-1027785363-@b2.c1.bise3.blackberry>",
+      "references": [],
+      "body_plain": "On 06/15/2012 08:27 AM, William Emmanuel S. Yu wrote:\n> Hello,\n>\n> I am new to this list and in the process of building some RPMs for R packages. I have been rolling my own packages for a few years now and post them for public use. I am a heavy user of R2spec with spec file tweaks of course. Thanks for the author for making life easier.\n>\n> Every so often, I encounter the circular dependency issue with \"suggest\". For example, I am building R-reshape that depends on a bunch of packages including R-iterator and R-foreach. Unfortunately, R-iterator and R-foreach both suggest each other.\n>\n> I used to be able to force ignoring suggests but this causes problems with check and test and skipping check and test isn't exactly what I want to do either.\n>\n> I would like to know what the \"proper\" way of building RPMs for the both of these R packages.\n\nHah.\n\n From the perspective of a scientist or engineer, the 'proper' solution \nwould be to have a dependency _TREE_ instead of a dependency \nplate-of-pasta.\n\nIn short, your problem looks insane because the underlying reality is \ninsane.\n\n\nhttp://article.gmane.org/gmane.comp.lang.r.devel/21496\n\nincludes my statement of the problem, ca. 2009.\n\nhttp://article.gmane.org/gmane.comp.lang.r.devel/21597\n\nfor a stab at a solution.  It's not elegant, but I think it'd work.\n\n\nI've frankly been out of the loop on where Pierre-Yves is going on this \nissue for some time.   I'm sure he's got some comments.\n\n\n\n- Allen S. Rout",
+      "body_snippet": "On 06/15/2012 08:27 AM, William Emmanuel S. Yu wrote:\n> Hello,\n>\n> I am new to this list and in the process of building some RPMs for R packages. I have been rolling my own packages for a few years no",
+      "thread_id": "thread-95d8f649c0cb",
+      "thread_depth": 1,
+      "month": "2012-06"
+    },
+    {
+      "id": "msg-3e5cefec721a",
+      "message_id": "<1370054582-1339766864-cardhu_decombobulator_blackberry.rim.net-1456546733-@b2.c1.bise3.blackberry>",
+      "from_name": "William Emmanuel S. Yu",
+      "from_email_hash": "b2c03c2cbe77ff206823adbdbf0cb971a37edd1d0426f77fc606ee9dd4178c9c",
+      "date": "2012-06-15T13:25:22Z",
+      "subject": "Re: [Fedora-r-devel-list] Building RPMs for Fedora with circular \"suggest\" dependencies",
+      "subject_clean": "[Fedora-r-devel-list] Building RPMs for Fedora with circular \"suggest\" dependencies",
+      "in_reply_to": "<4FDB3404.2050306@ufl.edu>",
+      "references": [],
+      "body_plain": "Hi Allen,\n\nThanks for the quick reply.\n\nI actually encountered this point of yours and that is why I found this mailing list.\n\nOn your solution, I did try putting 'export _R_CHECK_FORCE_SUGGESTS_ = false; R CMD check' in the spec file. But now, it fails again again doing a test that requires foreach while building iterator. \n\nThanks again.\n\"Sent via BlackBerry from Smart\"\n\n-----Original Message-----\nFrom: \"Allen S. Rout\" <asr(a)ufl.edu>\nSender: r-devel-bounces(a)lists.fedoraproject.org\nDate: Fri, 15 Jun 2012 09:09:24 \nTo: <r-devel(a)lists.fedoraproject.org>\nReply-To: r-devel(a)lists.fedoraproject.org\nSubject: Re: [Fedora-r-devel-list] Building RPMs for Fedora with circular\n \"suggest\" dependencies\n\nOn 06/15/2012 08:27 AM, William Emmanuel S. Yu wrote:\n> Hello,\n>\n> I am new to this list and in the process of building some RPMs for R packages. I have been rolling my own packages for a few years now and post them for public use. I am a heavy user of R2spec with spec file tweaks of course. Thanks for the author for making life easier.\n>\n> Every so often, I encounter the circular dependency issue with \"suggest\". For example, I am building R-reshape that depends on a bunch of packages including R-iterator and R-foreach. Unfortunately, R-iterator and R-foreach both suggest each other.\n>\n> I used to be able to force ignoring suggests but this causes problems with check and test and skipping check and test isn't exactly what I want to do either.\n>\n> I would like to know what the \"proper\" way of building RPMs for the both of these R packages.\n\nHah.\n\n From the perspective of a scientist or engineer, the 'proper' solution \nwould be to have a dependency _TREE_ instead of a dependency \nplate-of-pasta.\n\nIn short, your problem looks insane because the underlying reality is \ninsane.\n\n\nhttp://article.gmane.org/gmane.comp.lang.r.devel/21496\n\nincludes my statement of the problem, ca. 2009.\n\nhttp://article.gmane.org/gmane.comp.lang.r.devel/21597\n\nfor a stab at a solution.  It's not elegant, but I think it'd work.\n\n\nI've frankly been out of the loop on where Pierre-Yves is going on this \nissue for some time.   I'm sure he's got some comments.\n\n\n\n- Allen S. Rout\n_______________________________________________\nr-devel mailing list\nr-devel(a)lists.fedoraproject.org\nhttps://admin.fedoraproject.org/mailman/listinfo/r-devel",
+      "body_snippet": "Hi Allen,\n\nThanks for the quick reply.\n\nI actually encountered this point of yours and that is why I found this mailing list.\n\nOn your solution, I did try putting 'export _R_CHECK_FORCE_SUGGESTS_ = fa",
+      "thread_id": "thread-95d8f649c0cb",
+      "thread_depth": 2,
+      "month": "2012-06"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-95d8f649c0cb",
+      "subject": "[Fedora-r-devel-list] Building RPMs for Fedora with circular \"suggest\" dependencies",
+      "message_count": 3,
+      "participants": [
+        "Allen S. Rout",
+        "William Emmanuel S. Yu"
+      ],
+      "started": "2012-06-15T12:27:42Z",
+      "last_reply": "2012-06-15T13:25:22Z",
+      "root_message_id": "msg-95d8f649c0cb"
+    }
+  ]
+}

@@ -1,0 +1,211 @@
+{
+  "list": "fedora-r-devel",
+  "description": "",
+  "month": "2009-03",
+  "messages": [
+    {
+      "id": "msg-f70981b26c23",
+      "message_id": "<1237237757.3515.5.camel@pingouGreen.localdomain>",
+      "from_name": "Pierre-Yves Chibon",
+      "from_email_hash": "47e30c199d3131f08c959f22c4f67ea9e57a1a82a5b6363bb242a1766ac73fe5",
+      "date": "2009-03-16T21:09:17Z",
+      "subject": "[Fedora-r-devel-list] -devel packages",
+      "subject_clean": "[Fedora-r-devel-list] -devel packages",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Dear list,\n\nOnce again I come here to ask for your help/opinion :-)\n\nI have decided to give some more love to two of my packages:\nR-BSgenome.Dmelanogaster.FlyBase.r51 and R-BSgenome.Celegans.UCSC.ce2\n\nIn order to be able to build the latest versions of them I need to\npackage the following:\nR-IRange R-Biostrings and R-BSgenome\n\nSo I did and before submitting them for review, I would like to expose\nhere the problem I have with them.\n\nWhile packaging R-IRange has obtain:\nR-IRanges.x86_64: W:\ndevel-file-in-non-devel-package /usr/lib64/R/library/IRanges/include/...\n\nSo I divided the package in a sub package -devel with the following\nerror:\nR-IRanges-devel.x86_64: E: only-non-binary-in-usr-lib\nwhile all the package is in %{_libdir}\n\nIf I move the headers from %{_libdir} to %{_datadir} as rpmlint ask then\nI have to do the following in R-Biostrings spec:\n---------------SPEC\n# Replace the wrong include by the rights one :)\nfor i in %{packname}/src/*.c\n do \n   sed -i -e 's|#include \"IRanges_interface.h\"| #include\n\"%{_datadir}/R/library/IRanges/include/include/IRanges_interface.h\"|' $i\n done\n\nsed -i -e 's|#include \"IRanges_defines.h\"| #include\n\"%{_datadir}/R/library/IRanges/include/include/IRanges_defines.h\"|'\n%{packname}/inst/include/Biostrings_de\nfines.h\nsed -i -e 's|#include \"_IRanges_stubs.c\"| #include\n\"%{_datadir}/R/library/IRanges/include/include/_IRanges_stubs.c\"|'\n%{packname}/src/IRanges_stubs.c\n-----------------EOF\nBecause else Biostrings cannot find the correct headers and thus cannot\ncompile...\n\nAnd... R-Biostrings needs also to be split in a subpackage -devel with\nthe headers in %{_libdir} while the package is installed in %{_datadir}\nso R-BSgenome will also have to be \"patched\" for the headers.\n\nIs there a way to make R looking in both %{_datadir} and %{_libdir}\nwhile it looks for the headers ?\nCould I leave the R headers in %{_libdir} ? (I guess not but worth to\nask ^^)\n\nAny suggestion/remarks ?\n\nThanks in advance,\nBest regards,\n\nPierre",
+      "body_snippet": "Dear list,\n\nOnce again I come here to ask for your help/opinion :-)\n\nI have decided to give some more love to two of my packages:\nR-BSgenome.Dmelanogaster.FlyBase.r51 and R-BSgenome.Celegans.UCSC.ce2\n",
+      "thread_id": "thread-f70981b26c23",
+      "thread_depth": 0,
+      "month": "2009-03"
+    },
+    {
+      "id": "msg-3bf4208ab03f",
+      "message_id": "<49BEC2DD.6030605@redhat.com>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2009-03-16T21:21:33Z",
+      "subject": "Re: [Fedora-r-devel-list] -devel packages",
+      "subject_clean": "[Fedora-r-devel-list] -devel packages",
+      "in_reply_to": "<1237237757.3515.5.camel@pingouGreen.localdomain>",
+      "references": [],
+      "body_plain": "On 03/16/2009 05:09 PM, Pierre-Yves wrote:\n> Could I leave the R headers in %{_libdir} ? (I guess not but worth to\n> ask ^^)\n\nI'd say yes. This is where R is looking for them to be.\n\n~spot",
+      "body_snippet": "On 03/16/2009 05:09 PM, Pierre-Yves wrote:\n> Could I leave the R headers in %{_libdir} ? (I guess not but worth to\n> ask ^^)\n\nI'd say yes. This is where R is looking for them to be.\n\n~spot",
+      "thread_id": "thread-f70981b26c23",
+      "thread_depth": 1,
+      "month": "2009-03"
+    },
+    {
+      "id": "msg-cc7fb091b9ae",
+      "message_id": "<1237661999.3243.23.camel@localhost.localdomain>",
+      "from_name": "Pierre-Yves Chibon",
+      "from_email_hash": "47e30c199d3131f08c959f22c4f67ea9e57a1a82a5b6363bb242a1766ac73fe5",
+      "date": "2009-03-21T18:59:59Z",
+      "subject": "[Fedora-r-devel-list] Update the guidelines",
+      "subject_clean": "[Fedora-r-devel-list] Update the guidelines",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Dear all,\n\nI would like to propose to update (or mention) some points in the R\npackaging guidelines.\n\n* Mention something about the tex files which are not utf-8 and don't\nnecessarily have to be converted\nsee:\nhttps://www.redhat.com/archives/fedora-devel-list/2009-January/msg00741.html\n\n* Mention something about the -devel package where the headers don't\nnecessarily have to moved to %{_datadir} since R looks for them in\n%{_libdir}.\nsee:\nhttps://www.redhat.com/archives/fedora-r-devel-list/2009-March/msg00001.html\n\nWhat is your opinion on these changes ?\n\nWhat is the process to propose such changes/updates ?\n\nThanks,\n\nBest regards,\n\nPierre",
+      "body_snippet": "Dear all,\n\nI would like to propose to update (or mention) some points in the R\npackaging guidelines.\n\n* Mention something about the tex files which are not utf-8 and don't\nnecessarily have to be conve",
+      "thread_id": "thread-cc7fb091b9ae",
+      "thread_depth": 0,
+      "month": "2009-03"
+    },
+    {
+      "id": "msg-22c318a7a9b7",
+      "message_id": "<1237756306.3401.34.camel@localhost.localdomain>",
+      "from_name": "Pierre-Yves Chibon",
+      "from_email_hash": "47e30c199d3131f08c959f22c4f67ea9e57a1a82a5b6363bb242a1766ac73fe5",
+      "date": "2009-03-22T21:11:46Z",
+      "subject": "[Fedora-r-devel-list] Update R2spec",
+      "subject_clean": "[Fedora-r-devel-list] Update R2spec",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Dear all,\n\nA new version of R2spec is pending for updates-testing. It comes some\ntime after the previous version and some things have been added or\ncorrected in it.\n\nThere is the changelog concerning this release:\n\nVersion 2.5.2 -- 21st Mar 2009\n-Features added\n* Do not ask to move the file if there is no %_topdir\n* Add option -c/--copyFile to copy the source to %_topdir without asking\n* Add the option -n/--name to specify the name of the packager\n* Add the option -e/--email to specify the email of the packager\n* Add the option -f/--force that create the spec file with the normal \n   name even if there is already such a file in the working directory\n* Add zip support\n* Remove the '(', ')' and the ',' in the BuildRequire and Require of the\nspec\n* Check if the source actually exists (it was about time...)\n* Better handling of the exception\n* Change %define to %global in the generated spec according to the new\nguidelines\n-Bugs correction\n* Typo -> 'Copy to' and not 'copy in'\n* Change the comment on the spec for x86/x86_64 and noarch\n* Actually copy the source file to the SOURCES folder\n* The Source0 is not a template anymore it is either from -s or it is -u\n\nPlease let me know if you find any bug or have any wishes that you would\nlike to see in R2spec.\n\nBest regards,\n\nPierre",
+      "body_snippet": "Dear all,\n\nA new version of R2spec is pending for updates-testing. It comes some\ntime after the previous version and some things have been added or\ncorrected in it.\n\nThere is the changelog concerning ",
+      "thread_id": "thread-22c318a7a9b7",
+      "thread_depth": 0,
+      "month": "2009-03"
+    },
+    {
+      "id": "msg-a3786203c51b",
+      "message_id": "<2c8757af0903230212k751a5b8dkd437b733ced541a3@mail.gmail.com>",
+      "from_name": "Dan Bolser",
+      "from_email_hash": "67a9076c733a86ea6e6c9bc7ba8c0b60fbdecc5e9e6a4791158310dfba72fe51",
+      "date": "2009-03-23T09:12:45Z",
+      "subject": "Re: [Fedora-r-devel-list] Update R2spec",
+      "subject_clean": "[Fedora-r-devel-list] Update R2spec",
+      "in_reply_to": "<1237756306.3401.34.camel@localhost.localdomain>",
+      "references": [],
+      "body_plain": "BTW, while we are on this topic, is anyone using the 'R-Repo' project\nto upload the RPMs / spec files generated using R2spec?\n\nR-Repo project:\nhttp://www.bioinformatics.org/r-repo/wiki/\n\n\nI had hoped to find time to build some packages and upload them, but I\nhaven't been able to find time to do that. Is there a better place for\nR packages? If the 'R-Repo' project looks useful, please let me know.\n\n\nCheers,\nDan.\n\n\n2009/3/22 Pierre-Yves <pingou(a)pingoured.fr>:\n> Dear all,\n>\n> A new version of R2spec is pending for updates-testing. It comes some\n> time after the previous version and some things have been added or\n> corrected in it.\n>\n> There is the changelog concerning this release:\n>\n> Version 2.5.2 -- 21st Mar 2009\n> -Features added\n> * Do not ask to move the file if there is no %_topdir\n> * Add option -c/--copyFile to copy the source to %_topdir without asking\n> * Add the option -n/--name to specify the name of the packager\n> * Add the option -e/--email to specify the email of the packager\n> * Add the option -f/--force that create the spec file with the normal\n>   name even if there is already such a file in the working directory\n> * Add zip support\n> * Remove the '(', ')' and the ',' in the BuildRequire and Require of the\n> spec\n> * Check if the source actually exists (it was about time...)\n> * Better handling of the exception\n> * Change %define to %global in the generated spec according to the new\n> guidelines\n> -Bugs correction\n> * Typo -> 'Copy to' and not 'copy in'\n> * Change the comment on the spec for x86/x86_64 and noarch\n> * Actually copy the source file to the SOURCES folder\n> * The Source0 is not a template anymore it is either from -s or it is -u\n>\n> Please let me know if you find any bug or have any wishes that you would\n> like to see in R2spec.\n>\n> Best regards,\n>\n> Pierre\n>\n> _______________________________________________\n> Fedora-r-devel-list mailing list\n> Fedora-r-devel-list(a)redhat.com\n> http://www.redhat.com/mailman/listinfo/fedora-r-devel-list\n>",
+      "body_snippet": "BTW, while we are on this topic, is anyone using the 'R-Repo' project\nto upload the RPMs / spec files generated using R2spec?\n\nR-Repo project:\nhttp://www.bioinformatics.org/r-repo/wiki/\n\n\nI had hoped ",
+      "thread_id": "thread-22c318a7a9b7",
+      "thread_depth": 1,
+      "month": "2009-03"
+    },
+    {
+      "id": "msg-49ce3392bec3",
+      "message_id": "<49C83FAD.4090201@redhat.com>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2009-03-24T02:04:29Z",
+      "subject": "[Fedora-r-devel-list] R-java and R-java-devel",
+      "subject_clean": "[Fedora-r-devel-list] R-java and R-java-devel",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Pierre asked me on irc this afternoon to help him get R-rJava building,\nand when I looked at it, I discovered what was wrong.\n\nThe Fedora R-core package (the minimum bits needed to get R working)\ndoes not require java. This is intentional, as java is not needed to use\nR, and it would be a notable increase in default footprint if we made it\na strict dependency. In the %post for R-core, we run R CMD javareconf,\nbut that only does something useful if you have a java environment present.\n\nWhen Pierre was trying to build rJava, R-devel and R-core were being\ninstalled before java-devel and java, thus, the R CMD javareconf run was\nhappening with no java environment present in the buildroot.\n\nInitially, I tried to resolve this by having the R-rJava package run R\nCMD javareconf again during %prep, but this doesn't work, because the\npackage isn't built as root, and R couldn't update the system configs.\nSo, as a workaround, I added two new \"subpackages\" to the main R package:\n\nR-java : A metapackage with no files that simply Requires(post): R-core,\njava\nR-java-devel: A metapackage with no files that simple Requires(post):\nR-devel, java-devel\n\nBoth metapackages call R CMD javareconf in their %post (its the same\ninvocation that we use for R-core). There is some redundancy (it gets\ncalled when we install R-core, then again when we install R-java, for\nexample), but it isn't harmful.\n\nBy then changing the BuildRequires in the R-rJava package from R-devel\nto R-java-devel, I was able to get that package to build properly.\n\nThere are several advantages to these metapackages:\n\n1. Users who want an R install that comes with the Fedora OpenJDK\npreconfigured can yum install R-java.\n2. Developers who want an R development environment that has the Fedora\nOpenJDK preconfigured can yum install R-java-devel.\n3. It does not change the default behavior of the R-core, R-devel (and\nR) packages.\n4. Any addon R modules that require java to be present and configured\ncan now use BuildRequires: R-java-devel and be built for Fedora in koji.\n\nIf you have any questions about this change, please feel free to ask! :)\n\nThanks,\n\n~spot",
+      "body_snippet": "Pierre asked me on irc this afternoon to help him get R-rJava building,\nand when I looked at it, I discovered what was wrong.\n\nThe Fedora R-core package (the minimum bits needed to get R working)\ndoes",
+      "thread_id": "thread-49ce3392bec3",
+      "thread_depth": 0,
+      "month": "2009-03"
+    },
+    {
+      "id": "msg-9ade820346a9",
+      "message_id": "<1237887056.3002.1.camel@localhost.localdomain>",
+      "from_name": "Pierre-Yves Chibon",
+      "from_email_hash": "47e30c199d3131f08c959f22c4f67ea9e57a1a82a5b6363bb242a1766ac73fe5",
+      "date": "2009-03-24T09:30:56Z",
+      "subject": "Re: [Fedora-r-devel-list] R-java and R-java-devel",
+      "subject_clean": "[Fedora-r-devel-list] R-java and R-java-devel",
+      "in_reply_to": "<49C83FAD.4090201@redhat.com>",
+      "references": [],
+      "body_plain": "On Mon, 2009-03-23 at 22:04 -0400, Tom \"spot\" Callaway wrote:\n\n> There are several advantages to these metapackages:\n> \n> 1. Users who want an R install that comes with the Fedora OpenJDK\n> preconfigured can yum install R-java.\n> 2. Developers who want an R development environment that has the Fedora\n> OpenJDK preconfigured can yum install R-java-devel.\n> 3. It does not change the default behavior of the R-core, R-devel (and\n> R) packages.\n> 4. Any addon R modules that require java to be present and configured\n> can now use BuildRequires: R-java-devel and be built for Fedora in koji.\n> \n> If you have any questions about this change, please feel free to ask! :)\n\nWhile we are at this, could we add something in /etc/profile.d/ to set\nR_HOME to /usr/lib{64}/R ?\n\nI can also include it in R-rJava to make user's life easier :)\n\nThanks,\nRegards,\n\nPierre",
+      "body_snippet": "On Mon, 2009-03-23 at 22:04 -0400, Tom \"spot\" Callaway wrote:\n\n> There are several advantages to these metapackages:\n> \n> 1. Users who want an R install that comes with the Fedora OpenJDK\n> preconfigu",
+      "thread_id": "thread-49ce3392bec3",
+      "thread_depth": 1,
+      "month": "2009-03"
+    },
+    {
+      "id": "msg-00a22b460f1d",
+      "message_id": "<49C8D6B2.90709@redhat.com>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2009-03-24T12:48:50Z",
+      "subject": "Re: [Fedora-r-devel-list] R-java and R-java-devel",
+      "subject_clean": "[Fedora-r-devel-list] R-java and R-java-devel",
+      "in_reply_to": "<1237887056.3002.1.camel@localhost.localdomain>",
+      "references": [],
+      "body_plain": "On 03/24/2009 05:30 AM, Pierre-Yves wrote:\n\n> While we are at this, could we add something in /etc/profile.d/ to set\n> R_HOME to /usr/lib{64}/R ?\n> \n> I can also include it in R-rJava to make user's life easier :)\n\nR_HOME should always be determined by asking R (R RHOME), so this isn't\nnecessary.\n\n~spot",
+      "body_snippet": "On 03/24/2009 05:30 AM, Pierre-Yves wrote:\n\n> While we are at this, could we add something in /etc/profile.d/ to set\n> R_HOME to /usr/lib{64}/R ?\n> \n> I can also include it in R-rJava to make user's l",
+      "thread_id": "thread-49ce3392bec3",
+      "thread_depth": 2,
+      "month": "2009-03"
+    },
+    {
+      "id": "msg-3b9ce3d47c51",
+      "message_id": "<1238174252.19046.0.camel@localhost.localdomain>",
+      "from_name": "Martyn Plummer",
+      "from_email_hash": "a172213f54d02d8c46cd36ac95c2aaea4439b79c8fce553fb5a7295ac50db5d7",
+      "date": "2009-03-27T17:17:32Z",
+      "subject": "[Fedora-r-devel-list] R RPM requirements",
+      "subject_clean": "[Fedora-r-devel-list] R RPM requirements",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "One of the topics that came up during the thread \"R-devel going away\"\nwas that R-devel has a rather heavy set of requirements.   \n\nSome of these looked implausible to me, even though I am probably\nresponsible for putting them in in the first place.  This prompted me to\ngo back to basics and work out what the requirements of R-core and\nR-devel should really be.  I wrote a document in December, but never\ncirculated them for some reason. You can find it here (PDF document and\nLaTeX source):\n\nhttp://calvin.iarc.fr/~martyn/software/R\n\nIt may look like heavy going, but you can skip to the conclusions if you\nget bored. The bottom line is that a lot of the current requirements of\nR-devel can be dropped, but there are also a few other requirements that\nshould, in principle, be added.\n\nIf you do find it useful, it could go in a wiki so that it can be kept\nup to date.  \n\nMartyn\n\n\n\n\n-----------------------------------------------------------------------\nThis message and its attachments are strictly confidential. If you are\nnot the intended recipient of this message, please immediately notify \nthe sender and delete it. Since its integrity cannot be guaranteed, \nits content cannot involve the sender's responsibility. Any misuse, \nany disclosure or publication of its content, either whole or partial, \nis prohibited, exception made of formally approved use\n-----------------------------------------------------------------------",
+      "body_snippet": "One of the topics that came up during the thread \"R-devel going away\"\nwas that R-devel has a rather heavy set of requirements.   \n\nSome of these looked implausible to me, even though I am probably\nres",
+      "thread_id": "thread-3b9ce3d47c51",
+      "thread_depth": 0,
+      "month": "2009-03"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-f70981b26c23",
+      "subject": "[Fedora-r-devel-list] -devel packages",
+      "message_count": 2,
+      "participants": [
+        "Pierre-Yves Chibon",
+        "Tom Callaway"
+      ],
+      "started": "2009-03-16T21:09:17Z",
+      "last_reply": "2009-03-16T21:21:33Z",
+      "root_message_id": "msg-f70981b26c23"
+    },
+    {
+      "id": "thread-cc7fb091b9ae",
+      "subject": "[Fedora-r-devel-list] Update the guidelines",
+      "message_count": 1,
+      "participants": [
+        "Pierre-Yves Chibon"
+      ],
+      "started": "2009-03-21T18:59:59Z",
+      "last_reply": "2009-03-21T18:59:59Z",
+      "root_message_id": "msg-cc7fb091b9ae"
+    },
+    {
+      "id": "thread-22c318a7a9b7",
+      "subject": "[Fedora-r-devel-list] Update R2spec",
+      "message_count": 2,
+      "participants": [
+        "Dan Bolser",
+        "Pierre-Yves Chibon"
+      ],
+      "started": "2009-03-22T21:11:46Z",
+      "last_reply": "2009-03-23T09:12:45Z",
+      "root_message_id": "msg-22c318a7a9b7"
+    },
+    {
+      "id": "thread-49ce3392bec3",
+      "subject": "[Fedora-r-devel-list] R-java and R-java-devel",
+      "message_count": 3,
+      "participants": [
+        "Pierre-Yves Chibon",
+        "Tom Callaway"
+      ],
+      "started": "2009-03-24T02:04:29Z",
+      "last_reply": "2009-03-24T12:48:50Z",
+      "root_message_id": "msg-49ce3392bec3"
+    },
+    {
+      "id": "thread-3b9ce3d47c51",
+      "subject": "[Fedora-r-devel-list] R RPM requirements",
+      "message_count": 1,
+      "participants": [
+        "Martyn Plummer"
+      ],
+      "started": "2009-03-27T17:17:32Z",
+      "last_reply": "2009-03-27T17:17:32Z",
+      "root_message_id": "msg-3b9ce3d47c51"
+    }
+  ]
+}

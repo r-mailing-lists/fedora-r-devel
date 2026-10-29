@@ -1,0 +1,130 @@
+{
+  "list": "fedora-r-devel",
+  "description": "",
+  "month": "2007-04",
+  "messages": [
+    {
+      "id": "msg-f28dd19eebdc",
+      "message_id": "<200704241725.34403.jamatos@fc.up.pt>",
+      "from_name": "José Abílio Matos",
+      "from_email_hash": "1830ccfc475fe0f52edb74ac1163b69778ceb8ac957cc168f6b6335828c0e855",
+      "date": "2007-04-24T16:25:34Z",
+      "subject": "[Fedora-r-devel-list] R 2.5.0",
+      "subject_clean": "[Fedora-r-devel-list] R 2.5.0",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hi,\n\tthe version 2.5.0 is out. Any estimate for it to arrive Fedora, I am asking \nbecause of the rebuilds that are necessary when the main package is requested \nto avoid breaking updates. The latest updates to my packages already take \ncare of any possible incompatibility with this version... :-)\n\n\tCheers,\n-- \nJosé Abílio",
+      "body_snippet": "Hi,\n\tthe version 2.5.0 is out. Any estimate for it to arrive Fedora, I am asking \nbecause of the rebuilds that are necessary when the main package is requested \nto avoid breaking updates. The latest u",
+      "thread_id": "thread-f28dd19eebdc",
+      "thread_depth": 0,
+      "month": "2007-04"
+    },
+    {
+      "id": "msg-587b59506f7b",
+      "message_id": "<1177434169.5956.35.camel@localhost.localdomain>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2007-04-24T17:02:49Z",
+      "subject": "Re: [Fedora-r-devel-list] R 2.5.0",
+      "subject_clean": "[Fedora-r-devel-list] R 2.5.0",
+      "in_reply_to": "<200704241725.34403.jamatos@fc.up.pt>",
+      "references": [],
+      "body_plain": "On Tue, 2007-04-24 at 17:25 +0100, José Matos wrote:\n> Hi,\n> \tthe version 2.5.0 is out. Any estimate for it to arrive Fedora, I am asking \n> because of the rebuilds that are necessary when the main package is requested \n> to avoid breaking updates. The latest updates to my packages already take \n> care of any possible incompatibility with this version... :-)\n\nThe tarball hasn't hit the server yet. I was planning on doing a rebuild\ntonight.\n\n~spot",
+      "body_snippet": "On Tue, 2007-04-24 at 17:25 +0100, José Matos wrote:\n> Hi,\n> \tthe version 2.5.0 is out. Any estimate for it to arrive Fedora, I am asking \n> because of the rebuilds that are necessary when the main pa",
+      "thread_id": "thread-f28dd19eebdc",
+      "thread_depth": 1,
+      "month": "2007-04"
+    },
+    {
+      "id": "msg-97992b27ddec",
+      "message_id": "<1177599207.5956.52.camel@localhost.localdomain>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2007-04-26T14:53:27Z",
+      "subject": "Re: [Fedora-r-devel-list] R 2.5.0",
+      "subject_clean": "[Fedora-r-devel-list] R 2.5.0",
+      "in_reply_to": "<1177434169.5956.35.camel@localhost.localdomain>",
+      "references": [],
+      "body_plain": "On Tue, 2007-04-24 at 12:02 -0500, Tom \"spot\" Callaway wrote:\n> On Tue, 2007-04-24 at 17:25 +0100, José Matos wrote:\n> > Hi,\n> > \tthe version 2.5.0 is out. Any estimate for it to arrive Fedora, I am asking \n> > because of the rebuilds that are necessary when the main package is requested \n> > to avoid breaking updates. The latest updates to my packages already take \n> > care of any possible incompatibility with this version... :-)\n> \n> The tarball hasn't hit the server yet. I was planning on doing a rebuild\n> tonight.\n\nR 2.5.0 is in the repos now. Please rebuild anything that needs\nrebuilding.\n\n~spot",
+      "body_snippet": "On Tue, 2007-04-24 at 12:02 -0500, Tom \"spot\" Callaway wrote:\n> On Tue, 2007-04-24 at 17:25 +0100, José Matos wrote:\n> > Hi,\n> > \tthe version 2.5.0 is out. Any estimate for it to arrive Fedora, I am a",
+      "thread_id": "thread-f28dd19eebdc",
+      "thread_depth": 2,
+      "month": "2007-04"
+    },
+    {
+      "id": "msg-6fa07eaacaa4",
+      "message_id": "<46310A55.5000001@moertel.com>",
+      "from_name": "Tom Moertel",
+      "from_email_hash": "94bcf83c2370774c47749bcb5dfdeb5e391f0e4b1cb0f31a5e3e01f448d753a2",
+      "date": "2007-04-26T20:23:49Z",
+      "subject": "[Fedora-r-devel-list] Re: Additional R packages [arm, car, lme4, Matrix, coda, leaps, mlmRev] for Extras?",
+      "subject_clean": "[Fedora-r-devel-list] Re: Additional R packages [arm, car, lme4, Matrix, coda, leaps, mlmRev] for Extras?",
+      "in_reply_to": "<200704261858.16807.jamatos@fc.up.pt>",
+      "references": [],
+      "body_plain": "José,\n\nThanks for your help.  Now, on to your comments:\n\nJosé Matos wrote:\n> Tom may I suggest that you join fedora-r-devel-list(a)redhat.com\n\nDone.\n\nI'm cc:ing this email to the list, too, mainly because of the discussion \non R packaging work-arounds, which probably ought to be archived.  For \nthe same reason, I'm leaving more context in this email than I normally \nwould.\n\nTom Moertel wrote:\n>> For my internal use, I have packaged a number of R packages for FC6:\n>>\n>>      * R-arm-1.0-2\n>>      * R-car-1.2-1\n>>      * R-lme4-0.9975-1\n>>      * R-Matrix-0.9975-1\n>>      * R-R2WinBUGS-2.0-1\n>>      * R-coda-0.10-1\n>>      * R-leaps-2.7-1\n>>      * R-mlmRev-0.995-1\n>>\n>> Corresponding specs:\n>> http://community.moertel.com/rpms/fedora/6/SPECS/\n>>\n>> For more details:\n>> http://blog.moertel.com/articles/2007/04/25/new-fedora-core-rpms-for-cran-packages\n\n>   Are you aware of cran2rpmspec? \n> http://www.fc.up.pt/pessoas/jamatos/R/cran2rpmspec\n\nNo, I was completely unaware of cran2rpmspec.  That would have made my \njob a bit easier.  ;-)\n\nThanks for pointing it out (and for writing it).\n\n>> Do you think there would be sufficient benefit to the Fedora community\n>> to merit adding these packages to Extras?  If so, would you mind helping\n>> me get the packages into shape for submission?\n> \n>   Sure on both issues. :-)\n\nGreat!\n\nI assume that normally my next steps would be to create review requests \nfor the packages, get sponsored, get a Fedora Account, check in my \npackages, and eventually queue up builds for my packages.  Does that \nseem right?\n\nLooking ahead to that last step, how does the build system handle weird \nbuild-order requirements?  Can the system, for example, infer from \nBuildRequires statements that it must build and install the R-Matrix \npackage before it can try to build R-arm?  (I couldn't find out how \nPlague deals with dependencies from my search of the wiki.)\n\n>> In any case, I ran into some difficulties during packaging.  Can I ask\n>> for your advice?\n>>\n>> First, how do you deal with circular dependencies among R packages?  The\n>> lme4 CRAN package, for example, \"suggests\" mlmRev, but mlmRev \"depends\"\n>> on lme4.  Thus the %check stage's \"R CMD check\" for each of the packages\n>> tries to require the other package, which prevents either from building.\n>>   I worked around this problem by disabling the %check stage of\n>> R-mlmRev, building that package first, installing it, and then building\n>> R-lme4, whose %check I left intact.  (Since mlmRev is mainly data files,\n>> I felt its check was more expendable.)\n>>\n>> Can you suggest a better way of dealing with circular dependencies?\n> \n>   The real solution would be for rpm to support these concepts. I think that \n> this will come, but for the moment a bootstrap solution like the one you have \n> used is necessary.\n\nWhat's the preferred method to automate the bootstrap solution?  Should \nI write a script that builds the collection of packages?\n\n>> Second, R2WinBUGS depends on BRugs, which doesn't build on Linux (yet).\n>>     As a result, the \"R CMD check\" for R-R2WinBUGS fails during the\n>> RPM-building process.  Again, I disabled the %check stage to work around\n>> this problem.  The result is a partially broken R-R2WinBUGS package, but\n>> the packages that depend upon it tangentially (e.g., R-arm) can still be\n>> built and installed.\n> \n>   If this was a Fedora review I would suggest placing this comment near the \n> referred section.\n\nI already have the following in\nhttp://community.moertel.com/rpms/fedora/6/SPECS/R-mlmRev.spec:\n\n   %check\n   # disable check to avoid circular dependency w/ R-lme4.\n   # since this package is just data files, we disable this package's\n   # check instead of R-lme4's to break the dependency\n   #\n   # cd ..;%{_bindir}/R CMD check %{packname}\n\nIs that what you meant?  Or should I do something else?\n\n>> Can you suggest a better way of dealing with missing dependencies like\n>> BRugs?\n> \n> http://cran.r-project.org/src/contrib/checkSummary.html\n> says that it works. What problems are you getting?\n\nCheckSummary.html does not claim that the package actually installs. \nAnd, in fact, during the install stage it aborts:\n\n   + R CMD INSTALL BRugs -l \\\n     /var/tmp/R-BRugs-0.3-1-root-thor/usr/lib64/R/library\n\n   * Installing *source* package 'BRugs' ...\n     Package 'BRugs' currently only works under Windows.\n     It is supposed to work under Linux in future releases.\n\n   ERROR: configuration failed for package 'BRugs'\n\nIt might be difficult to work around that problem in the RPM spec.  ;-)\n\nThanks again for your help.\n\n>> P.S.  I have also packaged Emacs Speaks Statistics:\n>> http://community.moertel.com/rpms/fedora/5/SPECS/emacs-ess.spec\n> \n> That would be super. :-)\n> My wife asked me for this package but I never got the necessary time to do it.\n\nCoincidentally, ESS 5.3.4 was just released today.\n\nCheers,\nTom",
+      "body_snippet": "José,\n\nThanks for your help.  Now, on to your comments:\n\nJosé Matos wrote:\n> Tom may I suggest that you join fedora-r-devel-list(a)redhat.com\n\nDone.\n\nI'm cc:ing this email to the list, too, mainly bec",
+      "thread_id": "thread-6fa07eaacaa4",
+      "thread_depth": 0,
+      "month": "2007-04"
+    },
+    {
+      "id": "msg-fdd37eaae017",
+      "message_id": "<200704281216.21555.jamatos@fc.up.pt>",
+      "from_name": "José Abílio Matos",
+      "from_email_hash": "1830ccfc475fe0f52edb74ac1163b69778ceb8ac957cc168f6b6335828c0e855",
+      "date": "2007-04-28T11:16:21Z",
+      "subject": "[Fedora-r-devel-list] Re: Additional R packages [arm, car, lme4, Matrix, coda, leaps, mlmRev] for Extras?",
+      "subject_clean": "[Fedora-r-devel-list] Re: Additional R packages [arm, car, lme4, Matrix, coda, leaps, mlmRev] for Extras?",
+      "in_reply_to": "<46310A55.5000001@moertel.com>",
+      "references": [],
+      "body_plain": "On Thursday 26 April 2007 9:23:49 pm Tom Moertel wrote:\n> José,\n>\n> Thanks for your help.  Now, on to your comments:\n\n  No problem. :-)\n\n> José Matos wrote:\n> > Tom may I suggest that you join fedora-r-devel-list(a)redhat.com\n>\n> Done.\n>\n> I'm cc:ing this email to the list, too, mainly because of the discussion\n> on R packaging work-arounds, which probably ought to be archived.  For\n> the same reason, I'm leaving more context in this email than I normally\n> would.\n\n  Thank you, this is important.\n\n> Tom Moertel wrote:\n> >> For my internal use, I have packaged a number of R packages for FC6:\n> >>\n> >>      * R-arm-1.0-2\n> >>      * R-car-1.2-1\n> >>      * R-lme4-0.9975-1\n> >>      * R-Matrix-0.9975-1\n> >>      * R-R2WinBUGS-2.0-1\n> >>      * R-coda-0.10-1\n> >>      * R-leaps-2.7-1\n> >>      * R-mlmRev-0.995-1\n> >>\n> >> Corresponding specs:\n> >> http://community.moertel.com/rpms/fedora/6/SPECS/\n> >>\n> >> For more details:\n> >> http://blog.moertel.com/articles/2007/04/25/new-fedora-core-rpms-for-cra\n> >>n-packages\n> >\n> >   Are you aware of cran2rpmspec?\n> > http://www.fc.up.pt/pessoas/jamatos/R/cran2rpmspec\n>\n> No, I was completely unaware of cran2rpmspec.  That would have made my\n> job a bit easier.  ;-)\n>\n> Thanks for pointing it out (and for writing it).\n\n  FWIW there a bugzilla entry \nhttps://bugzilla.redhat.com/bugzilla/show_bug.cgi?id=215927\n\n  to add a spectemplate for R modules to rpmdevtools. I would like to ask \npeople in this list to comment if there is any omission or error in there as \nthey are asking for our opinion. :-)\n\n  Accordingly to my post there I have updated cran2rpmspec with the \nsuggestions done there.\n\n  So with this template and with cran2rpmspec it should not ever be necessary \nto start from scratch anymore. :-)\n\n> >> Do you think there would be sufficient benefit to the Fedora community\n> >> to merit adding these packages to Extras?  If so, would you mind helping\n> >> me get the packages into shape for submission?\n> >\n> >   Sure on both issues. :-)\n>\n> Great!\n>\n> I assume that normally my next steps would be to create review requests\n> for the packages, get sponsored, get a Fedora Account, check in my\n> packages, and eventually queue up builds for my packages.  Does that\n> seem right?\n>\n> Looking ahead to that last step, how does the build system handle weird\n> build-order requirements?  Can the system, for example, infer from\n> BuildRequires statements that it must build and install the R-Matrix\n> package before it can try to build R-arm?  (I couldn't find out how\n> Plague deals with dependencies from my search of the wiki.)\n>\n> >> In any case, I ran into some difficulties during packaging.  Can I ask\n> >> for your advice?\n> >>\n> >> First, how do you deal with circular dependencies among R packages?  The\n> >> lme4 CRAN package, for example, \"suggests\" mlmRev, but mlmRev \"depends\"\n> >> on lme4.  Thus the %check stage's \"R CMD check\" for each of the packages\n> >> tries to require the other package, which prevents either from building.\n> >>   I worked around this problem by disabling the %check stage of\n> >> R-mlmRev, building that package first, installing it, and then building\n> >> R-lme4, whose %check I left intact.  (Since mlmRev is mainly data files,\n> >> I felt its check was more expendable.)\n> >>\n> >> Can you suggest a better way of dealing with circular dependencies?\n> >\n> >   The real solution would be for rpm to support these concepts. I think\n> > that this will come, but for the moment a bootstrap solution like the one\n> > you have used is necessary.\n>\n> What's the preferred method to automate the bootstrap solution?  Should\n> I write a script that builds the collection of packages?\n\n  No, as I think a bit more on this subject this would fail everytime that we \nupdate to a new R version, because the other library is not there.\n\n  So I advise you to choose which to let only the more important dependency. \nThis is a really an rpm issue and until it is fixed upstream  our fixes are \nonly band-aids. :-(\n\n> >> Second, R2WinBUGS depends on BRugs, which doesn't build on Linux (yet).\n> >>     As a result, the \"R CMD check\" for R-R2WinBUGS fails during the\n> >> RPM-building process.  Again, I disabled the %check stage to work around\n> >> this problem.  The result is a partially broken R-R2WinBUGS package, but\n> >> the packages that depend upon it tangentially (e.g., R-arm) can still be\n> >> built and installed.\n> >\n> >   If this was a Fedora review I would suggest placing this comment near\n> > the referred section.\n>\n> I already have the following in\n> http://community.moertel.com/rpms/fedora/6/SPECS/R-mlmRev.spec:\n>\n>    %check\n>    # disable check to avoid circular dependency w/ R-lme4.\n>    # since this package is just data files, we disable this package's\n>    # check instead of R-lme4's to break the dependency\n>    #\n>    # cd ..;%{_bindir}/R CMD check %{packname}\n>\n> Is that what you meant?  Or should I do something else?\n\n  This is perfect, it explains the reason why the check is commented.\n\n> >> Can you suggest a better way of dealing with missing dependencies like\n> >> BRugs?\n> >\n> > http://cran.r-project.org/src/contrib/checkSummary.html\n> > says that it works. What problems are you getting?\n>\n> CheckSummary.html does not claim that the package actually installs.\n> And, in fact, during the install stage it aborts:\n>\n>    + R CMD INSTALL BRugs -l \\\n>      /var/tmp/R-BRugs-0.3-1-root-thor/usr/lib64/R/library\n>\n>    * Installing *source* package 'BRugs' ...\n>      Package 'BRugs' currently only works under Windows.\n>      It is supposed to work under Linux in future releases.\n>\n>    ERROR: configuration failed for package 'BRugs'\n>\n> It might be difficult to work around that problem in the RPM spec.  ;-)\n\n  I agree. :-)\n  Again this is an upstream issue.\n\n> Thanks again for your help.\n>\n> >> P.S.  I have also packaged Emacs Speaks Statistics:\n> >> http://community.moertel.com/rpms/fedora/5/SPECS/emacs-ess.spec\n> >\n> > That would be super. :-)\n> > My wife asked me for this package but I never got the necessary time to\n> > do it.\n>\n> Coincidentally, ESS 5.3.4 was just released today.\n\n  This together with the news coming from emacs 22 and 23 fronts are indeed \ngreat news. :-)\n\n> Cheers,\n> Tom\n\nPS: Usually I do trim the content of replies but in this case it was not \nobvious where to do it so I left. I am sorry for the redundant info. :-)\n\n-- \nJosé Abílio",
+      "body_snippet": "On Thursday 26 April 2007 9:23:49 pm Tom Moertel wrote:\n> José,\n>\n> Thanks for your help.  Now, on to your comments:\n\n  No problem. :-)\n\n> José Matos wrote:\n> > Tom may I suggest that you join fedora-",
+      "thread_id": "thread-6fa07eaacaa4",
+      "thread_depth": 1,
+      "month": "2007-04"
+    },
+    {
+      "id": "msg-8d2ff34e4146",
+      "message_id": "<1177769674.5934.7.camel@localhost.localdomain>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2007-04-28T14:14:34Z",
+      "subject": "Re: [Fedora-r-devel-list] Re: Additional R packages [arm, car, lme4, Matrix, coda, leaps, mlmRev] for Extras?",
+      "subject_clean": "[Fedora-r-devel-list] Re: Additional R packages [arm, car, lme4, Matrix, coda, leaps, mlmRev] for Extras?",
+      "in_reply_to": "<46310A55.5000001@moertel.com>",
+      "references": [],
+      "body_plain": "On Thu, 2007-04-26 at 16:23 -0400, Tom Moertel wrote:\n> Looking ahead to that last step, how does the build system handle\n> weird \n> build-order requirements?  Can the system, for example, infer from \n> BuildRequires statements that it must build and install the R-Matrix \n> package before it can try to build R-arm?  (I couldn't find out how \n> Plague deals with dependencies from my search of the wiki.)\n\nSortof. mock builds a chroot with all of the BuildRequires (and the\nRequires of those packages) installed, so if it is already built, it\nwill be pulled in. If a BuildRequire isn't built yet (aka, not in the\nFedora repository), that build will fail in the prep stage.\n\n~spot",
+      "body_snippet": "On Thu, 2007-04-26 at 16:23 -0400, Tom Moertel wrote:\n> Looking ahead to that last step, how does the build system handle\n> weird \n> build-order requirements?  Can the system, for example, infer from ",
+      "thread_id": "thread-6fa07eaacaa4",
+      "thread_depth": 1,
+      "month": "2007-04"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-f28dd19eebdc",
+      "subject": "[Fedora-r-devel-list] R 2.5.0",
+      "message_count": 3,
+      "participants": [
+        "José Abílio Matos",
+        "Tom Callaway"
+      ],
+      "started": "2007-04-24T16:25:34Z",
+      "last_reply": "2007-04-26T14:53:27Z",
+      "root_message_id": "msg-f28dd19eebdc"
+    },
+    {
+      "id": "thread-6fa07eaacaa4",
+      "subject": "[Fedora-r-devel-list] Re: Additional R packages [arm, car, lme4, Matrix, coda, leaps, mlmRev] for Extras?",
+      "message_count": 3,
+      "participants": [
+        "José Abílio Matos",
+        "Tom Callaway",
+        "Tom Moertel"
+      ],
+      "started": "2007-04-26T20:23:49Z",
+      "last_reply": "2007-04-28T14:14:34Z",
+      "root_message_id": "msg-6fa07eaacaa4"
+    }
+  ]
+}

@@ -1,0 +1,122 @@
+{
+  "list": "fedora-r-devel",
+  "description": "",
+  "month": "2008-07",
+  "messages": [
+    {
+      "id": "msg-0c555466a73e",
+      "message_id": "<1215528456.3214.15.camel@localhost.localdomain>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2008-07-08T14:47:36Z",
+      "subject": "[Fedora-r-devel-list] R 2.7.1",
+      "subject_clean": "[Fedora-r-devel-list] R 2.7.1",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "R 2.7.1 is coming real soon now. It's built for F-8, F-9, and rawhide\nnow, rpy is building against it for F-8 and F-9 now (its done in\nrawhide).\n\nWhen the updates hit testing, it would be helpful if you guys could test\nand give karma so it can go into stable quickly. I will post the links\nwhen they are done.\n\nThanks,\n\n~spot",
+      "body_snippet": "R 2.7.1 is coming real soon now. It's built for F-8, F-9, and rawhide\nnow, rpy is building against it for F-8 and F-9 now (its done in\nrawhide).\n\nWhen the updates hit testing, it would be helpful if y",
+      "thread_id": "thread-0c555466a73e",
+      "thread_depth": 0,
+      "month": "2008-07"
+    },
+    {
+      "id": "msg-348da01a57d8",
+      "message_id": "<1215528554.3214.17.camel@localhost.localdomain>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2008-07-08T14:49:14Z",
+      "subject": "[Fedora-r-devel-list] New CRAN packages in Fedora need reviews",
+      "subject_clean": "[Fedora-r-devel-list] New CRAN packages in Fedora need reviews",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "I built a few CRAN packages today that looked useful. If anyone wants to\nhelp review these, I'd appreciate it:\n\nhttps://bugzilla.redhat.com/show_bug.cgi?id=454439 (R-nws)\nhttps://bugzilla.redhat.com/show_bug.cgi?id=454440 (R-biglm)\nhttps://bugzilla.redhat.com/show_bug.cgi?id=454441 (R-bigmemory)\n\nThanks in advance,\n\n~spot",
+      "body_snippet": "I built a few CRAN packages today that looked useful. If anyone wants to\nhelp review these, I'd appreciate it:\n\nhttps://bugzilla.redhat.com/show_bug.cgi?id=454439 (R-nws)\nhttps://bugzilla.redhat.com/s",
+      "thread_id": "thread-348da01a57d8",
+      "thread_depth": 0,
+      "month": "2008-07"
+    },
+    {
+      "id": "msg-41219d291e67",
+      "message_id": "<1215536550.3214.63.camel@localhost.localdomain>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2008-07-08T17:02:30Z",
+      "subject": "Re: [Fedora-r-devel-list] R 2.7.1",
+      "subject_clean": "[Fedora-r-devel-list] R 2.7.1",
+      "in_reply_to": "<1215528456.3214.15.camel@localhost.localdomain>",
+      "references": [],
+      "body_plain": "On Tue, 2008-07-08 at 10:47 -0400, Tom \"spot\" Callaway wrote:\n> R 2.7.1 is coming real soon now. It's built for F-8, F-9, and rawhide\n> now, rpy is building against it for F-8 and F-9 now (its done in\n> rawhide).\n> \n> When the updates hit testing, it would be helpful if you guys could test\n> and give karma so it can go into stable quickly. I will post the links\n> when they are done.\n\nF-8:\nhttps://admin.fedoraproject.org/updates/F8/pending/rpy-1.0.3-2.fc8,R-2.7.1-1.fc8\n\nF-9: \nhttps://admin.fedoraproject.org/updates/F9/pending/rpy-1.0.3-2.fc9,R-2.7.1-1.fc9\n\n~spot",
+      "body_snippet": "On Tue, 2008-07-08 at 10:47 -0400, Tom \"spot\" Callaway wrote:\n> R 2.7.1 is coming real soon now. It's built for F-8, F-9, and rawhide\n> now, rpy is building against it for F-8 and F-9 now (its done in",
+      "thread_id": "thread-0c555466a73e",
+      "thread_depth": 1,
+      "month": "2008-07"
+    },
+    {
+      "id": "msg-43f9f5abdacf",
+      "message_id": "<4882104D.8060705@pingoured.fr>",
+      "from_name": "Pierre-Yves Chibon",
+      "from_email_hash": "47e30c199d3131f08c959f22c4f67ea9e57a1a82a5b6363bb242a1766ac73fe5",
+      "date": "2008-07-19T16:03:25Z",
+      "subject": "Re: [Fedora-r-devel-list] Bioconductor in Fedora",
+      "subject_clean": "[Fedora-r-devel-list] Bioconductor in Fedora",
+      "in_reply_to": "<ttlk8cadjp.fsf@allele2.eebweb.arizona.edu>",
+      "references": [],
+      "body_plain": "Alex Lancaster wrote:\n> This is just a heads-up about packaging of Bioconductor.  \n\nThis last email was some time ago and the situation evolved a bit.\n\nWe have now more R libraries in Fedora and 15 libraries from \nBioconductor. I have been talking about Bioconductor with Alex and we \nend with the idea that having at least the most important libraries of \nbioconductor available on Fedora would probably be a nice feature for \nbioinformaticians.\n\nI have made a draft version of this feature :\nhttps://fedoraproject.org/wiki/Features/Bioconductor\n\nBut I think some point should be discussed about bioconductor :\n* What should we do about the metadata and the experiment data packages \nthat are required (well in fact suggested most of the time)?\nThose libraries contain only data. For the couple of package of this \ntype that we have already in Fedora the solution until now has been to \nask real-eng to inherit the tag between the version (from F-7 to devel). \nThis process would solved quite some place on the server but have the \nproblem that we have to annoy the real-eng for each package/update.\n\n* Would it be possible to have a group package such as users just have \nto type /yum install bioconductor/ to get the basis package of \nbioconductor ?\n\n* Is there a way to categorize the packages such as the user can easily \nfound what packages from Bioconductor are available on the repo ?\n\n* The list of packages to do in order to have the main packages of \nBioconductor is (I expect, I have not checked yet) around 60 to 70.\nI can maintain some but I don't want to do all myself, especially since \nmy situation might change quite a bit in January.\nCreating the specfile is not hard, here is a small python script that \nhelps to generate the specfile [1]\nMaintaining those packages is not really difficult, there is 1 release \nevery 6 month (for each major release of R).\nI developed a small python script [2] that handle most of the work, I \nstill have some ideas to improve it (I want to really personalize it for \nBioconductor packages).\n\nSo to conclude\n* I think having Bioconductor in Fedora is a nice Feature\n* I cannot make it on my own, but I have no problem to coordinate things \nin order that we build a group that could handle both the packaging and \nthe maintaining of the packages.\n\n\nThanks to have read my bad English all the way to here :)\nLet me know what you think of this,\n\nBest regards,\n\nPierre\n\n\nP.S. If you think that the project is nice, maybe we could look for more \npeople through the devel mailing list ?\n\n[1] http://pingoured.fr/public/R2spec_1.3.py\n[2] http://pingoured.fr/public/updateCVS_0.2.py",
+      "body_snippet": "Alex Lancaster wrote:\n> This is just a heads-up about packaging of Bioconductor.  \n\nThis last email was some time ago and the situation evolved a bit.\n\nWe have now more R libraries in Fedora and 15 li",
+      "thread_id": "thread-43f9f5abdacf",
+      "thread_depth": 0,
+      "month": "2008-07"
+    },
+    {
+      "id": "msg-3179d71c02c0",
+      "message_id": "<488DB38D.2040709@pingoured.fr>",
+      "from_name": "Pierre-Yves Chibon",
+      "from_email_hash": "47e30c199d3131f08c959f22c4f67ea9e57a1a82a5b6363bb242a1766ac73fe5",
+      "date": "2008-07-28T11:54:53Z",
+      "subject": "Re: [Fedora-r-devel-list] Bioconductor in Fedora",
+      "subject_clean": "[Fedora-r-devel-list] Bioconductor in Fedora",
+      "in_reply_to": "<4882104D.8060705@pingoured.fr>",
+      "references": [],
+      "body_plain": "Pierre-Yves wrote:\n> Alex Lancaster wrote:\n>> This is just a heads-up about packaging of Bioconductor.  \n> \n> This last email was some time ago and the situation evolved a bit.\n<snip />\n> * The list of packages to do in order to have the main packages of \n> Bioconductor is (I expect, I have not checked yet) around 60 to 70.\n> I can maintain some but I don't want to do all myself, especially since \n> my situation might change quite a bit in January.\n> Creating the specfile is not hard, here is a small python script that \n> helps to generate the specfile [1]\n> Maintaining those packages is not really difficult, there is 1 release \n> every 6 month (for each major release of R).\n> I developed a small python script [2] that handle most of the work, I \n> still have some ideas to improve it (I want to really personalize it for \n> Bioconductor packages).\n\n\nI have been looking a bit at the dependencies question.\nThere is 20 main libraries of Bioconductor  (based on what the biocLite \nscript install by default). The list is presented here\nhttps://fedoraproject.org/wiki/Features/Bioconductor#Scope\n\nWith the help of Torbjorn on #R (irc.freenode.net) I modified a small \nperl script[1] that goes on the bioconductor SVN and for each packages \nretrieve both the depends and suggests dependencies.\nThe results is available here:\nhttp://pingou.fedorapeople.org/Bioconductor/Dependencies2\nTo compare with\nhttp://pingou.fedorapeople.org/Bioconductor/Dependencies\nWhen there is only the Depends taken into account.\n\n From that list I used this script[2] to process the dependencies and \nsub-dependencies that we would need to package.\nThe results are presented here:\nDepends+Suggests:\nhttp://pingou.fedorapeople.org/Bioconductor/Dependencies-Depends_Suggests.txt\nDepends only:\nhttp://pingou.fedorapeople.org/Bioconductor/Depedencies-Depends.txt\n\nThe number of libraries to package jump from 36 to 75 if we take into \naccount the Suggests dependencies.\nThis only takes into account the dependencies of the software part of \nBioconductor, the libraries called 'metadata' or 'experiment data' which \nI believe can also have sub-dependencies are not presented here.\n\nThis can give us some insight on where to start.\nHowever I would like to know what you, guys, think of the question \ndependencies \"Depends\" vs \"Depends+Suggests\".\n\"Suggests\" add more work and leads to the problem of circular references \nquite often...\n\nI have not heard from you about the global idea, do you \nlike/appreciate/don't care about it ? (cross out the wrong option)\n\nRegards,\n\nPierre\n\n\n[1] http://pingou.fedorapeople.org/Bioconductor/bio.pl\n[2] http://pingou.fedorapeople.org/Bioconductor/showDep_1.1.py",
+      "body_snippet": "Pierre-Yves wrote:\n> Alex Lancaster wrote:\n>> This is just a heads-up about packaging of Bioconductor.  \n> \n> This last email was some time ago and the situation evolved a bit.\n<snip />\n> * The list o",
+      "thread_id": "thread-43f9f5abdacf",
+      "thread_depth": 1,
+      "month": "2008-07"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-0c555466a73e",
+      "subject": "[Fedora-r-devel-list] R 2.7.1",
+      "message_count": 2,
+      "participants": [
+        "Tom Callaway"
+      ],
+      "started": "2008-07-08T14:47:36Z",
+      "last_reply": "2008-07-08T17:02:30Z",
+      "root_message_id": "msg-0c555466a73e"
+    },
+    {
+      "id": "thread-348da01a57d8",
+      "subject": "[Fedora-r-devel-list] New CRAN packages in Fedora need reviews",
+      "message_count": 1,
+      "participants": [
+        "Tom Callaway"
+      ],
+      "started": "2008-07-08T14:49:14Z",
+      "last_reply": "2008-07-08T14:49:14Z",
+      "root_message_id": "msg-348da01a57d8"
+    },
+    {
+      "id": "thread-43f9f5abdacf",
+      "subject": "[Fedora-r-devel-list] Bioconductor in Fedora",
+      "message_count": 2,
+      "participants": [
+        "Pierre-Yves Chibon"
+      ],
+      "started": "2008-07-19T16:03:25Z",
+      "last_reply": "2008-07-28T11:54:53Z",
+      "root_message_id": "msg-43f9f5abdacf"
+    }
+  ]
+}

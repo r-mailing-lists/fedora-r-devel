@@ -1,0 +1,145 @@
+{
+  "list": "fedora-r-devel",
+  "description": "",
+  "month": "2009-11",
+  "messages": [
+    {
+      "id": "msg-cff4dc610474",
+      "message_id": "<4AF32A8C.6010904@redhat.com>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2009-11-05T19:42:04Z",
+      "subject": "[Fedora-r-devel-list] R 2.10.0 updates",
+      "subject_clean": "[Fedora-r-devel-list] R 2.10.0 updates",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Sorry that this one didn't make it in time to be tagged for Fedora 12,\nbut it will be available as a 0day update.\n\nFedora 10:\nhttps://admin.fedoraproject.org/updates/rpy-1.0.3-13.fc10,R-2.10.0-1.fc10\n\nFedora 11:\nhttps://admin.fedoraproject.org/updates/rpy-2.0.6-7.fc11,R-2.10.0-1.fc11\n\nFedora 12:\nhttps://admin.fedoraproject.org/updates/rpy-2.0.6-7.fc12,R-2.10.0-1.fc12\n\nEL-4: https://admin.fedoraproject.org/updates/R-2.10.0-1.el4\n\nEL-5: https://admin.fedoraproject.org/updates/R-2.10.0-1.el5\n\nRemember that EL-4 and EL-5 updates for R have to sit in updates-testing\nfor 3 weeks, unless they receive 3 \"positive\" karma votes. If you use\nthese packages and you want them to hit the updates repository sooner,\nplease test them and give feedback at the above links.\n\nThanks,\n\n~spot",
+      "body_snippet": "Sorry that this one didn't make it in time to be tagged for Fedora 12,\nbut it will be available as a 0day update.\n\nFedora 10:\nhttps://admin.fedoraproject.org/updates/rpy-1.0.3-13.fc10,R-2.10.0-1.fc10\n",
+      "thread_id": "thread-cff4dc610474",
+      "thread_depth": 0,
+      "month": "2009-11"
+    },
+    {
+      "id": "msg-2c59d5ca6c7a",
+      "message_id": "<4AF79B42.1010403@redhat.com>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2009-11-09T04:32:02Z",
+      "subject": "Re: [Fedora-r-devel-list] R 2.10.0 updates",
+      "subject_clean": "[Fedora-r-devel-list] R 2.10.0 updates",
+      "in_reply_to": "<4AF32A8C.6010904@redhat.com>",
+      "references": [],
+      "body_plain": "On 11/06/2009 05:42 AM, Tom \"spot\" Callaway wrote:\n> Sorry that this one didn't make it in time to be tagged for Fedora 12,\n> but it will be available as a 0day update.\n\nBrown-paper bag fix available to resolve scriptlet noise. With 2.10.0,\nwe no longer need to generate search index.txt from the modules\n\"CONTENTS\" files.\n\nWe can also stop using the macro for the %post/%postun scriptlets in all\nR module packages, but for now, the script checks the version of R and\nonly runs the index.txt generation bits if R < 2.10.0 (basically, a noop\nfor everything we care about).\n\nWe probably need to coordinate a rebuild of all R modules as part of\nthis, so it might not be a bad time to drop the %_R_make_search_index\nscriptlet macro everywhere.\n\nHere's the links to the new update:\n\nFedora 10:\nhttps://admin.fedoraproject.org/updates/R-2.10.0-2.fc10\n\nFedora 11:\nhttps://admin.fedoraproject.org/updates/R-2.10.0-2.fc11\n\nFedora 12:\nhttps://admin.fedoraproject.org/updates/R-2.10.0-2.fc12\n\nEL-4:\nhttps://admin.fedoraproject.org/updates/R-2.10.0-2.el4\n\nEL-5:\nhttps://admin.fedoraproject.org/updates/R-2.10.0-2.el5\n\nRemember that EL-4 and EL-5 updates for R have to sit in updates-testing\nfor 3 weeks, unless they receive 3 \"positive\" karma votes. If you use\nthese packages and you want them to hit the updates repository sooner,\nplease test them and give feedback at the above links.\n\n~spot",
+      "body_snippet": "On 11/06/2009 05:42 AM, Tom \"spot\" Callaway wrote:\n> Sorry that this one didn't make it in time to be tagged for Fedora 12,\n> but it will be available as a 0day update.\n\nBrown-paper bag fix available ",
+      "thread_id": "thread-cff4dc610474",
+      "thread_depth": 1,
+      "month": "2009-11"
+    },
+    {
+      "id": "msg-fe19e0d596c9",
+      "message_id": "<1258667008.6413.1.camel@red.pingoured.fr>",
+      "from_name": "Pierre-Yves Chibon",
+      "from_email_hash": "47e30c199d3131f08c959f22c4f67ea9e57a1a82a5b6363bb242a1766ac73fe5",
+      "date": "2009-11-19T21:43:28Z",
+      "subject": "Re: [Fedora-r-devel-list] R 2.10.0 updates",
+      "subject_clean": "[Fedora-r-devel-list] R 2.10.0 updates",
+      "in_reply_to": "<4AF79B42.1010403@redhat.com>",
+      "references": [],
+      "body_plain": "On Mon, 2009-11-09 at 14:32 +1000, Tom \"spot\" Callaway wrote:\n> We can also stop using the macro for the %post/%postun scriptlets in\n> all\n> R module packages, but for now, the script checks the version of R and\n> only runs the index.txt generation bits if R < 2.10.0 (basically, a\n> noop\n> for everything we care about).\n> \n> We probably need to coordinate a rebuild of all R modules as part of\n> this, so it might not be a bad time to drop the %_R_make_search_index\n> scriptlet macro everywhere.\n\nI am planning on rebuilding all my bioconductor package to their latest\nversion this week-end (hopefully fixing all the FTBFS, they all do!).\nI will kick out the %post and %postun at the same time.\n\nShall I also fix this in R2spec ?\n\nThanks,\n\nPierre",
+      "body_snippet": "On Mon, 2009-11-09 at 14:32 +1000, Tom \"spot\" Callaway wrote:\n> We can also stop using the macro for the %post/%postun scriptlets in\n> all\n> R module packages, but for now, the script checks the versi",
+      "thread_id": "thread-cff4dc610474",
+      "thread_depth": 2,
+      "month": "2009-11"
+    },
+    {
+      "id": "msg-fd2668b3789a",
+      "message_id": "<4B05BE09.3000007@redhat.com>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2009-11-19T21:52:09Z",
+      "subject": "Re: [Fedora-r-devel-list] R 2.10.0 updates",
+      "subject_clean": "[Fedora-r-devel-list] R 2.10.0 updates",
+      "in_reply_to": "<1258667008.6413.1.camel@red.pingoured.fr>",
+      "references": [],
+      "body_plain": "On 11/19/2009 04:43 PM, Pierre-Yves wrote:\n> On Mon, 2009-11-09 at 14:32 +1000, Tom \"spot\" Callaway wrote:\n>> We can also stop using the macro for the %post/%postun scriptlets in\n>> all\n>> R module packages, but for now, the script checks the version of R and\n>> only runs the index.txt generation bits if R < 2.10.0 (basically, a\n>> noop\n>> for everything we care about).\n>>\n>> We probably need to coordinate a rebuild of all R modules as part of\n>> this, so it might not be a bad time to drop the %_R_make_search_index\n>> scriptlet macro everywhere.\n> \n> I am planning on rebuilding all my bioconductor package to their latest\n> version this week-end (hopefully fixing all the FTBFS, they all do!).\n> I will kick out the %post and %postun at the same time.\n> \n> Shall I also fix this in R2spec ?\n\nSounds like a plan.\n\n~spot",
+      "body_snippet": "On 11/19/2009 04:43 PM, Pierre-Yves wrote:\n> On Mon, 2009-11-09 at 14:32 +1000, Tom \"spot\" Callaway wrote:\n>> We can also stop using the macro for the %post/%postun scriptlets in\n>> all\n>> R module pa",
+      "thread_id": "thread-cff4dc610474",
+      "thread_depth": 3,
+      "month": "2009-11"
+    },
+    {
+      "id": "msg-0508ed3b6af3",
+      "message_id": "<200911192330.38773.jamatos@fc.up.pt>",
+      "from_name": "José Abílio Matos",
+      "from_email_hash": "1830ccfc475fe0f52edb74ac1163b69778ceb8ac957cc168f6b6335828c0e855",
+      "date": "2009-11-19T23:30:38Z",
+      "subject": "Re: [Fedora-r-devel-list] R 2.10.0 updates",
+      "subject_clean": "[Fedora-r-devel-list] R 2.10.0 updates",
+      "in_reply_to": "<1258667008.6413.1.camel@red.pingoured.fr>",
+      "references": [],
+      "body_plain": "On Thursday 19 November 2009 21:43:28 Pierre-Yves wrote:\n> Shall I also fix this in R2spec ?\n\nFWIW you have my moral support. ;-)\n\nThink of it as your good deed of the day. :-)\n\n> Thanks,\n> \n> Pierre\n\n-- \nJosé Abílio",
+      "body_snippet": "On Thursday 19 November 2009 21:43:28 Pierre-Yves wrote:\n> Shall I also fix this in R2spec ?\n\nFWIW you have my moral support. ;-)\n\nThink of it as your good deed of the day. :-)\n\n> Thanks,\n> \n> Pierre\n",
+      "thread_id": "thread-cff4dc610474",
+      "thread_depth": 3,
+      "month": "2009-11"
+    },
+    {
+      "id": "msg-a177b0cfe7ca",
+      "message_id": "<BLU106-W16F3FB94BC2B5C5DB75E07CAA00@phx.gbl>",
+      "from_name": "Jack Tanner",
+      "from_email_hash": "eb551c3f5ddd6c6fdcee8e277b450b1545ca32bf724ce40af3e20de143939bde",
+      "date": "2009-11-21T06:05:05Z",
+      "subject": "[Fedora-r-devel-list] 2.10 weirdness?",
+      "subject_clean": "[Fedora-r-devel-list] 2.10 weirdness?",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "I'm trying to track down a bizarre R thing on 2.10-2; could someone try reproducing this (not necessarily under the same environment) and post if this works or not?\n\nlibrary(ggplot2)\n\n# This works for me on CentOS w/ 2.10-2; there's a foo.png that has the plot\n\npng(\"foo.png\", type=\"cairo\")\n qplot(factor(cyl), data=mtcars, geom=\"bar\")\ndev.off()\n\n# This doesn't produce foo.png\n\nfoo <- function() {\n  png(\"foo.png\", type=\"cairo\")\n  qplot(factor(cyl), data=mtcars, geom=\"bar\")\n  dev.off()\n}\nfoo()\n \nI'm stumped!\n \t\t \t   \t\t  \n_________________________________________________________________\nBing brings you maps, menus, and reviews organized in one place.\nhttp://www.bing.com/search?q=restaurants&form=MFESRP&publ=WLHMTAG&crea=TEXT_MFESRP_Local_MapsMenu_Resturants_1x1",
+      "body_snippet": "I'm trying to track down a bizarre R thing on 2.10-2; could someone try reproducing this (not necessarily under the same environment) and post if this works or not?\n\nlibrary(ggplot2)\n\n# This works for",
+      "thread_id": "thread-a177b0cfe7ca",
+      "thread_depth": 0,
+      "month": "2009-11"
+    },
+    {
+      "id": "msg-168cc8cfacde",
+      "message_id": "<1258895152.7430.4.camel@red.pingoured.fr>",
+      "from_name": "Pierre-Yves Chibon",
+      "from_email_hash": "47e30c199d3131f08c959f22c4f67ea9e57a1a82a5b6363bb242a1766ac73fe5",
+      "date": "2009-11-22T13:05:52Z",
+      "subject": "Re: [Fedora-r-devel-list] R 2.10.0 updates",
+      "subject_clean": "[Fedora-r-devel-list] R 2.10.0 updates",
+      "in_reply_to": "<1258667008.6413.1.camel@red.pingoured.fr>",
+      "references": [],
+      "body_plain": "On Thu, 2009-11-19 at 22:43 +0100, Pierre-Yves wrote:\n> \n> I am planning on rebuilding all my bioconductor package to their\n> latest\n> version this week-end (hopefully fixing all the FTBFS, they all do!).\n> I will kick out the %post and %postun at the same time.\n\nAs you might have seen on the rawhide report, the updates are done at\nthe CVS level. 13 packages are built and wait to be pushed on testing\nthe other will come in the coming 2 weeks I think.\n\nAlso, the list of package in Fedora has been updated by Remi for the\nlatest version of bioconductor:\nhttp://rpms.famillecollet.com/rpmphp/rpm.php?type=R\nHe also created a page per package with some information (for example:\nhttp://rpms.famillecollet.com/rpmphp/zoom.php?rpm=R-abind )\n\nGood week-end,\n\nPierre",
+      "body_snippet": "On Thu, 2009-11-19 at 22:43 +0100, Pierre-Yves wrote:\n> \n> I am planning on rebuilding all my bioconductor package to their\n> latest\n> version this week-end (hopefully fixing all the FTBFS, they all d",
+      "thread_id": "thread-cff4dc610474",
+      "thread_depth": 3,
+      "month": "2009-11"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-cff4dc610474",
+      "subject": "[Fedora-r-devel-list] R 2.10.0 updates",
+      "message_count": 6,
+      "participants": [
+        "José Abílio Matos",
+        "Pierre-Yves Chibon",
+        "Tom Callaway"
+      ],
+      "started": "2009-11-05T19:42:04Z",
+      "last_reply": "2009-11-22T13:05:52Z",
+      "root_message_id": "msg-cff4dc610474"
+    },
+    {
+      "id": "thread-a177b0cfe7ca",
+      "subject": "[Fedora-r-devel-list] 2.10 weirdness?",
+      "message_count": 1,
+      "participants": [
+        "Jack Tanner"
+      ],
+      "started": "2009-11-21T06:05:05Z",
+      "last_reply": "2009-11-21T06:05:05Z",
+      "root_message_id": "msg-a177b0cfe7ca"
+    }
+  ]
+}

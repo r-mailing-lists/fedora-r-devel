@@ -1,0 +1,36 @@
+{
+  "list": "fedora-r-devel",
+  "description": "",
+  "month": "2007-09",
+  "messages": [
+    {
+      "id": "msg-c0a96c4b75b5",
+      "message_id": "<46F97F7F.8030704@yahoo.fr>",
+      "from_name": "pingou",
+      "from_email_hash": "f8cc247920d6e32e5cc5a95c54569d12b4aa06dbff169bafe7e0d3aeae53a4d2",
+      "date": "2007-09-25T21:37:03Z",
+      "subject": "[Fedora-r-devel-list] How to handle already installed libraries ?",
+      "subject_clean": "[Fedora-r-devel-list] How to handle already installed libraries ?",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hi all,\n\nMaking some packages, and having \"some\" problems with the dependencies,\nI was wondering if it possible to increment a sort of R CMD check2 that\ndo all the steps of the R CMD check except the \"* checking package\ndependencies\".\n\nThat would help to process all the check command and avoid the circular\nreferences problem, which is quite common.\nThis command would obviously be used only if the normal command can not\nbe used.\n\nWhat do you think of ?\nIs it possible ?\n\nThanks in advance\n~pingou\n\n\t\n\n\t\n\n\t\n\n\t\n\t\t\n___________________________________________________________________________ \nYahoo! Mail réinvente le mail ! Découvrez le nouveau Yahoo! Mail et son interface révolutionnaire.\nhttp://fr.mail.yahoo.com",
+      "body_snippet": "Hi all,\n\nMaking some packages, and having \"some\" problems with the dependencies,\nI was wondering if it possible to increment a sort of R CMD check2 that\ndo all the steps of the R CMD check except the ",
+      "thread_id": "thread-c0a96c4b75b5",
+      "thread_depth": 0,
+      "month": "2007-09"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-c0a96c4b75b5",
+      "subject": "[Fedora-r-devel-list] How to handle already installed libraries ?",
+      "message_count": 1,
+      "participants": [
+        "pingou"
+      ],
+      "started": "2007-09-25T21:37:03Z",
+      "last_reply": "2007-09-25T21:37:03Z",
+      "root_message_id": "msg-c0a96c4b75b5"
+    }
+  ]
+}

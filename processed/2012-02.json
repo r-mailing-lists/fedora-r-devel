@@ -1,0 +1,53 @@
+{
+  "list": "fedora-r-devel",
+  "description": "",
+  "month": "2012-02",
+  "messages": [
+    {
+      "id": "msg-da50575e8f78",
+      "message_id": "<4F4E7AA4.9050805@fc.up.pt>",
+      "from_name": "José Abílio Matos",
+      "from_email_hash": "1830ccfc475fe0f52edb74ac1163b69778ceb8ac957cc168f6b6335828c0e855",
+      "date": "2012-02-29T19:21:08Z",
+      "subject": "Re: [Fedora-r-devel-list] R-repo",
+      "subject_clean": "[Fedora-r-devel-list] R-repo",
+      "in_reply_to": "<1325666605.21884.6.camel@pingouambre.dyndns.org>",
+      "references": [],
+      "body_plain": "On 01/04/2012 08:43 AM, Pierre-Yves Chibon wrote:\n> Dear all,\n>\n> To the great despair of spot, I have started to build CRAN and\n> Bioconductor :-)\n> This time, I am trying to make things cleaner and more accessible.\n>\n> I just uploaded all the spec files on github:\n> https://github.com/pypingou/R-repo-spec\n> and the scripts on:\n> https://github.com/pypingou/R-repo-utility\n>\n> The whole project is hosted at http://r-repo.org\n>\n> At the moment everything is still in a early stage (for example, the\n> r-repo-release rpm is not even done yet), but if you configure the repo\n> by hand, you should be able to get RPMs.\n>\n> At least this time, if work becomes overwhelming again, what has been\n> done will remain accessible :-)\n>\n> I would prefer to not announce this officially just yet, but some\n> feedback be nice (thus this email). So if you feel like testing and are\n> facing problem, let me know!\n>\n> Hope this helps,\n> Best regards,\n> Pierre\n\nAfter almost two months going on what is the outcome of this project?\n\nBack in September I wanted to package some R libraries and it took some\ntime to get all the packages due to the build requirement of each\npackage, I had to unravel the dependencies while deciding what was\nnecessary to bootstrap the process, and not even speaking about circular\nreferences. Clearly a fun project... :-)\n\nSo this always makes a fun read. :-)\n\n-- \nJosé Matos",
+      "body_snippet": "On 01/04/2012 08:43 AM, Pierre-Yves Chibon wrote:\n> Dear all,\n>\n> To the great despair of spot, I have started to build CRAN and\n> Bioconductor :-)\n> This time, I am trying to make things cleaner and ",
+      "thread_id": "thread-da50575e8f78",
+      "thread_depth": 0,
+      "month": "2012-02"
+    },
+    {
+      "id": "msg-af1d0670593b",
+      "message_id": "<1330550479.12592.34.camel@ambre.pingoured.fr>",
+      "from_name": "Pierre-Yves Chibon",
+      "from_email_hash": "47e30c199d3131f08c959f22c4f67ea9e57a1a82a5b6363bb242a1766ac73fe5",
+      "date": "2012-02-29T21:21:19Z",
+      "subject": "Re: [Fedora-r-devel-list] R-repo",
+      "subject_clean": "[Fedora-r-devel-list] R-repo",
+      "in_reply_to": "<4F4E7AA4.9050805@fc.up.pt>",
+      "references": [],
+      "body_plain": "On Wed, 2012-02-29 at 19:21 +0000, José Matos wrote:\n> \n> After almost two months going on what is the outcome of this project?\n\nWell the structure is there and a number of rpms available.\nI have started on the update mechanism but I have only got around the\nfirst round.\nThe spec are on github and I have no problem giving the rights to commit\nif people are interested (<hint>, <hint> ;-)).\n\n> Back in September I wanted to package some R libraries and it took\n> some time to get all the packages due to the build requirement of each\n> package, I had to unravel the dependencies while deciding what was\n> necessary to bootstrap the process, and not even speaking about\n> circular references. Clearly a fun project... :-) \n\n<irony>hm R ? circular dependencies? I think I've heard about that once\nor twice </irony>\n\nPierre",
+      "body_snippet": "On Wed, 2012-02-29 at 19:21 +0000, José Matos wrote:\n> \n> After almost two months going on what is the outcome of this project?\n\nWell the structure is there and a number of rpms available.\nI have star",
+      "thread_id": "thread-da50575e8f78",
+      "thread_depth": 1,
+      "month": "2012-02"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-da50575e8f78",
+      "subject": "[Fedora-r-devel-list] R-repo",
+      "message_count": 2,
+      "participants": [
+        "José Abílio Matos",
+        "Pierre-Yves Chibon"
+      ],
+      "started": "2012-02-29T19:21:08Z",
+      "last_reply": "2012-02-29T21:21:19Z",
+      "root_message_id": "msg-da50575e8f78"
+    }
+  ]
+}

@@ -1,0 +1,97 @@
+{
+  "list": "fedora-r-devel",
+  "description": "",
+  "month": "2011-11",
+  "messages": [
+    {
+      "id": "msg-233d359a990b",
+      "message_id": "<4EAFD86A.8090509@fc.up.pt>",
+      "from_name": "José Abílio Matos",
+      "from_email_hash": "1830ccfc475fe0f52edb74ac1163b69778ceb8ac957cc168f6b6335828c0e855",
+      "date": "2011-11-01T11:30:50Z",
+      "subject": "[Fedora-r-devel-list] Plans for 2.14.0",
+      "subject_clean": "[Fedora-r-devel-list] Plans for 2.14.0",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hi Tom,\n    what are your plans for 2.14.0? I am asking in light of the\ndevelopment plan of R.\n\n    Specifically, in this case, I am interested on the F-16 case.\n\n    Regards,\n\n-- \nJosé Matos",
+      "body_snippet": "Hi Tom,\n    what are your plans for 2.14.0? I am asking in light of the\ndevelopment plan of R.\n\n    Specifically, in this case, I am interested on the F-16 case.\n\n    Regards,\n\n-- \nJosé Matos",
+      "thread_id": "thread-233d359a990b",
+      "thread_depth": 0,
+      "month": "2011-11"
+    },
+    {
+      "id": "msg-8d48b1d61f0f",
+      "message_id": "<4EB2453F.30907@googlemail.com>",
+      "from_name": "Johannes Lips",
+      "from_email_hash": "33d656706b477da350cb6e3d8df54f341ce1dee64e2036b8eb321da246be1a3b",
+      "date": "2011-11-03T07:39:43Z",
+      "subject": "Re: [Fedora-r-devel-list] Plans for 2.14.0",
+      "subject_clean": "[Fedora-r-devel-list] Plans for 2.14.0",
+      "in_reply_to": "<4EAFD86A.8090509@fc.up.pt>",
+      "references": [],
+      "body_plain": "Hi,\n\nI just filed a bug about this:\nhttps://bugzilla.redhat.com/show_bug.cgi?id=751003\n\nJohannes\nOn 11/01/2011 12:30 PM, José Matos wrote:\n> Hi Tom,\n>      what are your plans for 2.14.0? I am asking in light of the\n> development plan of R.\n>\n>      Specifically, in this case, I am interested on the F-16 case.\n>\n>      Regards,\n>",
+      "body_snippet": "Hi,\n\nI just filed a bug about this:\nhttps://bugzilla.redhat.com/show_bug.cgi?id=751003\n\nJohannes\nOn 11/01/2011 12:30 PM, José Matos wrote:\n> Hi Tom,\n>      what are your plans for 2.14.0? I am asking ",
+      "thread_id": "thread-233d359a990b",
+      "thread_depth": 1,
+      "month": "2011-11"
+    },
+    {
+      "id": "msg-7de0a88b10f5",
+      "message_id": "<1320308108.30989.15.camel@pingouambre.dyndns.org>",
+      "from_name": "Pierre-Yves Chibon",
+      "from_email_hash": "47e30c199d3131f08c959f22c4f67ea9e57a1a82a5b6363bb242a1766ac73fe5",
+      "date": "2011-11-03T08:15:08Z",
+      "subject": "Re: [Fedora-r-devel-list] Plans for 2.14.0",
+      "subject_clean": "[Fedora-r-devel-list] Plans for 2.14.0",
+      "in_reply_to": "<4EB2453F.30907@googlemail.com>",
+      "references": [],
+      "body_plain": "On Thu, 2011-11-03 at 08:39 +0100, Johannes Lips wrote:\n> Hi,\n> \n> I just filed a bug about this:\n> https://bugzilla.redhat.com/show_bug.cgi?id=751003\n\nWe were discussing about this yesterday with spot.\nThe question was related to this:\n    o All packages must have a namespace, and one is created on\n      installation if not supplied in the sources.  This means that any\n      package without a namespace must be re-installed under this\n      version of R (but previously-installed data-only packages without\n      R code can still be used).\n\nSo we have 64 (-1 false positive) R packages in Fedora and all the one\nwhich \n1) are not data-only packages\n2) do not already contain a namespace\nhave to be rebuilt.\n\nBy first look, I think we have 6 data-only packages:\nR-affydata, R-BSgenome.Celegans.UCSC.ce2, R-fibroEset, R-hgu133acdf,\nR-hgu95av2cdf, R-hgu95av2probe \n\nSo 57 packages would be affected by condition one.\nBy simple grep, 42 packages have a namespace from this 42 I can see that\nR-BSgenome.Celegans.UCSC.ce2 is in.\n\nSo we would have to rebuild: 63 - 6 - 41 = 16 packages, sounds duable.\n\nI might have done an error or miss something but that gives us a first\nclue.\n\nHope this helps,\nPierre\n\n\n\nWhat I did:\n1) list of R packages:\n$ pkgdb-cli list R-\\*\n... \nTotal: 64 packages\n2) Clone all of them:\n$ for pkg in `pkgdb-cli list R-\\* --nameonly`; do fedpkg clone $pkg;\ndone;\n3) Get all the packages with namespace:\n$ grep namespace -iR ./R-* |wc -l\n42",
+      "body_snippet": "On Thu, 2011-11-03 at 08:39 +0100, Johannes Lips wrote:\n> Hi,\n> \n> I just filed a bug about this:\n> https://bugzilla.redhat.com/show_bug.cgi?id=751003\n\nWe were discussing about this yesterday with spo",
+      "thread_id": "thread-233d359a990b",
+      "thread_depth": 2,
+      "month": "2011-11"
+    },
+    {
+      "id": "msg-7546a4d2682d",
+      "message_id": "<1321130310.2425.506.camel@pingouambre.dyndns.org>",
+      "from_name": "Pierre-Yves Chibon",
+      "from_email_hash": "47e30c199d3131f08c959f22c4f67ea9e57a1a82a5b6363bb242a1766ac73fe5",
+      "date": "2011-11-12T20:38:30Z",
+      "subject": "[Fedora-r-devel-list] Calls for tester",
+      "subject_clean": "[Fedora-r-devel-list] Calls for tester",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Good day everyone,\n\nAs indicated on the planet, I just re-wrote almost completely R2spec,\ntried to make the code cleaner.\n\nThis means that if you have code relying on it, it will most likely\nbreak with this update, but I hope you'll find the new code\ncleaner/easier to work with.\n\nOn the other-side I added things like unit-tests so I am confident the\ncode does what it's supposed to but I would appreciate if some of you\nhad/took the time to test it.\n\nFeel free to shout any complains you may have,\nThanks,\nPierre\n\nUpdate are:\nF15: https://admin.fedoraproject.org/updates/R2spec-4.0.0-1.fc15\nF16: https://admin.fedoraproject.org/updates/R2spec-4.0.0-1.fc16\nEL5: https://admin.fedoraproject.org/updates/R2spec-4.0.0-1.el5\nEL6: https://admin.fedoraproject.org/updates/R2spec-4.0.0-1.el6",
+      "body_snippet": "Good day everyone,\n\nAs indicated on the planet, I just re-wrote almost completely R2spec,\ntried to make the code cleaner.\n\nThis means that if you have code relying on it, it will most likely\nbreak wit",
+      "thread_id": "thread-7546a4d2682d",
+      "thread_depth": 0,
+      "month": "2011-11"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-233d359a990b",
+      "subject": "[Fedora-r-devel-list] Plans for 2.14.0",
+      "message_count": 3,
+      "participants": [
+        "Johannes Lips",
+        "José Abílio Matos",
+        "Pierre-Yves Chibon"
+      ],
+      "started": "2011-11-01T11:30:50Z",
+      "last_reply": "2011-11-03T08:15:08Z",
+      "root_message_id": "msg-233d359a990b"
+    },
+    {
+      "id": "thread-7546a4d2682d",
+      "subject": "[Fedora-r-devel-list] Calls for tester",
+      "message_count": 1,
+      "participants": [
+        "Pierre-Yves Chibon"
+      ],
+      "started": "2011-11-12T20:38:30Z",
+      "last_reply": "2011-11-12T20:38:30Z",
+      "root_message_id": "msg-7546a4d2682d"
+    }
+  ]
+}

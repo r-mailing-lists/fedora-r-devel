@@ -1,0 +1,36 @@
+{
+  "list": "fedora-r-devel",
+  "description": "",
+  "month": "2010-12",
+  "messages": [
+    {
+      "id": "msg-63d05b585bd4",
+      "message_id": "<4D0F9912.3040301@redhat.com>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2010-12-20T17:57:38Z",
+      "subject": "[Fedora-r-devel-list] R 2.12.1 in Fedora Updates Testing",
+      "subject_clean": "[Fedora-r-devel-list] R 2.12.1 in Fedora Updates Testing",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "R 2.12.1 is built now for Fedora and EPEL. It is in \"updates-testing\"\n(or it will be within the next 24 hours).\n\nIn accordance with the new policies on Fedora Updates, these new\npackages will not be pushed as official updates until they either\nreceive positive testing from users, or sit in updates-testing for two\nweeks.\n\nYou can help us test these packages, and move them forward. Here's how:\n\n1. Go to the Fedora Updates web application (its real name is \"Bodhi\"):\nhttps://admin.fedoraproject.org/updates/\n\nOnce you're there, click the login blue box at the top left, and login\nwith your Fedora Account. If you don't have a Fedora Account, you can\ngive feedback, but it doesn't count towards giving the update positive\nkarma. For that reason, I would strongly recommend that you take 45\nseconds and create a Fedora Account. :)\n\n2. Click on the link for the Fedora R test update that matches your release:\n\nFedora 13:\nhttps://admin.fedoraproject.org/updates/rkward-0.5.4-2.fc13,rpy-2.0.8-6.fc13,R-2.12.1-1.fc13\n\nFedora 14:\nhttps://admin.fedoraproject.org/updates/rkward-0.5.4-2.fc14,rpy-2.1.9-1.fc14,R-2.12.1-1.fc14\n\nEPEL-4 (RHEL-4):\nhttps://admin.fedoraproject.org/updates/R-2.12.1-1.el4\n\nEPEL-5 (RHEL-5):\nhttps://admin.fedoraproject.org/updates/R-2.12.1-1.el5\n\n3. Now, on your Fedora (or RHEL) system, run this command (as root, or\nwith root privs) to install the test update:\n\nyum --enablerepo=updates-testing update R\n\nThat should update R to the test update (if you don't want the full R\nsuite, you can replace \"R\" in that string with \"R-core\").\n\n4. Test it! Make sure it does all the things you would expect it to.\n\n5. Go back to the web page for the R update (step 2), and at\nthe bottom, click \"Add a comment >>\"\n\n(If you didn't login, it will ask you for an email address and make you\ncomplete a captcha to make sure you are a unique individual.)\n\nIn that text box which opens up, write a little bit about the testing\nyou did and if it works okay for you or not. Then (this is the important\npart), click the \"Works for me\" or \"Does not work\" radio button below\nit, and click the Add Comment button.\n\n6. That's it! If it worked, you've given that update a +1 karma vote.\n(If it didn't work, you've given it a -1 karma vote). Now, if three\npeople (with Fedora Accounts) give a +1, and the package update gets to\n+3, the Fedora Update system will automatically move the update from\ntesting to a real update, and everyone will get it.\n\nThanks in advance,\n\nTom Callaway, Fedora/EPEL R maintainer",
+      "body_snippet": "R 2.12.1 is built now for Fedora and EPEL. It is in \"updates-testing\"\n(or it will be within the next 24 hours).\n\nIn accordance with the new policies on Fedora Updates, these new\npackages will not be p",
+      "thread_id": "thread-63d05b585bd4",
+      "thread_depth": 0,
+      "month": "2010-12"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-63d05b585bd4",
+      "subject": "[Fedora-r-devel-list] R 2.12.1 in Fedora Updates Testing",
+      "message_count": 1,
+      "participants": [
+        "Tom Callaway"
+      ],
+      "started": "2010-12-20T17:57:38Z",
+      "last_reply": "2010-12-20T17:57:38Z",
+      "root_message_id": "msg-63d05b585bd4"
+    }
+  ]
+}

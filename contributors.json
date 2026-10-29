@@ -1,0 +1,255 @@
+[
+  {
+    "name": "Pierre-Yves Chibon",
+    "slug": "pierre-yves-chibon",
+    "emailHash": "47e30c199d3131f08c959f22c4f67ea9e57a1a82a5b6363bb242a1766ac73fe5",
+    "messageCount": 96,
+    "firstDate": "2008-04-23T09:44:38Z",
+    "lastDate": "2013-03-04T18:05:59Z",
+    "yearlyActivity": {
+      "2008": 19,
+      "2009": 34,
+      "2010": 26,
+      "2011": 10,
+      "2012": 6,
+      "2013": 1
+    }
+  },
+  {
+    "name": "Tom Callaway",
+    "slug": "tom-callaway",
+    "emailHash": "4c62ad279bd6222ba841f6ee81e7796b9d37828a7872803f2e701c687ad903ea",
+    "messageCount": 81,
+    "firstDate": "2006-04-25T00:09:35Z",
+    "lastDate": "2015-07-10T17:46:42Z",
+    "yearlyActivity": {
+      "2006": 8,
+      "2007": 17,
+      "2008": 19,
+      "2009": 27,
+      "2010": 9,
+      "2015": 1
+    }
+  },
+  {
+    "name": "José Abílio Matos",
+    "slug": "jos-ab-lio-matos",
+    "emailHash": "0d9183ac197a7cd8696df1f4ae2b48fe2b41a6d43d867f3205290c5d5f156da1",
+    "messageCount": 71,
+    "firstDate": "2006-04-26T11:18:30Z",
+    "lastDate": "2020-03-15T21:24:13Z",
+    "yearlyActivity": {
+      "2006": 8,
+      "2007": 11,
+      "2008": 13,
+      "2009": 15,
+      "2010": 10,
+      "2011": 3,
+      "2012": 6,
+      "2014": 1,
+      "2015": 2,
+      "2017": 1,
+      "2020": 1
+    }
+  },
+  {
+    "name": "Allen S. Rout",
+    "slug": "allen-s-rout",
+    "emailHash": "daab5e2a3be01a71a28f5aaeadf6670eb8b6207f60048fe46968e068daeb44b6",
+    "messageCount": 28,
+    "firstDate": "2009-09-03T18:22:21Z",
+    "lastDate": "2012-06-15T13:09:24Z",
+    "yearlyActivity": {
+      "2009": 16,
+      "2010": 3,
+      "2011": 8,
+      "2012": 1
+    }
+  },
+  {
+    "name": "pingou",
+    "slug": "pingou",
+    "emailHash": "f8cc247920d6e32e5cc5a95c54569d12b4aa06dbff169bafe7e0d3aeae53a4d2",
+    "messageCount": 25,
+    "firstDate": "2007-05-23T20:22:51Z",
+    "lastDate": "2008-02-18T18:36:15Z",
+    "yearlyActivity": {
+      "2007": 21,
+      "2008": 4
+    }
+  },
+  {
+    "name": "Tom Moertel",
+    "slug": "tom-moertel",
+    "emailHash": "94bcf83c2370774c47749bcb5dfdeb5e391f0e4b1cb0f31a5e3e01f448d753a2",
+    "messageCount": 12,
+    "firstDate": "2007-04-26T20:23:49Z",
+    "lastDate": "2009-09-23T23:29:05Z",
+    "yearlyActivity": {
+      "2007": 5,
+      "2009": 7
+    }
+  },
+  {
+    "name": "Martyn Plummer",
+    "slug": "martyn-plummer",
+    "emailHash": "0c6b60e42ec85b9a5447e51fb212047674afc522c0008c5411433f7a7d34514c",
+    "messageCount": 11,
+    "firstDate": "2009-03-27T17:17:32Z",
+    "lastDate": "2015-07-08T13:48:22Z",
+    "yearlyActivity": {
+      "2009": 10,
+      "2015": 1
+    }
+  },
+  {
+    "name": "Patrice Dumas",
+    "slug": "patrice-dumas",
+    "emailHash": "175027c067de6b8c82d986b6fdb65d7cd0b27af4fbba56feaf32d146ecb22d36",
+    "messageCount": 8,
+    "firstDate": "2007-07-07T08:48:43Z",
+    "lastDate": "2008-09-15T14:46:06Z",
+    "yearlyActivity": {
+      "2007": 5,
+      "2008": 3
+    }
+  },
+  {
+    "name": "Dan Bolser",
+    "slug": "dan-bolser",
+    "emailHash": "67a9076c733a86ea6e6c9bc7ba8c0b60fbdecc5e9e6a4791158310dfba72fe51",
+    "messageCount": 8,
+    "firstDate": "2008-08-31T12:35:55Z",
+    "lastDate": "2010-07-06T12:23:44Z",
+    "yearlyActivity": {
+      "2008": 5,
+      "2009": 2,
+      "2010": 1
+    }
+  },
+  {
+    "name": "Alex Lancaster",
+    "slug": "alex-lancaster",
+    "emailHash": "ca2ea0e8cc83c3fd818996ce3f6e3079ece4d81ba254bb32a17afa952a5f95de",
+    "messageCount": 8,
+    "firstDate": "2007-12-02T23:21:14Z",
+    "lastDate": "2009-02-21T08:54:52Z",
+    "yearlyActivity": {
+      "2007": 1,
+      "2008": 5,
+      "2009": 2
+    }
+  },
+  {
+    "name": "Jack Tanner",
+    "slug": "jack-tanner",
+    "emailHash": "05d5de428494aa3777b56653254dfe0c2761fe8cf0ec64831c3ec99770ff599d",
+    "messageCount": 7,
+    "firstDate": "2009-07-24T21:01:02Z",
+    "lastDate": "2009-11-21T06:05:05Z",
+    "yearlyActivity": {
+      "2009": 7
+    }
+  },
+  {
+    "name": "George N. White III",
+    "slug": "george-n-white-iii",
+    "emailHash": "13c4ca8c291d531d24f94fc032b0b549b28c3328d2c3f0bc7801e0994d9792b7",
+    "messageCount": 6,
+    "firstDate": "2008-08-20T21:04:09Z",
+    "lastDate": "2008-12-08T19:15:41Z",
+    "yearlyActivity": {
+      "2008": 6
+    }
+  },
+  {
+    "name": "R P Herrold",
+    "slug": "r-p-herrold",
+    "emailHash": "8f819f1ffefcd7f91b6d674101d9301a6c8f051205d3e030166b710a4ab433c7",
+    "messageCount": 4,
+    "firstDate": "2009-07-13T14:55:05Z",
+    "lastDate": "2009-09-30T17:27:32Z",
+    "yearlyActivity": {
+      "2009": 4
+    }
+  },
+  {
+    "name": "Orlando Ramirez",
+    "slug": "orlando-ramirez",
+    "emailHash": "3cf702777f242260cda3175fcf8aa33c2a6fd0dd2dc625e994bb512649c67e40",
+    "messageCount": 3,
+    "firstDate": "2020-03-15T21:05:46Z",
+    "lastDate": "2020-03-20T08:46:39Z",
+    "yearlyActivity": {
+      "2020": 3
+    }
+  },
+  {
+    "name": "William Emmanuel S. Yu",
+    "slug": "william-emmanuel-s-yu",
+    "emailHash": "b2c03c2cbe77ff206823adbdbf0cb971a37edd1d0426f77fc606ee9dd4178c9c",
+    "messageCount": 3,
+    "firstDate": "2012-06-15T12:27:42Z",
+    "lastDate": "2012-10-17T21:24:25Z",
+    "yearlyActivity": {
+      "2012": 3
+    }
+  },
+  {
+    "name": "D.Enrique ESCOBAR ESPINOZA",
+    "slug": "d-enrique-escobar-espinoza",
+    "emailHash": "ce7fa1b95bfeb03d93ccf78cb7a401bc2d3e9fa98b9b661a3fa4c04326f7a153",
+    "messageCount": 3,
+    "firstDate": "2007-12-06T03:47:25Z",
+    "lastDate": "2010-04-24T17:31:51Z",
+    "yearlyActivity": {
+      "2007": 1,
+      "2008": 1,
+      "2010": 1
+    }
+  },
+  {
+    "name": "Johannes Lips",
+    "slug": "johannes-lips",
+    "emailHash": "33d656706b477da350cb6e3d8df54f341ce1dee64e2036b8eb321da246be1a3b",
+    "messageCount": 1,
+    "firstDate": "2011-11-03T07:39:43Z",
+    "lastDate": "2011-11-03T07:39:43Z",
+    "yearlyActivity": {
+      "2011": 1
+    }
+  },
+  {
+    "name": "Guillaume MULLER",
+    "slug": "guillaume-muller",
+    "emailHash": "3c4ebfa6eec80f6344cddbc5bcdd0f794e42da2121d164e0e68fe71d41f8ac9d",
+    "messageCount": 1,
+    "firstDate": "2015-01-22T15:01:18Z",
+    "lastDate": "2015-01-22T15:01:18Z",
+    "yearlyActivity": {
+      "2015": 1
+    }
+  },
+  {
+    "name": "Adam Huffman",
+    "slug": "adam-huffman",
+    "emailHash": "88bc4a5862167153c1af3f46585be4126a283e752041f7009ecde1bbe1ab1560",
+    "messageCount": 1,
+    "firstDate": "2012-01-04T10:27:52Z",
+    "lastDate": "2012-01-04T10:27:52Z",
+    "yearlyActivity": {
+      "2012": 1
+    }
+  },
+  {
+    "name": "Rasmus Ory Nielsen",
+    "slug": "rasmus-ory-nielsen",
+    "emailHash": "a1cb5da6e833f5e56d316da08316e67fd95c24c8df44687b08fb0811d94f3ffd",
+    "messageCount": 1,
+    "firstDate": "2009-09-22T13:19:51Z",
+    "lastDate": "2009-09-22T13:19:51Z",
+    "yearlyActivity": {
+      "2009": 1
+    }
+  }
+]

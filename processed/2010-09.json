@@ -1,0 +1,36 @@
+{
+  "list": "fedora-r-devel",
+  "description": "",
+  "month": "2010-09",
+  "messages": [
+    {
+      "id": "msg-76cc6ecc1de2",
+      "message_id": "<1285087262.7721.33.camel@cyan.pingoured.fr>",
+      "from_name": "Pierre-Yves Chibon",
+      "from_email_hash": "47e30c199d3131f08c959f22c4f67ea9e57a1a82a5b6363bb242a1766ac73fe5",
+      "date": "2010-09-21T16:41:02Z",
+      "subject": "[Fedora-r-devel-list] NeedsWork option",
+      "subject_clean": "[Fedora-r-devel-list] NeedsWork option",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Dear all,\n\nFYI, Remi has updated his scripts so we now have the following page\nsummarizing the packages which need to be updated (+ the usual false\npositive).\n\nhttp://rpms.famillecollet.com/rpmphp/rpm.php?type=R&what=%25work\n\nRegards,\n\nPierre",
+      "body_snippet": "Dear all,\n\nFYI, Remi has updated his scripts so we now have the following page\nsummarizing the packages which need to be updated (+ the usual false\npositive).\n\nhttp://rpms.famillecollet.com/rpmphp/rpm",
+      "thread_id": "thread-76cc6ecc1de2",
+      "thread_depth": 0,
+      "month": "2010-09"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-76cc6ecc1de2",
+      "subject": "[Fedora-r-devel-list] NeedsWork option",
+      "message_count": 1,
+      "participants": [
+        "Pierre-Yves Chibon"
+      ],
+      "started": "2010-09-21T16:41:02Z",
+      "last_reply": "2010-09-21T16:41:02Z",
+      "root_message_id": "msg-76cc6ecc1de2"
+    }
+  ]
+}

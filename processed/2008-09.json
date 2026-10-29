@@ -1,0 +1,120 @@
+{
+  "list": "fedora-r-devel",
+  "description": "",
+  "month": "2008-09",
+  "messages": [
+    {
+      "id": "msg-987d2aff2d65",
+      "message_id": "<1220369772.26352.36.camel@localhost.localdomain>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2008-09-02T15:36:12Z",
+      "subject": "Re: [Fedora-r-devel-list] R2spec new release",
+      "subject_clean": "[Fedora-r-devel-list] R2spec new release",
+      "in_reply_to": "<2c8757af0808311012m5f6c4d1dm26a929c949d58c9c@mail.gmail.com>",
+      "references": [],
+      "body_plain": "On Sun, 2008-08-31 at 18:12 +0100, Dan Bolser wrote:\n\n> Now is there any way to cross check these against what R actually has\n> installed? I am trying to think about ways that the R-installer could\n> be used in combination with the packages... or is the idea to package\n> the whole of CRAN? Where would such a repo be maintained? How would it\n> be kept in sync with CRAN?\n\nWell, I'm certainly not so bored as to want to repackage all of CRAN. :)\n\nI think the safest thing is to query R for what it has installed, and\nnot be concerned about whether it was built manually from CRAN, or\nprovided pre-built by Fedora.\n\n~spot",
+      "body_snippet": "On Sun, 2008-08-31 at 18:12 +0100, Dan Bolser wrote:\n\n> Now is there any way to cross check these against what R actually has\n> installed? I am trying to think about ways that the R-installer could\n> ",
+      "thread_id": "thread-987d2aff2d65",
+      "thread_depth": 0,
+      "month": "2008-09"
+    },
+    {
+      "id": "msg-e16ce44f3197",
+      "message_id": "<2c8757af0809150213j128ae0ebg59013fb9c9b3308f@mail.gmail.com>",
+      "from_name": "Dan Bolser",
+      "from_email_hash": "67a9076c733a86ea6e6c9bc7ba8c0b60fbdecc5e9e6a4791158310dfba72fe51",
+      "date": "2008-09-15T09:13:26Z",
+      "subject": "Re: [Fedora-r-devel-list] R2spec new release",
+      "subject_clean": "[Fedora-r-devel-list] R2spec new release",
+      "in_reply_to": "<1220369772.26352.36.camel@localhost.localdomain>",
+      "references": [],
+      "body_plain": "2008/9/2 Tom spot Callaway <tcallawa(a)redhat.com>:\n> On Sun, 2008-08-31 at 18:12 +0100, Dan Bolser wrote:\n>\n>> Now is there any way to cross check these against what R actually has\n>> installed? I am trying to think about ways that the R-installer could\n>> be used in combination with the packages... or is the idea to package\n>> the whole of CRAN? Where would such a repo be maintained? How would it\n>> be kept in sync with CRAN?\n>\n> Well, I'm certainly not so bored as to want to repackage all of CRAN. :)\n>\n> I think the safest thing is to query R for what it has installed, and\n> not be concerned about whether it was built manually from CRAN, or\n> provided pre-built by Fedora.\n\nOK, and then packages from Fedora with deps in CRAN that have been\nlocally built can be installed right? Can we set up the RPM so that it\ncan 'query R for what it has installed' for the purposes of resolving\nsuch deps?\n\nIs this what happens already?\n\n>\n> ~spot\n>\n> _______________________________________________\n> Fedora-r-devel-list mailing list\n> Fedora-r-devel-list(a)redhat.com\n> http://www.redhat.com/mailman/listinfo/fedora-r-devel-list\n>\n\n\n\n-- \nhttp://network.nature.com/profile/dan",
+      "body_snippet": "2008/9/2 Tom spot Callaway <tcallawa(a)redhat.com>:\n> On Sun, 2008-08-31 at 18:12 +0100, Dan Bolser wrote:\n>\n>> Now is there any way to cross check these against what R actually has\n>> installed? I am",
+      "thread_id": "thread-987d2aff2d65",
+      "thread_depth": 1,
+      "month": "2008-09"
+    },
+    {
+      "id": "msg-2fe984e9d86f",
+      "message_id": "<22af238a0809150411v641540d1nf7e8775d3ea1b54@mail.gmail.com>",
+      "from_name": "George N. White III",
+      "from_email_hash": "4160d858a879aa7ead9c46b2eda88ee4d78cd9eb9a9dee3da7686391a0554be7",
+      "date": "2008-09-15T11:11:00Z",
+      "subject": "Re: [Fedora-r-devel-list] R2spec new release",
+      "subject_clean": "[Fedora-r-devel-list] R2spec new release",
+      "in_reply_to": "<2c8757af0809150213j128ae0ebg59013fb9c9b3308f@mail.gmail.com>",
+      "references": [],
+      "body_plain": "On Mon, Sep 15, 2008 at 6:13 AM, Dan Bolser <dan.bolser(a)gmail.com> wrote:\n\n> 2008/9/2 Tom spot Callaway <tcallawa(a)redhat.com>:\n>> On Sun, 2008-08-31 at 18:12 +0100, Dan Bolser wrote:\n>>\n>>> Now is there any way to cross check these against what R actually has\n>>> installed? I am trying to think about ways that the R-installer could\n>>> be used in combination with the packages... or is the idea to package\n>>> the whole of CRAN? Where would such a repo be maintained? How would it\n>>> be kept in sync with CRAN?\n>>\n>> Well, I'm certainly not so bored as to want to repackage all of CRAN. :)\n>>\n>> I think the safest thing is to query R for what it has installed, and\n>> not be concerned about whether it was built manually from CRAN, or\n>> provided pre-built by Fedora.\n\nIn researching the possibility of having userland rpm, there was a\nsuggestion that\ndummy packages be created for the base system rpms, so that dependencies will\nbe resolved against the system versions.   This raises the possibility of a\ntool to create dummy rpm's for packages installed by R.   That way, rather than\nthe user having to check dependencies across 2 different package management\nsystems, there could a command to create dummy rpms for manually built CRAN\npackages.  These could be \"installed\" so they would be used by rpm to resolve\ndependencies in pre-built Fedora rpms.\n\n> OK, and then packages from Fedora with deps in CRAN that have been\n> locally built can be installed right? Can we set up the RPM so that it\n> can 'query R for what it has installed' for the purposes of resolving\n> such deps?\n>\n> Is this what happens already?\n\nWith R, users can manually install CRAN package from source to\n$HOME/R/library...\nI doubt that can be handled using the system rpm database -- you would need a\ndatabase owned by each user.  Since some sites are moving to a model that\nseparates user applications from the base system, there is a need for packaging\nthat does not require root access simply to maintain the rpm database.\n\n-- \nGeorge N. White III <aa056(a)chebucto.ns.ca>\nHead of St. Margarets Bay, Nova Scotia",
+      "body_snippet": "On Mon, Sep 15, 2008 at 6:13 AM, Dan Bolser <dan.bolser(a)gmail.com> wrote:\n\n> 2008/9/2 Tom spot Callaway <tcallawa(a)redhat.com>:\n>> On Sun, 2008-08-31 at 18:12 +0100, Dan Bolser wrote:\n>>\n>>> Now is",
+      "thread_id": "thread-987d2aff2d65",
+      "thread_depth": 2,
+      "month": "2008-09"
+    },
+    {
+      "id": "msg-39b0282c34ea",
+      "message_id": "<48CE4812.1030407@pingoured.fr>",
+      "from_name": "Pierre-Yves Chibon",
+      "from_email_hash": "47e30c199d3131f08c959f22c4f67ea9e57a1a82a5b6363bb242a1766ac73fe5",
+      "date": "2008-09-15T11:33:38Z",
+      "subject": "Re: [Fedora-r-devel-list] R2spec new release",
+      "subject_clean": "[Fedora-r-devel-list] R2spec new release",
+      "in_reply_to": "<22af238a0809150411v641540d1nf7e8775d3ea1b54@mail.gmail.com>",
+      "references": [],
+      "body_plain": "George N. White III wrote:\n<snip />\n> In researching the possibility of having userland rpm, there was a\n> suggestion that\n> dummy packages be created for the base system rpms, so that dependencies will\n> be resolved against the system versions.   This raises the possibility of a\n> tool to create dummy rpm's for packages installed by R.   That way, rather than\n> the user having to check dependencies across 2 different package management\n> systems, there could a command to create dummy rpms for manually built CRAN\n> packages.  These could be \"installed\" so they would be used by rpm to resolve\n> dependencies in pre-built Fedora rpms.\n\nWould make a fake/dummy RPM be any better than directly package the RPM ?\nI don't think it decrease the amount of work :/\n\nOr we need something that add the entry to rpmdb while we set up a \npackage using R. But then what about the package installed in \n$HOME/R/library ?\nTwo users will not have the same libraries available while the database \nwill say that the library is installed.\n\nI know I bring more questions than answers here, but I don't what the \nbest solution would be.\n\nBest regards,\n\nPierre",
+      "body_snippet": "George N. White III wrote:\n<snip />\n> In researching the possibility of having userland rpm, there was a\n> suggestion that\n> dummy packages be created for the base system rpms, so that dependencies wi",
+      "thread_id": "thread-987d2aff2d65",
+      "thread_depth": 3,
+      "month": "2008-09"
+    },
+    {
+      "id": "msg-ad9641e5ce6e",
+      "message_id": "<20080915144606.GB2849@free.fr>",
+      "from_name": "Patrice Dumas",
+      "from_email_hash": "175027c067de6b8c82d986b6fdb65d7cd0b27af4fbba56feaf32d146ecb22d36",
+      "date": "2008-09-15T14:46:06Z",
+      "subject": "Re: [Fedora-r-devel-list] R2spec new release",
+      "subject_clean": "[Fedora-r-devel-list] R2spec new release",
+      "in_reply_to": "<2c8757af0809150213j128ae0ebg59013fb9c9b3308f@mail.gmail.com>",
+      "references": [],
+      "body_plain": "On Mon, Sep 15, 2008 at 10:13:26AM +0100, Dan Bolser wrote:\n> \n> OK, and then packages from Fedora with deps in CRAN that have been\n> locally built can be installed right? Can we set up the RPM so that it\n> can 'query R for what it has installed' for the purposes of resolving\n> such deps?\n> \n> Is this what happens already?\n\nNo, dependencies of a rpm package are set up at build time. And if a\ndependency is not in the rpm database it won't be considered to be\nfulfilled. This design doesn't allow rpm to track something that was not\ninstalled as a rpm, but the reason is that when installed as a rpm there\nis a 'promise' that the package is available for all users, while other\nkind of installations cannot make that 'promise'. Maybe there are ways,\nin some case to be sure that a package is available for all users\nalthough it wasn't installed through rpm (for example in R, maybe there\nare ways to know if a package is installed for every users by not\nsearching in user paths, only in system paths), but these are not taken \ninto account in the rpm design. And there are good reasons, indeed, a R\npackage could be installed system-wide, which is not only R noarch code but\ncontains some C code linked against a library, and this library isn't on\nthe loader search path for all the users. rpm would track down the\nlibrary too, while R may or may not, in any case it cannot be counted\non, and things become much too complicated in rpm if a knowledge of 3rd\nparty languages has to be embedded in rpm for things not installed\nthrough rpm.\n\nThat being said, a way to create a package without actual files that has\nthe dependencies can workaround the fact that rpm doesn't know about\npackages not installed through rpm.\n\n--\nPat",
+      "body_snippet": "On Mon, Sep 15, 2008 at 10:13:26AM +0100, Dan Bolser wrote:\n> \n> OK, and then packages from Fedora with deps in CRAN that have been\n> locally built can be installed right? Can we set up the RPM so tha",
+      "thread_id": "thread-987d2aff2d65",
+      "thread_depth": 2,
+      "month": "2008-09"
+    },
+    {
+      "id": "msg-481140ee250f",
+      "message_id": "<22af238a0809151524u205cb151p28d5c9adeceb3f47@mail.gmail.com>",
+      "from_name": "George N. White III",
+      "from_email_hash": "4160d858a879aa7ead9c46b2eda88ee4d78cd9eb9a9dee3da7686391a0554be7",
+      "date": "2008-09-15T22:24:21Z",
+      "subject": "Re: [Fedora-r-devel-list] R2spec new release",
+      "subject_clean": "[Fedora-r-devel-list] R2spec new release",
+      "in_reply_to": "<20080915144606.GB2849@free.fr>",
+      "references": [],
+      "body_plain": "On Mon, Sep 15, 2008 at 11:46 AM, Patrice Dumas <pertusus(a)free.fr> wrote:\n\n> On Mon, Sep 15, 2008 at 10:13:26AM +0100, Dan Bolser wrote:\n>>\n>> OK, and then packages from Fedora with deps in CRAN that have been\n>> locally built can be installed right? Can we set up the RPM so that it\n>> can 'query R for what it has installed' for the purposes of resolving\n>> such deps?\n>>\n>> Is this what happens already?\n>\n> No, dependencies of a rpm package are set up at build time. And if a\n> dependency is not in the rpm database it won't be considered to be\n> fulfilled. This design doesn't allow rpm to track something that was not\n> installed as a rpm, but the reason is that when installed as a rpm there\n> is a 'promise' that the package is available for all users, while other\n> kind of installations cannot make that 'promise'. Maybe there are ways,\n> in some case to be sure that a package is available for all users\n> although it wasn't installed through rpm (for example in R, maybe there\n> are ways to know if a package is installed for every users by not\n> searching in user paths, only in system paths), but these are not taken\n> into account in the rpm design. And there are good reasons, indeed, a R\n> package could be installed system-wide, which is not only R noarch code but\n> contains some C code linked against a library, and this library isn't on\n> the loader search path for all the users. rpm would track down the\n> library too, while R may or may not, in any case it cannot be counted\n> on, and things become much too complicated in rpm if a knowledge of 3rd\n> party languages has to be embedded in rpm for things not installed\n> through rpm.\n\nYes, unless you prohibit installs using, e.g.  \"R CMD INSTALL\"  tools\nto  inform\nrpm of what has been installed should be provided.   Even with such a\nprohibition,\nthe tools may be needed to migrate an existing install to the rpm\nregime. Since R can\ninstall to various libraries, you have to consider the problem of\nmaintaining multiple\ncorresponding rpm databases, one for each library used by R.   One approach\nwould be to discourage installs to /usr/lib/R/library except via rpm packages.\nIn practice this means casual experimentation with new packages can continue\nas before using some other location, but that a bit more discipline\nwill be imposed\nfor installs to the system-wide location.   In return, there is more hope that\nR libraries packaged as rpm's will \"just work\" without the problems\nthat sometimes\noccur (configure fails due to differences over versions or locations\nfor include files)\nusing R source libraries.\n\n> That being said, a way to create a package without actual files that has\n> the dependencies can workaround the fact that rpm doesn't know about\n> packages not installed through rpm.\n\nThis is the issue that arises for rpm installs to a user directory, e.g.,\n\n$ rpm -ivh myfile.rpm --relocate /oldlocation=/newlocation\n\nThe mkVirtualrpm shell script (German): <http://ojkastl.de/pub/LinuxClub/>\nis supposed to solve the problem of ensuring that the rpm database in\n/newlocation is informed of things already installed to /oldlocation.\n\n<http://wiki.linux-club.de/opensuse/Wie_erstelle_ich_ein_virtuelles_RPM_Paket>\n\nI haven't had time to investigate, but I hope this can provide a\nstarting point for creating\nvirtual rpm's to go with R packages.  In principle, these virtual\nrpm's could also do some\npost-install processing to make documentation mimic the distro's\nstandards, update\nindex files, etc.\n\n-- \nGeorge N. White III <aa056(a)chebucto.ns.ca>\nHead of St. Margarets Bay, Nova Scotia",
+      "body_snippet": "On Mon, Sep 15, 2008 at 11:46 AM, Patrice Dumas <pertusus(a)free.fr> wrote:\n\n> On Mon, Sep 15, 2008 at 10:13:26AM +0100, Dan Bolser wrote:\n>>\n>> OK, and then packages from Fedora with deps in CRAN tha",
+      "thread_id": "thread-987d2aff2d65",
+      "thread_depth": 3,
+      "month": "2008-09"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-987d2aff2d65",
+      "subject": "[Fedora-r-devel-list] R2spec new release",
+      "message_count": 6,
+      "participants": [
+        "Dan Bolser",
+        "George N. White III",
+        "Patrice Dumas",
+        "Pierre-Yves Chibon",
+        "Tom Callaway"
+      ],
+      "started": "2008-09-02T15:36:12Z",
+      "last_reply": "2008-09-15T22:24:21Z",
+      "root_message_id": "msg-987d2aff2d65"
+    }
+  ]
+}

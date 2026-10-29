@@ -1,0 +1,123 @@
+{
+  "list": "fedora-r-devel",
+  "description": "",
+  "month": "2012-05",
+  "messages": [
+    {
+      "id": "msg-61b7e5b6e5e3",
+      "message_id": "<4FAD6BD0.5040208@fc.up.pt>",
+      "from_name": "José Abílio Matos",
+      "from_email_hash": "1830ccfc475fe0f52edb74ac1163b69778ceb8ac957cc168f6b6335828c0e855",
+      "date": "2012-05-11T19:43:12Z",
+      "subject": "[Fedora-r-devel-list] problems while building R-rJava",
+      "subject_clean": "[Fedora-r-devel-list] problems while building R-rJava",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hello,\n    while chasing the several dependencies to build R-Sim-DiffProc I had\nto build R-rJava, at moment that is failing while testing the examples.\nAre there any suggestions to overcome this?\n\n* checking examples ... ERROR\nRunning examples in 'rJava-Ex.R' failed\nThe error most likely occurred in:\n\n\n> ### Name: J\n> ### Title: High level API for accessing Java\n> ### Aliases: J\n> ### Keywords: interface\n>\n> ### ** Examples\n>\n> ## Don't show:\n> .jinit()\n[1] 0\n\n> ## End Don't show\n>\n> if (!nzchar(Sys.getenv(\"NOAWT\"))) {\n+   f <- new(J(\"java.awt.Frame\"), \"Hello\")\n+   f$setVisible(TRUE)\n+ }\nError in .jcall(\"RJavaTools\", \"Ljava/lang/Object;\", \"newInstance\",\n.jfindClass(class),  :\n  java.awt.HeadlessException:\nNo X11 DISPLAY variable was set, but this program performed an operation\nwhich requires it.\nCalls: new -> new -> .J -> .jcall -> .jcheck -> .Call\nExecution halted\nerror: Bad exit status from /tmp/rpmbuild/rpm-tmp.DdN0bT (%check)\n\n\nRegards,\n\n-- \nJosé Matos",
+      "body_snippet": "Hello,\n    while chasing the several dependencies to build R-Sim-DiffProc I had\nto build R-rJava, at moment that is failing while testing the examples.\nAre there any suggestions to overcome this?\n\n* c",
+      "thread_id": "thread-61b7e5b6e5e3",
+      "thread_depth": 0,
+      "month": "2012-05"
+    },
+    {
+      "id": "msg-3ce525f281b1",
+      "message_id": "<4FAD6FCD.6010400@fc.up.pt>",
+      "from_name": "José Abílio Matos",
+      "from_email_hash": "1830ccfc475fe0f52edb74ac1163b69778ceb8ac957cc168f6b6335828c0e855",
+      "date": "2012-05-11T20:00:13Z",
+      "subject": "Re: [Fedora-r-devel-list] problems while building R-rJava",
+      "subject_clean": "[Fedora-r-devel-list] problems while building R-rJava",
+      "in_reply_to": "<4FAD6BD0.5040208@fc.up.pt>",
+      "references": [],
+      "body_plain": "On 2012-05-11 20:43, José Matos wrote:\n> Hello,\n>     while chasing the several dependencies to build R-Sim-DiffProc I had\n> to build R-rJava, at moment that is failing while testing the examples.\n> Are there any suggestions to overcome this?\n\nRight, I got over this by installing R-java-devel.\n\nRegards,\n\n-- \nJosé Matos",
+      "body_snippet": "On 2012-05-11 20:43, José Matos wrote:\n> Hello,\n>     while chasing the several dependencies to build R-Sim-DiffProc I had\n> to build R-rJava, at moment that is failing while testing the examples.\n> A",
+      "thread_id": "thread-61b7e5b6e5e3",
+      "thread_depth": 1,
+      "month": "2012-05"
+    },
+    {
+      "id": "msg-d16c33f6ed58",
+      "message_id": "<4FAE5B5E.8050400@fc.up.pt>",
+      "from_name": "José Abílio Matos",
+      "from_email_hash": "1830ccfc475fe0f52edb74ac1163b69778ceb8ac957cc168f6b6335828c0e855",
+      "date": "2012-05-12T12:45:18Z",
+      "subject": "Re: [Fedora-r-devel-list] R-repo",
+      "subject_clean": "[Fedora-r-devel-list] R-repo",
+      "in_reply_to": "<1330550479.12592.34.camel@ambre.pingoured.fr>",
+      "references": [],
+      "body_plain": "On 2012-02-29 21:21, Pierre-Yves Chibon wrote:\n> On Wed, 2012-02-29 at 19:21 +0000, José Matos wrote:\n>> After almost two months going on what is the outcome of this project?\n> Well the structure is there and a number of rpms available.\n> I have started on the update mechanism but I have only got around the\n> first round.\n> The spec are on github and I have no problem giving the rights to commit\n> if people are interested (<hint>, <hint> ;-)).\n\nAfter June 11th sure, until there I have 18h of classes per week for\nundergrads, master and phd students and with a seven months old lovely\ndaughter there is not much of free time, oh and surely the scouts\nwork... :-)\n\nMy last surge for build R packages for Fedora is due to the academic work.\nI have several students doing their master thesis using stochastic\ndifferential equations in several domains and for that I suggested them\nto use R packages since R is a language they learn in the course.\n\nOne of the packages that is appropriate is the Sim.DiffProc package. For\nthat package the chain dependency is relatively simple.\n\nSo if you do not mind I have several questions regarding this issue.\n\n1) Why is r-repo.org not available for Fedora? Lack of time is a fair\nanswer. :-)\n\n2) I noticed that you have R-xlsxjars packaged in r-repo, from a quick\nglance it looks like it just packages a set of jar files. I am clueless\nwhen it comes to java but are not those some kind of binary files that\ncould be replaced using dependencies for system libraries? I am aware\nthat jars can have different purposes but I am asking anyway.\n\n\n>> Back in September I wanted to package some R libraries and it took\n>> some time to get all the packages due to the build requirement of each\n>> package, I had to unravel the dependencies while deciding what was\n>> necessary to bootstrap the process, and not even speaking about\n>> circular references. Clearly a fun project... :-) \n> <irony>hm R ? circular dependencies? I think I've heard about that once\n> or twice </irony>\n\nDo you have any idea of how R install.packages deals with these cases?\n\nWhile searching for further information I noticed that the corresponding\neffort on the debian side is cran2deb\nhttp://r-forge.r-project.org/scm/?group_id=247\n\nand the active repository is available at http://debian-r.debian.net/\n\n>>From the available discussion and from my previous work I know that\nthere are several issues to be tracked. One of them is the package\nlicense and the other are the external (system libraries) dependencies.\nIs this information stored in any central place (database)?\n\n> Pierre\n\nThank for all your hard work and regards,\n\n-- \nJosé Matos",
+      "body_snippet": "On 2012-02-29 21:21, Pierre-Yves Chibon wrote:\n> On Wed, 2012-02-29 at 19:21 +0000, José Matos wrote:\n>> After almost two months going on what is the outcome of this project?\n> Well the structure is t",
+      "thread_id": "thread-d16c33f6ed58",
+      "thread_depth": 0,
+      "month": "2012-05"
+    },
+    {
+      "id": "msg-d1095ab922c3",
+      "message_id": "<1336929804.12240.16.camel@ambre.pingoured.fr>",
+      "from_name": "Pierre-Yves Chibon",
+      "from_email_hash": "47e30c199d3131f08c959f22c4f67ea9e57a1a82a5b6363bb242a1766ac73fe5",
+      "date": "2012-05-13T17:23:24Z",
+      "subject": "Re: [Fedora-r-devel-list] R-repo",
+      "subject_clean": "[Fedora-r-devel-list] R-repo",
+      "in_reply_to": "<4FAE5B5E.8050400@fc.up.pt>",
+      "references": [],
+      "body_plain": "On Sat, 2012-05-12 at 13:45 +0100, José Matos wrote:\n> On 2012-02-29 21:21, Pierre-Yves Chibon wrote:\n> > On Wed, 2012-02-29 at 19:21 +0000, José Matos wrote:\n> >> After almost two months going on what is the outcome of this project?\n> > Well the structure is there and a number of rpms available.\n> > I have started on the update mechanism but I have only got around the\n> > first round.\n> > The spec are on github and I have no problem giving the rights to commit\n> > if people are interested (<hint>, <hint> ;-)).\n> \n> After June 11th sure, until there I have 18h of classes per week for\n> undergrads, master and phd students and with a seven months old lovely\n> daughter there is not much of free time, oh and surely the scouts\n> work... :-)\n> \n> My last surge for build R packages for Fedora is due to the academic work.\n> I have several students doing their master thesis using stochastic\n> differential equations in several domains and for that I suggested them\n> to use R packages since R is a language they learn in the course.\n> \n> One of the packages that is appropriate is the Sim.DiffProc package. For\n> that package the chain dependency is relatively simple.\n> \n> So if you do not mind I have several questions regarding this issue.\n> \n> 1) Why is r-repo.org not available for Fedora? Lack of time is a fair\n> answer. :-)\n\nTime is definitively part of the answer the other part being the\nchallenge of rebuilding the repo once in a while when necessary.\n\n> 2) I noticed that you have R-xlsxjars packaged in r-repo, from a quick\n> glance it looks like it just packages a set of jar files. I am clueless\n> when it comes to java but are not those some kind of binary files that\n> could be replaced using dependencies for system libraries? I am aware\n> that jars can have different purposes but I am asking anyway.\n\nR can be coupled with java as it can be with C/C++/fortran &so on, I\n*assume* that this is what was done in this package (again, *assumed*).\nIf it is not the case, then for sure it should not be this way and it\nshould rely on system libraries.\n\nR-repo is/was aiming at automatically generated RPM which mean that a\nnumber of them are not 100% valid. At least it gives us a basis for\nfurther improvement.\n\nI have to say that from my side time is truly limiting and the situation\nwon't change (it will even get worse) with the fact that I am starting\nthe last year of my PhD but at least this time everything is publicly\navailable on github if there are people interested in the\nmaintenance/development of the project.\n\n> >> Back in September I wanted to package some R libraries and it took\n> >> some time to get all the packages due to the build requirement of each\n> >> package, I had to unravel the dependencies while deciding what was\n> >> necessary to bootstrap the process, and not even speaking about\n> >> circular references. Clearly a fun project... :-) \n> > <irony>hm R ? circular dependencies? I think I've heard about that once\n> > or twice </irony>\n> \n> Do you have any idea of how R install.packages deals with these cases?\n\nTo be honest, I do not know, but I am not sure install.packages runs the\ntests and thus it likely doesn't run into the circular dependency\nproblem which are most of the time of the type: A requires B which\nsuggests A (or similar).\n\n> While searching for further information I noticed that the corresponding\n> effort on the debian side is cran2deb\n> http://r-forge.r-project.org/scm/?group_id=247\n> \n> and the active repository is available at http://debian-r.debian.net/\n> \n> From the available discussion and from my previous work I know that\n> there are several issues to be tracked. One of them is the package\n> license and the other are the external (system libraries) dependencies.\n> Is this information stored in any central place (database)?\n\nThere are no form of license check done atm in R-repo and it doesn't\nrely on a central database.\nThe dependency tree is built by parsing the PACKAGES files from the\ndifferent repository. \nThe R-repo-utility [1] contains the script doing the work (building the\ntree, building the RPMs, checking for updates and so on).\n\n\nLet me know if I can be of any help.\n\nRegards,\nPierre\n\n[1] https://github.com/pypingou/R-repo-utility",
+      "body_snippet": "On Sat, 2012-05-12 at 13:45 +0100, José Matos wrote:\n> On 2012-02-29 21:21, Pierre-Yves Chibon wrote:\n> > On Wed, 2012-02-29 at 19:21 +0000, José Matos wrote:\n> >> After almost two months going on wha",
+      "thread_id": "thread-d16c33f6ed58",
+      "thread_depth": 1,
+      "month": "2012-05"
+    },
+    {
+      "id": "msg-fc41ec2e65d8",
+      "message_id": "<1336931222.12240.25.camel@ambre.pingoured.fr>",
+      "from_name": "Pierre-Yves Chibon",
+      "from_email_hash": "47e30c199d3131f08c959f22c4f67ea9e57a1a82a5b6363bb242a1766ac73fe5",
+      "date": "2012-05-13T17:47:02Z",
+      "subject": "[Fedora-r-devel-list] Review request",
+      "subject_clean": "[Fedora-r-devel-list] Review request",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hi,\n\nIn order to update some Bioconductor R libraries to their latest version\nI have a new dependency that has to be packaged.\n\nThe review request is there:\nhttps://bugzilla.redhat.com/show_bug.cgi?id=821267\n\nIf someone has sometime to look into it :-)\n\nThanks in advance!\nPierre",
+      "body_snippet": "Hi,\n\nIn order to update some Bioconductor R libraries to their latest version\nI have a new dependency that has to be packaged.\n\nThe review request is there:\nhttps://bugzilla.redhat.com/show_bug.cgi?id",
+      "thread_id": "thread-fc41ec2e65d8",
+      "thread_depth": 0,
+      "month": "2012-05"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-61b7e5b6e5e3",
+      "subject": "[Fedora-r-devel-list] problems while building R-rJava",
+      "message_count": 2,
+      "participants": [
+        "José Abílio Matos"
+      ],
+      "started": "2012-05-11T19:43:12Z",
+      "last_reply": "2012-05-11T20:00:13Z",
+      "root_message_id": "msg-61b7e5b6e5e3"
+    },
+    {
+      "id": "thread-d16c33f6ed58",
+      "subject": "[Fedora-r-devel-list] R-repo",
+      "message_count": 2,
+      "participants": [
+        "José Abílio Matos",
+        "Pierre-Yves Chibon"
+      ],
+      "started": "2012-05-12T12:45:18Z",
+      "last_reply": "2012-05-13T17:23:24Z",
+      "root_message_id": "msg-d16c33f6ed58"
+    },
+    {
+      "id": "thread-fc41ec2e65d8",
+      "subject": "[Fedora-r-devel-list] Review request",
+      "message_count": 1,
+      "participants": [
+        "Pierre-Yves Chibon"
+      ],
+      "started": "2012-05-13T17:47:02Z",
+      "last_reply": "2012-05-13T17:47:02Z",
+      "root_message_id": "msg-fc41ec2e65d8"
+    }
+  ]
+}

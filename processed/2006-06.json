@@ -1,0 +1,63 @@
+{
+  "list": "fedora-r-devel",
+  "description": "",
+  "month": "2006-06",
+  "messages": [
+    {
+      "id": "msg-734e7059d1eb",
+      "message_id": "<1149179248.9740.20.camel@localhost.localdomain>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2006-06-01T16:27:28Z",
+      "subject": "[Fedora-r-devel-list] R 2.3.1",
+      "subject_clean": "[Fedora-r-devel-list] R 2.3.1",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Guys, R 2.3.1 is out. Please make ready for its release into Fedora\nExtras. I plan to do it this afternoon/evening.\n\n~spot\n-- \nTom \"spot\" Callaway: Red Hat Senior Sales Engineer || GPG ID: 93054260\nFedora Extras Steering Committee Member (RPM Standards and Practices)\nAurora Linux Project Leader: http://auroralinux.org\nLemurs, llamas, and sparcs, oh my!",
+      "body_snippet": "Guys, R 2.3.1 is out. Please make ready for its release into Fedora\nExtras. I plan to do it this afternoon/evening.\n\n~spot\n-- \nTom \"spot\" Callaway: Red Hat Senior Sales Engineer || GPG ID: 93054260\nFe",
+      "thread_id": "thread-734e7059d1eb",
+      "thread_depth": 0,
+      "month": "2006-06"
+    },
+    {
+      "id": "msg-44c83cc6a42a",
+      "message_id": "<1149803300.5199.65.camel@localhost.localdomain>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2006-06-08T21:48:20Z",
+      "subject": "[Fedora-r-devel-list] Retiring: R-gnomeGUI",
+      "subject_clean": "[Fedora-r-devel-list] Retiring: R-gnomeGUI",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "The R-gnomeGUI package relies on ancient gnome libs to function, and\nsince those libs are going away in -devel, I'm retiring this package. If\nanyone is motivated to do the work to port this code to gtk2, then I\nwould be happy to give them ownership of this package.\n\n~spot\n-- \nTom \"spot\" Callaway: Red Hat Senior Sales Engineer || GPG ID: 93054260\nFedora Extras Steering Committee Member (RPM Standards and Practices)\nAurora Linux Project Leader: http://auroralinux.org\nLemurs, llamas, and sparcs, oh my!",
+      "body_snippet": "The R-gnomeGUI package relies on ancient gnome libs to function, and\nsince those libs are going away in -devel, I'm retiring this package. If\nanyone is motivated to do the work to port this code to gt",
+      "thread_id": "thread-44c83cc6a42a",
+      "thread_depth": 0,
+      "month": "2006-06"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-734e7059d1eb",
+      "subject": "[Fedora-r-devel-list] R 2.3.1",
+      "message_count": 1,
+      "participants": [
+        "Tom Callaway"
+      ],
+      "started": "2006-06-01T16:27:28Z",
+      "last_reply": "2006-06-01T16:27:28Z",
+      "root_message_id": "msg-734e7059d1eb"
+    },
+    {
+      "id": "thread-44c83cc6a42a",
+      "subject": "[Fedora-r-devel-list] Retiring: R-gnomeGUI",
+      "message_count": 1,
+      "participants": [
+        "Tom Callaway"
+      ],
+      "started": "2006-06-08T21:48:20Z",
+      "last_reply": "2006-06-08T21:48:20Z",
+      "root_message_id": "msg-44c83cc6a42a"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "list": "fedora-r-devel",
+  "description": "",
+  "month": "2012-04",
+  "messages": [
+    {
+      "id": "msg-02ba0719ade5",
+      "message_id": "<1335452826.11183.47.camel@ambre.pingoured.fr>",
+      "from_name": "Pierre-Yves Chibon",
+      "from_email_hash": "47e30c199d3131f08c959f22c4f67ea9e57a1a82a5b6363bb242a1766ac73fe5",
+      "date": "2012-04-26T15:07:06Z",
+      "subject": "[Fedora-r-devel-list] Start bioconductor update",
+      "subject_clean": "[Fedora-r-devel-list] Start bioconductor update",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hi,\n\nI have started to update a bunch of R packages to the latest version of\nbioconductor.\n\nFeel free to test and give karma:\n\nF17:\nhttps://admin.fedoraproject.org/updates/R-fibroEset-1.4.7-1.fc17,R-hgu95av2cdf-2.10.0-1.fc17,R-maanova-1.26.0-1.fc17,R-multtest-2.12.0-1.fc17,R-preprocessCore-1.18.0-1.fc17,R-ROC-1.32.0-1.fc17,R-qvalue-1.30.0-1.fc17,R-statmod-1.4.14-1.fc17,R-timeDate-2160.96-1.fc17,R-tkWidgets-1.34.0-1.fc17,R-DynDoc-1.34.0-1.fc17,R-widgetTools-1.34.0-1.fc17,R-XML-3.9.4-1.fc17,R-ALL-1.4.12-1.fc17,R-abind-1.4.0-2.fc17,R-BufferedMatrix-1.20.0-1.fc17\nF16:\nhttps://admin.fedoraproject.org/updates/R-fibroEset-1.4.7-1.fc16,R-hgu95av2cdf-2.10.0-1.fc16,R-maanova-1.26.0-1.fc16,R-multtest-2.12.0-1.fc16,R-preprocessCore-1.18.0-1.fc16,R-ROC-1.32.0-1.fc16,R-qvalue-1.30.0-1.fc16,R-statmod-1.4.14-1.fc16,R-timeDate-2160.96-1.fc16,R-tkWidgets-1.34.0-1.fc16,R-DynDoc-1.34.0-1.fc16,R-widgetTools-1.34.0-1.fc16,R-XML-3.9.4-1.fc16,R-ALL-1.4.12-1.fc16,R-abind-1.4.0-1.fc16,R-BufferedMatrix-1.20.0-1.fc16\nF15:\nhttps://admin.fedoraproject.org/updates/R-fibroEset-1.4.7-1.fc15,R-hgu95av2cdf-2.10.0-1.fc15,R-maanova-1.26.0-1.fc15,R-multtest-2.12.0-1.fc15,R-preprocessCore-1.18.0-1.fc15,R-ROC-1.32.0-1.fc15,R-qvalue-1.30.0-1.fc15,R-statmod-1.4.14-1.fc15,R-timeDate-2160.96-1.fc15,R-tkWidgets-1.34.0-1.fc15,R-DynDoc-1.34.0-1.fc15,R-widgetTools-1.34.0-1.fc15,R-XML-3.9.4-1.fc15,R-ALL-1.4.12-1.fc15,R-abind-1.4.0-1.fc15,R-BufferedMatrix-1.20.0-1.fc15\n\nThanks in advance!\n\nPierre",
+      "body_snippet": "Hi,\n\nI have started to update a bunch of R packages to the latest version of\nbioconductor.\n\nFeel free to test and give karma:\n\nF17:\nhttps://admin.fedoraproject.org/updates/R-fibroEset-1.4.7-1.fc17,R-h",
+      "thread_id": "thread-02ba0719ade5",
+      "thread_depth": 0,
+      "month": "2012-04"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-02ba0719ade5",
+      "subject": "[Fedora-r-devel-list] Start bioconductor update",
+      "message_count": 1,
+      "participants": [
+        "Pierre-Yves Chibon"
+      ],
+      "started": "2012-04-26T15:07:06Z",
+      "last_reply": "2012-04-26T15:07:06Z",
+      "root_message_id": "msg-02ba0719ade5"
+    }
+  ]
+}

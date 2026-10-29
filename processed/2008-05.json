@@ -1,0 +1,113 @@
+{
+  "list": "fedora-r-devel",
+  "description": "",
+  "month": "2008-05",
+  "messages": [
+    {
+      "id": "msg-edecacc6f86d",
+      "message_id": "<otfxsmy1nn.fsf@allele2.eebweb.arizona.edu>",
+      "from_name": "Alex Lancaster",
+      "from_email_hash": "ca2ea0e8cc83c3fd818996ce3f6e3079ece4d81ba254bb32a17afa952a5f95de",
+      "date": "2008-05-13T09:49:16Z",
+      "subject": "[Fedora-r-devel-list] Re: Plans for R-2.7.0?",
+      "subject_clean": "[Fedora-r-devel-list] Re: Plans for R-2.7.0?",
+      "in_reply_to": "<1208957476.12717.151.camel@localhost.localdomain>",
+      "references": [],
+      "body_plain": ">>>>> \"TC\" == Tom \\\"spot\\\" Callaway  writes:\n\nTC> On Wed, 2008-04-23 at 02:56 -0700, Alex Lancaster wrote:\n>> I agree, wait for F-9.  Then we can put it through updates-testing,\n>> have time to push dependent packages that might need rebuilding,\n>> including (but probably not limited to) rpy.\n>> \n>> Meanwhile we could push versions for F-7 & F-8 to updates-testing\n>> to shake out potential problems.  Then push them all to stable\n>> after F-9 is released.\n\nTC> Ehhh, i don't want to break the upgrade path. We'll just sit on\nTC> this until after F-9.\n\nI just noticed that some packages fail to rebuild with R 2.7.0, e.g.\n\nhttp://koji.fedoraproject.org/koji/taskinfo?taskID=606646\n\nthe build.log has the following:\n\nchecking for unpackaged file(s): /usr/lib/rpm/check-files\n/var/tmp/R-zoo-1.5-3.fc10-root-mockbuild\nerror: \nInstalled (but unpackaged) file(s) found:\n   /usr/share/R/library/zoo/NEWS\nRPM build errors:\n    Installed (but unpackaged) file(s) found:\n   /usr/share/R/library/zoo/NEWS\n\nDoes 2.7.0 somehow attempt to compile/provide a NEWS file even if the\nactual package does not?\n\nAlex",
+      "body_snippet": ">>>>> \"TC\" == Tom \\\"spot\\\" Callaway  writes:\n\nTC> On Wed, 2008-04-23 at 02:56 -0700, Alex Lancaster wrote:\n>> I agree, wait for F-9.  Then we can put it through updates-testing,\n>> have time to push d",
+      "thread_id": "thread-edecacc6f86d",
+      "thread_depth": 0,
+      "month": "2008-05"
+    },
+    {
+      "id": "msg-8b54cda01a60",
+      "message_id": "<4rbq3ay130.fsf@allele2.eebweb.arizona.edu>",
+      "from_name": "Alex Lancaster",
+      "from_email_hash": "ca2ea0e8cc83c3fd818996ce3f6e3079ece4d81ba254bb32a17afa952a5f95de",
+      "date": "2008-05-13T10:01:39Z",
+      "subject": "[Fedora-r-devel-list] Re: Plans for R-2.7.0?",
+      "subject_clean": "[Fedora-r-devel-list] Re: Plans for R-2.7.0?",
+      "in_reply_to": "<otfxsmy1nn.fsf@allele2.eebweb.arizona.edu>",
+      "references": [],
+      "body_plain": ">>>>> \"AL\" == Alex Lancaster  writes:\n\n>>>>> \"TC\" == Tom \\\"spot\\\" Callaway  writes:\nTC> On Wed, 2008-04-23 at 02:56 -0700, Alex Lancaster wrote:\n>>> I agree, wait for F-9.  Then we can put it through\n>>> updates-testing, have time to push dependent packages that might\n>>> need rebuilding, including (but probably not limited to) rpy.\n>>> \n>>> Meanwhile we could push versions for F-7 & F-8 to updates-testing\n>>> to shake out potential problems.  Then push them all to stable\n>>> after F-9 is released.\n\nTC> Ehhh, i don't want to break the upgrade path. We'll just sit on\nTC> this until after F-9.\n\nAL> I just noticed that some packages fail to rebuild with R 2.7.0,\nAL> e.g.\n\nAL> http://koji.fedoraproject.org/koji/taskinfo?taskID=606646\n\nAL> the build.log has the following:\n\nAL> checking for unpackaged file(s): /usr/lib/rpm/check-files\nAL> /var/tmp/R-zoo-1.5-3.fc10-root-mockbuild error: Installed (but\nAL> unpackaged) file(s) found: /usr/share/R/library/zoo/NEWS RPM build\nAL> errors: Installed (but unpackaged) file(s) found:\nAL> /usr/share/R/library/zoo/NEWS\n\nAL> Does 2.7.0 somehow attempt to compile/provide a NEWS file even if\nAL> the actual package does not?\n\nActually looking at it a bit closer it seems that R 2.7.0 is a bit\nsmarter about installing the NEWS file if it's present, see:\n\nhttps://bugzilla.redhat.com/show_bug.cgi?id=445635#c11\n\nfor more details.  This might affect a few packages that don't\nexplicitly include NEWS in their %files list.  If this is so, it would\nprobably be useful if the sample spec files in the R packaging\nguidelines:\n\nhttp://fedoraproject.org/wiki/Packaging/R\n\nwere also updated accordingly, as many people use those as templates\nto create new R packages.\n\nAlex",
+      "body_snippet": ">>>>> \"AL\" == Alex Lancaster  writes:\n\n>>>>> \"TC\" == Tom \\\"spot\\\" Callaway  writes:\nTC> On Wed, 2008-04-23 at 02:56 -0700, Alex Lancaster wrote:\n>>> I agree, wait for F-9.  Then we can put it through\n",
+      "thread_id": "thread-edecacc6f86d",
+      "thread_depth": 1,
+      "month": "2008-05"
+    },
+    {
+      "id": "msg-55afe3148375",
+      "message_id": "<1210686940.1920.12.camel@localhost.localdomain>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2008-05-13T13:55:40Z",
+      "subject": "Re: [Fedora-r-devel-list] Re: Plans for R-2.7.0?",
+      "subject_clean": "[Fedora-r-devel-list] Re: Plans for R-2.7.0?",
+      "in_reply_to": "<4rbq3ay130.fsf@allele2.eebweb.arizona.edu>",
+      "references": [],
+      "body_plain": "On Tue, 2008-05-13 at 03:01 -0700, Alex Lancaster wrote:\n> This might affect a few packages that don't\n> explicitly include NEWS in their %files list.  If this is so, it would\n> probably be useful if the sample spec files in the R packaging\n> guidelines:\n\nGood catch, I've updated the guidelines.\n\n~spot",
+      "body_snippet": "On Tue, 2008-05-13 at 03:01 -0700, Alex Lancaster wrote:\n> This might affect a few packages that don't\n> explicitly include NEWS in their %files list.  If this is so, it would\n> probably be useful if ",
+      "thread_id": "thread-edecacc6f86d",
+      "thread_depth": 2,
+      "month": "2008-05"
+    },
+    {
+      "id": "msg-0052cc4f2a52",
+      "message_id": "<482EC028.5050808@pingoured.fr>",
+      "from_name": "Pierre-Yves Chibon",
+      "from_email_hash": "47e30c199d3131f08c959f22c4f67ea9e57a1a82a5b6363bb242a1766ac73fe5",
+      "date": "2008-05-17T11:23:20Z",
+      "subject": "Re: [Fedora-r-devel-list] Re: Plans for R-2.7.0?",
+      "subject_clean": "[Fedora-r-devel-list] Re: Plans for R-2.7.0?",
+      "in_reply_to": "<1208957476.12717.151.camel@localhost.localdomain>",
+      "references": [],
+      "body_plain": "Tom \"spot\" Callaway wrote:\n> On Wed, 2008-04-23 at 02:56 -0700, Alex Lancaster wrote:\n> \n>> I agree, wait for F-9.  Then we can put it through updates-testing,\n>> have time to push dependent packages that might need rebuilding,\n>> including (but probably not limited to) rpy.\n>>\n>> Meanwhile we could push versions for F-7 & F-8 to updates-testing to\n>> shake out potential problems.  Then push them all to stable after F-9\n>> is released.\n> \n> Ehhh, i don't want to break the upgrade path. We'll just sit on this\n> until after F-9.\n> \n\nWhat about pushing it now ? :)\n\nI have started to look at the new bioconductor release, some of them \nwill require R >= 2.7.0.\n\nCheers\n\nPierre",
+      "body_snippet": "Tom \"spot\" Callaway wrote:\n> On Wed, 2008-04-23 at 02:56 -0700, Alex Lancaster wrote:\n> \n>> I agree, wait for F-9.  Then we can put it through updates-testing,\n>> have time to push dependent packages ",
+      "thread_id": "thread-0052cc4f2a52",
+      "thread_depth": 0,
+      "month": "2008-05"
+    },
+    {
+      "id": "msg-0bf45cbde0a8",
+      "message_id": "<1211029752.3801.148.camel@localhost.localdomain>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2008-05-17T13:09:12Z",
+      "subject": "Re: [Fedora-r-devel-list] Re: Plans for R-2.7.0?",
+      "subject_clean": "[Fedora-r-devel-list] Re: Plans for R-2.7.0?",
+      "in_reply_to": "<482EC028.5050808@pingoured.fr>",
+      "references": [],
+      "body_plain": "On Sat, 2008-05-17 at 13:23 +0200, pingou wrote:\n> Tom \"spot\" Callaway wrote:\n> > On Wed, 2008-04-23 at 02:56 -0700, Alex Lancaster wrote:\n> > \n> >> I agree, wait for F-9.  Then we can put it through updates-testing,\n> >> have time to push dependent packages that might need rebuilding,\n> >> including (but probably not limited to) rpy.\n> >>\n> >> Meanwhile we could push versions for F-7 & F-8 to updates-testing to\n> >> shake out potential problems.  Then push them all to stable after F-9\n> >> is released.\n> > \n> > Ehhh, i don't want to break the upgrade path. We'll just sit on this\n> > until after F-9.\n> > \n> \n> What about pushing it now ? :)\n> \n> I have started to look at the new bioconductor release, some of them \n> will require R >= 2.7.0.\n\nIt is now in testing for all active releases (F-7, F-8, F-9):\n\nhttps://admin.fedoraproject.org/updates/F7/pending/rpy-0.4.6-25.fc7,R-2.7.0-2.fc7.1\nhttps://admin.fedoraproject.org/updates/F8/pending/rpy-1.0.1-4.fc8,R-2.7.0-2.fc8.1\nhttps://admin.fedoraproject.org/updates/F9/pending/rpy-1.0.1-6.fc9,R-2.7.0-2.fc9.1\n\nI'm not sure why these haven't pushed yet, I did them several days ago.\n\n~spot",
+      "body_snippet": "On Sat, 2008-05-17 at 13:23 +0200, pingou wrote:\n> Tom \"spot\" Callaway wrote:\n> > On Wed, 2008-04-23 at 02:56 -0700, Alex Lancaster wrote:\n> > \n> >> I agree, wait for F-9.  Then we can put it through ",
+      "thread_id": "thread-0052cc4f2a52",
+      "thread_depth": 1,
+      "month": "2008-05"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-edecacc6f86d",
+      "subject": "[Fedora-r-devel-list] Re: Plans for R-2.7.0?",
+      "message_count": 3,
+      "participants": [
+        "Alex Lancaster",
+        "Tom Callaway"
+      ],
+      "started": "2008-05-13T09:49:16Z",
+      "last_reply": "2008-05-13T13:55:40Z",
+      "root_message_id": "msg-edecacc6f86d"
+    },
+    {
+      "id": "thread-0052cc4f2a52",
+      "subject": "[Fedora-r-devel-list] Re: Plans for R-2.7.0?",
+      "message_count": 2,
+      "participants": [
+        "Pierre-Yves Chibon",
+        "Tom Callaway"
+      ],
+      "started": "2008-05-17T11:23:20Z",
+      "last_reply": "2008-05-17T13:09:12Z",
+      "root_message_id": "msg-0052cc4f2a52"
+    }
+  ]
+}

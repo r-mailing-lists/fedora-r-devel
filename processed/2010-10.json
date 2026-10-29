@@ -1,0 +1,36 @@
+{
+  "list": "fedora-r-devel",
+  "description": "",
+  "month": "2010-10",
+  "messages": [
+    {
+      "id": "msg-865dde51481c",
+      "message_id": "<1288264282.10549.16.camel@lab.pingoured.fr>",
+      "from_name": "Pierre-Yves Chibon",
+      "from_email_hash": "47e30c199d3131f08c959f22c4f67ea9e57a1a82a5b6363bb242a1766ac73fe5",
+      "date": "2010-10-28T11:11:22Z",
+      "subject": "[Fedora-r-devel-list] Package repository",
+      "subject_clean": "[Fedora-r-devel-list] Package repository",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hi all,\n\nI just found out a new packages repository: http://www.omegahat.org\nIt seems to contain some interesting libraries such as a Rgtk.\n\nPierre",
+      "body_snippet": "Hi all,\n\nI just found out a new packages repository: http://www.omegahat.org\nIt seems to contain some interesting libraries such as a Rgtk.\n\nPierre",
+      "thread_id": "thread-865dde51481c",
+      "thread_depth": 0,
+      "month": "2010-10"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-865dde51481c",
+      "subject": "[Fedora-r-devel-list] Package repository",
+      "message_count": 1,
+      "participants": [
+        "Pierre-Yves Chibon"
+      ],
+      "started": "2010-10-28T11:11:22Z",
+      "last_reply": "2010-10-28T11:11:22Z",
+      "root_message_id": "msg-865dde51481c"
+    }
+  ]
+}

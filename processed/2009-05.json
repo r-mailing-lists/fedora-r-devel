@@ -1,0 +1,53 @@
+{
+  "list": "fedora-r-devel",
+  "description": "",
+  "month": "2009-05",
+  "messages": [
+    {
+      "id": "msg-59427d247638",
+      "message_id": "<1243576434.2655.7.camel@localhost.localdomain>",
+      "from_name": "Pierre-Yves Chibon",
+      "from_email_hash": "47e30c199d3131f08c959f22c4f67ea9e57a1a82a5b6363bb242a1766ac73fe5",
+      "date": "2009-05-29T05:53:54Z",
+      "subject": "[Fedora-r-devel-list] R2spec and version number",
+      "subject_clean": "[Fedora-r-devel-list] R2spec and version number",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Dear all,\n\nI would like your opinion regarding: [Bug 503108] New: R2spec-2.5.2\nloses Version information\n\nIt basically says that when the package version is 2.3-50 R2spec only\nretrieve 2.3 as being the version number.\nTo me and based on the packages R-abind, R-acepack, R-mAR (and some\nother that I didn't list) this is not a bug.\n\nDo you agree with me ?\n\nThanks,\nBest regards,\n\nPierre",
+      "body_snippet": "Dear all,\n\nI would like your opinion regarding: [Bug 503108] New: R2spec-2.5.2\nloses Version information\n\nIt basically says that when the package version is 2.3-50 R2spec only\nretrieve 2.3 as being th",
+      "thread_id": "thread-59427d247638",
+      "thread_depth": 0,
+      "month": "2009-05"
+    },
+    {
+      "id": "msg-54a2a3e48b99",
+      "message_id": "<200905291053.58554.jamatos@fc.up.pt>",
+      "from_name": "José Abílio Matos",
+      "from_email_hash": "1830ccfc475fe0f52edb74ac1163b69778ceb8ac957cc168f6b6335828c0e855",
+      "date": "2009-05-29T09:53:57Z",
+      "subject": "Re: [Fedora-r-devel-list] R2spec and version number",
+      "subject_clean": "[Fedora-r-devel-list] R2spec and version number",
+      "in_reply_to": "<1243576434.2655.7.camel@localhost.localdomain>",
+      "references": [],
+      "body_plain": "On Friday 29 May 2009 06:53:54 Pierre-Yves wrote:\n> Dear all,\n>\n> I would like your opinion regarding: [Bug 503108] New: R2spec-2.5.2\n> loses Version information\n>\n> It basically says that when the package version is 2.3-50 R2spec only\n> retrieve 2.3 as being the version number.\n> To me and based on the packages R-abind, R-acepack, R-mAR (and some\n> other that I didn't list) this is not a bug.\n>\n> Do you agree with me ?\n\nI agree that we are loosing information in the version and that on the other \nhand the dash is just a fancy replacement for the dot.\n\nSo we could agree to replace all the dashes in R package versions by dots and \nbe done with it.\n\nWhatever we decide we should apply this uniformly to all R packages that have \nthis numbering.\n\n> Thanks,\n> Best regards,\n>\n> Pierre\n\n-- \nJosé Abílio",
+      "body_snippet": "On Friday 29 May 2009 06:53:54 Pierre-Yves wrote:\n> Dear all,\n>\n> I would like your opinion regarding: [Bug 503108] New: R2spec-2.5.2\n> loses Version information\n>\n> It basically says that when the pa",
+      "thread_id": "thread-59427d247638",
+      "thread_depth": 1,
+      "month": "2009-05"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-59427d247638",
+      "subject": "[Fedora-r-devel-list] R2spec and version number",
+      "message_count": 2,
+      "participants": [
+        "José Abílio Matos",
+        "Pierre-Yves Chibon"
+      ],
+      "started": "2009-05-29T05:53:54Z",
+      "last_reply": "2009-05-29T09:53:57Z",
+      "root_message_id": "msg-59427d247638"
+    }
+  ]
+}

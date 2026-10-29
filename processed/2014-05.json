@@ -1,0 +1,36 @@
+{
+  "list": "fedora-r-devel",
+  "description": "",
+  "month": "2014-05",
+  "messages": [
+    {
+      "id": "msg-397d8e3dc8ed",
+      "message_id": "<6936289.5XVFEZb6qa@ulysses>",
+      "from_name": "José Abílio Matos",
+      "from_email_hash": "1830ccfc475fe0f52edb74ac1163b69778ceb8ac957cc168f6b6335828c0e855",
+      "date": "2014-05-16T18:06:31Z",
+      "subject": "[Fedora-r-devel-list] default location for R_LIBS_USER",
+      "subject_clean": "[Fedora-r-devel-list] default location for R_LIBS_USER",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hi,\n\trecently I have installed rstudio in my machine to see how it works, it insists to install two packages rstudio and another.\n\nI found then later that R created a directory called R in my home directory. I find that behavior annoying to have a program installing a directory right in my home directory.\n\nThe solution, is to add a line in .Renviron, in my case:\n\nR_LIBS_USER=~/.local/R/x86_64-redhat-linux-gnu-library/3.1\n\nIs there any reason to not have this as the default?\nI can think of historical reasons, status-quo, R developers insisting in having the directory visible...\n\nWhat do others think?\n\nRegards,\n-- \nJosé Abílio",
+      "body_snippet": "Hi,\n\trecently I have installed rstudio in my machine to see how it works, it insists to install two packages rstudio and another.\n\nI found then later that R created a directory called R in my home dir",
+      "thread_id": "thread-397d8e3dc8ed",
+      "thread_depth": 0,
+      "month": "2014-05"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-397d8e3dc8ed",
+      "subject": "[Fedora-r-devel-list] default location for R_LIBS_USER",
+      "message_count": 1,
+      "participants": [
+        "José Abílio Matos"
+      ],
+      "started": "2014-05-16T18:06:31Z",
+      "last_reply": "2014-05-16T18:06:31Z",
+      "root_message_id": "msg-397d8e3dc8ed"
+    }
+  ]
+}

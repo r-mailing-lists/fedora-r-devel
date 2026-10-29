@@ -1,0 +1,194 @@
+{
+  "list": "fedora-r-devel",
+  "description": "",
+  "month": "2010-04",
+  "messages": [
+    {
+      "id": "msg-e5d2cea5e9d2",
+      "message_id": "<1270146167.23913.2.camel@localhost.localdomain>",
+      "from_name": "Pierre-Yves Chibon",
+      "from_email_hash": "47e30c199d3131f08c959f22c4f67ea9e57a1a82a5b6363bb242a1766ac73fe5",
+      "date": "2010-04-01T18:22:47Z",
+      "subject": "[Fedora-r-devel-list] Monthly update",
+      "subject_clean": "[Fedora-r-devel-list] Monthly update",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "As proposed there is the monthly reminder about the version of the\npackages in Fedora vs upstream.\n\nI did not clean the known false positive so far.\n\nspot -- R-nws            is outdated, 2.0.0.3 vs 1.7.0.0 upstream\ndenisarnaud -- R-msm     is outdated, 0.9.5 vs 0.9.6 upstream\norion -- R-car           is outdated, 1.2 vs 1.2.16 upstream\norion -- R-lmtest        is outdated, 0.9 vs 0.9.26 upstream\norion -- R-multcomp      is outdated, 1.1 vs 1.1.6 upstream\norion -- R-mvtnorm       is outdated, 0.9 vs 0.9.9 upstream\norion -- R-systemfit     is outdated, 1.1 vs 1.1.4 upstream\norion -- R-zoo           is outdated, 1.6 vs 1.6.2 upstream\njamatos -- R-mAr         is outdated, 1.1.1 vs 1.1.2 upstream\njamatos -- R-waveslim    is outdated, 1.6.1 vs 1.6.3 upstream\njamatos -- R-wavethresh  is outdated, 2.2.11 vs 4.5 upstream\nnigelj -- R-RSQLite      is outdated, 0.8.1 vs 0.8.4 upstream\nTotal: 12 packages outdated/needing some work\n\n\nRegards,\nPierre",
+      "body_snippet": "As proposed there is the monthly reminder about the version of the\npackages in Fedora vs upstream.\n\nI did not clean the known false positive so far.\n\nspot -- R-nws            is outdated, 2.0.0.3 vs 1",
+      "thread_id": "thread-e5d2cea5e9d2",
+      "thread_depth": 0,
+      "month": "2010-04"
+    },
+    {
+      "id": "msg-341ec19c72f1",
+      "message_id": "<201004061618.10788.jamatos@fc.up.pt>",
+      "from_name": "José Abílio Matos",
+      "from_email_hash": "1830ccfc475fe0f52edb74ac1163b69778ceb8ac957cc168f6b6335828c0e855",
+      "date": "2010-04-06T15:18:10Z",
+      "subject": "Re: [Fedora-r-devel-list] R2rpm call for tester",
+      "subject_clean": "[Fedora-r-devel-list] R2rpm call for tester",
+      "in_reply_to": "<1269700212.26690.12.camel@localhost.localdomain>",
+      "references": [],
+      "body_plain": "On Saturday 27 March 2010 14:30:12 Pierre-Yves wrote:\n> I have just put together a version 0.7 which give the option to use mock\n> to build the rpm.\n> See R2rpm for the usage.\n> \n> Feel free to poke me if it doesn't work for you.\n\nNice work, I am testing it now and it has really improved a lot. :-)\n\nI use the attached patch to get the %{name} translation right.\n\nI notice that when searching the package (passed with -p) the repository is \nignored if passed.\n\nR2rpm --cran -p mAr\n\nwill ignore the --cran argument and test first bioconductor. As I said this is \na really small detail.\n\nThe important thing to notice though is that the above example works. :-) :-D\n\n> Thanks for testing,\n> \n> Pierre\n\n-- \nJosé Abílio\n\n-------------- next part --------------\ndiff --git a/R2spec-2.5.3-1.fc11.noarch.rpm b/R2spec-2.5.3-1.fc11.noarch.rpm\ndeleted file mode 100644\nindex 38410cd..0000000\nBinary files a/R2spec-2.5.3-1.fc11.noarch.rpm and /dev/null differ\ndiff --git a/R2spec-2.5.3.tar.gz b/R2spec-2.5.3.tar.gz\ndeleted file mode 100644\nindex ac0ca87..0000000\nBinary files a/R2spec-2.5.3.tar.gz and /dev/null differ\ndiff --git a/devel/r2spec/R2rpm.py b/devel/r2spec/R2rpm.py\nindex ee48ad0..241b945 100644\n--- a/devel/r2spec/R2rpm.py\n+++ b/devel/r2spec/R2rpm.py\n@@ -65,7 +65,7 @@ class R2rpm:\n         # Generate the spec file\n         r = RPackage()\n         # Determine where to generate the spec according to the rpmmacro\n-        specdir = r.getRPMTopDirectory(\"_specdir\")\n+        specdir = r.getRPMTopDirectory(\"_specdir\", package)\n         \n         # Go to the folder\n         if specdir is not None:\ndiff --git a/devel/r2spec/RPackage.py b/devel/r2spec/RPackage.py\nindex a87bf8d..7596043 100644\n--- a/devel/r2spec/RPackage.py\n+++ b/devel/r2spec/RPackage.py\n@@ -256,22 +256,24 @@ class RPackage:\n         spec.writeSpec(specname)\n         if todo: spec.writeOut()\n     \n-    def getRPMTopDirectory(self, tag, name = None):\n+    def getRPMTopDirectory(self, tag, package = None):\n         ''' Reads the .rpmmacros and set the values accordingly\n             Code from Jos�� Matos.\n         '''\n         dirname = Popen([\"rpm\", \"-E\", '%' + tag], stdout=PIPE).stdout.read()[:-1]\n-        specname = name\n-        if self.name:\n-            specname = \"R-\" + self.name\n \n-        if specname:\n-            dirname = dirname.replace(\"%{name}\", specname)\n-            dirname = dirname.replace(\"%name\", specname)\n+        # replace %{name} by the specname since it is not set\n+\n+        # determine the spec name\n+        if self.name: specname = \"R-\" + self.name\n+        elif package: specname = \"R-\" + package\n+        else:         specname = \"R-unknown\"\n+\n+        # replace %{name} by the specname\n+        dirname = dirname.replace(\"%{name}\", specname)\n+        dirname = dirname.replace(\"%name\", specname)\n \n         return dirname\n-        \n-        return topdir\n \n     def moveSource(self, copyFile):\n         ''' Moves the tarball to where it should be to build the RPM '''",
+      "body_snippet": "On Saturday 27 March 2010 14:30:12 Pierre-Yves wrote:\n> I have just put together a version 0.7 which give the option to use mock\n> to build the rpm.\n> See R2rpm for the usage.\n> \n> Feel free to poke m",
+      "thread_id": "thread-341ec19c72f1",
+      "thread_depth": 0,
+      "month": "2010-04"
+    },
+    {
+      "id": "msg-773333cd0c17",
+      "message_id": "<1270586916.7893.53.camel@localhost.localdomain>",
+      "from_name": "Pierre-Yves Chibon",
+      "from_email_hash": "47e30c199d3131f08c959f22c4f67ea9e57a1a82a5b6363bb242a1766ac73fe5",
+      "date": "2010-04-06T20:48:36Z",
+      "subject": "Re: [Fedora-r-devel-list] R2rpm call for tester",
+      "subject_clean": "[Fedora-r-devel-list] R2rpm call for tester",
+      "in_reply_to": "<201004061618.10788.jamatos@fc.up.pt>",
+      "references": [],
+      "body_plain": "On Tue, 2010-04-06 at 16:18 +0100, José Matos wrote:\n> On Saturday 27 March 2010 14:30:12 Pierre-Yves wrote:\n> > I have just put together a version 0.7 which give the option to use mock\n> > to build the rpm.\n> > See R2rpm for the usage.\n> > \n> > Feel free to poke me if it doesn't work for you.\n> \n> Nice work, I am testing it now and it has really improved a lot. :-)\n> \n> I use the attached patch to get the %{name} translation right.\nThanks, I will look into this :)\n\n> I notice that when searching the package (passed with -p) the repository is \n> ignored if passed.\n> \n> R2rpm --cran -p mAr\n> \n> will ignore the --cran argument and test first bioconductor. \nIt tests all the repo set (so bioconductor (*3), cran and r-forge) and\nstops at the first positive hit.\n\n> As I said this is a really small detail.\nIt is, but potentially annoying, especially if one package is present in\nmore than one repository (and with different version), which is the\ncase.\nIt will then stop at the first positive match and won't look further. So\npotentially, it might be annoying, I'll try to fix this.\n\nGood to hear that you like it !\n\nThanks for all,\n\nPierre",
+      "body_snippet": "On Tue, 2010-04-06 at 16:18 +0100, José Matos wrote:\n> On Saturday 27 March 2010 14:30:12 Pierre-Yves wrote:\n> > I have just put together a version 0.7 which give the option to use mock\n> > to build t",
+      "thread_id": "thread-341ec19c72f1",
+      "thread_depth": 1,
+      "month": "2010-04"
+    },
+    {
+      "id": "msg-d46a48e815c0",
+      "message_id": "<201004062235.26375.jamatos@fc.up.pt>",
+      "from_name": "José Abílio Matos",
+      "from_email_hash": "1830ccfc475fe0f52edb74ac1163b69778ceb8ac957cc168f6b6335828c0e855",
+      "date": "2010-04-06T21:35:26Z",
+      "subject": "Re: [Fedora-r-devel-list] R2rpm call for tester",
+      "subject_clean": "[Fedora-r-devel-list] R2rpm call for tester",
+      "in_reply_to": "<1270586916.7893.53.camel@localhost.localdomain>",
+      "references": [],
+      "body_plain": "On Tuesday 06 April 2010 21:48:36 Pierre-Yves wrote:\n> >\n> > Nice work, I am testing it now and it has really improved a lot. :-)\n> >\n> > I use the attached patch to get the %{name} translation right.\n> \n> Thanks, I will look into this :)\n\nFWIW it would be nice to have the packname (or the spec name for that matter) \nearlier, as soon as possible. If we had that all those extra lines would go \naway. I tried to play a bit with it but failed.\n\nThen the code could be reduced to:\n\n    dirname = Popen([\"rpm\", \"-E\", '%' + tag], stdout=PIPE).stdout.read()[:-1]\n    return dirname.replace(\"%{name}\", self.packname).replace(\"%name\", \nself.packname)\n\n(Yes, I am abusing code brevity, but you get an idea). :-)\n-- \nJosé Abílio",
+      "body_snippet": "On Tuesday 06 April 2010 21:48:36 Pierre-Yves wrote:\n> >\n> > Nice work, I am testing it now and it has really improved a lot. :-)\n> >\n> > I use the attached patch to get the %{name} translation right.",
+      "thread_id": "thread-341ec19c72f1",
+      "thread_depth": 2,
+      "month": "2010-04"
+    },
+    {
+      "id": "msg-e23781cc3435",
+      "message_id": "<4BD1D719.8000907@redhat.com>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2010-04-23T17:21:29Z",
+      "subject": "[Fedora-r-devel-list] R 2.11.0 in Fedora Updates Testing",
+      "subject_clean": "[Fedora-r-devel-list] R 2.11.0 in Fedora Updates Testing",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "R 2.11.0 is built now for Fedora and EPEL. It is in \"updates-testing\".\n\nIn accordance with the new policies on Fedora Updates, these new\npackages will not be pushed as official updates until they either\nreceive positive testing from users, or sit in updates-testing for two\nweeks.\n\nYou can help us test these packages, and move them forward. Here's how:\n\n1. Go to the Fedora Updates web application (its real name is \"Bodhi\"):\nhttps://admin.fedoraproject.org/updates/\n\nOnce you're there, click the login blue box at the top left, and login\nwith your Fedora Account. If you don't have a Fedora Account, you can\nskip this step.\n\n2. Click on the link for the Fedora R test update that matches your release:\n\nFedora 11:\nhttps://admin.fedoraproject.org/updates/rpy-2.0.8-2.fc11,R-2.11.0-1.fc11\n\nFedora 12:\nhttps://admin.fedoraproject.org/updates/rpy-2.0.8-2.fc12,R-2.11.0-1.fc12\n\nEPEL-4 (RHEL-4):\nhttps://admin.fedoraproject.org/updates/R-2.11.0-1.el4\n\nEPEL-5 (RHEL-5):\nhttps://admin.fedoraproject.org/updates/R-2.11.0-1.el5\n\n3. Now, on your Fedora (or RHEL) system, run this command (as root, or\nwith root privs) to install the test update:\n\nyum --enablerepo=updates-testing update R\n\nThat should update R to the test update (if you don't want the full R\nsuite, you can replace \"R\" in that string with \"R-core\").\n\n4. Test it! Make sure it does all the things you would expect it to.\n\n5. Go back to the web page for the R update (step 2), and at\nthe bottom, click \"Add a comment >>\"\n\n(If you didn't login, it will ask you for an email address and make you\ncomplete a captcha to make sure you are a unique individual.)\n\nIn that text box which opens up, write a little bit about the testing\nyou did and if it works okay for you or not. Then (this is the important\npart), click the \"Works for me\" or \"Does not work\" radio button below\nit, and click the Add Comment button.\n\n6. That's it! If it worked, you've given that update a +1 karma vote.\n(If it didn't work, you've given it a -1 karma vote). Now, if three\npeople give a +1, and the package update gets to +3, the Fedora Update\nsystem will automatically move the update from testing to a real update,\nand everyone will get it.\n\nThanks in advance,\n\n~spot, Fedora/EPEL R maintainer",
+      "body_snippet": "R 2.11.0 is built now for Fedora and EPEL. It is in \"updates-testing\".\n\nIn accordance with the new policies on Fedora Updates, these new\npackages will not be pushed as official updates until they eith",
+      "thread_id": "thread-e23781cc3435",
+      "thread_depth": 0,
+      "month": "2010-04"
+    },
+    {
+      "id": "msg-ad75ccddb008",
+      "message_id": "<1272060956.20881.38.camel@localhost.localdomain>",
+      "from_name": "Pierre-Yves Chibon",
+      "from_email_hash": "47e30c199d3131f08c959f22c4f67ea9e57a1a82a5b6363bb242a1766ac73fe5",
+      "date": "2010-04-23T22:15:56Z",
+      "subject": "[Fedora-r-devel-list] R-repo",
+      "subject_clean": "[Fedora-r-devel-list] R-repo",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Dear all,\n\nThere is a some group of people which is gathering at this moment to\nbuild a RPMs R-repository. \n\nThis repository will be built using R2rpm which mean:\n- No -devel subpackage\n- Automated spec generation\n- Dependencies resolved based on the DESCRIPTION file\n\nWe will make sure that the package that don't build have logs available.\n\nAt the moment we are trying to put together all the infrastructure. We\nhave started to build the first packages and are hoping to have the\nfirst generation of the repository in few days.\n\nFor those of you who would be interested we have just set up a mailing\nlist at:\nhttp://www.bioinformatics.org/mailman/listinfo/r-repo-dev\nFeel free to join the discussions to make of this project something\nuseful for all.\n\nRegards,\n\nPierre",
+      "body_snippet": "Dear all,\n\nThere is a some group of people which is gathering at this moment to\nbuild a RPMs R-repository. \n\nThis repository will be built using R2rpm which mean:\n- No -devel subpackage\n- Automated sp",
+      "thread_id": "thread-ad75ccddb008",
+      "thread_depth": 0,
+      "month": "2010-04"
+    },
+    {
+      "id": "msg-45926b22f40c",
+      "message_id": "<614413.18213.qm@web30505.mail.mud.yahoo.com>",
+      "from_name": "D.Enrique ESCOBAR ESPINOZA",
+      "from_email_hash": "ce7fa1b95bfeb03d93ccf78cb7a401bc2d3e9fa98b9b661a3fa4c04326f7a153",
+      "date": "2010-04-24T17:31:51Z",
+      "subject": "[Fedora-r-devel-list] r bridge to mono",
+      "subject_clean": "[Fedora-r-devel-list] r bridge to mono",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hi,\n\ndoes any one know if there is a bridge to R from mono the multiplatform  csharp interpreter?\n\nThank you very much.\n--------------------------------------------------\nEnrique ESCOBAR",
+      "body_snippet": "Hi,\n\ndoes any one know if there is a bridge to R from mono the multiplatform  csharp interpreter?\n\nThank you very much.\n--------------------------------------------------\nEnrique ESCOBAR",
+      "thread_id": "thread-45926b22f40c",
+      "thread_depth": 0,
+      "month": "2010-04"
+    },
+    {
+      "id": "msg-6a7aea1ddb16",
+      "message_id": "<4BD3A990.6010005@redhat.com>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2010-04-25T02:31:44Z",
+      "subject": "Re: [Fedora-r-devel-list] r bridge to mono",
+      "subject_clean": "[Fedora-r-devel-list] r bridge to mono",
+      "in_reply_to": "<614413.18213.qm@web30505.mail.mud.yahoo.com>",
+      "references": [],
+      "body_plain": "On 04/24/2010 01:31 PM, D.Enrique ESCOBAR ESPINOZA wrote:\n> Hi,\n> \n> does any one know if there is a bridge to R from mono the multiplatform  csharp interpreter?\n\nNot to my knowledge.\n\n~spot",
+      "body_snippet": "On 04/24/2010 01:31 PM, D.Enrique ESCOBAR ESPINOZA wrote:\n> Hi,\n> \n> does any one know if there is a bridge to R from mono the multiplatform  csharp interpreter?\n\nNot to my knowledge.\n\n~spot",
+      "thread_id": "thread-45926b22f40c",
+      "thread_depth": 1,
+      "month": "2010-04"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-e5d2cea5e9d2",
+      "subject": "[Fedora-r-devel-list] Monthly update",
+      "message_count": 1,
+      "participants": [
+        "Pierre-Yves Chibon"
+      ],
+      "started": "2010-04-01T18:22:47Z",
+      "last_reply": "2010-04-01T18:22:47Z",
+      "root_message_id": "msg-e5d2cea5e9d2"
+    },
+    {
+      "id": "thread-341ec19c72f1",
+      "subject": "[Fedora-r-devel-list] R2rpm call for tester",
+      "message_count": 3,
+      "participants": [
+        "José Abílio Matos",
+        "Pierre-Yves Chibon"
+      ],
+      "started": "2010-04-06T15:18:10Z",
+      "last_reply": "2010-04-06T21:35:26Z",
+      "root_message_id": "msg-341ec19c72f1"
+    },
+    {
+      "id": "thread-e23781cc3435",
+      "subject": "[Fedora-r-devel-list] R 2.11.0 in Fedora Updates Testing",
+      "message_count": 1,
+      "participants": [
+        "Tom Callaway"
+      ],
+      "started": "2010-04-23T17:21:29Z",
+      "last_reply": "2010-04-23T17:21:29Z",
+      "root_message_id": "msg-e23781cc3435"
+    },
+    {
+      "id": "thread-ad75ccddb008",
+      "subject": "[Fedora-r-devel-list] R-repo",
+      "message_count": 1,
+      "participants": [
+        "Pierre-Yves Chibon"
+      ],
+      "started": "2010-04-23T22:15:56Z",
+      "last_reply": "2010-04-23T22:15:56Z",
+      "root_message_id": "msg-ad75ccddb008"
+    },
+    {
+      "id": "thread-45926b22f40c",
+      "subject": "[Fedora-r-devel-list] r bridge to mono",
+      "message_count": 2,
+      "participants": [
+        "D.Enrique ESCOBAR ESPINOZA",
+        "Tom Callaway"
+      ],
+      "started": "2010-04-24T17:31:51Z",
+      "last_reply": "2010-04-25T02:31:44Z",
+      "root_message_id": "msg-45926b22f40c"
+    }
+  ]
+}

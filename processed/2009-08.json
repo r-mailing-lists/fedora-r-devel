@@ -1,0 +1,335 @@
+{
+  "list": "fedora-r-devel",
+  "description": "",
+  "month": "2009-08",
+  "messages": [
+    {
+      "id": "msg-3ba2ed00a6c1",
+      "message_id": "<1249232207.2573.16.camel@red.localdomain>",
+      "from_name": "Pierre-Yves Chibon",
+      "from_email_hash": "47e30c199d3131f08c959f22c4f67ea9e57a1a82a5b6363bb242a1766ac73fe5",
+      "date": "2009-08-02T16:56:47Z",
+      "subject": "Re: [Fedora-r-devel-list] Update the guidelines",
+      "subject_clean": "[Fedora-r-devel-list] Update the guidelines",
+      "in_reply_to": "<1237661999.3243.23.camel@localhost.localdomain>",
+      "references": [],
+      "body_plain": "On Sat, 2009-03-21 at 19:59 +0100, Pierre-Yves wrote:\n> Dear all,\n> \n> I would like to propose to update (or mention) some points in the R\n> packaging guidelines.\n> \n> * Mention something about the tex files which are not utf-8 and don't\n> necessarily have to be converted\n> see:\n> https://www.redhat.com/archives/fedora-devel-list/2009-January/msg00741.html\n> \n> * Mention something about the -devel package where the headers don't\n> necessarily have to moved to %{_datadir} since R looks for them in\n> %{_libdir}.\n> see:\n> https://www.redhat.com/archives/fedora-r-devel-list/2009-March/msg00001.html\n\nI am planning on writing down a proposal to add those remarks to the\nguidelines.\n\nIn addition I though we could also :\n - Mention about the version which in R might contains '-' which should\nbe replaced in Fedora\n - Mention R2spec as tool to create spec file\n - Mention the new sources of library (the two r-forges)\n\nDo you see any other points to be added/changed ?\n\nI will send to the list the proposal once done.\n\nBest regards,\n\nPierre",
+      "body_snippet": "On Sat, 2009-03-21 at 19:59 +0100, Pierre-Yves wrote:\n> Dear all,\n> \n> I would like to propose to update (or mention) some points in the R\n> packaging guidelines.\n> \n> * Mention something about the te",
+      "thread_id": "thread-3ba2ed00a6c1",
+      "thread_depth": 0,
+      "month": "2009-08"
+    },
+    {
+      "id": "msg-226e4b1b7d99",
+      "message_id": "<1249242600.2573.22.camel@red.localdomain>",
+      "from_name": "Pierre-Yves Chibon",
+      "from_email_hash": "47e30c199d3131f08c959f22c4f67ea9e57a1a82a5b6363bb242a1766ac73fe5",
+      "date": "2009-08-02T19:50:00Z",
+      "subject": "[Fedora-r-devel-list] R2spec v2.5.3",
+      "subject_clean": "[Fedora-r-devel-list] R2spec v2.5.3",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Dear list,\n\nAs just announced on my blog I released a new version of R2spec and\nthere is the changelog for this version:\n\nVersion 2.5.3 -- 02nd Aug 2009\n- Features added\n  * Prints warning if summary is empty\n  * Prints warning if description is empty\n  * Add support for r-forge.net (option --rforge)\n  * Add support for r-forge.r-project.org (option --rproject)\n  * Add the prefix R- to the list of dependencies with a list of package\nto ignore (ie: R)\n  * Add a default source0 and url if the bioconductor release is not set\n- Bugs correction\n  * Does not add the 'Requires:' to the spec if they are empty\n  * Changes the '-' into '.' if the version of the R library contains\nany '-'\n\nPackage is available for F-10, F-11, rawhide, EPEL-4 and EPEL-5.\n\nFeel free to add some karma if you test it :)\n\nThanks,\n\nBest regards,\n\nPierre",
+      "body_snippet": "Dear list,\n\nAs just announced on my blog I released a new version of R2spec and\nthere is the changelog for this version:\n\nVersion 2.5.3 -- 02nd Aug 2009\n- Features added\n  * Prints warning if summary ",
+      "thread_id": "thread-226e4b1b7d99",
+      "thread_depth": 0,
+      "month": "2009-08"
+    },
+    {
+      "id": "msg-2567353903bc",
+      "message_id": "<1249404591.5658.1.camel@red.localdomain>",
+      "from_name": "Pierre-Yves Chibon",
+      "from_email_hash": "47e30c199d3131f08c959f22c4f67ea9e57a1a82a5b6363bb242a1766ac73fe5",
+      "date": "2009-08-04T16:49:51Z",
+      "subject": "Re: [Fedora-r-devel-list] Update the guidelines",
+      "subject_clean": "[Fedora-r-devel-list] Update the guidelines",
+      "in_reply_to": "<1249232207.2573.16.camel@red.localdomain>",
+      "references": [],
+      "body_plain": "On Sun, 2009-08-02 at 18:56 +0200, Pierre-Yves wrote:\n> On Sat, 2009-03-21 at 19:59 +0100, Pierre-Yves wrote:\n> > Dear all,\n> > \n> > I would like to propose to update (or mention) some points in the R\n> > packaging guidelines.\n> > \n> > * Mention something about the tex files which are not utf-8 and don't\n> > necessarily have to be converted\n> > see:\n> > https://www.redhat.com/archives/fedora-devel-list/2009-January/msg00741.html\n> > \n> > * Mention something about the -devel package where the headers don't\n> > necessarily have to moved to %{_datadir} since R looks for them in\n> > %{_libdir}.\n> > see:\n> > https://www.redhat.com/archives/fedora-r-devel-list/2009-March/msg00001.html\n> \n> I am planning on writing down a proposal to add those remarks to the\n> guidelines.\n> \n> In addition I though we could also :\n>  - Mention about the version which in R might contains '-' which should\n> be replaced in Fedora\n>  - Mention R2spec as tool to create spec file\n>  - Mention the new sources of library (the two r-forges)\n> \n> Do you see any other points to be added/changed ?\n\nI put all this together here:\nhttps://fedoraproject.org/wiki/ProposalUpdateRGuidelines\nand also there thus:\nhttps://fedoraproject.org/wiki/PackagingDrafts/DraftsTodo\n\nI put target date as 'Discuss' waiting to hear from you but there is a\nmeeting tomorrow if we make it on time :)\n\nFeel free to react of it :)\n\nBest regards,\n\nPierre",
+      "body_snippet": "On Sun, 2009-08-02 at 18:56 +0200, Pierre-Yves wrote:\n> On Sat, 2009-03-21 at 19:59 +0100, Pierre-Yves wrote:\n> > Dear all,\n> > \n> > I would like to propose to update (or mention) some points in the R",
+      "thread_id": "thread-3ba2ed00a6c1",
+      "thread_depth": 1,
+      "month": "2009-08"
+    },
+    {
+      "id": "msg-d69fcb20be60",
+      "message_id": "<1249724857.2600.2.camel@red.localdomain>",
+      "from_name": "Pierre-Yves Chibon",
+      "from_email_hash": "47e30c199d3131f08c959f22c4f67ea9e57a1a82a5b6363bb242a1766ac73fe5",
+      "date": "2009-08-08T09:47:37Z",
+      "subject": "[Fedora-r-devel-list] version corrected",
+      "subject_clean": "[Fedora-r-devel-list] version corrected",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Dear list,\n\nRemi and I have patched the website to correct the version number that\ncontained a '-'.\n\nYou can thus go to [1] to check if you are up-to-date.\n\nLet me know if you face an error or a problem :)\n\n\nBest regards,\n\nPierre\n\n\n[1] http://rpms.famillecollet.com/rpmphp/rpm.php?type=R",
+      "body_snippet": "Dear list,\n\nRemi and I have patched the website to correct the version number that\ncontained a '-'.\n\nYou can thus go to [1] to check if you are up-to-date.\n\nLet me know if you face an error or a probl",
+      "thread_id": "thread-d69fcb20be60",
+      "thread_depth": 0,
+      "month": "2009-08"
+    },
+    {
+      "id": "msg-ac0c9544d38b",
+      "message_id": "<1250799658.11515.0.camel@red.localdomain>",
+      "from_name": "Pierre-Yves Chibon",
+      "from_email_hash": "47e30c199d3131f08c959f22c4f67ea9e57a1a82a5b6363bb242a1766ac73fe5",
+      "date": "2009-08-20T20:20:58Z",
+      "subject": "[Fedora-r-devel-list] [Fwd: Re: TeX Live 2009 for Fedora]",
+      "subject_clean": "[Fedora-r-devel-list] [Fwd: Re: TeX Live 2009 for Fedora]",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "FYI\n\nI will update R2spec to meet the new guidelines soon.\n\nBest regards,\n\nPierre\n\n-------------- next part --------------\nWzxlbWFpbC5tZXNzYWdlLk1lc3NhZ2UgaW5zdGFuY2UgYXQgMHgzZjA1NWYwPl0=",
+      "body_snippet": "FYI\n\nI will update R2spec to meet the new guidelines soon.\n\nBest regards,\n\nPierre\n\n-------------- next part --------------\nWzxlbWFpbC5tZXNzYWdlLk1lc3NhZ2UgaW5zdGFuY2UgYXQgMHgzZjA1NWYwPl0=",
+      "thread_id": "thread-ac0c9544d38b",
+      "thread_depth": 0,
+      "month": "2009-08"
+    },
+    {
+      "id": "msg-c034ec9f8695",
+      "message_id": "<200908202134.03638.jamatos@fc.up.pt>",
+      "from_name": "José Abílio Matos",
+      "from_email_hash": "1830ccfc475fe0f52edb74ac1163b69778ceb8ac957cc168f6b6335828c0e855",
+      "date": "2009-08-20T20:34:02Z",
+      "subject": "Re: [Fedora-r-devel-list] [Fwd: Re: TeX Live 2009 for Fedora]",
+      "subject_clean": "[Fedora-r-devel-list] [Fwd: Re: TeX Live 2009 for Fedora]",
+      "in_reply_to": "<1250799658.11515.0.camel@red.localdomain>",
+      "references": [],
+      "body_plain": "On Thursday 20 August 2009 21:20:58 Pierre-Yves wrote:\n> FYI\n>\n> I will update R2spec to meet the new guidelines soon.\n>\n> Best regards,\n>\n> Pierre\n\nThe only conflict that I get, for R packages I have installed, when updating \nthe new latex is with R-devel.\n\nAt the same time as Jason stated the possible complication that comes from the \nchange is the difference between Fedora and EPEL packages. That means one more \nconditional in the file, perhaps. :-)\n\n-- \nJosé Abílio",
+      "body_snippet": "On Thursday 20 August 2009 21:20:58 Pierre-Yves wrote:\n> FYI\n>\n> I will update R2spec to meet the new guidelines soon.\n>\n> Best regards,\n>\n> Pierre\n\nThe only conflict that I get, for R packages I have",
+      "thread_id": "thread-ac0c9544d38b",
+      "thread_depth": 1,
+      "month": "2009-08"
+    },
+    {
+      "id": "msg-69661c33e23f",
+      "message_id": "<1250800937.11515.16.camel@red.localdomain>",
+      "from_name": "Pierre-Yves Chibon",
+      "from_email_hash": "47e30c199d3131f08c959f22c4f67ea9e57a1a82a5b6363bb242a1766ac73fe5",
+      "date": "2009-08-20T20:42:17Z",
+      "subject": "Re: [Fedora-r-devel-list] [Fwd: Re: TeX Live 2009 for Fedora]",
+      "subject_clean": "[Fedora-r-devel-list] [Fwd: Re: TeX Live 2009 for Fedora]",
+      "in_reply_to": "<200908202134.03638.jamatos@fc.up.pt>",
+      "references": [],
+      "body_plain": "On Thu, 2009-08-20 at 21:34 +0100, José Matos wrote:\n> On Thursday 20 August 2009 21:20:58 Pierre-Yves wrote:\n> > FYI\n> >\n> > I will update R2spec to meet the new guidelines soon.\n> >\n> > Best regards,\n> >\n> > Pierre\n> \n> The only conflict that I get, for R packages I have installed, when updating \n> the new latex is with R-devel.\n> \n> At the same time as Jason stated the possible complication that comes from the \n> change is the difference between Fedora and EPEL packages. That means one more \n> conditional in the file, perhaps. :-)\n> \n\nJindrich replied:\n> Thanks for updating the packaging guidelines. I will add te tetex-* \n> provides to be compatible with the legacy packages.\n\nI guess this solve the issue, but then I'm curious on whether it makes\nany difference to change the specs (or did I understand it wrongly ?)\n\nRegards,\n\nPierre",
+      "body_snippet": "On Thu, 2009-08-20 at 21:34 +0100, José Matos wrote:\n> On Thursday 20 August 2009 21:20:58 Pierre-Yves wrote:\n> > FYI\n> >\n> > I will update R2spec to meet the new guidelines soon.\n> >\n> > Best regards",
+      "thread_id": "thread-ac0c9544d38b",
+      "thread_depth": 2,
+      "month": "2009-08"
+    },
+    {
+      "id": "msg-3f3162358623",
+      "message_id": "<BLU0-SMTP3691002BCD2C015488C439CAFA0@phx.gbl>",
+      "from_name": "Jack Tanner",
+      "from_email_hash": "eb551c3f5ddd6c6fdcee8e277b450b1545ca32bf724ce40af3e20de143939bde",
+      "date": "2009-08-23T17:11:38Z",
+      "subject": "[Fedora-r-devel-list] RMySQL spec file",
+      "subject_clean": "[Fedora-r-devel-list] RMySQL spec file",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hi, here's a spec file in case anyone wants to package up RMySQL. I'm \nhereby placing it in the public domain, so please modify as necessary, \nand don't even bother giving me credit. I'm not volunteering to be a \nmaintainer myself.\n\nIt passes rpmlint, it's tested only on CentOS 5, and it works for me. \nYMMV. I'm somewhat unsure about the BuildRequires.\n\nBy the way, R2spec was a really good starting point, but I had to \ndeviate from its suggestions in a couple of places. You could diff an \nR2spec-generated file and the one below if you're curious.\n\n-- CUT HERE --\n\n%global packname  RMySQL\n%global packrel 1\n\nName:             R-%{packname}\nVersion:          0.7\nRelease:          4%{?dist}\nSummary:          R interface to the MySQL database\n\nGroup:            Applications/Engineering\nLicense:          GPLv2\nURL:              http://cran.r-project.org/web/packages/RMySQL/\nSource0:          \nftp://cran.r-project.org/pub/R/contrib/main/%{packname}_%{version}-%{release}.tar.gz\nBuildRoot:        \n%{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)\n\nRequires(post):   R\nRequires(postun): R\nBuildRequires:    R-devel tetex-latex R >= R-2.8.0 R-methods R-DBI >= \nR-0.2-2 R-utils mysql-devel\n\n%description\nDatabase interface and MySQL driver for R. This version complies with \nthe database interface definition as implemented in the package DBI 0.2-2.\n\n%prep\n%setup -q -c -n %{packname}\n\n%build\n\n%install\nrm -rf %{buildroot}\nmkdir -p %{buildroot}%{_libdir}/R/library\n%{_bindir}/R CMD INSTALL -l %{buildroot}%{_libdir}/R/library %{packname}\ntest -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)\nrm -rf %{buildroot}%{_libdir}/R/library/R.css\n\n%check\n%{_bindir}/R CMD check %{packname}\n\n%clean\nrm -rf %{buildroot}\n\n%post\n%{_R_make_search_index}\n\n%postun\n%{_R_make_search_index}\n\n%files\n%defattr(-, root, root, -)\n%dir %{_libdir}/R/library/%{packname}\n\n%doc %{_libdir}/R/library/%{packname}/latex\n%doc %{_libdir}/R/library/%{packname}/doc\n%doc %{_libdir}/R/library/%{packname}/html\n%doc %{_libdir}/R/library/%{packname}/DESCRIPTION\n%doc %{_libdir}/R/library/%{packname}/man\n%doc %{_libdir}/R/library/%{packname}/NEWS\n%doc %{_libdir}/R/library/%{packname}/GPL\n%doc %{_libdir}/R/library/%{packname}/GPL\n%doc %{_libdir}/R/library/%{packname}/INSTALL\n%doc %{_libdir}/R/library/%{packname}/INSTALL.win\n%doc %{_libdir}/R/library/%{packname}/README\n%doc %{_libdir}/R/library/%{packname}/README.windows\n%doc %{_libdir}/R/library/%{packname}/THANKS\n%doc %{_libdir}/R/library/%{packname}/TODO\n%doc %{_libdir}/R/library/%{packname}/WindowsPath.txt\n%doc %{_libdir}/R/library/%{packname}/newFunctionNames.txt\n\n%{_libdir}/R/library/%{packname}/CONTENTS\n%{_libdir}/R/library/%{packname}/INDEX\n%{_libdir}/R/library/%{packname}/NAMESPACE\n%{_libdir}/R/library/%{packname}/Meta\n%{_libdir}/R/library/%{packname}/R\n%{_libdir}/R/library/%{packname}/R-ex\n%{_libdir}/R/library/%{packname}/help\n%{_libdir}/R/library/%{packname}/FindMySQLhome.R\n%{_libdir}/R/library/%{packname}/libs/RMySQL.so\n\n%changelog\n* Sun Aug 23 2009 Name <Mail> 0.7.4-1\n- initial package for Fedora",
+      "body_snippet": "Hi, here's a spec file in case anyone wants to package up RMySQL. I'm \nhereby placing it in the public domain, so please modify as necessary, \nand don't even bother giving me credit. I'm not volunteer",
+      "thread_id": "thread-3f3162358623",
+      "thread_depth": 0,
+      "month": "2009-08"
+    },
+    {
+      "id": "msg-4c51ed84dfb3",
+      "message_id": "<2c8757af0908231326s63dd83a5v5e707b648442461d@mail.gmail.com>",
+      "from_name": "Dan Bolser",
+      "from_email_hash": "67a9076c733a86ea6e6c9bc7ba8c0b60fbdecc5e9e6a4791158310dfba72fe51",
+      "date": "2009-08-23T20:26:22Z",
+      "subject": "Re: [Fedora-r-devel-list] RMySQL spec file",
+      "subject_clean": "[Fedora-r-devel-list] RMySQL spec file",
+      "in_reply_to": "<BLU0-SMTP3691002BCD2C015488C439CAFA0@phx.gbl>",
+      "references": [],
+      "body_plain": "Thanks very much for providing this Jack!\n\n\n\n2009/8/23 Jack Tanner <ihok(a)hotmail.com>:\n> Hi, here's a spec file in case anyone wants to package up RMySQL. I'm hereby\n> placing it in the public domain, so please modify as necessary, and don't\n> even bother giving me credit. I'm not volunteering to be a maintainer\n> myself.\n>\n> It passes rpmlint, it's tested only on CentOS 5, and it works for me. YMMV.\n> I'm somewhat unsure about the BuildRequires.\n>\n> By the way, R2spec was a really good starting point, but I had to deviate\n> from its suggestions in a couple of places. You could diff an\n> R2spec-generated file and the one below if you're curious.\n>\n> -- CUT HERE --\n>\n> %global packname  RMySQL\n> %global packrel 1\n>\n> Name:             R-%{packname}\n> Version:          0.7\n> Release:          4%{?dist}\n> Summary:          R interface to the MySQL database\n>\n> Group:            Applications/Engineering\n> License:          GPLv2\n> URL:              http://cran.r-project.org/web/packages/RMySQL/\n> Source0:\n>  ftp://cran.r-project.org/pub/R/contrib/main/%{packname}_%{version}-%{release}.tar.gz\n> BuildRoot:        %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u}\n> -n)\n>\n> Requires(post):   R\n> Requires(postun): R\n> BuildRequires:    R-devel tetex-latex R >= R-2.8.0 R-methods R-DBI >=\n> R-0.2-2 R-utils mysql-devel\n>\n> %description\n> Database interface and MySQL driver for R. This version complies with the\n> database interface definition as implemented in the package DBI 0.2-2.\n>\n> %prep\n> %setup -q -c -n %{packname}\n>\n> %build\n>\n> %install\n> rm -rf %{buildroot}\n> mkdir -p %{buildroot}%{_libdir}/R/library\n> %{_bindir}/R CMD INSTALL -l %{buildroot}%{_libdir}/R/library %{packname}\n> test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)\n> rm -rf %{buildroot}%{_libdir}/R/library/R.css\n>\n> %check\n> %{_bindir}/R CMD check %{packname}\n>\n> %clean\n> rm -rf %{buildroot}\n>\n> %post\n> %{_R_make_search_index}\n>\n> %postun\n> %{_R_make_search_index}\n>\n> %files\n> %defattr(-, root, root, -)\n> %dir %{_libdir}/R/library/%{packname}\n>\n> %doc %{_libdir}/R/library/%{packname}/latex\n> %doc %{_libdir}/R/library/%{packname}/doc\n> %doc %{_libdir}/R/library/%{packname}/html\n> %doc %{_libdir}/R/library/%{packname}/DESCRIPTION\n> %doc %{_libdir}/R/library/%{packname}/man\n> %doc %{_libdir}/R/library/%{packname}/NEWS\n> %doc %{_libdir}/R/library/%{packname}/GPL\n> %doc %{_libdir}/R/library/%{packname}/GPL\n> %doc %{_libdir}/R/library/%{packname}/INSTALL\n> %doc %{_libdir}/R/library/%{packname}/INSTALL.win\n> %doc %{_libdir}/R/library/%{packname}/README\n> %doc %{_libdir}/R/library/%{packname}/README.windows\n> %doc %{_libdir}/R/library/%{packname}/THANKS\n> %doc %{_libdir}/R/library/%{packname}/TODO\n> %doc %{_libdir}/R/library/%{packname}/WindowsPath.txt\n> %doc %{_libdir}/R/library/%{packname}/newFunctionNames.txt\n>\n> %{_libdir}/R/library/%{packname}/CONTENTS\n> %{_libdir}/R/library/%{packname}/INDEX\n> %{_libdir}/R/library/%{packname}/NAMESPACE\n> %{_libdir}/R/library/%{packname}/Meta\n> %{_libdir}/R/library/%{packname}/R\n> %{_libdir}/R/library/%{packname}/R-ex\n> %{_libdir}/R/library/%{packname}/help\n> %{_libdir}/R/library/%{packname}/FindMySQLhome.R\n> %{_libdir}/R/library/%{packname}/libs/RMySQL.so\n>\n> %changelog\n> * Sun Aug 23 2009 Name <Mail> 0.7.4-1\n> - initial package for Fedora\n>\n> _______________________________________________\n> Fedora-r-devel-list mailing list\n> Fedora-r-devel-list(a)redhat.com\n> http://www.redhat.com/mailman/listinfo/fedora-r-devel-list\n>",
+      "body_snippet": "Thanks very much for providing this Jack!\n\n\n\n2009/8/23 Jack Tanner <ihok(a)hotmail.com>:\n> Hi, here's a spec file in case anyone wants to package up RMySQL. I'm hereby\n> placing it in the public domai",
+      "thread_id": "thread-3f3162358623",
+      "thread_depth": 1,
+      "month": "2009-08"
+    },
+    {
+      "id": "msg-855cdf0f3bc8",
+      "message_id": "<4A9402F2.8020205@redhat.com>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2009-08-25T15:27:46Z",
+      "subject": "[Fedora-r-devel-list] R 2.9.2 updates are ready",
+      "subject_clean": "[Fedora-r-devel-list] R 2.9.2 updates are ready",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Fedora 10:\nhttps://admin.fedoraproject.org/updates/rpy-1.0.3-10.fc10,R-2.9.2-1.fc10\nFedora 11:\nhttps://admin.fedoraproject.org/updates/rpy-2.0.3-4.fc11,R-2.9.2-1.fc11\n\n(Note: EPEL updates sit in testing for two weeks, or until enough people\ngive them positive karma to push to stable)\nEL-4: https://admin.fedoraproject.org/updates/R-2.9.2-1.el4\nEL-5: https://admin.fedoraproject.org/updates/R-2.9.2-1.el5\n\n~spot",
+      "body_snippet": "Fedora 10:\nhttps://admin.fedoraproject.org/updates/rpy-1.0.3-10.fc10,R-2.9.2-1.fc10\nFedora 11:\nhttps://admin.fedoraproject.org/updates/rpy-2.0.3-4.fc11,R-2.9.2-1.fc11\n\n(Note: EPEL updates sit in testi",
+      "thread_id": "thread-855cdf0f3bc8",
+      "thread_depth": 0,
+      "month": "2009-08"
+    },
+    {
+      "id": "msg-bcf596b3b388",
+      "message_id": "<200908270805.48473.jamatos@fc.up.pt>",
+      "from_name": "José Abílio Matos",
+      "from_email_hash": "1830ccfc475fe0f52edb74ac1163b69778ceb8ac957cc168f6b6335828c0e855",
+      "date": "2009-08-27T07:05:47Z",
+      "subject": "[Fedora-r-devel-list] small issue with yum-presto and R update (config files changed)",
+      "subject_clean": "[Fedora-r-devel-list] small issue with yum-presto and R update (config files changed)",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "While updating to R-2.9.2 I noticed the following in yum:\n\nDownloading Packages:\nSetting up and reading Presto delta metadata\nupdates-testing/prestodelta                         | 111 kB     00:00\nupdates/prestodelta                                 | 487 kB     00:01\nProcessing delta metadata\n/usr/lib/R/etc/Makeconf: contents have been changed\n/usr/lib/R/etc/ldpaths: contents have been changed\n/usr/share/doc/R-2.9.1/html/search/index.txt: contents have been changed\ndelta does not match installed data\n\nFWIW I did not change those files other than updating other R packages trough \nyum.\n\nI remember to have the same problem ever since I have installed yum-\npresto when updating R.\n\nIs it possible to solve this in the spec file? Should I report this to \nbugzilla?\n\nRegards,\n\n--\nJosé Abílio",
+      "body_snippet": "While updating to R-2.9.2 I noticed the following in yum:\n\nDownloading Packages:\nSetting up and reading Presto delta metadata\nupdates-testing/prestodelta                         | 111 kB     00:00\nupd",
+      "thread_id": "thread-bcf596b3b388",
+      "thread_depth": 0,
+      "month": "2009-08"
+    },
+    {
+      "id": "msg-9664d3e21a0f",
+      "message_id": "<1251474338.5903.29.camel@seurat.iarc.fr>",
+      "from_name": "Martyn Plummer",
+      "from_email_hash": "a172213f54d02d8c46cd36ac95c2aaea4439b79c8fce553fb5a7295ac50db5d7",
+      "date": "2009-08-28T15:45:38Z",
+      "subject": "Re: [Fedora-r-devel-list] R 2.9.2 updates are ready",
+      "subject_clean": "[Fedora-r-devel-list] R 2.9.2 updates are ready",
+      "in_reply_to": "<1251453428.2585.6.camel@seurat.iarc.fr>",
+      "references": [],
+      "body_plain": "Up until now we have been building our own R RPMS for EL4 and EL5 for\ndistribution via CRAN.  To be precise, Bob Kinney at Harvard (cc'ed) has\nbeen building them. Lately I stepped in to rebuild the 32-bit EL4/5 RPMS\nusing mock.  \n\nWith R 2.9.1 and R 2.9.2 you have built EPEL RPMS for R at the same time\nas the Fedora ones. Does this mean we can give up building our own?\n \nIs it OK for me to grab the EPEL RPMS and put them on CRAN before they\nget pushed to stable? \n\nThanks\nMartyn\n\nOn Tue, 2009-08-25 at 11:27 -0400, Tom \"spot\" Callaway wrote:\n> Fedora 10:\n> https://admin.fedoraproject.org/updates/rpy-1.0.3-10.fc10,R-2.9.2-1.fc10\n> Fedora 11:\n> https://admin.fedoraproject.org/updates/rpy-2.0.3-4.fc11,R-2.9.2-1.fc11\n> \n> (Note: EPEL updates sit in testing for two weeks, or until enough people\n> give them positive karma to push to stable)\n> EL-4: https://admin.fedoraproject.org/updates/R-2.9.2-1.el4\n> EL-5: https://admin.fedoraproject.org/updates/R-2.9.2-1.el5\n> \n> ~spot\n\n\n-----------------------------------------------------------------------\nThis message and its attachments are strictly confidential. If you are\nnot the intended recipient of this message, please immediately notify \nthe sender and delete it. Since its integrity cannot be guaranteed, \nits content cannot involve the sender's responsibility. Any misuse, \nany disclosure or publication of its content, either whole or partial, \nis prohibited, exception made of formally approved use\n-----------------------------------------------------------------------",
+      "body_snippet": "Up until now we have been building our own R RPMS for EL4 and EL5 for\ndistribution via CRAN.  To be precise, Bob Kinney at Harvard (cc'ed) has\nbeen building them. Lately I stepped in to rebuild the 32",
+      "thread_id": "thread-9664d3e21a0f",
+      "thread_depth": 0,
+      "month": "2009-08"
+    },
+    {
+      "id": "msg-dbc8c7105eb1",
+      "message_id": "<4A981ACF.3060803@redhat.com>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2009-08-28T17:58:39Z",
+      "subject": "Re: [Fedora-r-devel-list] R 2.9.2 updates are ready",
+      "subject_clean": "[Fedora-r-devel-list] R 2.9.2 updates are ready",
+      "in_reply_to": "<1251474338.5903.29.camel@seurat.iarc.fr>",
+      "references": [],
+      "body_plain": "On 08/28/2009 11:45 AM, Martyn Plummer wrote:\n> Up until now we have been building our own R RPMS for EL4 and EL5 for\n> distribution via CRAN.  To be precise, Bob Kinney at Harvard (cc'ed) has\n> been building them. Lately I stepped in to rebuild the 32-bit EL4/5 RPMS\n> using mock.  \n> \n> With R 2.9.1 and R 2.9.2 you have built EPEL RPMS for R at the same time\n> as the Fedora ones. Does this mean we can give up building our own?\n\nSure. It doesn't really take much time for me to do these additional\ntargets.\n\n> Is it OK for me to grab the EPEL RPMS and put them on CRAN before they\n> get pushed to stable? \n\nSure, assuming you see no problems with them (and if you do, please let\nme know).\n\n~tom",
+      "body_snippet": "On 08/28/2009 11:45 AM, Martyn Plummer wrote:\n> Up until now we have been building our own R RPMS for EL4 and EL5 for\n> distribution via CRAN.  To be precise, Bob Kinney at Harvard (cc'ed) has\n> been ",
+      "thread_id": "thread-9664d3e21a0f",
+      "thread_depth": 1,
+      "month": "2009-08"
+    },
+    {
+      "id": "msg-ab9071d4e0a9",
+      "message_id": "<BLU0-SMTP7E1ED6815EE0E28A8408FCAF40@phx.gbl>",
+      "from_name": "Jack Tanner",
+      "from_email_hash": "eb551c3f5ddd6c6fdcee8e277b450b1545ca32bf724ce40af3e20de143939bde",
+      "date": "2009-08-29T02:10:54Z",
+      "subject": "[Fedora-r-devel-list] collaborating on ggplot2 ?",
+      "subject_clean": "[Fedora-r-devel-list] collaborating on ggplot2 ?",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Howdy,\n\nI'd like to get the ggplot2 library package-able. I cannot sign up as a \nmaintainer, but I can work on spec files. ggplot2 has a whole bunch of \ndependencies:\n\nAccording to http://cran.r-project.org/web/packages/ggplot2/ ,\n\nImports: \treshape \n<http://cran.r-project.org/web/packages/reshape/index.html> (≥ 0.8.0), \nplyr <http://cran.r-project.org/web/packages/plyr/index.html> (≥ 0.1.6), \nsplines, MASS <http://cran.r-project.org/web/packages/VR/index.html>, \nRColorBrewer \n<http://cran.r-project.org/web/packages/RColorBrewer/index.html>, grid, \nproto <http://cran.r-project.org/web/packages/proto/index.html>\nSuggests: \tquantreg \n<http://cran.r-project.org/web/packages/quantreg/index.html>, Hmisc \n<http://cran.r-project.org/web/packages/Hmisc/index.html>, mapproj \n<http://cran.r-project.org/web/packages/mapproj/index.html>, maps \n<http://cran.r-project.org/web/packages/maps/index.html>, digest \n<http://cran.r-project.org/web/packages/digest/index.html>, colorspace \n<http://cran.r-project.org/web/packages/colorspace/index.html>, hexbin \n<http://cran.r-project.org/web/packages/hexbin/index.html>, gpclib \n<http://cran.r-project.org/web/packages/gpclib/index.html>, maptools \n<http://cran.r-project.org/web/packages/maptools/index.html>\n\n\nWould anyone be interested in taking this on with me and writing spec \nfiles for some of the ggplot2 prereqs?",
+      "body_snippet": "Howdy,\n\nI'd like to get the ggplot2 library package-able. I cannot sign up as a \nmaintainer, but I can work on spec files. ggplot2 has a whole bunch of \ndependencies:\n\nAccording to http://cran.r-proje",
+      "thread_id": "thread-ab9071d4e0a9",
+      "thread_depth": 0,
+      "month": "2009-08"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-3ba2ed00a6c1",
+      "subject": "[Fedora-r-devel-list] Update the guidelines",
+      "message_count": 2,
+      "participants": [
+        "Pierre-Yves Chibon"
+      ],
+      "started": "2009-08-02T16:56:47Z",
+      "last_reply": "2009-08-04T16:49:51Z",
+      "root_message_id": "msg-3ba2ed00a6c1"
+    },
+    {
+      "id": "thread-226e4b1b7d99",
+      "subject": "[Fedora-r-devel-list] R2spec v2.5.3",
+      "message_count": 1,
+      "participants": [
+        "Pierre-Yves Chibon"
+      ],
+      "started": "2009-08-02T19:50:00Z",
+      "last_reply": "2009-08-02T19:50:00Z",
+      "root_message_id": "msg-226e4b1b7d99"
+    },
+    {
+      "id": "thread-d69fcb20be60",
+      "subject": "[Fedora-r-devel-list] version corrected",
+      "message_count": 1,
+      "participants": [
+        "Pierre-Yves Chibon"
+      ],
+      "started": "2009-08-08T09:47:37Z",
+      "last_reply": "2009-08-08T09:47:37Z",
+      "root_message_id": "msg-d69fcb20be60"
+    },
+    {
+      "id": "thread-ac0c9544d38b",
+      "subject": "[Fedora-r-devel-list] [Fwd: Re: TeX Live 2009 for Fedora]",
+      "message_count": 3,
+      "participants": [
+        "José Abílio Matos",
+        "Pierre-Yves Chibon"
+      ],
+      "started": "2009-08-20T20:20:58Z",
+      "last_reply": "2009-08-20T20:42:17Z",
+      "root_message_id": "msg-ac0c9544d38b"
+    },
+    {
+      "id": "thread-3f3162358623",
+      "subject": "[Fedora-r-devel-list] RMySQL spec file",
+      "message_count": 2,
+      "participants": [
+        "Dan Bolser",
+        "Jack Tanner"
+      ],
+      "started": "2009-08-23T17:11:38Z",
+      "last_reply": "2009-08-23T20:26:22Z",
+      "root_message_id": "msg-3f3162358623"
+    },
+    {
+      "id": "thread-855cdf0f3bc8",
+      "subject": "[Fedora-r-devel-list] R 2.9.2 updates are ready",
+      "message_count": 1,
+      "participants": [
+        "Tom Callaway"
+      ],
+      "started": "2009-08-25T15:27:46Z",
+      "last_reply": "2009-08-25T15:27:46Z",
+      "root_message_id": "msg-855cdf0f3bc8"
+    },
+    {
+      "id": "thread-bcf596b3b388",
+      "subject": "[Fedora-r-devel-list] small issue with yum-presto and R update (config files changed)",
+      "message_count": 1,
+      "participants": [
+        "José Abílio Matos"
+      ],
+      "started": "2009-08-27T07:05:47Z",
+      "last_reply": "2009-08-27T07:05:47Z",
+      "root_message_id": "msg-bcf596b3b388"
+    },
+    {
+      "id": "thread-9664d3e21a0f",
+      "subject": "[Fedora-r-devel-list] R 2.9.2 updates are ready",
+      "message_count": 2,
+      "participants": [
+        "Martyn Plummer",
+        "Tom Callaway"
+      ],
+      "started": "2009-08-28T15:45:38Z",
+      "last_reply": "2009-08-28T17:58:39Z",
+      "root_message_id": "msg-9664d3e21a0f"
+    },
+    {
+      "id": "thread-ab9071d4e0a9",
+      "subject": "[Fedora-r-devel-list] collaborating on ggplot2 ?",
+      "message_count": 1,
+      "participants": [
+        "Jack Tanner"
+      ],
+      "started": "2009-08-29T02:10:54Z",
+      "last_reply": "2009-08-29T02:10:54Z",
+      "root_message_id": "msg-ab9071d4e0a9"
+    }
+  ]
+}

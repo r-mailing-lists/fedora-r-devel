@@ -1,0 +1,96 @@
+{
+  "list": "fedora-r-devel",
+  "description": "",
+  "month": "2006-09",
+  "messages": [
+    {
+      "id": "msg-3a32f47ab041",
+      "message_id": "<200609132152.25229.jamatos@fc.up.pt>",
+      "from_name": "José Abílio Matos",
+      "from_email_hash": "1830ccfc475fe0f52edb74ac1163b69778ceb8ac957cc168f6b6335828c0e855",
+      "date": "2006-09-13T20:52:25Z",
+      "subject": "[Fedora-r-devel-list] rebuild for fc6",
+      "subject_clean": "[Fedora-r-devel-list] rebuild for fc6",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hi Spot,\n\tto you have any estimated time to rebuild R for FC6?\n\n\tI am holding the update of my packages related with R to after your update.\nrpy\nR-mAr\nR-waveslim\nR-wavethresh\n\n\tAlthough the reason is probably a bit silly, since I am not sure how \nthe .so's of those packages (those where it applies) depends on how R is \ncompiled. The reason for the mass recompile is related with the linker, so I \ndecided to play safe.\n\n\tBetter to be sorrow than to be sorry. :-)\n\n-- \nJosé Abílio",
+      "body_snippet": "Hi Spot,\n\tto you have any estimated time to rebuild R for FC6?\n\n\tI am holding the update of my packages related with R to after your update.\nrpy\nR-mAr\nR-waveslim\nR-wavethresh\n\n\tAlthough the reason is ",
+      "thread_id": "thread-3a32f47ab041",
+      "thread_depth": 0,
+      "month": "2006-09"
+    },
+    {
+      "id": "msg-9335201cc83a",
+      "message_id": "<1158186128.28319.62.camel@localhost.localdomain>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2006-09-13T22:22:08Z",
+      "subject": "Re: [Fedora-r-devel-list] rebuild for fc6",
+      "subject_clean": "[Fedora-r-devel-list] rebuild for fc6",
+      "in_reply_to": "<200609132152.25229.jamatos@fc.up.pt>",
+      "references": [],
+      "body_plain": "On Wed, 2006-09-13 at 21:52 +0100, José Matos wrote:\n> Hi Spot,\n> \tto you have any estimated time to rebuild R for FC6?\n> \n> \tI am holding the update of my packages related with R to after your update.\n> rpy\n> R-mAr\n> R-waveslim\n> R-wavethresh\n> \n> \tAlthough the reason is probably a bit silly, since I am not sure how \n> the .so's of those packages (those where it applies) depends on how R is \n> compiled. The reason for the mass recompile is related with the linker, so I \n> decided to play safe.\n> \n> \tBetter to be sorrow than to be sorry. :-)\n\nIt just finished building for FC-6. No changes, just a rebuild.\n\n~spot\n-- \nTom \"spot\" Callaway || Red Hat || Fedora || Aurora || GPG ID: 93054260\n\n\"We must not confuse dissent with disloyalty. We must remember always\nthat accusation is not proof and that conviction depends upon evidence\nand due process of law. We will not walk in fear, one of another. We\nwill not be driven by fear into an age of unreason, if we dig deep in\nour history and our doctrine, and remember that we are not descended\nfrom fearful men -- not from men who feared to write, to speak, to\nassociate and to defend causes that were, for the moment, unpopular.\"\n-- Edward R. Murrow, March 9, 1954",
+      "body_snippet": "On Wed, 2006-09-13 at 21:52 +0100, José Matos wrote:\n> Hi Spot,\n> \tto you have any estimated time to rebuild R for FC6?\n> \n> \tI am holding the update of my packages related with R to after your update",
+      "thread_id": "thread-3a32f47ab041",
+      "thread_depth": 1,
+      "month": "2006-09"
+    },
+    {
+      "id": "msg-5bf775ff10fc",
+      "message_id": "<200609142102.47601.jamatos@fc.up.pt>",
+      "from_name": "José Abílio Matos",
+      "from_email_hash": "1830ccfc475fe0f52edb74ac1163b69778ceb8ac957cc168f6b6335828c0e855",
+      "date": "2006-09-14T20:02:47Z",
+      "subject": "Re: [Fedora-r-devel-list] rebuild for fc6",
+      "subject_clean": "[Fedora-r-devel-list] rebuild for fc6",
+      "in_reply_to": "<1158186128.28319.62.camel@localhost.localdomain>",
+      "references": [],
+      "body_plain": "On Wednesday 13 September 2006 23:22, Tom 'spot' Callaway wrote:\n> >       Better to be sorrow than to be sorry. :-)\n>\n> It just finished building for FC-6. No changes, just a rebuild.\n\n  I noticed. :-)\n  The other packages already built correctly.\n\n  Thanks.\n\n> ~spot\n\n-- \nJosé Abílio",
+      "body_snippet": "On Wednesday 13 September 2006 23:22, Tom 'spot' Callaway wrote:\n> >       Better to be sorrow than to be sorry. :-)\n>\n> It just finished building for FC-6. No changes, just a rebuild.\n\n  I noticed. :",
+      "thread_id": "thread-3a32f47ab041",
+      "thread_depth": 2,
+      "month": "2006-09"
+    },
+    {
+      "id": "msg-ce650a7976b2",
+      "message_id": "<200609142118.11345.jamatos@fc.up.pt>",
+      "from_name": "José Abílio Matos",
+      "from_email_hash": "1830ccfc475fe0f52edb74ac1163b69778ceb8ac957cc168f6b6335828c0e855",
+      "date": "2006-09-14T20:18:11Z",
+      "subject": "[Fedora-r-devel-list] Automatic rebuild of R derived packages on every new major version.",
+      "subject_clean": "[Fedora-r-devel-list] Automatic rebuild of R derived packages on every new major version.",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "Hi,\n\nA new version of R is approaching, R 2.4.0 is scheduled for the first days of \nOctober.\n\nWhen version 2.4 is recompiled we need to recompile all the packages that \ndepend on R.\n\nrpy needs to be compile for every new 2.4.x release, but R packages only need \nto be release for each x.y.0 release.\n\n  That is exactly what happens with python, every package needs to be rebuild \nbecause pyc files depend on a major version.\n\n  Python does not present any major problem since the core of the language is \nin Core, and every new version only appears once in the Core release and only \nminor updates are allowed during the distribution life time.\n\n  R core language is in Extras and the correct way to build a new version is \nto rebuild the core language and then the different packages according to its \ndependencies.\n\n  This procedure is tedious and error prone, especially as more and more \npackages enter Extras. Would it be possible to automate to some extent this \nprocedure.\n\n  I guess that this procedure could be of interest for other languages that \ndon't go in Core.\n\n  Should I bring this issue to Extras or Packagers mailing list, since this \nproblem seems general enough and not only limited to R.\n\n  What do other think?\n-- \nJosé Abílio",
+      "body_snippet": "Hi,\n\nA new version of R is approaching, R 2.4.0 is scheduled for the first days of \nOctober.\n\nWhen version 2.4 is recompiled we need to recompile all the packages that \ndepend on R.\n\nrpy needs to be c",
+      "thread_id": "thread-ce650a7976b2",
+      "thread_depth": 0,
+      "month": "2006-09"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-3a32f47ab041",
+      "subject": "[Fedora-r-devel-list] rebuild for fc6",
+      "message_count": 3,
+      "participants": [
+        "José Abílio Matos",
+        "Tom Callaway"
+      ],
+      "started": "2006-09-13T20:52:25Z",
+      "last_reply": "2006-09-14T20:02:47Z",
+      "root_message_id": "msg-3a32f47ab041"
+    },
+    {
+      "id": "thread-ce650a7976b2",
+      "subject": "[Fedora-r-devel-list] Automatic rebuild of R derived packages on every new major version.",
+      "message_count": 1,
+      "participants": [
+        "José Abílio Matos"
+      ],
+      "started": "2006-09-14T20:18:11Z",
+      "last_reply": "2006-09-14T20:18:11Z",
+      "root_message_id": "msg-ce650a7976b2"
+    }
+  ]
+}

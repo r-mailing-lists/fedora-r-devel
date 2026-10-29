@@ -1,0 +1,97 @@
+{
+  "list": "fedora-r-devel",
+  "description": "",
+  "month": "2007-12",
+  "messages": [
+    {
+      "id": "msg-911033583f88",
+      "message_id": "<ttlk8cadjp.fsf@allele2.eebweb.arizona.edu>",
+      "from_name": "Alex Lancaster",
+      "from_email_hash": "ca2ea0e8cc83c3fd818996ce3f6e3079ece4d81ba254bb32a17afa952a5f95de",
+      "date": "2007-12-02T23:21:14Z",
+      "subject": "[Fedora-r-devel-list] Bioconductor in Fedora",
+      "subject_clean": "[Fedora-r-devel-list] Bioconductor in Fedora",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "This is just a heads-up about packaging of Bioconductor.  Currently\nPierre-Yves is spearheading the packaging of Bioconductor, and I'm\nhelping out with reviews.   Initially Pierre started with the unstable\n(will be 2.2):\n\nhttp://www.bioconductor.org/packages/2.2/bioc/\n\nbut that's a moving target and won't be officially released until 2008\nand is targeting R 3.0 (?) so we dropped back to the stable (2.1)\nrelease:\n\nhttp://www.bioconductor.org/packages/2.1/bioc/\n\nUnfortunately a couple of packages (R-tkWidgets and some others) from\n2.2 have already made their way into Fedora, but they are only at most\n1 or 2 minor releases away from 2.1, so in discussion with Tom\nCallaway and Pierre-Yves on #fedora-devel, we decided to stick with\nthose packages but use only 2.1 releases for everything else.  Once\n2.2 is released we can update all packages to that then.\n\nI'm currently working on the review of R-Biobase, the core package:\n\nhttps://bugzilla.redhat.com/show_bug.cgi?id=240500\n\nWe could perhaps also create a tracker bug and make all Bioconductor\nmodule package reviews block the tracker bug.  If anybody would like\nto help, let us know!\n\nCheers,\nAlex",
+      "body_snippet": "This is just a heads-up about packaging of Bioconductor.  Currently\nPierre-Yves is spearheading the packaging of Bioconductor, and I'm\nhelping out with reviews.   Initially Pierre started with the uns",
+      "thread_id": "thread-911033583f88",
+      "thread_depth": 0,
+      "month": "2007-12"
+    },
+    {
+      "id": "msg-51d7477cbf90",
+      "message_id": "<352371.63519.qm@web30514.mail.mud.yahoo.com>",
+      "from_name": "D.Enrique ESCOBAR ESPINOZA",
+      "from_email_hash": "ce7fa1b95bfeb03d93ccf78cb7a401bc2d3e9fa98b9b661a3fa4c04326f7a153",
+      "date": "2007-12-06T03:47:25Z",
+      "subject": "[Fedora-r-devel-list] R-BioC rpm package",
+      "subject_clean": "[Fedora-r-devel-list] R-BioC rpm package",
+      "in_reply_to": null,
+      "references": [],
+      "body_plain": "hi,\n\nIn an effort to help the biolinux community\nwww.biolinux.org ,\nI put at your disposition\nR-BioC for R 2.5.x for fedora core 6.\nComments for improvement will be welcome.\nIt is not an official fedora rpm because fedora plans to support only\nR.\nUnfortunatly is the only fc6 rpm for now but they are more for\nprevious fc\nIt works well, and it contains 102 very usefull sources:\nabind\nadSplit\naffxparser\naffy\naffycomp\naffydata\naffyio\naffylmGUI\naffypdnn\naffyPLM\nannaffy\nannotate\narrayMagic\nBiobase\nbioDist\nBiostrings\nBolstad\nBufferedMatrix\nBufferedMatrixMethods\nCategory\ncMAP\ncyp450cdf\nDBI\nDynDoc\nellipse\ngcrma\ngenefilter\nGeneMeta\ngeneplotter\nGeneR\nGGtools\nglobaltest\nGO\nGOstats\ngoTools\ngp53cdf\ngpls\ngraph\nhgfocus\nhgfocuscdf\nhgfocusprobe\nhgu133a\nhgu133acdf\nhgu133aprobe\nhgu95av2\nhgu95av2cdf\nhgu95av2probe\nIcens\nIDPmisc\nimpute\nKEGG\nlimma\nlimmaGUI\nmaanova\nmakecdfenv\nmarray\nmatchprobes\nMatrix\nmgu74av2\nmgu74av2cdf\nmgu74av2probe\nmulttest\npamr\nPFAM\npvclust\nR2HTML\nRankProd\nRBGL\nR-BioC.sh\nR.cache\nRColorBrewer\nRCurl\nRdbi\nRdbiPgSQL\nreposTools\nRgraphviz\nR.huge\nRMySQL\nROC\nR.oo\nRSPerl\nRSPython\nRSQLite\nRSvgDevice\nRSVGTipsDevice\nRUnit\nR.utils\nsamr\nscatterplot3d\nsiggenes\nsma\nsom\nSparseM\nstatmod\ntkrplot\ntkWidgets\nVR\nvsn\nwidgetTools\nXML\nxtable\nYEAST\n\nBest regards and good work.\n\n\n      ____________________________________________________________________________________\nLooking for last minute shopping deals?  \nFind them fast with Yahoo! Search.  http://tools.search.yahoo.com/newsearch/category.php?category=shopping",
+      "body_snippet": "hi,\n\nIn an effort to help the biolinux community\nwww.biolinux.org ,\nI put at your disposition\nR-BioC for R 2.5.x for fedora core 6.\nComments for improvement will be welcome.\nIt is not an official fedo",
+      "thread_id": "thread-51d7477cbf90",
+      "thread_depth": 0,
+      "month": "2007-12"
+    },
+    {
+      "id": "msg-9ed27280d0fe",
+      "message_id": "<1196916505.3360.1.camel@localhost.localdomain>",
+      "from_name": "Tom Callaway",
+      "from_email_hash": "694fc005f8c67da6a91840e2c173b89aa18ebed9e28c1e019c2174225ffc96ef",
+      "date": "2007-12-06T04:48:25Z",
+      "subject": "Re: [Fedora-r-devel-list] R-BioC rpm package",
+      "subject_clean": "[Fedora-r-devel-list] R-BioC rpm package",
+      "in_reply_to": "<352371.63519.qm@web30514.mail.mud.yahoo.com>",
+      "references": [],
+      "body_plain": "On Wed, 2007-12-05 at 19:47 -0800, D.Enrique ESCOBAR ESPINOZA wrote:\n> hi,\n> \n> In an effort to help the biolinux community\n> www.biolinux.org ,\n> I put at your disposition\n> R-BioC for R 2.5.x for fedora core 6.\n> Comments for improvement will be welcome.\n> It is not an official fedora rpm because fedora plans to support only\n> R.\n> Unfortunatly is the only fc6 rpm for now but they are more for\n> previous fc\n> It works well, and it contains 102 very usefull sources:\n\nInstead of doing it like you've done, which is a massive overload on the\npackage, it would be much better to package all of these items\nindividually.\n\nFor example, Fedora already has R-abind.\n\nI know that we have some active efforts in progress to package up all of\nthe BioConductor RPMS, anyone want to chime in with a status report?\n\n~spot",
+      "body_snippet": "On Wed, 2007-12-05 at 19:47 -0800, D.Enrique ESCOBAR ESPINOZA wrote:\n> hi,\n> \n> In an effort to help the biolinux community\n> www.biolinux.org ,\n> I put at your disposition\n> R-BioC for R 2.5.x for fe",
+      "thread_id": "thread-51d7477cbf90",
+      "thread_depth": 1,
+      "month": "2007-12"
+    },
+    {
+      "id": "msg-f5404402414b",
+      "message_id": "<4757A3A5.9080101@yahoo.fr>",
+      "from_name": "pingou",
+      "from_email_hash": "f8cc247920d6e32e5cc5a95c54569d12b4aa06dbff169bafe7e0d3aeae53a4d2",
+      "date": "2007-12-06T07:24:21Z",
+      "subject": "Re: [Fedora-r-devel-list] R-BioC rpm package",
+      "subject_clean": "[Fedora-r-devel-list] R-BioC rpm package",
+      "in_reply_to": "<1196916505.3360.1.camel@localhost.localdomain>",
+      "references": [],
+      "body_plain": "Tom \"spot\" Callaway wrote:\n> On Wed, 2007-12-05 at 19:47 -0800, D.Enrique ESCOBAR ESPINOZA wrote:\n>> hi,\n>>\n>> In an effort to help the biolinux community\n>> www.biolinux.org ,\n>> I put at your disposition\n>> R-BioC for R 2.5.x for fedora core 6.\n>> Comments for improvement will be welcome.\n>> It is not an official fedora rpm because fedora plans to support only\n>> R.\n>> Unfortunatly is the only fc6 rpm for now but they are more for\n>> previous fc\n> For example, Fedora already has R-abind.\n> \n> I know that we have some active efforts in progress to package up all of\n> the BioConductor RPMS, anyone want to chime in with a status report?\n> \nHi\n\nFedora supports only R ?\nBelow is an output of my yum list R-\\*\n\nThey are not all on the fedora repo yet, but there is several review in \nprogress and more to come.\n\nYou can see them all there\nhttp://pingoured.fr/public/fedora/SPECS/\navailable for Fedora 7 and Fedora 8 in i386 and x86_64.\n\nWould you like to be involved in this project (getting bioconductor on \nFedora) ?\n\nRegards,\nPierre\n~pingou\n\n\n\n\nInstalled Packages\nR.x86_64                                 2.6.1-1.fc8 \ninstalled\nR-ACME.x86_64                            1.5.0-1.fc8 \ninstalled\nR-ALL.noarch                             1.4.3-1.fc8 \ninstalled\nR-AnnotationDbi.noarch                   1.1.6-1.fc8 \ninstalled\nR-BSgenome.noarch                        1.7.0-1.fc8 \ninstalled\nR-BSgenome.Celegans.UCSC.ce2.noarch      1.2.0-3.fc8 \ninstalled\nR-BSgenome.Dmelanogaster.FlyBase.r51.noa 1.2.0-2.fc8 \ninstalled\nR-Biobase.x86_64                         1.17.3-1.fc8 \ninstalled\nR-Biostrings.x86_64                      2.7.2-1.fc8 \ninstalled\nR-BufferedMatrix.x86_64                  1.3.0-1.fc8 \ninstalled\nR-BufferedMatrix-devel.x86_64            1.3.0-1.fc8 \ninstalled\nR-DBI.noarch                             0.2-1.fc8 \ninstalled\nR-DynDoc.noarch                          1.17.0-1.fc8 \ninstalled\nR-GO.noarch                              2.0.1-1.fc8 \ninstalled\nR-KEGG.noarch                            2.0.1-1.fc8 \ninstalled\nR-R2HTML.noarch                          1.58-1.fc8 \ninstalled\nR-RColorBrewer.noarch                    1.0-1.fc8 \ninstalled\nR-RSQLite.x86_64                         0.5-1.fc8 \ninstalled\nR-RScaLAPACK.x86_64                      0.5.1-10.fc8.1 \ninstalled\nR-RUnit.noarch                           0.4.17-1.fc8 \ninstalled\nR-Rgraphviz.x86_64                       1.17.7-1.fc8 \ninstalled\nR-SparseM.x86_64                         0.74-1.fc8 \ninstalled\nR-XML.x86_64                             1.9-1.fc8 \ninstalled\nR-abind.noarch                           1.1-1.fc8 \ninstalled\nR-acepack.x86_64                         1.3-2.fc8.1 \ninstalled\nR-affy.x86_64                            1.17.2-2.fc8 \ninstalled\nR-affyPLM.x86_64                         1.15.0-1.fc8 \ninstalled\nR-affyQCReport.noarch                    1.17.0-1.fc8 \ninstalled\nR-affydata.noarch                        1.11.2-1.fc8 \ninstalled\nR-affyio.x86_64                          1.7.2-1.fc8 \ninstalled\nR-annaffy.noarch                         1.11.0-1.fc8 \ninstalled\nR-annotate.noarch                        1.17.1-3.fc8 \ninstalled\nR-devel.x86_64                           2.6.1-1.fc8 \ninstalled\nR-fibroEset.noarch                       1.4.2-1.fc8 \ninstalled\nR-gcrma.x86_64                           2.11.0-1.fc8 \ninstalled\nR-genefilter.x86_64                      1.17.2-1.fc8 \ninstalled\nR-geneplotter.noarch                     1.17.0-1.fc8 \ninstalled\nR-graph.x86_64                           1.17.10-1.fc8 \ninstalled\nR-hdf5.x86_64                            1.6.6-2.fc8 \ninstalled\nR-hgu133a.noarch                         1.16.0-1.fc8 \ninstalled\nR-hgu133acdf.noarch                      1.16.0-1.fc8 \ninstalled\nR-hgu95aprobe.noarch                     1.16.4-1.fc8 \ninstalled\nR-hgu95av2.noarch                        1.16.0-1.fc8 \ninstalled\nR-hgu95av2.db.noarch                     2.0.2-1.fc8 \ninstalled\nR-hgu95av2cdf.noarch                     1.16.0-1.fc8 \ninstalled\nR-hgu95av2probe.noarch                   1.16.3-2.fc8 \ninstalled\nR-hsahomology.noarch                     1.16.0-1.fc8 \ninstalled\nR-hu6800.noarch                          1.16.0-1.fc8 \ninstalled\nR-hu6800cdf.noarch                       1.16.0-1.fc8 \ninstalled\nR-hu6800probe.noarch                     1.16.2-1.fc8 \ninstalled\nR-limma.noarch                           2.13.1-1.fc8 \ninstalled\nR-mAr.x86_64                             1.1-11.fc8 \ninstalled\nR-maanova.x86_64                         1.4.0-3.fc8 \ninstalled\nR-matchprobes.x86_64                     1.11.0-1.fc8 \ninstalled\nR-multcomp.noarch                        0.992-3.fc8 \ninstalled\nR-multtest.x86_64                        1.19.0-1.fc8 \ninstalled\nR-mvtnorm.x86_64                         0.8-3.fc8 \ninstalled\nR-pls.noarch                             2.0-4.fc8 \ninstalled\nR-preprocessCore.x86_64                  1.1.0-2.fc8 \ninstalled\nR-preprocessCore-devel.x86_64            1.1.0-2.fc8 \ninstalled\nR-qvalue.noarch                          1.13.0-1.fc8 \ninstalled\nR-rae230a.noarch                         1.16.0-2.fc8 \ninstalled\nR-rae230aprobe.noarch                    1.16.2-2.fc8 \ninstalled\nR-randomForest.x86_64                    4.5-1.fc8 \ninstalled\nR-rlecuyer.x86_64                        0.1-3.fc8 \ninstalled\nR-siggenes.noarch                        1.13.0-1.fc8 \ninstalled\nR-simpleaffy.x86_64                      2.15.02-1.fc8 \ninstalled\nR-simpleaffy-devel.x86_64                2.15.02-1.fc8 \ninstalled\nR-systemfit.noarch                       0.8-6.fc8 \ninstalled\nR-tkWidgets.noarch                       1.16.0-1.fc8 \ninstalled\nR-vsn.x86_64                             3.3.6-1.fc8 \ninstalled\nR-waveslim.x86_64                        1.6-4.fc8 \ninstalled\nR-wavethresh.x86_64                      2.2-7.fc8 \ninstalled\nR-widgetTools.noarch                     1.15.0-1.fc8 \ninstalled\nR-xlahomology.noarch                     1.16.0-1.fc8 \ninstalled\nR-xtable.noarch                          1.5-1.fc8 \ninstalled\n\n\t\n\n\t\n\t\t\n___________________________________________________________________________ \nYahoo! Mail réinvente le mail ! Découvrez le nouveau Yahoo! Mail et son interface révolutionnaire.\nhttp://fr.mail.yahoo.com",
+      "body_snippet": "Tom \"spot\" Callaway wrote:\n> On Wed, 2007-12-05 at 19:47 -0800, D.Enrique ESCOBAR ESPINOZA wrote:\n>> hi,\n>>\n>> In an effort to help the biolinux community\n>> www.biolinux.org ,\n>> I put at your dispos",
+      "thread_id": "thread-51d7477cbf90",
+      "thread_depth": 2,
+      "month": "2007-12"
+    }
+  ],
+  "threads": [
+    {
+      "id": "thread-911033583f88",
+      "subject": "[Fedora-r-devel-list] Bioconductor in Fedora",
+      "message_count": 1,
+      "participants": [
+        "Alex Lancaster"
+      ],
+      "started": "2007-12-02T23:21:14Z",
+      "last_reply": "2007-12-02T23:21:14Z",
+      "root_message_id": "msg-911033583f88"
+    },
+    {
+      "id": "thread-51d7477cbf90",
+      "subject": "[Fedora-r-devel-list] R-BioC rpm package",
+      "message_count": 3,
+      "participants": [
+        "D.Enrique ESCOBAR ESPINOZA",
+        "Tom Callaway",
+        "pingou"
+      ],
+      "started": "2007-12-06T03:47:25Z",
+      "last_reply": "2007-12-06T07:24:21Z",
+      "root_message_id": "msg-51d7477cbf90"
+    }
+  ]
+}
