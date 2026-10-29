@@ -1,0 +1,73 @@
+From tcallawa at redhat.com  Thu Jun  3 12:55:55 2010
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Thu, 03 Jun 2010 12:55:55 +0000
+Subject: [Fedora-r-devel-list] R 2.11.1 in Fedora Updates Testing
+Message-ID: <4C07A65B.9080900@redhat.com>
+
+R 2.11.1 is built now for Fedora and EPEL. It is in "updates-testing"
+(or it will be within the next 24 hours).
+
+It will likely be the last R update for Fedora 11.
+
+In accordance with the new policies on Fedora Updates, these new
+packages will not be pushed as official updates until they either
+receive positive testing from users, or sit in updates-testing for two
+weeks.
+
+You can help us test these packages, and move them forward. Here's how:
+
+1. Go to the Fedora Updates web application (its real name is "Bodhi"):
+https://admin.fedoraproject.org/updates/
+
+Once you're there, click the login blue box at the top left, and login
+with your Fedora Account. If you don't have a Fedora Account, you can
+skip this step.
+
+2. Click on the link for the Fedora R test update that matches your release:
+
+Fedora 11:
+https://admin.fedoraproject.org/updates/rpy-2.0.8-3.fc11,R-2.11.1-1.fc11
+
+Fedora 12:
+https://admin.fedoraproject.org/updates/rpy-2.0.8-3.fc12,R-2.11.1-1.fc12
+
+Fedora 13:
+https://admin.fedoraproject.org/updates/rpy-2.0.8-4.fc13,R-2.11.1-1.fc13
+
+EPEL-4 (RHEL-4):
+https://admin.fedoraproject.org/updates/R-2.11.1-1.el4
+
+EPEL-5 (RHEL-5):
+https://admin.fedoraproject.org/updates/R-2.11.1-1.el5
+
+3. Now, on your Fedora (or RHEL) system, run this command (as root, or
+with root privs) to install the test update:
+
+yum --enablerepo=updates-testing update R
+
+That should update R to the test update (if you don't want the full R
+suite, you can replace "R" in that string with "R-core").
+
+4. Test it! Make sure it does all the things you would expect it to.
+
+5. Go back to the web page for the R update (step 2), and at
+the bottom, click "Add a comment >>"
+
+(If you didn't login, it will ask you for an email address and make you
+complete a captcha to make sure you are a unique individual.)
+
+In that text box which opens up, write a little bit about the testing
+you did and if it works okay for you or not. Then (this is the important
+part), click the "Works for me" or "Does not work" radio button below
+it, and click the Add Comment button.
+
+6. That's it! If it worked, you've given that update a +1 karma vote.
+(If it didn't work, you've given it a -1 karma vote). Now, if three
+people give a +1, and the package update gets to +3, the Fedora Update
+system will automatically move the update from testing to a real update,
+and everyone will get it.
+
+Thanks in advance,
+
+~spot, Fedora/EPEL R maintainer
+

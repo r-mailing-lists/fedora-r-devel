@@ -1,0 +1,18 @@
+From jamatos at fc.up.pt  Thu Feb 16 09:12:44 2017
+From: jamatos at fc.up.pt (=?utf-8?q?Jos=C3=A9_Ab=C3=ADlio_Matos?=)
+Date: Thu, 16 Feb 2017 09:12:44 +0000
+Subject: [Fedora-r-devel-list] Rebuild packages for F26
+Message-ID: <3127039.7R1mYh9oVj@myth>
+
+Hi,
+	reading http://dl.fedoraproject.org/pub/alt/mass-rebuild/f26-failures.html 
+we can see that all the R packages that depend on Fortran need to be rebuild 
+for F-26, due to the mass rebuild (gcc upgrade).
+
+	My question is what is the best way to proceed: should this be done in a 
+centralized way or done individually by each packager?
+
+Regards,
+-- 
+José Abílio
+

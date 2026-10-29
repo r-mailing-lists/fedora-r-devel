@@ -1,0 +1,304 @@
+From asr at ufl.edu  Thu Jan  7 19:46:35 2010
+From: asr at ufl.edu (Allen S. Rout)
+Date: Thu, 07 Jan 2010 19:46:35 +0000
+Subject: [Fedora-r-devel-list] Building RPMs from CRAN...
+Message-ID: <44wpf1vi1itpg.fsf@crepe.osg.ufl.edu>
+
+
+
+Pierre-Yves <pingou(a)pingoured.fr> writes on R-devel:
+
+> One of them is R2spec [1], which I have worked on. I would also
+> point you to a 'fork' of R2spec [2] which aims at building RPM more
+> than spec (reason why they did not merge).  R2spec aims a helping to
+> generate spec files as close as possible to the final one for
+> inclusion in official Fedora/EPEL repositories.  Allen S. Rout have
+> made a nice job converting R2spec to generate RPM directly, solving
+> some of the circular dependences issues.
+
+
+I appreciate your kind mention of my effort, Pierre-Yves.  Thank you!
+
+I am dissapointed that you don't see a merge in the future.  I would
+like to change that if I can.  What would you like me to change?
+
+It is my hope that the R2spec code will make it possible, eventually,
+to build and maintain _all_ the CRAN packages as RPMs, without the
+extensive by-hand treatment they now get.  I understand that, if this
+is to happen, more folks than just me need to be happy with the
+code. :)  
+
+
+
+- Allen S. Rout
+
+From pingou at pingoured.fr  Fri Jan  8 16:13:23 2010
+From: pingou at pingoured.fr (Pierre-Yves Chibon)
+Date: Fri, 08 Jan 2010 16:13:23 +0000
+Subject: Re: [Fedora-r-devel-list] Building RPMs from CRAN...
+In-Reply-To: <44wpf1vi1itpg.fsf@crepe.osg.ufl.edu>
+Message-ID: <1262967203.9881.49.camel@localhost.localdomain>
+
+On Thu, 2010-01-07 at 14:46 -0500, Allen S. Rout wrote:
+> 
+> Pierre-Yves <pingou(a)pingoured.fr> writes on R-devel:
+> 
+> > One of them is R2spec [1], which I have worked on. I would also
+> > point you to a 'fork' of R2spec [2] which aims at building RPM more
+> > than spec (reason why they did not merge).  R2spec aims a helping to
+> > generate spec files as close as possible to the final one for
+> > inclusion in official Fedora/EPEL repositories.  Allen S. Rout have
+> > made a nice job converting R2spec to generate RPM directly, solving
+> > some of the circular dependences issues.
+
+> I appreciate your kind mention of my effort, Pierre-Yves.  Thank you!
+That's because I appreciate them :)
+> 
+> I am dissapointed that you don't see a merge in the future.  I would
+> like to change that if I can.  What would you like me to change?
+I will for sure include some of the change you have made (like using the
+regular expression instead of my crappy (but working) implementation).
+IMHO the problem comes from what you want to achieve and how I see
+R2spec.
+You want to build a build tool which is able to build R RPM in a chain
+way resolving the dependencies. This is great !
+But this is R2rpm not R2spec ;-)
+IMHO R2spec is here to help packagers to create/generate spec file as
+close as possible to the Fedora standards. 
+Fedora's RPM will never be generated fully automatically and be
+maintained without human intervention that's against its philosophy. 
+So your tool is I believe really interesting if we want to set up an
+external repository out of the official Fedora repository in which we
+would be able to use your tool.
+There are already some projects hanging around in bioinformatics which
+try to do so (I have in mind the BioRPMS [1], the biolinux [2] or the
+BioConductor RPM repo [3]). The problem is that most of the time they do
+not respect the standards asked by Fedora.
+
+One example which appears in your application is the %file section of
+your spec. In order to be able/allow the user to do an rpm -ivh R-*.rpm 
+--excludedocs we marked a number of files as being documentation. Using
+your spec it is not possible.
+This is fine, for an external repository but not for inclusion in the
+Fedora repository.
+
+> It is my hope that the R2spec code will make it possible, eventually,
+> to build and maintain _all_ the CRAN packages as RPMs, without the
+> extensive by-hand treatment they now get.  I understand that, if this
+> is to happen, more folks than just me need to be happy with the
+> code. :)  
+
+What I think we could do, is actually set up a repository of RPM for
+CRAN, for Bioconductor external to the official Fedora repositories
+where your tool would be used and very much appreciated.
+
+I am part of the project on bioinformatics.org ([3]), and if you are
+willing to give it a shot I believe we could sort something out. On my
+side time available is really small but I believe we could find some
+more people willing to help for such project.
+My position has always been and is still to push packages to the
+official repositories rather than creating another place and thus
+dividing the forces. But I have seen the questions of the availability
+of R RPMs more than once, people contacted me. I unfortunately have not
+seen them coming into the Fedora packaging world, maybe it is time for
+me to accept this fact and accept to push for an external repository
+maybe as a transitional phase before inclusion into Fedora.
+
+
+I hope I have been clear on how I see the difference between your tool
+and mine and where I stand at the moment.
+
+I would be pleased to hear from the people of this list what they think
+about this problematic (also considering what Debian has done).
+
+Anyway thanks again for your work.
+
+Best regards,
+
+Pierre
+
+
+[1] http://informatics.umdnj.edu/BioRPMs/
+[2] http://biolinux.org (down atm)
+[3] http://www.bioinformatics.org/r-repo/wiki/
+
+From asr at ufl.edu  Wed Jan 13 20:29:57 2010
+From: asr at ufl.edu (Allen S. Rout)
+Date: Wed, 13 Jan 2010 20:29:57 +0000
+Subject: Re: [Fedora-r-devel-list] Building RPMs from CRAN...
+In-Reply-To: <1262967203.9881.49.camel@localhost.localdomain>
+Message-ID: <44wpfiqb5kat6.fsf@crepe.osg.ufl.edu>
+
+
+
+Pierre-Yves <pingou-E11Oz7VxvVOXCRStZZN3OA(a)public.gmane.org> writes:
+
+
+
+> IMHO R2spec is here to help packagers to create/generate spec file
+> as close as possible to the Fedora standards.
+
+> Fedora's RPM will never be generated fully automatically and be
+> maintained without human intervention that's against its philosophy. 
+
+I clearly need to do some reading, and possibly some advocacy closer
+to the center of Fedora Packaging land.
+
+> [ external repositories exist but ]The problem is that most of the
+> time they do not respect the standards asked by Fedora.
+
+
+> One example which appears in your application is the %file section
+> of your spec. In order to be able/allow the user to do an rpm -ivh
+> R-*.rpm --excludedocs we marked a number of files as being
+> documentation. Using your spec it is not possible.  This is fine,
+> for an external repository but not for inclusion in the Fedora
+> repository.
+
+
+I am completely content with the idea of adding a bunch of additional
+steps to the specfile creation.  If we end up with something like:
+
+make spec pass 1.
+build package
+install package
+calculate what %files should be
+make spec pass 2.
+build package
+install package
+[ recursively install all CHECK dependencies ] 
+check package
+sign package
+
+that's fine by me. It's only CPU and time we waste.  If we save
+thought and troubles for lots of folks downstream, that's a huge win.
+
+
+> What I think we could do, is actually set up a repository of RPM for
+> CRAN, for Bioconductor external to the official Fedora repositories
+> where your tool would be used and very much appreciated.
+>
+> I am part of the project on bioinformatics.org ([3]), and if you are
+> willing to give it a shot I believe we could sort something out. On my
+> side time available is really small but I believe we could find some
+> more people willing to help for such project.
+
+I'm happy to help get something off the ground.  I'm also happy to try
+to move what we've already got towards obeying the 
+
+http://fedoraproject.org/wiki/Packaging:ReviewGuidelines
+
+but I think that, once we've done this, we should be agitating for
+Fedora to come up with a sane way to accept such ancillary repos.
+
+
+----
+
+My next task is to read some of the references you pointed out, and
+I'll see if I can fix the %files section to note documents correctly.
+
+
+> [1] http://informatics.umdnj.edu/BioRPMs/
+> [2] http://biolinux.org (down atm)
+> [3] http://www.bioinformatics.org/r-repo/wiki/
+
+ 
+- Allen S. Rout
+
+From tcallawa at redhat.com  Wed Jan 20 03:57:22 2010
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Wed, 20 Jan 2010 03:57:22 +0000
+Subject: [Fedora-r-devel-list] R-multcomp and a lot of new R packages
+Message-ID: <4B567F22.2050602@redhat.com>
+
+The R-multcomp maintainer asked me to look into why it was failing to
+build in rawhide. When I looked into it, I discovered that something is
+broken in how R CMD CHECK --no-install works in 2.10.1. I couldn't tell
+you what is broken exactly, but I took the time today to package up all
+the Suggests (and their depchain) and tested the package without
+--no-install (and without --no-latex) and it works fine again.
+
+I asked Orion (the R-multcomp maintainer) if he was interested in
+maintaining/co-maintaining/reviewing these new R packages, but he wasn't
+interested. In fact, he said he was more inclined to orphan R-multcomp.
+
+Is there any interest in helping me maintain and review these new R
+packages in Fedora? The packages are already done, its just the reviews
+and upkeep that I'd need help with.
+
+Here's the packages:
+
+http://auroralinux.org/people/spot/review/R-multcomp/
+
+These are the R packages I made today:
+
+coin, colorspace, ipred, lme4, mboost, mlbench, modeltools, multicore,
+party, robustbase, sandwich, strucchange, vcd, xtable
+
+If any of these look interesting to you, speak up! If no one cares, I
+might just let R-multcomp orphan off, but if there are some willing
+helpers, I'll keep it alive with its new dependencies.
+
+~spot
+
+From pingou at pingoured.fr  Wed Jan 20 07:37:28 2010
+From: pingou at pingoured.fr (Pierre-Yves Chibon)
+Date: Wed, 20 Jan 2010 07:37:28 +0000
+Subject: Re: [Fedora-r-devel-list] R-multcomp and a lot of new R packages
+In-Reply-To: <4B567F22.2050602@redhat.com>
+Message-ID: <1263973048.8180.4.camel@localhost.localdomain>
+
+On Tue, 2010-01-19 at 22:57 -0500, Tom "spot" Callaway wrote:
+> Is there any interest in helping me maintain and review these new R
+> packages in Fedora? The packages are already done, its just the
+> reviews
+> and upkeep that I'd need help with.
+> 
+> Here's the packages:
+> 
+> http://auroralinux.org/people/spot/review/R-multcomp/
+> 
+> These are the R packages I made today:
+> 
+> coin, colorspace, ipred, lme4, mboost, mlbench, modeltools, multicore,
+> party, robustbase, sandwich, strucchange, vcd, xtable
+> 
+> If any of these look interesting to you, speak up! If no one cares, I
+> might just let R-multcomp orphan off, but if there are some willing
+> helpers, I'll keep it alive with its new dependencies.
+
+Hi all,
+
+Even though I do not use them, I am always in favour of getting new R
+packages into Fedora (and/or keeping them in).
+I am therefore willing to help reviewing and/or maintain some if you
+like.
+
+Let me know,
+
+Pierre
+
+From jamatos at fc.up.pt  Wed Jan 20 08:53:01 2010
+From: jamatos at fc.up.pt (=?utf-8?q?Jos=C3=A9_Ab=C3=ADlio_Matos?=)
+Date: Wed, 20 Jan 2010 08:53:01 +0000
+Subject: Re: [Fedora-r-devel-list] R-multcomp and a lot of new R packages
+In-Reply-To: <1263973048.8180.4.camel@localhost.localdomain>
+Message-ID: <201001200853.01471.jamatos@fc.up.pt>
+
+On Wednesday 20 January 2010 07:37:28 Pierre-Yves wrote:
+> Hi all,
+> 
+> Even though I do not use them, I am always in favour of getting new R
+> packages into Fedora (and/or keeping them in).
+> I am therefore willing to help reviewing and/or maintain some if you
+> like.
+
+Just as Pierre-Yves. So count me in for this.
+
+> Let me know,
+> 
+> Pierre
+
+-- 
+José Abílio
+

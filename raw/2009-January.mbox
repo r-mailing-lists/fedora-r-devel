@@ -1,0 +1,204 @@
+From alexl at users.sourceforge.net  Fri Jan  2 23:45:32 2009
+From: alexl at users.sourceforge.net (Alex Lancaster)
+Date: Fri, 02 Jan 2009 23:45:32 +0000
+Subject: [Fedora-r-devel-list] Re: useR! 2008
+In-Reply-To: <48A0226C.6010303@pingoured.fr>
+Message-ID: <soeizlxof7.fsf@allele2.eebweb.arizona.edu>
+
+>>>>> "P" == Pierre-Yves   writes:
+
+[...]
+
+P> José Matos wrote:
+
+>> I will also take the opportunity to hear feedback from several
+>> types of users regarding the state of R in Fedora. If there is
+>> anything relevant I will report back to this list.
+
+P> I would like to know how the think on the difference between
+P> suggests and depends dependences of a library. (I still have in my
+P> mind the Bioconductor issue).  Do they install both ?  Do they care
+P> about the suggests ?  Do they want them ?
+
+Hi José,
+
+Just curious if you got any feedback at userR! from R developers
+regarding Fedora packaging (e.g. Bioconductor etc.)
+
+Alex
+
+From tcallawa at redhat.com  Sun Jan  4 14:37:37 2009
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Sun, 04 Jan 2009 14:37:37 +0000
+Subject: [Fedora-r-devel-list] Re: [R-sig-Fedora] R 2.8.1
+In-Reply-To: <49609EA6.5010006@biostat.ku.dk>
+Message-ID: <1231079857.3132.27.camel@localhost.localdomain>
+
+On Sun, 2009-01-04 at 12:33 +0100, Peter Dalgaard wrote:
+
+> Finally got around to testing it (sorry, but it didn't reach testing 
+> till the 24th, and we have this thing call Christmas around here...).
+> 
+> However, it now seems that I cannot update the karma system. Yesterday, 
+> I got an "internal error" or some such when submitting, and now I can 
+> submit, but only the text comes through, not my email addr. nor the 
+> "works for me". So there's now two "anonymous tester" entries with a 
+> bland smiley icon.
+
+Hmm, they came through to my inbox with your name/email. Very odd. :)
+
+~spot
+
+From pingou at pingoured.fr  Sun Jan  4 16:06:56 2009
+From: pingou at pingoured.fr (Pierre-Yves Chibon)
+Date: Sun, 04 Jan 2009 16:06:56 +0000
+Subject: [Fedora-r-devel-list] How to predict the files installed ?
+Message-ID: <4960DEA0.4050304@pingoured.fr>
+
+Dear list(s),
+
+Several people are actually really interested to package the CRAN or 
+Bioconductor in RPM using R2spec.
+One of the features that R2spec should handle is the %file section of 
+the spec file, to handle it I would like to be able to predict which 
+files are installed while running the `R CMD INSTALL package_name` 
+command from the tarball directly.
+I could always make R2spec compiling the spec files but I would prefer 
+not to.
+
+I have started to look at it but I have not find my way to do it yet, so 
+I am asking here if anyone has an idea how I could do this. How I could 
+from the tarball predict the file that are installed and thus that 
+should be listed in the %file section.
+
+Thanks in advance for your help,
+
+Best regards,
+
+Pierre
+
+
+PS:
+I am emailing the lists fedora-r-devel-list and r-sig-fedora, feel free 
+to remove one of the two while replying, I follow both.
+
+From tcallawa at redhat.com  Mon Jan  5 15:09:29 2009
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Mon, 05 Jan 2009 15:09:29 +0000
+Subject: [Fedora-r-devel-list] Re: [R-sig-Fedora] R 2.8.1
+In-Reply-To: <1231155085.2945.16.camel@localhost.localdomain>
+Message-ID: <1231168169.18570.24.camel@localhost.localdomain>
+
+On Mon, 2009-01-05 at 12:31 +0100, Martyn Plummer wrote:
+
+> I think we need to add pango-devel as a build requirement, so that the
+> cairo graphics device uses the pango layout engine.
+> 
+> If you want to test this, I have rebuilt the RPMS with mock, after
+> adding pango-devel to BuildRequires, and put them here:
+> http://calvin.iarc.fr/~martyn/R-2.8.1/
+> 
+> I don't get the same "missing mu" bug, but I have some commercial fonts
+> installed. I do get error messages about missing font metrics, however,
+> which would be due to the lack of pango.
+> 
+> 
+> I also noticed that libRmath-devel does not pull in the right release of
+> libRmath. The requirements for libRmath-devel are currently:
+> 
+> Requires: libRmath = %{version}, pkgconfig
+> 
+> but should be:
+> 
+> Requires: libRmath = %{version}-%{release}, pkgconfig
+
+See, this is why testing the updates is such a good thing. :)
+
+Thanks Martyn and Peter for figuring this out, I'll do new builds right
+now.
+
+~spot
+
+From tcallawa at redhat.com  Mon Jan  5 19:04:42 2009
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Mon, 05 Jan 2009 19:04:42 +0000
+Subject: [Fedora-r-devel-list] Re: [R-sig-Fedora] R 2.8.1
+In-Reply-To: <1231168169.18570.24.camel@localhost.localdomain>
+Message-ID: <1231182282.3428.2.camel@localhost.localdomain>
+
+On Mon, 2009-01-05 at 10:09 -0500, Tom "spot" Callaway wrote:
+> On Mon, 2009-01-05 at 12:31 +0100, Martyn Plummer wrote:
+> 
+> > I think we need to add pango-devel as a build requirement, so that the
+> > cairo graphics device uses the pango layout engine.
+> > 
+> > If you want to test this, I have rebuilt the RPMS with mock, after
+> > adding pango-devel to BuildRequires, and put them here:
+> > http://calvin.iarc.fr/~martyn/R-2.8.1/
+> > 
+> > I don't get the same "missing mu" bug, but I have some commercial fonts
+> > installed. I do get error messages about missing font metrics, however,
+> > which would be due to the lack of pango.
+> > 
+> > 
+> > I also noticed that libRmath-devel does not pull in the right release of
+> > libRmath. The requirements for libRmath-devel are currently:
+> > 
+> > Requires: libRmath = %{version}, pkgconfig
+> > 
+> > but should be:
+> > 
+> > Requires: libRmath = %{version}-%{release}, pkgconfig
+> 
+> See, this is why testing the updates is such a good thing. :)
+> 
+> Thanks Martyn and Peter for figuring this out, I'll do new builds right
+> now.
+
+It has not pushed to testing yet, but here are the URLs for the updated
+builds:
+
+https://admin.fedoraproject.org/updates/R-2.8.1-2.fc9
+https://admin.fedoraproject.org/updates/R-2.8.1-2.fc10
+
+~spot
+
+From jamatos at fc.up.pt  Mon Jan  5 19:57:58 2009
+From: jamatos at fc.up.pt (=?utf-8?q?Jos=C3=A9_Ab=C3=ADlio_Matos?=)
+Date: Mon, 05 Jan 2009 19:57:58 +0000
+Subject: Re: [Fedora-r-devel-list] Re: useR! 2008
+In-Reply-To: <soeizlxof7.fsf@allele2.eebweb.arizona.edu>
+Message-ID: <200901051957.59666.jamatos@fc.up.pt>
+
+On Friday 02 January 2009 23:45:32 Alex Lancaster wrote:
+> Hi José,
+>
+> Just curious if you got any feedback at userR! from R developers
+> regarding Fedora packaging (e.g. Bioconductor etc.)
+
+Nope. I met and talked with Martyn, Peter Dalgaard and Marc Schwartz that are 
+also subscribers from r-sig-fedora(a)r-project.org.
+
+> Alex
+
+-- 
+José Abílio
+
+From tcallawa at redhat.com  Mon Jan  5 21:32:13 2009
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Mon, 05 Jan 2009 21:32:13 +0000
+Subject: [Fedora-r-devel-list] Re: [R-sig-Fedora] R 2.8.1
+In-Reply-To: <49627545.1040908@biostat.ku.dk>
+Message-ID: <1231191133.3428.8.camel@localhost.localdomain>
+
+On Mon, 2009-01-05 at 22:01 +0100, Peter Dalgaard wrote:
+
+> Package R-devel-2.8.1-2.fc9.i386.rpm is not signed
+> 
+> Is this to be expected?
+
+Yes. Packages are signed as part of the updates push process, and this
+update hasn't been pushed yet.
+
+~spot
+

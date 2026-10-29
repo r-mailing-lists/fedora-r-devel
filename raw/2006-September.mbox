@@ -1,0 +1,128 @@
+From jamatos at fc.up.pt  Wed Sep 13 20:52:25 2006
+From: jamatos at fc.up.pt (=?utf-8?q?Jos=C3=A9_Ab=C3=ADlio_Matos?=)
+Date: Wed, 13 Sep 2006 20:52:25 +0000
+Subject: [Fedora-r-devel-list] rebuild for fc6
+Message-ID: <200609132152.25229.jamatos@fc.up.pt>
+
+Hi Spot,
+	to you have any estimated time to rebuild R for FC6?
+
+	I am holding the update of my packages related with R to after your update.
+rpy
+R-mAr
+R-waveslim
+R-wavethresh
+
+	Although the reason is probably a bit silly, since I am not sure how 
+the .so's of those packages (those where it applies) depends on how R is 
+compiled. The reason for the mass recompile is related with the linker, so I 
+decided to play safe.
+
+	Better to be sorrow than to be sorry. :-)
+
+-- 
+José Abílio
+
+From tcallawa at redhat.com  Wed Sep 13 22:22:08 2006
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Wed, 13 Sep 2006 22:22:08 +0000
+Subject: Re: [Fedora-r-devel-list] rebuild for fc6
+In-Reply-To: <200609132152.25229.jamatos@fc.up.pt>
+Message-ID: <1158186128.28319.62.camel@localhost.localdomain>
+
+On Wed, 2006-09-13 at 21:52 +0100, José Matos wrote:
+> Hi Spot,
+> 	to you have any estimated time to rebuild R for FC6?
+> 
+> 	I am holding the update of my packages related with R to after your update.
+> rpy
+> R-mAr
+> R-waveslim
+> R-wavethresh
+> 
+> 	Although the reason is probably a bit silly, since I am not sure how 
+> the .so's of those packages (those where it applies) depends on how R is 
+> compiled. The reason for the mass recompile is related with the linker, so I 
+> decided to play safe.
+> 
+> 	Better to be sorrow than to be sorry. :-)
+
+It just finished building for FC-6. No changes, just a rebuild.
+
+~spot
+-- 
+Tom "spot" Callaway || Red Hat || Fedora || Aurora || GPG ID: 93054260
+
+"We must not confuse dissent with disloyalty. We must remember always
+that accusation is not proof and that conviction depends upon evidence
+and due process of law. We will not walk in fear, one of another. We
+will not be driven by fear into an age of unreason, if we dig deep in
+our history and our doctrine, and remember that we are not descended
+from fearful men -- not from men who feared to write, to speak, to
+associate and to defend causes that were, for the moment, unpopular."
+-- Edward R. Murrow, March 9, 1954
+
+From jamatos at fc.up.pt  Thu Sep 14 20:02:47 2006
+From: jamatos at fc.up.pt (=?utf-8?q?Jos=C3=A9_Ab=C3=ADlio_Matos?=)
+Date: Thu, 14 Sep 2006 20:02:47 +0000
+Subject: Re: [Fedora-r-devel-list] rebuild for fc6
+In-Reply-To: <1158186128.28319.62.camel@localhost.localdomain>
+Message-ID: <200609142102.47601.jamatos@fc.up.pt>
+
+On Wednesday 13 September 2006 23:22, Tom 'spot' Callaway wrote:
+> >       Better to be sorrow than to be sorry. :-)
+>
+> It just finished building for FC-6. No changes, just a rebuild.
+
+  I noticed. :-)
+  The other packages already built correctly.
+
+  Thanks.
+
+> ~spot
+
+-- 
+José Abílio
+
+From jamatos at fc.up.pt  Thu Sep 14 20:18:11 2006
+From: jamatos at fc.up.pt (=?utf-8?q?Jos=C3=A9_Ab=C3=ADlio_Matos?=)
+Date: Thu, 14 Sep 2006 20:18:11 +0000
+Subject: [Fedora-r-devel-list] Automatic rebuild of R derived packages on every new major version.
+Message-ID: <200609142118.11345.jamatos@fc.up.pt>
+
+Hi,
+
+A new version of R is approaching, R 2.4.0 is scheduled for the first days of 
+October.
+
+When version 2.4 is recompiled we need to recompile all the packages that 
+depend on R.
+
+rpy needs to be compile for every new 2.4.x release, but R packages only need 
+to be release for each x.y.0 release.
+
+  That is exactly what happens with python, every package needs to be rebuild 
+because pyc files depend on a major version.
+
+  Python does not present any major problem since the core of the language is 
+in Core, and every new version only appears once in the Core release and only 
+minor updates are allowed during the distribution life time.
+
+  R core language is in Extras and the correct way to build a new version is 
+to rebuild the core language and then the different packages according to its 
+dependencies.
+
+  This procedure is tedious and error prone, especially as more and more 
+packages enter Extras. Would it be possible to automate to some extent this 
+procedure.
+
+  I guess that this procedure could be of interest for other languages that 
+don't go in Core.
+
+  Should I bring this issue to Extras or Packagers mailing list, since this 
+problem seems general enough and not only limited to R.
+
+  What do other think?
+-- 
+José Abílio
+

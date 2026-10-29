@@ -1,0 +1,20 @@
+From jamatos at fc.up.pt  Mon Oct 19 17:43:15 2009
+From: jamatos at fc.up.pt (=?utf-8?q?Jos=C3=A9_Ab=C3=ADlio_Matos?=)
+Date: Mon, 19 Oct 2009 17:43:15 +0000
+Subject: [Fedora-r-devel-list] Request for rpy1 in Fedora
+Message-ID: <200910191843.15984.jamatos@fc.up.pt>
+
+Hi,
+	I got a request for rpy1 in Fedora:
+	https://bugzilla.redhat.com/show_bug.cgi?id=528664
+
+	I am seriously considering to provide it (submitting a new package) on the 
+basis that the two versions are installable side by side and there are no 
+conflicts on a file level.
+
+	Would anyone oppose such a move for F11+?
+
+	Regards,
+-- 
+José Abílio
+

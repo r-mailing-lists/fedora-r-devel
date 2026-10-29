@@ -1,0 +1,1031 @@
+From pingou at pingoured.fr  Sun Aug 10 18:13:23 2008
+From: pingou at pingoured.fr (Pierre-Yves Chibon)
+Date: Sun, 10 Aug 2008 18:13:23 +0000
+Subject: [Fedora-r-devel-list] R2spec v2.3
+Message-ID: <489F2FC3.4070307@pingoured.fr>
+
+Dear all,
+
+On the suggestion of José I would like to announce here the new release 
+of my project R2spec.
+At the end of July I release the version 2 re-designed in OO. I 
+corrected a couple of view bugs or typos up to today where I changed the 
+arguments management.
+
+Feed back, tester are more than welcome :)
+
+There are the links:
+* The source http://pingoured.fr/public/R2spec/R2spec-2.3.tar.gz
+* The spec http://pingoured.fr/public/R2spec/R2spec.spec
+* The SRPM http://pingoured.fr/public/R2spec/R2spec-2.3-1.fc9.src.rpm
+* The RPM http://pingoured.fr/public/R2spec/R2spec-2.3-1.fc9.noarch.rpm
+
+For more information about the different releases of the version 2 see 
+my blog at:
+http://pingoured.fr/blog/index.php?post/2008/08/10/R2spec-23
+http://pingoured.fr/blog/index.php?post/2008/07/31/R2spec_22
+http://pingoured.fr/blog/index.php?post/2008/07/30/R2spec-tester-wanted
+
+Best regards,
+Pierre
+
+From jamatos at fc.up.pt  Mon Aug 11 09:38:49 2008
+From: jamatos at fc.up.pt (=?utf-8?q?Jos=C3=A9_Ab=C3=ADlio_Matos?=)
+Date: Mon, 11 Aug 2008 09:38:49 +0000
+Subject: [Fedora-r-devel-list] useR! 2008
+Message-ID: <200808111038.49187.jamatos@fc.up.pt>
+
+Hi,
+	I am writing this from Dortmund, at the useR! 2008 conference
+http://www.statistik.uni-dortmund.de/useR-2008/
+
+	I will have a talk tomorrow about the interaction between R and Fedora. It is 
+a 15 minutes session so there is not much time to expand. I will present 
+Fedora and it interacts with R. There are several issues that are common to 
+the relation between Fedora and languages like perl, python, latex or R.
+
+	I will also take the opportunity to hear feedback from several types of users 
+regarding the state of R in Fedora. If there is anything relevant I will 
+report back to this list.
+
+	I have asked pingou (I hope I can use this) to write to the list with the new 
+releases of his package as it would be nice that package automatically in 
+Fedora using yum.
+
+	Regards,
+
+PS: In case you are wondering why I took so long to send this message to the 
+list, believe that it is a long story that involves time shortage. :-)
+-- 
+José Abílio
+
+From pingou at pingoured.fr  Mon Aug 11 11:28:44 2008
+From: pingou at pingoured.fr (Pierre-Yves Chibon)
+Date: Mon, 11 Aug 2008 11:28:44 +0000
+Subject: Re: [Fedora-r-devel-list] useR! 2008
+In-Reply-To: <200808111038.49187.jamatos@fc.up.pt>
+Message-ID: <48A0226C.6010303@pingoured.fr>
+
+José Matos wrote:
+> Hi,
+> 	I am writing this from Dortmund, at the useR! 2008 conference
+> http://www.statistik.uni-dortmund.de/useR-2008/
+
+Nice :)
+> 
+> 	I will have a talk tomorrow about the interaction between R and Fedora. It is 
+> a 15 minutes session so there is not much time to expand. I will present 
+> Fedora and it interacts with R. There are several issues that are common to 
+> the relation between Fedora and languages like perl, python, latex or R.
+
+That's great :) Do you have the slides of the presentation ? I would be 
+interested to know how you presented things.
+> 
+> 	I will also take the opportunity to hear feedback from several types of users 
+> regarding the state of R in Fedora. If there is anything relevant I will 
+> report back to this list.
+
+I would like to know how the think on the difference between suggests 
+and depends dependences of a library. (I still have in my mind the 
+Bioconductor issue).
+Do they install both ?
+Do they care about the suggests ?
+Do they want them ?
+
+> 
+> 	I have asked pingou (I hope I can use this) to write to the list with the new 
+> releases of his package as it would be nice that package automatically in 
+> Fedora using yum.
+
+I have asked for a project on the fedorahosted.org, I'll let you know.
+
+Thanks,
+Regards,
+Pierre
+
+From pingou at pingoured.fr  Mon Aug 11 15:51:53 2008
+From: pingou at pingoured.fr (Pierre-Yves Chibon)
+Date: Mon, 11 Aug 2008 15:51:53 +0000
+Subject: Re: [Fedora-r-devel-list] R2spec v2.3
+In-Reply-To: <489F2FC3.4070307@pingoured.fr>
+Message-ID: <48A06019.8050508@pingoured.fr>
+
+Pierre-Yves wrote:
+> Dear all,
+> 
+> On the suggestion of José I would like to announce here the new release 
+> of my project R2spec.
+> At the end of July I release the version 2 re-designed in OO. I 
+> corrected a couple of view bugs or typos up to today where I changed the 
+> arguments management.
+> 
+> Feed back, tester are more than welcome :)
+
+The project is now on trac :
+https://fedorahosted.org/r2spec/
+Thanks you fedora ;)
+
+And I created the review :
+https://bugzilla.redhat.com/show_bug.cgi?id=458685
+
+Regards,
+
+Pierre
+
+From pingou at pingoured.fr  Tue Aug 12 07:23:39 2008
+From: pingou at pingoured.fr (Pierre-Yves Chibon)
+Date: Tue, 12 Aug 2008 07:23:39 +0000
+Subject: [Fedora-r-devel-list] R package in Fedora
+Message-ID: <48A13A7B.7040700@pingoured.fr>
+
+Dear all,
+
+Remi Collet has done a great job the past days to make these pages:
+http://rpms.famillecollet.com/rpmphp/
+
+I think you will be interested specially in this one:
+http://rpms.famillecollet.com/rpmphp/rpm.php?type=R
+
+However, helping him to set up the parsers, we have been facing some 
+problem with some package.
+For example:
+R-lmtest
+As you can see here:
+http://pingoured.fr/cgi-bin/R.py?name=R-lmtest
+The version have a '-', this leads to a "outdated" mark of the package 
+in this page http://rpms.famillecollet.com/rpmphp/rpm.php?type=R .
+
+The question is then, what should we do ?
+There is nothing on the guideline that mention what we should do about 
+the library that have a '-' on their version name (second exemple: R-pls
+http://pingoured.fr/cgi-bin/R.py?name=R-pls ).
+
+We also faced the problem that at least one library is present in both 
+CRAN and bioconductor repository (R-qvalue 
+http://pingoured.fr/cgi-bin/R.py?name=R-qvalue ). But the version are 
+pretty clear, we kept only the Bioconductor.
+
+So I think, when we have a library in CRAN and Bioconductor, we should 
+only keep the Bioconductor version.
+
+For the version with a '-', we skipped everything that was after the '-' 
+until now, should we continue ?
+
+Thanks for your comments,
+
+Regards,
+Pierre
+
+From jamatos at fc.up.pt  Tue Aug 12 07:38:09 2008
+From: jamatos at fc.up.pt (=?utf-8?q?Jos=C3=A9_Ab=C3=ADlio_Matos?=)
+Date: Tue, 12 Aug 2008 07:38:09 +0000
+Subject: Re: [Fedora-r-devel-list] New CRAN packages in Fedora need reviews
+In-Reply-To: <1215528554.3214.17.camel@localhost.localdomain>
+Message-ID: <200808120838.09382.jamatos@fc.up.pt>
+
+On Tuesday 08 July 2008 15:49:14 Tom "spot" Callaway wrote:
+> I built a few CRAN packages today that looked useful. If anyone wants to
+> help review these, I'd appreciate it:
+>
+> https://bugzilla.redhat.com/show_bug.cgi?id=454439 (R-nws)
+> https://bugzilla.redhat.com/show_bug.cgi?id=454440 (R-biglm)
+> https://bugzilla.redhat.com/show_bug.cgi?id=454441 (R-bigmemory)
+
+I have been in a tutorial yesterday here these packages have been discussed. 
+Expect a revision next week when I am back home. :-)
+
+> Thanks in advance,
+>
+> ~spot
+
+-- 
+José Abílio
+
+From pingou at pingoured.fr  Tue Aug 12 07:40:23 2008
+From: pingou at pingoured.fr (Pierre-Yves Chibon)
+Date: Tue, 12 Aug 2008 07:40:23 +0000
+Subject: Re: [Fedora-r-devel-list] New CRAN packages in Fedora need reviews
+In-Reply-To: <200808120838.09382.jamatos@fc.up.pt>
+Message-ID: <48A13E67.3000500@pingoured.fr>
+
+José Matos wrote:
+> On Tuesday 08 July 2008 15:49:14 Tom "spot" Callaway wrote:
+>> I built a few CRAN packages today that looked useful. If anyone wants to
+>> help review these, I'd appreciate it:
+>>
+>> https://bugzilla.redhat.com/show_bug.cgi?id=454439 (R-nws)
+Started
+>> https://bugzilla.redhat.com/show_bug.cgi?id=454440 (R-biglm)
+Done
+>> https://bugzilla.redhat.com/show_bug.cgi?id=454441 (R-bigmemory)
+Waiting :)
+
+Regards,
+Pierre
+
+From alexl at users.sourceforge.net  Tue Aug 12 11:05:37 2008
+From: alexl at users.sourceforge.net (Alex Lancaster)
+Date: Tue, 12 Aug 2008 11:05:37 +0000
+Subject: [Fedora-r-devel-list] Re: R package in Fedora
+In-Reply-To: <48A13A7B.7040700@pingoured.fr>
+Message-ID: <lfd4kexzlq.fsf@allele2.eebweb.arizona.edu>
+
+>>>>> "P" == Pierre-Yves   writes:
+
+P> Dear all, Remi Collet has done a great job the past days to make
+P> these pages: http://rpms.famillecollet.com/rpmphp/
+P> I think you will be interested specially in this one:
+P> http://rpms.famillecollet.com/rpmphp/rpm.php?type=R
+
+Hey Pierre-Yves,
+
+This looks great!  I wonder if you could also integrate Chris Weyl's
+Perl CPAN tracking tool, e.g.:
+
+http://fedora.biggerontheinside.net/perl/alexlan.html
+
+P> However, helping him to set up the parsers, we have been facing
+P> some problem with some package.  For example: R-lmtest As you can
+P> see here: http://pingoured.fr/cgi-bin/R.py?name=R-lmtest The
+P> version have a '-', this leads to a "outdated" mark of the package
+P> in this page http://rpms.famillecollet.com/rpmphp/rpm.php?type=R .
+
+P> The question is then, what should we do ?  There is nothing on the
+P> guideline that mention what we should do about the library that
+P> have a '-' on their version name (second exemple: R-pls
+P> http://pingoured.fr/cgi-bin/R.py?name=R-pls ).
+
+P> We also faced the problem that at least one library is present in
+P> both CRAN and bioconductor repository (R-qvalue
+P> http://pingoured.fr/cgi-bin/R.py?name=R-qvalue ). But the version
+P> are pretty clear, we kept only the Bioconductor.
+
+P> So I think, when we have a library in CRAN and Bioconductor, we
+P> should only keep the Bioconductor version.
+
+P> For the version with a '-', we skipped everything that was after
+P> the -' until now, should we continue ?
+
+On the R libraries issue.  Not sure about that problem, that's a bit
+of pain.  Have to think about that one.
+
+Alex
+
+From pingou at pingoured.fr  Tue Aug 12 11:08:51 2008
+From: pingou at pingoured.fr (Pierre-Yves Chibon)
+Date: Tue, 12 Aug 2008 11:08:51 +0000
+Subject: Re: [Fedora-r-devel-list] Re: R package in Fedora
+In-Reply-To: <lfd4kexzlq.fsf@allele2.eebweb.arizona.edu>
+Message-ID: <48A16F43.50506@pingoured.fr>
+
+Alex Lancaster wrote:
+>>>>>> "P" == Pierre-Yves   writes:
+> 
+> P> Dear all, Remi Collet has done a great job the past days to make
+> P> these pages: http://rpms.famillecollet.com/rpmphp/
+> P> I think you will be interested specially in this one:
+> P> http://rpms.famillecollet.com/rpmphp/rpm.php?type=R
+> 
+> Hey Pierre-Yves,
+> 
+> This looks great!  I wonder if you could also integrate Chris Weyl's
+> Perl CPAN tracking tool, e.g.:
+> 
+> http://fedora.biggerontheinside.net/perl/alexlan.html
+
+Remi contacted Chris in order to integrate both work. ;)
+He actually partly based his work from this page.
+
+<snip />
+> P> For the version with a '-', we skipped everything that was after
+> P> the -' until now, should we continue ?
+> 
+> On the R libraries issue.  Not sure about that problem, that's a bit
+> of pain.  Have to think about that one.
+
+Let us know :)
+
+Thanks,
+Regards,
+
+Pierre
+
+From jamatos at fc.up.pt  Tue Aug 19 15:41:16 2008
+From: jamatos at fc.up.pt (=?utf-8?q?Jos=C3=A9_Ab=C3=ADlio_Matos?=)
+Date: Tue, 19 Aug 2008 15:41:16 +0000
+Subject: [Fedora-r-devel-list] useR! 2008 status report
+Message-ID: <200808191641.16517.jamatos@fc.up.pt>
+
+Hi all,
+	after a busy week I am finally starting to get back to some kind of normality 
+(no pun intended :-) ).
+
+At useR! 2008 I had Martin Plummer, Marc Schwartz and Peter Dalgaard in the 
+audience. The talk went well and it was a fun to do. The room was small for 
+the attendance and in my (biased) view it seemed that I had people coming on 
+purpose for the talk. :-)
+
+	After the session ended I had a friendly discussion with Martin and Marc 
+regarding Fedora and R relationship. :-)
+
+	Some of the topics covered were (in no particular order other than my notes).
+
+1) The redundancy between the two mailing lists devoted to R and Fedora (this 
+and SIG list). Actually at that time I forgot the SIG mailing list (my bad). I 
+always keep forgetting about the different purpose of both lists.
+
+2) Martin and Marc suggested one scenario that involved the removal of all R 
+packages from Fedora where the only remaining installed package would be the R 
+core package. Then using some kind of package, the better analogy that I found 
+was a backend to PackageKit providing automatic installs from CRAN.
+
+My opinion (that I have also expressed back then) was that this would be a no 
+go for Fedora for two reasons, first the packages dependency outside of CRAN 
+would be hard to get right (think about packages like R-hdf5 that require 
+linking with an external package). The second and probably the most important 
+issue from our (Fedora) point of view would be the liability issue. We would 
+be connecting to a repository that we have no control about, I tried to 
+express the different reasons why this is not possible.
+
+3) There are discussions at R about the next generation CRAN meta-information 
+(improved DESCRIPTION format) and the opinions of distributions are welcome.
+
+4) Is there a link in fedora bugzilla to connect upstream for R bugs reported 
+to Fedora? I am not sure if this is possible with the new bugzilla but I 
+suppose that there are not so many bugs like that reported at Fedora.
+
+5) One problem usually reported in the R users mailing list is the 
+installation procedure used to install R packages (not in Fedora) using the R 
+interface.
+
+This problem has been reported again this weekend FWIW. Instead of providing 
+R-devel in the R package as Martin and Marc have suggested I think that we 
+could create a FAQ for R in Fedora. Something like:
+
+*********************** Draft to R - Fedora FAQ **************************
+
+Q: I tried to install the following R package in Fedora but R failed with 
+horrendous error messages, what should I do?
+
+A: Look to the content of the R package you are trying to install (link to 
+CRAN).
+
+  1) Does it contains C or C++ files (.c or .cpp ending filenames)? If yes 
+then install R-devel if it is not yet installed.
+
+[Instructions how to install R-devel using yum or packagekit]
+
+  2) Does it contains Fortran files (.f or .F ending filenames)? If yes then 
+install gcc-gfortran if it is not yet installed.
+
+[Instructions how to install R-devel using yum or packagekit]
+
+  3) If the steps above are not enough and the package depends on an external 
+library you need to guarantee that you have installed the files necessary to 
+compile the package. Do not forget that the -devel subpackages are required to 
+be installed to compile and link with the external libraries.
+
+******************************************************************************
+
+This is my fable attempt to document some of the possible of the problems 
+found by our users. :-)
+We could then expand the FAQ content to other topics like how to search Fedora 
+R packages. The target of the FAQ would be naturally the users and not just 
+the developers.
+
+Comments are welcome to all the points above, 
+-- 
+José Abílio
+
+From jamatos at fc.up.pt  Tue Aug 19 17:01:28 2008
+From: jamatos at fc.up.pt (=?utf-8?q?Jos=C3=A9_Ab=C3=ADlio_Matos?=)
+Date: Tue, 19 Aug 2008 17:01:28 +0000
+Subject: Re: [Fedora-r-devel-list] useR! 2008 status report
+In-Reply-To: <200808191641.16517.jamatos@fc.up.pt>
+Message-ID: <200808191801.29240.jamatos@fc.up.pt>
+
+FWIW, as promised, the talk slides can be found here:
+http://jamatos.fedorapeople.org/talk-user2008.pdf
+
+I am aware that there are some typos.
+
+The thesis of the talk was that the relation between Fedora and R can placed 
+in a more general context, in this case between linux software distributions 
+and free software script languages.
+
+The free languages like perl, python, tex, php and R (among others) have 
+developed a set of procedures to cope with installation and updating in 
+different operating systems.
+
+On the other hand in Fedora (and other linux distributions) we have to deal 
+with different packaging models of open source languages and that give us a 
+different view point regarding the problem of installing and updating the 
+language and its libraries.
+
+As you can see there is nothing earth shattering here. :-)
+-- 
+José Abílio
+
+From tcallawa at redhat.com  Tue Aug 19 17:04:37 2008
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Tue, 19 Aug 2008 17:04:37 +0000
+Subject: Re: [Fedora-r-devel-list] useR! 2008 status report
+In-Reply-To: <200808191641.16517.jamatos@fc.up.pt>
+Message-ID: <1219165477.3401.16.camel@localhost.localdomain>
+
+On Tue, 2008-08-19 at 16:41 +0100, José Matos wrote:
+> Q: I tried to install the following R package in Fedora but R failed
+> with 
+> horrendous error messages, what should I do?
+
+A much much more intelligent fix would be for R to check for the devel
+files that it needs before attempting a build operation, then failing
+gracefully with an explanation that suggests the user look for a -devel
+package if they're using R from the distribution.
+
+~spot
+
+From pingou at pingoured.fr  Tue Aug 19 17:38:33 2008
+From: pingou at pingoured.fr (Pierre-Yves Chibon)
+Date: Tue, 19 Aug 2008 17:38:33 +0000
+Subject: Re: [Fedora-r-devel-list] useR! 2008 status report
+In-Reply-To: <200808191641.16517.jamatos@fc.up.pt>
+Message-ID: <48AB0519.70907@pingoured.fr>
+
+José Matos wrote:
+> Hi all,
+> 	after a busy week I am finally starting to get back to some kind of normality 
+> (no pun intended :-) ).
+> 
+> At useR! 2008 I had Martin Plummer, Marc Schwartz and Peter Dalgaard in the 
+> audience. The talk went well and it was a fun to do. The room was small for 
+> the attendance and in my (biased) view it seemed that I had people coming on 
+> purpose for the talk. :-)
+> 
+> 	After the session ended I had a friendly discussion with Martin and Marc 
+> regarding Fedora and R relationship. :-)
+> 
+> 	Some of the topics covered were (in no particular order other than my notes).
+> 
+> 1) The redundancy between the two mailing lists devoted to R and Fedora (this 
+> and SIG list). Actually at that time I forgot the SIG mailing list (my bad). I 
+> always keep forgetting about the different purpose of both lists.
+
+/me notes to subscribe to this list...
+
+> 2) Martin and Marc suggested one scenario that involved the removal of all R 
+> packages from Fedora where the only remaining installed package would be the R 
+> core package. Then using some kind of package, the better analogy that I found 
+> was a backend to PackageKit providing automatic installs from CRAN.
+> 
+> My opinion (that I have also expressed back then) was that this would be a no 
+> go for Fedora for two reasons, first the packages dependency outside of CRAN 
+> would be hard to get right (think about packages like R-hdf5 that require 
+> linking with an external package).
+
+I have a couple of other example with the same issue, it is definitely 
+something against such principle.
+
+> The second and probably the most important 
+> issue from our (Fedora) point of view would be the liability issue. We would 
+> be connecting to a repository that we have no control about, I tried to 
+> express the different reasons why this is not possible.
+
+I (as packager) have also faced problem concerning the quality of some 
+packages (pages not in UTF8, files put in the wrong part of the FS...). 
+RPMs avoid these problems and make sure that the FS is kept clear.
+
+Do you know if there is a place where such cross distro issues are/could 
+be discussed ?
+
+<snip/>
+> 4) Is there a link in fedora bugzilla to connect upstream for R bugs reported 
+> to Fedora? I am not sure if this is possible with the new bugzilla but I 
+> suppose that there are not so many bugs like that reported at Fedora.
+
+Spot, do you have many bugs reported against R ?
+> 
+> 5) One problem usually reported in the R users mailing list is the 
+> installation procedure used to install R packages (not in Fedora) using the R 
+> interface.
+> 
+> This problem has been reported again this weekend FWIW. Instead of providing 
+> R-devel in the R package as Martin and Marc have suggested I think that we 
+> could create a FAQ for R in Fedora. Something like:
+> 
+> *********************** Draft to R - Fedora FAQ **************************
+> 
+> Q: I tried to install the following R package in Fedora but R failed with 
+> horrendous error messages, what should I do?
+> 
+> A: Look to the content of the R package you are trying to install (link to 
+> CRAN).
+> 
+>   1) Does it contains C or C++ files (.c or .cpp ending filenames)? If yes 
+> then install R-devel if it is not yet installed.
+> 
+> [Instructions how to install R-devel using yum or packagekit]
+> 
+>   2) Does it contains Fortran files (.f or .F ending filenames)? If yes then 
+> install gcc-gfortran if it is not yet installed.
+> 
+> [Instructions how to install R-devel using yum or packagekit]
+
+If the solution proposed by spot does not work (or before it works)
+I think a simple:
+find ./source/ -name "*.py" -o -name "*.c" -o -name "*.cp"  -o -name 
+"*.f"  -o -name "*.F"
+If it returns something then install the -devel...
+
+>   3) If the steps above are not enough and the package depends on an external 
+> library you need to guarantee that you have installed the files necessary to 
+> compile the package. Do not forget that the -devel subpackages are required to 
+> be installed to compile and link with the external libraries.
+> 
+
+I went briefly through your presentation, nice :)
+I hope you had good time there.
+
+Regards,
+Pierre
+
+From tcallawa at redhat.com  Tue Aug 19 17:47:30 2008
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Tue, 19 Aug 2008 17:47:30 +0000
+Subject: Re: [Fedora-r-devel-list] useR! 2008 status report
+In-Reply-To: <48AB0519.70907@pingoured.fr>
+Message-ID: <1219168050.3401.23.camel@localhost.localdomain>
+
+On Tue, 2008-08-19 at 19:38 +0200, Pierre-Yves wrote:
+> Spot, do you have many bugs reported against R ?
+
+One at the moment (it is a Fedora specific issue, just need to enable
+support for alpha systems):
+
+https://admin.fedoraproject.org/pkgdb/packages/bugs/R
+
+Historically, we get very few bugs filed against R.
+
+~spot
+
+From gnwiii at gmail.com  Wed Aug 20 21:04:09 2008
+From: gnwiii at gmail.com (George N. White III)
+Date: Wed, 20 Aug 2008 21:04:09 +0000
+Subject: [Fedora-r-devel-list] Re: useR! 2008 status report
+In-Reply-To: <200808191801.29240.jamatos@fc.up.pt>
+Message-ID: <alpine.LFD.1.10.0808201742350.8970@cerberus.cwmannwn.nowhere>
+
+On Tue, 19 Aug 2008, José Matos wrote:
+
+> FWIW, as promised, the talk slides can be found here:
+> http://jamatos.fedorapeople.org/talk-user2008.pdf
+>
+> I am aware that there are some typos.
+>
+> The thesis of the talk was that the relation between Fedora and R can placed
+> in a more general context, in this case between linux software distributions
+> and free software script languages.
+>
+> The free languages like perl, python, tex, php and R (among others) have
+> developed a set of procedures to cope with installation and updating in
+> different operating systems.
+>
+> On the other hand in Fedora (and other linux distributions) we have to deal
+> with different packaging models of open source languages and that give us a
+> different view point regarding the problem of installing and updating the
+> language and its libraries.
+>
+> As you can see there is nothing earth shattering here. :-)
+
+Well, big changes sometimes occur from modest beginnings.  There is
+a growing problem with the common perception that packages can
+only be installed with root privileges.
+
+Many end-user applications like R can exist and run very nicely
+without special privileges.  There are really only two reasons
+root privileges are needed to install the majority of end-user apps:
+
+1.  to update a global database of installed packages
+2.  to guard against a malicious user installing a trojan on
+     multi-user machines.
+
+As you note, many apps have app-specific package systems, so you
+can end up installing in a way that fails to update the global
+database.
+
+In practice, those of us who work in environments where root
+privileges are in short supply (and asking to have them invoked
+often results in real $ charges to your budget) tend to use
+the app-specific packaging when we can, but then there can
+be confusion (user a gets result X from the package installed
+by the administrator, while user b gets result Y from the
+package installed from CXAN).
+
+We are starting to see tools to manipulate packages, e.g., to
+create rpm .spec files from the TeX Live packages, to create
+null rpm .spec files for installation into personal rpm databases
+so prerequisites will be satisfied without forcing the install.
+
+One of the difficulties in discussing these issues is that no
+one person is likely to encounter the full range of environments
+that need to be supported.  There are very different security and
+control problems for a server running R to produce offical statistics
+than for a student's personal workstation.  Certainly security can
+be enhanced if we minimize the use of root to manage end-user apps.
+
+This says we need to move to a multi-level packaging approach that
+supports packaged installs under user/group control without root
+privileges.
+
+-- 
+George N. White III  <aa056(a)chebucto.ns.ca>
+
+From jamatos at fc.up.pt  Fri Aug 22 10:25:50 2008
+From: jamatos at fc.up.pt (=?utf-8?q?Jos=C3=A9_Ab=C3=ADlio_Matos?=)
+Date: Fri, 22 Aug 2008 10:25:50 +0000
+Subject: Re: [Fedora-r-devel-list] useR! 2008 status report
+In-Reply-To: <1219165477.3401.16.camel@localhost.localdomain>
+Message-ID: <200808221125.50523.jamatos@fc.up.pt>
+
+On Tuesday 19 August 2008 18:04:37 Tom "spot" Callaway wrote:
+> A much much more intelligent fix would be for R to check for the devel
+> files that it needs before attempting a build operation, then failing
+> gracefully with an explanation that suggests the user look for a -devel
+> package if they're using R from the distribution.
+
+Not necessarily an easy thing to do for every platform they support. :-)
+Do you know any language that does this successfully? (I really mean this as a 
+question not any rhetoric).
+
+On the other hand we are trying to be good neighbours. ;-)
+I am sure they would not mind if he had some kind of hook to that specifically 
+for Fedora. 
+
+> ~spot
+
+-- 
+José Abílio
+
+From jamatos at fc.up.pt  Fri Aug 22 10:44:10 2008
+From: jamatos at fc.up.pt (=?utf-8?q?Jos=C3=A9_Ab=C3=ADlio_Matos?=)
+Date: Fri, 22 Aug 2008 10:44:10 +0000
+Subject: Re: [Fedora-r-devel-list] Re: useR! 2008 status report
+In-Reply-To: <alpine.LFD.1.10.0808201742350.8970@cerberus.cwmannwn.nowhere>
+Message-ID: <200808221144.10279.jamatos@fc.up.pt>
+
+On Wednesday 20 August 2008 22:04:09 George N. White III wrote:
+> One of the difficulties in discussing these issues is that no
+> one person is likely to encounter the full range of environments
+> that need to be supported.  There are very different security and
+> control problems for a server running R to produce offical statistics
+> than for a student's personal workstation.  Certainly security can
+> be enhanced if we minimize the use of root to manage end-user apps.
+
+This is an issue with lots of gray shadings. If we place virtualization on the 
+board we have another level. :-)
+
+> This says we need to move to a multi-level packaging approach that
+> supports packaged installs under user/group control without root
+> privileges.
+
+Well this is easier said than done. :-)
+
+Although I agree that you right and that there are bigger fishes to fry, my 
+interest was just to place Fedora and R in a context that allowed us to have 
+more R packages in Fedora done and at the same time not forgetting the lessons 
+that were learned from packaging other languages (specifically Perl and 
+Python).
+
+-- 
+José Abílio
+
+From jamatos at fc.up.pt  Fri Aug 22 10:53:31 2008
+From: jamatos at fc.up.pt (=?utf-8?q?Jos=C3=A9_Ab=C3=ADlio_Matos?=)
+Date: Fri, 22 Aug 2008 10:53:31 +0000
+Subject: Re: [Fedora-r-devel-list] useR! 2008 status report
+In-Reply-To: <48AB0519.70907@pingoured.fr>
+Message-ID: <200808221153.31981.jamatos@fc.up.pt>
+
+On Tuesday 19 August 2008 18:38:33 Pierre-Yves wrote:
+> If the solution proposed by spot does not work (or before it works)
+> I think a simple:
+> find ./source/ -name "*.py" -o -name "*.c" -o -name "*.cp"  -o -name
+> "*.f"  -o -name "*.F"
+> If it returns something then install the -devel...
+
+Actually we can develop that as it will be useful for R2spec as well. It would 
+be interesting because the common problems are the same. :-)
+
+> >   3) If the steps above are not enough and the package depends on an
+> > external library you need to guarantee that you have installed the files
+> > necessary to compile the package. Do not forget that the -devel
+> > subpackages are required to be installed to compile and link with the
+> > external libraries.
+>
+> I went briefly through your presentation, nice :)
+> I hope you had good time there.
+
+It was a nice conference, with an optimum number of participants (around 400). 
+It was nice to meet there some people that I only knew from the mailing lists 
+like some of the Debian guys.
+
+It was also interesting to notice that there are some issues related to the 
+community growth that are being dealt in the same way both in Fedora and R.
+
+R-Forge for example is a project under the R Core umbrella where space and 
+infrastructural tools are given to authors to develop their packages before 
+they are place in CRAN. R-Forge is thus the analogue of fedorahosted. :-)
+
+> Regards,
+> Pierre
+
+-- 
+José Abílio
+
+From tcallawa at redhat.com  Fri Aug 29 16:08:11 2008
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Fri, 29 Aug 2008 16:08:11 +0000
+Subject: [Fedora-r-devel-list] R 2.7.2
+Message-ID: <1220026091.3606.44.camel@localhost.localdomain>
+
+R 2.7.2 is coming! Builds are going for EL-4, EL-5, F-8, F-9, and devel.
+I'll need to rebuild rpy and push updates, so this won't happen
+overnight, but this is your official "heads-up".
+
+Thanks,
+
+~spot
+
+From pingou at pingoured.fr  Sun Aug 31 11:36:46 2008
+From: pingou at pingoured.fr (Pierre-Yves Chibon)
+Date: Sun, 31 Aug 2008 11:36:46 +0000
+Subject: [Fedora-r-devel-list] R2spec new release
+Message-ID: <48BA824E.9090705@pingoured.fr>
+
+Dear all
+
+As agreed with José there is the news of the new release of R2spec.
+
+Have a nice sunday
+
+Best regards,
+Pierre
+
+======================================================================
+
+There is the latest version of R2spec, I have been working quite a bit 
+on it with the suggestion of faceface from #R on irc.freenode.net to 
+improve this software. Therefore the changelog for this new release is 
+quite long and the list of features added seems also important.
+
+The principle is still the same: make R packages as simple as possible.
+
+Seems there are mainly two sources of libraries for R (Bioconductor and 
+the CRAN) I added two options (--bioc and --cran) that add the Source0 
+and the URL in the spec file if it has not been defined by the --url option.
+
+ From that I aslo considered the case of the noarch packages, it now 
+looks for *.c, *.C, *.cp, *.cpp, *.f and *.F files, if it does not find 
+any it consider the package as noarch and thus adapt the specfile for that.
+
+It also offers the possibility to move the source to %_topdir (defined 
+in ~/.rpmmacros) so  that you can directly run the rpmbuild -ba once you 
+have made the small correction advised on the spec file.
+
+That's the main features added, you can see below the changelog for this 
+new release and you can always test and give feed back, report bugs and 
+suggest enhancement on the trac of the R2spec project [1].
+
+The RPMs and sources are available on the git of the R2spec project [2].
+
+Thanks for your attention :-)
+
+[1] https://fedorahosted.org/r2spec
+[2] https://fedorahosted.org/r2spec/browse
+
+From dan.bolser at gmail.com  Sun Aug 31 12:35:55 2008
+From: dan.bolser at gmail.com (Dan Bolser)
+Date: Sun, 31 Aug 2008 12:35:55 +0000
+Subject: Re: [Fedora-r-devel-list] R2spec new release
+In-Reply-To: <48BA824E.9090705@pingoured.fr>
+Message-ID: <2c8757af0808310535y560c19d3gcfe3da9847a2a70a@mail.gmail.com>
+
+Hey Pierre,
+
+That looks like a great list of changes!
+
+
+Hello list!
+
+I have been using R (and Fedora) for several years, but I have only just
+started to look at the R-Repo stuff (thanks to Pierre!). I have only
+recently used R2Spec, but I found it very convenient and easy to use.
+
+One question that I raised with Pierre previously (and he suggested that I
+raise it here on list) is the issue of getting the R-library manager to some
+how 'talk to' the Yum package manager.
+
+I think the first step would be to build a dummy RPM that includes all the
+R-libraries that come by default with R. Such things as base, lattice,
+stats, etc., etc. All these libraries could (?) be rolled into an RPM called
+R-libs (or something), and then when packaging an R-library that depends on
+'stats', for example, the dependency would be satisfied by R-libs... Is that
+possible?
+
+It would be good to know what libraries comes with each version of R by
+default, and it seems natural to put that information into a specific RPM.
+
+
+Not sure if that makes sense...
+
+All the best,
+
+Dan.
+
+
+
+
+
+2008/8/31 Pierre-Yves <pingou(a)pingoured.fr>
+
+> Dear all
+>
+> As agreed with José there is the news of the new release of R2spec.
+>
+> Have a nice sunday
+>
+> Best regards,
+> Pierre
+>
+> ======================================================================
+>
+> There is the latest version of R2spec, I have been working quite a bit on
+> it with the suggestion of faceface from #R on irc.freenode.net to improve
+> this software. Therefore the changelog for this new release is quite long
+> and the list of features added seems also important.
+>
+> The principle is still the same: make R packages as simple as possible.
+>
+> Seems there are mainly two sources of libraries for R (Bioconductor and the
+> CRAN) I added two options (--bioc and --cran) that add the Source0 and the
+> URL in the spec file if it has not been defined by the --url option.
+>
+> From that I aslo considered the case of the noarch packages, it now looks
+> for *.c, *.C, *.cp, *.cpp, *.f and *.F files, if it does not find any it
+> consider the package as noarch and thus adapt the specfile for that.
+>
+> It also offers the possibility to move the source to %_topdir (defined in
+> ~/.rpmmacros) so  that you can directly run the rpmbuild -ba once you have
+> made the small correction advised on the spec file.
+>
+> That's the main features added, you can see below the changelog for this
+> new release and you can always test and give feed back, report bugs and
+> suggest enhancement on the trac of the R2spec project [1].
+>
+> The RPMs and sources are available on the git of the R2spec project [2].
+>
+> Thanks for your attention :-)
+>
+> [1] https://fedorahosted.org/r2spec
+> [2] https://fedorahosted.org/r2spec/browse
+>
+> _______________________________________________
+> Fedora-r-devel-list mailing list
+> Fedora-r-devel-list(a)redhat.com
+> http://www.redhat.com/mailman/listinfo/fedora-r-devel-list
+>
+
+
+
+-- 
+hello
+
+From tcallawa at redhat.com  Sun Aug 31 13:14:10 2008
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Sun, 31 Aug 2008 13:14:10 +0000
+Subject: Re: [Fedora-r-devel-list] R2spec new release
+In-Reply-To: <2c8757af0808310535y560c19d3gcfe3da9847a2a70a@mail.gmail.com>
+Message-ID: <1220188450.17883.12.camel@localhost.localdomain>
+
+On Sun, 2008-08-31 at 13:35 +0100, Dan Bolser wrote:
+> I think the first step would be to build a dummy RPM that includes all
+> the R-libraries that come by default with R. Such things as base,
+> lattice, stats, etc., etc. All these libraries could (?) be rolled
+> into an RPM called R-libs (or something), and then when packaging an
+> R-library that depends on 'stats', for example, the dependency would
+> be satisfied by R-libs... Is that possible?
+
+The R package already does this:
+
+Provides: R-base = %{version}
+Provides: R-boot = 1.2
+Provides: R-class = 7.2
+Provides: R-cluster = 1.11.11
+Provides: R-codetools = 0.2
+Provides: R-datasets = %{version}
+Provides: R-foreign = 0.8
+Provides: R-graphics = %{version}
+Provides: R-grDevices = %{version}
+Provides: R-grid = %{version}
+Provides: R-KernSmooth = 2.22
+Provides: R-lattice = 0.17
+Provides: R-MASS = 7.2
+Provides: R-methods = %{version}
+Provides: R-mgcv = 1.4
+Provides: R-nlme = 3.1
+Provides: R-nnet = 7.2
+Provides: R-rpart = 3.1
+Provides: R-spatial = 7.2
+Provides: R-splines = %{version}
+Provides: R-stats = %{version}
+Provides: R-stats4 = %{version}
+Provides: R-survival = 2.34
+Provides: R-tcltk = %{version}
+Provides: R-tools = %{version}
+Provides: R-utils = %{version}
+Provides: R-VR = 7.2
+
+%{version} is the version of R, in this case, 2.7.2.
+
+~spot
+
+From dan.bolser at gmail.com  Sun Aug 31 17:12:35 2008
+From: dan.bolser at gmail.com (Dan Bolser)
+Date: Sun, 31 Aug 2008 17:12:35 +0000
+Subject: Re: [Fedora-r-devel-list] R2spec new release
+In-Reply-To: <1220188450.17883.12.camel@localhost.localdomain>
+Message-ID: <2c8757af0808311012m5f6c4d1dm26a929c949d58c9c@mail.gmail.com>
+
+2008/8/31 Tom spot Callaway <tcallawa(a)redhat.com>:
+> On Sun, 2008-08-31 at 13:35 +0100, Dan Bolser wrote:
+>> I think the first step would be to build a dummy RPM that includes all
+>> the R-libraries that come by default with R. Such things as base,
+>> lattice, stats, etc., etc. All these libraries could (?) be rolled
+>> into an RPM called R-libs (or something), and then when packaging an
+>> R-library that depends on 'stats', for example, the dependency would
+>> be satisfied by R-libs... Is that possible?
+>
+> The R package already does this:
+>
+> Provides: R-base = %{version}
+> Provides: R-boot = 1.2
+> Provides: R-class = 7.2
+> Provides: R-cluster = 1.11.11
+> Provides: R-codetools = 0.2
+> Provides: R-datasets = %{version}
+> Provides: R-foreign = 0.8
+> Provides: R-graphics = %{version}
+> Provides: R-grDevices = %{version}
+> Provides: R-grid = %{version}
+> Provides: R-KernSmooth = 2.22
+> Provides: R-lattice = 0.17
+> Provides: R-MASS = 7.2
+> Provides: R-methods = %{version}
+> Provides: R-mgcv = 1.4
+> Provides: R-nlme = 3.1
+> Provides: R-nnet = 7.2
+> Provides: R-rpart = 3.1
+> Provides: R-spatial = 7.2
+> Provides: R-splines = %{version}
+> Provides: R-stats = %{version}
+> Provides: R-stats4 = %{version}
+> Provides: R-survival = 2.34
+> Provides: R-tcltk = %{version}
+> Provides: R-tools = %{version}
+> Provides: R-utils = %{version}
+> Provides: R-VR = 7.2
+>
+> %{version} is the version of R, in this case, 2.7.2.
+
+That is excellent. Thanks for the info.
+
+Now is there any way to cross check these against what R actually has
+installed? I am trying to think about ways that the R-installer could
+be used in combination with the packages... or is the idea to package
+the whole of CRAN? Where would such a repo be maintained? How would it
+be kept in sync with CRAN?
+
+Please just point me at the relevant docs if I am asking questions
+that have been covered before ;-)
+
+
+Cheers,
+
+Dan.
+
+
+
+>
+> ~spot
+>
+> _______________________________________________
+> Fedora-r-devel-list mailing list
+> Fedora-r-devel-list(a)redhat.com
+> http://www.redhat.com/mailman/listinfo/fedora-r-devel-list
+>
+
+
+
+-- 
+http://network.nature.com/profile/dan
+

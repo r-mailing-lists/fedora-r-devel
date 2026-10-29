@@ -1,0 +1,77 @@
+From jamatos at fc.up.pt  Wed Feb 29 19:21:08 2012
+From: jamatos at fc.up.pt (=?utf-8?q?Jos=C3=A9_Ab=C3=ADlio_Matos?=)
+Date: Wed, 29 Feb 2012 19:21:08 +0000
+Subject: Re: [Fedora-r-devel-list] R-repo
+In-Reply-To: <1325666605.21884.6.camel@pingouambre.dyndns.org>
+Message-ID: <4F4E7AA4.9050805@fc.up.pt>
+
+On 01/04/2012 08:43 AM, Pierre-Yves Chibon wrote:
+> Dear all,
+>
+> To the great despair of spot, I have started to build CRAN and
+> Bioconductor :-)
+> This time, I am trying to make things cleaner and more accessible.
+>
+> I just uploaded all the spec files on github:
+> https://github.com/pypingou/R-repo-spec
+> and the scripts on:
+> https://github.com/pypingou/R-repo-utility
+>
+> The whole project is hosted at http://r-repo.org
+>
+> At the moment everything is still in a early stage (for example, the
+> r-repo-release rpm is not even done yet), but if you configure the repo
+> by hand, you should be able to get RPMs.
+>
+> At least this time, if work becomes overwhelming again, what has been
+> done will remain accessible :-)
+>
+> I would prefer to not announce this officially just yet, but some
+> feedback be nice (thus this email). So if you feel like testing and are
+> facing problem, let me know!
+>
+> Hope this helps,
+> Best regards,
+> Pierre
+
+After almost two months going on what is the outcome of this project?
+
+Back in September I wanted to package some R libraries and it took some
+time to get all the packages due to the build requirement of each
+package, I had to unravel the dependencies while deciding what was
+necessary to bootstrap the process, and not even speaking about circular
+references. Clearly a fun project... :-)
+
+So this always makes a fun read. :-)
+
+-- 
+José Matos
+
+From pingou at pingoured.fr  Wed Feb 29 21:21:19 2012
+From: pingou at pingoured.fr (Pierre-Yves Chibon)
+Date: Wed, 29 Feb 2012 21:21:19 +0000
+Subject: Re: [Fedora-r-devel-list] R-repo
+In-Reply-To: <4F4E7AA4.9050805@fc.up.pt>
+Message-ID: <1330550479.12592.34.camel@ambre.pingoured.fr>
+
+On Wed, 2012-02-29 at 19:21 +0000, José Matos wrote:
+> 
+> After almost two months going on what is the outcome of this project?
+
+Well the structure is there and a number of rpms available.
+I have started on the update mechanism but I have only got around the
+first round.
+The spec are on github and I have no problem giving the rights to commit
+if people are interested (<hint>, <hint> ;-)).
+
+> Back in September I wanted to package some R libraries and it took
+> some time to get all the packages due to the build requirement of each
+> package, I had to unravel the dependencies while deciding what was
+> necessary to bootstrap the process, and not even speaking about
+> circular references. Clearly a fun project... :-) 
+
+<irony>hm R ? circular dependencies? I think I've heard about that once
+or twice </irony>
+
+Pierre
+

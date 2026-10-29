@@ -1,0 +1,100 @@
+From pingou at pingoured.fr  Wed Jan  4 08:43:25 2012
+From: pingou at pingoured.fr (Pierre-Yves Chibon)
+Date: Wed, 04 Jan 2012 08:43:25 +0000
+Subject: [Fedora-r-devel-list] R-repo
+Message-ID: <1325666605.21884.6.camel@pingouambre.dyndns.org>
+
+Dear all,
+
+To the great despair of spot, I have started to build CRAN and
+Bioconductor :-)
+This time, I am trying to make things cleaner and more accessible.
+
+I just uploaded all the spec files on github:
+https://github.com/pypingou/R-repo-spec
+and the scripts on:
+https://github.com/pypingou/R-repo-utility
+
+The whole project is hosted at http://r-repo.org
+
+At the moment everything is still in a early stage (for example, the
+r-repo-release rpm is not even done yet), but if you configure the repo
+by hand, you should be able to get RPMs.
+
+At least this time, if work becomes overwhelming again, what has been
+done will remain accessible :-)
+
+I would prefer to not announce this officially just yet, but some
+feedback be nice (thus this email). So if you feel like testing and are
+facing problem, let me know!
+
+Hope this helps,
+Best regards,
+Pierre
+
+From adam.huffman at gmail.com  Wed Jan  4 10:27:52 2012
+From: adam.huffman at gmail.com (Adam Huffman)
+Date: Wed, 04 Jan 2012 10:27:52 +0000
+Subject: Re: [Fedora-r-devel-list] R-repo
+In-Reply-To: <1325666605.21884.6.camel@pingouambre.dyndns.org>
+Message-ID: <CAP5prOjzgG7dFW3s3bkbxKn6HNJihEfEWm_2=N5s90HOEVL3ug@mail.gmail.com>
+
+On Wed, Jan 4, 2012 at 8:43 AM, Pierre-Yves Chibon <pingou(a)pingoured.fr> wrote:
+> Dear all,
+>
+> To the great despair of spot, I have started to build CRAN and
+> Bioconductor :-)
+> This time, I am trying to make things cleaner and more accessible.
+>
+> I just uploaded all the spec files on github:
+> https://github.com/pypingou/R-repo-spec
+> and the scripts on:
+> https://github.com/pypingou/R-repo-utility
+>
+> The whole project is hosted at http://r-repo.org
+>
+> At the moment everything is still in a early stage (for example, the
+> r-repo-release rpm is not even done yet), but if you configure the repo
+> by hand, you should be able to get RPMs.
+>
+> At least this time, if work becomes overwhelming again, what has been
+> done will remain accessible :-)
+>
+> I would prefer to not announce this officially just yet, but some
+> feedback be nice (thus this email). So if you feel like testing and are
+> facing problem, let me know!
+>
+> Hope this helps,
+> Best regards,
+> Pierre
+>
+
+Pierre,
+
+Many thanks for this.  I've been working on some of the Bioinformatics
+R packages off and on and it will be very helpful.  I'll send you any
+useful changes I already have.
+
+Cheers,
+Adam
+
+From pingou at pingoured.fr  Wed Jan 11 15:53:15 2012
+From: pingou at pingoured.fr (Pierre-Yves Chibon)
+Date: Wed, 11 Jan 2012 15:53:15 +0000
+Subject: [Fedora-r-devel-list] [Fwd: Re: [Rd] Changed behaviour of 'R CMD INSTALL']
+Message-ID: <1326297195.18287.17.camel@pingouambre.dyndns.org>
+
+Hi all,
+
+Although using the latest version of R from updates-testing:
+https://admin.fedoraproject.org/updates/FEDORA-2012-0119/
+I could however recompile successfully R-zoo (arch specific) and
+R-widgetTools (noarch) from their latest git version without errors. I
+think this is worth noting.
+
+Good day,
+Pierre
+
+-------------- next part --------------
+WzxlbWFpbC5tZXNzYWdlLk1lc3NhZ2UgaW5zdGFuY2UgYXQgMHgzZjA1MzY4Pl0=
+

@@ -1,0 +1,366 @@
+From pingou at pingoured.fr  Mon Mar 16 21:09:17 2009
+From: pingou at pingoured.fr (Pierre-Yves Chibon)
+Date: Mon, 16 Mar 2009 21:09:17 +0000
+Subject: [Fedora-r-devel-list] -devel packages
+Message-ID: <1237237757.3515.5.camel@pingouGreen.localdomain>
+
+Dear list,
+
+Once again I come here to ask for your help/opinion :-)
+
+I have decided to give some more love to two of my packages:
+R-BSgenome.Dmelanogaster.FlyBase.r51 and R-BSgenome.Celegans.UCSC.ce2
+
+In order to be able to build the latest versions of them I need to
+package the following:
+R-IRange R-Biostrings and R-BSgenome
+
+So I did and before submitting them for review, I would like to expose
+here the problem I have with them.
+
+While packaging R-IRange has obtain:
+R-IRanges.x86_64: W:
+devel-file-in-non-devel-package /usr/lib64/R/library/IRanges/include/...
+
+So I divided the package in a sub package -devel with the following
+error:
+R-IRanges-devel.x86_64: E: only-non-binary-in-usr-lib
+while all the package is in %{_libdir}
+
+If I move the headers from %{_libdir} to %{_datadir} as rpmlint ask then
+I have to do the following in R-Biostrings spec:
+---------------SPEC
+# Replace the wrong include by the rights one :)
+for i in %{packname}/src/*.c
+ do 
+   sed -i -e 's|#include "IRanges_interface.h"| #include
+"%{_datadir}/R/library/IRanges/include/include/IRanges_interface.h"|' $i
+ done
+
+sed -i -e 's|#include "IRanges_defines.h"| #include
+"%{_datadir}/R/library/IRanges/include/include/IRanges_defines.h"|'
+%{packname}/inst/include/Biostrings_de
+fines.h
+sed -i -e 's|#include "_IRanges_stubs.c"| #include
+"%{_datadir}/R/library/IRanges/include/include/_IRanges_stubs.c"|'
+%{packname}/src/IRanges_stubs.c
+-----------------EOF
+Because else Biostrings cannot find the correct headers and thus cannot
+compile...
+
+And... R-Biostrings needs also to be split in a subpackage -devel with
+the headers in %{_libdir} while the package is installed in %{_datadir}
+so R-BSgenome will also have to be "patched" for the headers.
+
+Is there a way to make R looking in both %{_datadir} and %{_libdir}
+while it looks for the headers ?
+Could I leave the R headers in %{_libdir} ? (I guess not but worth to
+ask ^^)
+
+Any suggestion/remarks ?
+
+Thanks in advance,
+Best regards,
+
+Pierre
+
+From tcallawa at redhat.com  Mon Mar 16 21:21:33 2009
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Mon, 16 Mar 2009 21:21:33 +0000
+Subject: Re: [Fedora-r-devel-list] -devel packages
+In-Reply-To: <1237237757.3515.5.camel@pingouGreen.localdomain>
+Message-ID: <49BEC2DD.6030605@redhat.com>
+
+On 03/16/2009 05:09 PM, Pierre-Yves wrote:
+> Could I leave the R headers in %{_libdir} ? (I guess not but worth to
+> ask ^^)
+
+I'd say yes. This is where R is looking for them to be.
+
+~spot
+
+From pingou at pingoured.fr  Sat Mar 21 18:59:59 2009
+From: pingou at pingoured.fr (Pierre-Yves Chibon)
+Date: Sat, 21 Mar 2009 18:59:59 +0000
+Subject: [Fedora-r-devel-list] Update the guidelines
+Message-ID: <1237661999.3243.23.camel@localhost.localdomain>
+
+Dear all,
+
+I would like to propose to update (or mention) some points in the R
+packaging guidelines.
+
+* Mention something about the tex files which are not utf-8 and don't
+necessarily have to be converted
+see:
+https://www.redhat.com/archives/fedora-devel-list/2009-January/msg00741.html
+
+* Mention something about the -devel package where the headers don't
+necessarily have to moved to %{_datadir} since R looks for them in
+%{_libdir}.
+see:
+https://www.redhat.com/archives/fedora-r-devel-list/2009-March/msg00001.html
+
+What is your opinion on these changes ?
+
+What is the process to propose such changes/updates ?
+
+Thanks,
+
+Best regards,
+
+Pierre
+
+From pingou at pingoured.fr  Sun Mar 22 21:11:46 2009
+From: pingou at pingoured.fr (Pierre-Yves Chibon)
+Date: Sun, 22 Mar 2009 21:11:46 +0000
+Subject: [Fedora-r-devel-list] Update R2spec
+Message-ID: <1237756306.3401.34.camel@localhost.localdomain>
+
+Dear all,
+
+A new version of R2spec is pending for updates-testing. It comes some
+time after the previous version and some things have been added or
+corrected in it.
+
+There is the changelog concerning this release:
+
+Version 2.5.2 -- 21st Mar 2009
+-Features added
+* Do not ask to move the file if there is no %_topdir
+* Add option -c/--copyFile to copy the source to %_topdir without asking
+* Add the option -n/--name to specify the name of the packager
+* Add the option -e/--email to specify the email of the packager
+* Add the option -f/--force that create the spec file with the normal 
+   name even if there is already such a file in the working directory
+* Add zip support
+* Remove the '(', ')' and the ',' in the BuildRequire and Require of the
+spec
+* Check if the source actually exists (it was about time...)
+* Better handling of the exception
+* Change %define to %global in the generated spec according to the new
+guidelines
+-Bugs correction
+* Typo -> 'Copy to' and not 'copy in'
+* Change the comment on the spec for x86/x86_64 and noarch
+* Actually copy the source file to the SOURCES folder
+* The Source0 is not a template anymore it is either from -s or it is -u
+
+Please let me know if you find any bug or have any wishes that you would
+like to see in R2spec.
+
+Best regards,
+
+Pierre
+
+From dan.bolser at gmail.com  Mon Mar 23 09:12:45 2009
+From: dan.bolser at gmail.com (Dan Bolser)
+Date: Mon, 23 Mar 2009 09:12:45 +0000
+Subject: Re: [Fedora-r-devel-list] Update R2spec
+In-Reply-To: <1237756306.3401.34.camel@localhost.localdomain>
+Message-ID: <2c8757af0903230212k751a5b8dkd437b733ced541a3@mail.gmail.com>
+
+BTW, while we are on this topic, is anyone using the 'R-Repo' project
+to upload the RPMs / spec files generated using R2spec?
+
+R-Repo project:
+http://www.bioinformatics.org/r-repo/wiki/
+
+
+I had hoped to find time to build some packages and upload them, but I
+haven't been able to find time to do that. Is there a better place for
+R packages? If the 'R-Repo' project looks useful, please let me know.
+
+
+Cheers,
+Dan.
+
+
+2009/3/22 Pierre-Yves <pingou(a)pingoured.fr>:
+> Dear all,
+>
+> A new version of R2spec is pending for updates-testing. It comes some
+> time after the previous version and some things have been added or
+> corrected in it.
+>
+> There is the changelog concerning this release:
+>
+> Version 2.5.2 -- 21st Mar 2009
+> -Features added
+> * Do not ask to move the file if there is no %_topdir
+> * Add option -c/--copyFile to copy the source to %_topdir without asking
+> * Add the option -n/--name to specify the name of the packager
+> * Add the option -e/--email to specify the email of the packager
+> * Add the option -f/--force that create the spec file with the normal
+>   name even if there is already such a file in the working directory
+> * Add zip support
+> * Remove the '(', ')' and the ',' in the BuildRequire and Require of the
+> spec
+> * Check if the source actually exists (it was about time...)
+> * Better handling of the exception
+> * Change %define to %global in the generated spec according to the new
+> guidelines
+> -Bugs correction
+> * Typo -> 'Copy to' and not 'copy in'
+> * Change the comment on the spec for x86/x86_64 and noarch
+> * Actually copy the source file to the SOURCES folder
+> * The Source0 is not a template anymore it is either from -s or it is -u
+>
+> Please let me know if you find any bug or have any wishes that you would
+> like to see in R2spec.
+>
+> Best regards,
+>
+> Pierre
+>
+> _______________________________________________
+> Fedora-r-devel-list mailing list
+> Fedora-r-devel-list(a)redhat.com
+> http://www.redhat.com/mailman/listinfo/fedora-r-devel-list
+>
+
+From tcallawa at redhat.com  Tue Mar 24 02:04:29 2009
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Tue, 24 Mar 2009 02:04:29 +0000
+Subject: [Fedora-r-devel-list] R-java and R-java-devel
+Message-ID: <49C83FAD.4090201@redhat.com>
+
+Pierre asked me on irc this afternoon to help him get R-rJava building,
+and when I looked at it, I discovered what was wrong.
+
+The Fedora R-core package (the minimum bits needed to get R working)
+does not require java. This is intentional, as java is not needed to use
+R, and it would be a notable increase in default footprint if we made it
+a strict dependency. In the %post for R-core, we run R CMD javareconf,
+but that only does something useful if you have a java environment present.
+
+When Pierre was trying to build rJava, R-devel and R-core were being
+installed before java-devel and java, thus, the R CMD javareconf run was
+happening with no java environment present in the buildroot.
+
+Initially, I tried to resolve this by having the R-rJava package run R
+CMD javareconf again during %prep, but this doesn't work, because the
+package isn't built as root, and R couldn't update the system configs.
+So, as a workaround, I added two new "subpackages" to the main R package:
+
+R-java : A metapackage with no files that simply Requires(post): R-core,
+java
+R-java-devel: A metapackage with no files that simple Requires(post):
+R-devel, java-devel
+
+Both metapackages call R CMD javareconf in their %post (its the same
+invocation that we use for R-core). There is some redundancy (it gets
+called when we install R-core, then again when we install R-java, for
+example), but it isn't harmful.
+
+By then changing the BuildRequires in the R-rJava package from R-devel
+to R-java-devel, I was able to get that package to build properly.
+
+There are several advantages to these metapackages:
+
+1. Users who want an R install that comes with the Fedora OpenJDK
+preconfigured can yum install R-java.
+2. Developers who want an R development environment that has the Fedora
+OpenJDK preconfigured can yum install R-java-devel.
+3. It does not change the default behavior of the R-core, R-devel (and
+R) packages.
+4. Any addon R modules that require java to be present and configured
+can now use BuildRequires: R-java-devel and be built for Fedora in koji.
+
+If you have any questions about this change, please feel free to ask! :)
+
+Thanks,
+
+~spot
+
+From pingou at pingoured.fr  Tue Mar 24 09:30:56 2009
+From: pingou at pingoured.fr (Pierre-Yves Chibon)
+Date: Tue, 24 Mar 2009 09:30:56 +0000
+Subject: Re: [Fedora-r-devel-list] R-java and R-java-devel
+In-Reply-To: <49C83FAD.4090201@redhat.com>
+Message-ID: <1237887056.3002.1.camel@localhost.localdomain>
+
+On Mon, 2009-03-23 at 22:04 -0400, Tom "spot" Callaway wrote:
+
+> There are several advantages to these metapackages:
+> 
+> 1. Users who want an R install that comes with the Fedora OpenJDK
+> preconfigured can yum install R-java.
+> 2. Developers who want an R development environment that has the Fedora
+> OpenJDK preconfigured can yum install R-java-devel.
+> 3. It does not change the default behavior of the R-core, R-devel (and
+> R) packages.
+> 4. Any addon R modules that require java to be present and configured
+> can now use BuildRequires: R-java-devel and be built for Fedora in koji.
+> 
+> If you have any questions about this change, please feel free to ask! :)
+
+While we are at this, could we add something in /etc/profile.d/ to set
+R_HOME to /usr/lib{64}/R ?
+
+I can also include it in R-rJava to make user's life easier :)
+
+Thanks,
+Regards,
+
+Pierre
+
+From tcallawa at redhat.com  Tue Mar 24 12:48:50 2009
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Tue, 24 Mar 2009 12:48:50 +0000
+Subject: Re: [Fedora-r-devel-list] R-java and R-java-devel
+In-Reply-To: <1237887056.3002.1.camel@localhost.localdomain>
+Message-ID: <49C8D6B2.90709@redhat.com>
+
+On 03/24/2009 05:30 AM, Pierre-Yves wrote:
+
+> While we are at this, could we add something in /etc/profile.d/ to set
+> R_HOME to /usr/lib{64}/R ?
+> 
+> I can also include it in R-rJava to make user's life easier :)
+
+R_HOME should always be determined by asking R (R RHOME), so this isn't
+necessary.
+
+~spot
+
+From martyn.plummer at r-project.org  Fri Mar 27 17:17:32 2009
+From: martyn.plummer at r-project.org (Martyn Plummer)
+Date: Fri, 27 Mar 2009 17:17:32 +0000
+Subject: [Fedora-r-devel-list] R RPM requirements
+Message-ID: <1238174252.19046.0.camel@localhost.localdomain>
+
+One of the topics that came up during the thread "R-devel going away"
+was that R-devel has a rather heavy set of requirements.   
+
+Some of these looked implausible to me, even though I am probably
+responsible for putting them in in the first place.  This prompted me to
+go back to basics and work out what the requirements of R-core and
+R-devel should really be.  I wrote a document in December, but never
+circulated them for some reason. You can find it here (PDF document and
+LaTeX source):
+
+http://calvin.iarc.fr/~martyn/software/R
+
+It may look like heavy going, but you can skip to the conclusions if you
+get bored. The bottom line is that a lot of the current requirements of
+R-devel can be dropped, but there are also a few other requirements that
+should, in principle, be added.
+
+If you do find it useful, it could go in a wiki so that it can be kept
+up to date.  
+
+Martyn
+
+
+
+
+-----------------------------------------------------------------------
+This message and its attachments are strictly confidential. If you are
+not the intended recipient of this message, please immediately notify 
+the sender and delete it. Since its integrity cannot be guaranteed, 
+its content cannot involve the sender's responsibility. Any misuse, 
+any disclosure or publication of its content, either whole or partial, 
+is prohibited, exception made of formally approved use
+-----------------------------------------------------------------------
+

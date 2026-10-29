@@ -1,0 +1,34 @@
+From tcallawa at redhat.com  Thu Jun  1 16:27:28 2006
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Thu, 01 Jun 2006 16:27:28 +0000
+Subject: [Fedora-r-devel-list] R 2.3.1
+Message-ID: <1149179248.9740.20.camel@localhost.localdomain>
+
+Guys, R 2.3.1 is out. Please make ready for its release into Fedora
+Extras. I plan to do it this afternoon/evening.
+
+~spot
+-- 
+Tom "spot" Callaway: Red Hat Senior Sales Engineer || GPG ID: 93054260
+Fedora Extras Steering Committee Member (RPM Standards and Practices)
+Aurora Linux Project Leader: http://auroralinux.org
+Lemurs, llamas, and sparcs, oh my!
+
+From tcallawa at redhat.com  Thu Jun  8 21:48:20 2006
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Thu, 08 Jun 2006 21:48:20 +0000
+Subject: [Fedora-r-devel-list] Retiring: R-gnomeGUI
+Message-ID: <1149803300.5199.65.camel@localhost.localdomain>
+
+The R-gnomeGUI package relies on ancient gnome libs to function, and
+since those libs are going away in -devel, I'm retiring this package. If
+anyone is motivated to do the work to port this code to gtk2, then I
+would be happy to give them ownership of this package.
+
+~spot
+-- 
+Tom "spot" Callaway: Red Hat Senior Sales Engineer || GPG ID: 93054260
+Fedora Extras Steering Committee Member (RPM Standards and Practices)
+Aurora Linux Project Leader: http://auroralinux.org
+Lemurs, llamas, and sparcs, oh my!
+

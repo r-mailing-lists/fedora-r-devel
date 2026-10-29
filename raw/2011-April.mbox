@@ -1,0 +1,707 @@
+From asr at ufl.edu  Tue Apr 12 19:10:54 2011
+From: asr at ufl.edu (Allen S. Rout)
+Date: Tue, 12 Apr 2011 19:10:54 +0000
+Subject: [Fedora-r-devel-list] R2rpm...
+Message-ID: <87ipujz3nl.fsf@ufl.edu>
+
+
+
+When I try to build from a local source, it fails to find the source
+file.
+
+[root(a)troll-2 cran]# pwd
+/var/tmp/cran
+[root(a)troll-2 cran]# ls -l
+total 828
+-rw-r--r-- 1 root root 308395 Dec 22  2009 DBI_0.2-5.tar.gz
+-rw-r--r-- 1 root root 518499 Apr 12 14:58 plyr_1.2.1.tar.gz
+-rwxr--r-- 1 root root    181 Apr 12 15:06 yadda
+-rw-r--r-- 1 root root    138 Apr 12 15:04 yadda~
+[root(a)troll-2 cran]# R2rpm -s plyr_1.2.1.tar.gz
+Your source does not exist, please use the full path (plyr_1.2.1.tar.gz)
+[root(a)troll-2 cran]# R2rpm -s ./plyr_1.2.1.tar.gz
+Your source does not exist, please use the full path (./plyr_1.2.1.tar.gz)
+[root(a)troll-2 cran]# R2rpm -s /var/tmp/cran/plyr_1.2.1.tar.gz
+
+* Retrieve the source
+
+**************************************************
+* Name of the packager = Allen Rout
+* Mail of the packager = asr(a)ufl.edu
+
+**************************************************
+* Name of the library = plyr
+* Version of the library = 1.2.1
+* Summary of the library = Tools for splitting, applying and combining data
+plyr is a set of tools that solves a common set of
+* Description of the library =
+ plyr is a set of tools that solves a common set of 
+* License of the library = MIT
+No Depends set
+* The package is = Arch ~ x86 or x86_64
+* Date of the spec file = Tue Apr 12 2011
+************************************************** 
+** Generate the spec file
+* Spec generated: 
+  /usr/src/redhat/SPECS/R-plyr.spec
+* spec file written
+**************************************************
+** Spec generated, starting RPM construction
+* Read the file R-plyr.spec
+* Clean the %file section
+* spec file written
+* Building the rpm (this may take some time)
+   LANG=C rpmbuild -ba R-plyr.spec > build-R-plyr.spec.log 2>&1
+An error occured during the build
+'An error occured at build time, see the log in /usr/src/redhat/SPECS/build-R-plyr.spec.log'
+
+
+
+If I copy the file somewhere else and reference it as a URL, it works.
+
+
+
+- Allen S. Rout
+
+From asr at ufl.edu  Tue Apr 12 19:27:08 2011
+From: asr at ufl.edu (Allen S. Rout)
+Date: Tue, 12 Apr 2011 19:27:08 +0000
+Subject: [Fedora-r-devel-list] R2rpm...
+Message-ID: <874o63xoc3.fsf@ufl.edu>
+
+
+
+
+The dependency resolution in R2spec introduces loops.
+
+Try to build foreach or iterators.  In R2spec's calculation of deps,
+they depend on each other.  This appears to be because R2spec promotes a
+'suggests' to a 'depends'.
+
+This might be because the 'suggests' is used in the vigniettes?
+
+
+.... Argh.
+
+
+
+Package: iterators
+Type: Package
+Title: Iterator construct for R
+Version: 1.0.3
+Author: REvolution Computing
+Maintainer: REvolution Computing <packages(a)REvolution-computing.com>
+Description: Support for iterators, which allow a programmer to
+        traverse through all the elements of a vector, list, or other
+        collection of data.
+Depends: R (>= 2.5.0), utils
+Suggests: foreach
+License: Apache License (== 2.0)
+Packaged: 2009-10-05 20:31:21 UTC; weston
+Repository: CRAN
+Date/Publication: 2009-10-06 06:56:52
+
+
+
+Package: foreach
+Type: Package
+Title: Foreach looping construct for R
+Version: 1.3.0
+Author: REvolution Computing
+Maintainer: REvolution Computing <packages(a)REvolution-computing.com>
+Description: Support for the foreach looping construct.  Foreach is an
+        idiom that allows for iterating over elements in a collection,
+        without the use of an explicit loop counter.  This package in
+        particular is intended to be used for its return value, rather
+        than for its side effects.  In that sense, it is similar to the
+        standard lapply function, but doesn't require the evaluation of
+        a function.  Using foreach without side effects also
+        facilitates executing the loop in parallel.
+Depends: R (>= 2.5.0), iterators(>= 1.0.0), codetools, utils
+License: Apache License (== 2.0)
+Packaged: 2009-10-05 20:33:54 UTC; weston
+Repository: CRAN
+Date/Publication: 2009-10-06 06:56:45
+
+
+
+
+- Allen S. Rout
+
+From pingou at pingoured.fr  Tue Apr 12 19:39:01 2011
+From: pingou at pingoured.fr (Pierre-Yves Chibon)
+Date: Tue, 12 Apr 2011 19:39:01 +0000
+Subject: Re: [Fedora-r-devel-list] R2rpm...
+In-Reply-To: <874o63xoc3.fsf@ufl.edu>
+Message-ID: <1302637141.26856.6.camel@ambre.pingoured.fr>
+
+On Tue, 2011-04-12 at 15:27 -0400, Allen S. Rout wrote:
+> The dependency resolution in R2spec introduces loops.
+> 
+> Try to build foreach or iterators.  In R2spec's calculation of deps,
+> they depend on each other.  This appears to be because R2spec promotes
+> a 'suggests' to a 'depends'.
+> 
+> This might be because the 'suggests' is used in the vigniettes? 
+
+As per Fedora R-packaging guidelines 'suggests' and 'depends' are
+treated in the same way. This is a problem when trying to build lots of
+packages in the row* so there now** a --nosuggest option available. This
+option does what it says, it does not treat 'suggests' as
+Requires/BuildRequires.
+The --nocheck option might also be needed in this case as R CMD CHECK
+normally complains when there is a 'suggests' missing.
+
+Hope this helps,
+Pierre
+
+
+* Yes, I did try to build quite a part of cran using R2rpm/R2spec
+** On the git repo, I have not made a release with these changes yet
+
+From pingou at pingoured.fr  Tue Apr 12 20:09:26 2011
+From: pingou at pingoured.fr (Pierre-Yves Chibon)
+Date: Tue, 12 Apr 2011 20:09:26 +0000
+Subject: Re: [Fedora-r-devel-list] R2rpm...
+In-Reply-To: <87ipujz3nl.fsf@ufl.edu>
+Message-ID: <1302638966.26856.9.camel@ambre.pingoured.fr>
+
+On Tue, 2011-04-12 at 15:10 -0400, Allen S. Rout wrote:
+> When I try to build from a local source, it fails to find the source
+> file.
+[...]
+> [root(a)troll-2 cran]# R2rpm -s /var/tmp/cran/plyr_1.2.1.tar.gz
+(Do you always build as root ? I was always told that it should be
+avoided)
+[...]
+> * Building the rpm (this may take some time)
+>   LANG=C rpmbuild -ba R-plyr.spec > build-R-plyr.spec.log 2>&1
+> An error occured during the build
+> 'An error occured at build time, see the log 
+> in /usr/src/redhat/SPECS/build-R-plyr.spec.log'
+
+> If I copy the file somewhere else and reference it as a URL, it
+> works. 
+
+Check the log file ;-)
+
+That is simply because calling R2rpm -s without specifying --bioc or
+--cran leads to 'URL' tag in the spec.
+
+Best regards,
+Pierre
+
+From asr at ufl.edu  Tue Apr 12 20:42:51 2011
+From: asr at ufl.edu (Allen S. Rout)
+Date: Tue, 12 Apr 2011 20:42:51 +0000
+Subject: [Fedora-r-devel-list] Errors in constructing SPEC from local source.
+Message-ID: <87k4ezurp0.fsf@ufl.edu>
+
+
+
+In R2spec-3.0.3-1, if you set a local source (-s <source>) then the URL
+and source0 fields in the spec will remain empty.  Such specs fail to
+build.
+
+There are a variety of ways to address this, I'm not sure that what I've
+done is really a superior solution.  
+
+
+in RPackage.py, down the branch of "I've only got a source, not a
+source0", I added
+
+                self.source0 = source
+                self.URL = source
+
+(see below).
+
+This means that URL is populated with a local file path, but that's
+really all that's available. 
+
+
+
+....
+
+All I'm really trying to do right now is get ggplot to one of my
+customers.  I wasn't gearing up for contributing much code, but I can,
+if that's what Pierre-Yves wants. 
+
+I have to say, this is being a distinctly frustrating process.
+
+....
+
+"below"... 
+
+
+    def setSource(self, source0, source):
+        ''' From the url retrieve the name of the source '''
+        if source != None and source0 != None:
+            if source != source0.rsplit('/',1)[1] :
+                sys.exit("Do not give 2 contradictory sources of information")
+        elif source != None:
+            try:
+                self.source = source.rsplit('/',1)[1]
+                self.path = source.rsplit('/',1)[0]
+                self.source0 = source
+                self.URL = source
+            except IndexError, err:
+                self.source = source
+                self.path = '../'
+        elif source0 != None:
+            self.source = source0.rsplit('/',1)[1]
+            self.path = '../'
+            self.source0 = source0
+        else:
+            sys.exit("The source are not correct ")
+
+
+
+- Allen S. Rout
+
+From asr at ufl.edu  Tue Apr 12 20:57:30 2011
+From: asr at ufl.edu (Allen S. Rout)
+Date: Tue, 12 Apr 2011 20:57:30 +0000
+Subject: Re: [Fedora-r-devel-list] Errors in constructing SPEC from local source.
+In-Reply-To: <87k4ezurp0.fsf@ufl.edu>
+Message-ID: <87zknvrxvp.fsf@ufl.edu>
+
+
+
+asr-hnhdhkBXzx8(a)public.gmane.org (Allen S. Rout) writes:
+
+> In R2spec-3.0.3-1, if you set a local source (-s <source>) then the URL
+> and source0 fields in the spec will remain empty.  Such specs fail to
+> build.
+>
+> There are a variety of ways to address this, I'm not sure that what I've
+> done is really a superior solution.  
+>
+>
+> in RPackage.py, down the branch of "I've only got a source, not a
+> source0", I added
+>
+>                 self.source0 = source
+>                 self.URL = source
+>
+> (see below).
+>
+> This means that URL is populated with a local file path, but that's
+> really all that's available. 
+
+
+So, I see from your previous replies, Pierre-Yves, that this is more or
+less expected behavior.  Understood.
+
+I have the opinion that the current manner of failing doesn't
+communicate what's going on very well.  Would you consider documenting
+this requirement in the usage message, or even failing with an
+informative message?
+
+I also think that there are other sources of packages than the various
+repos.  It seems incorrect to me to insist that we name one.
+
+
+
+- Allen S. Rout
+
+From asr at ufl.edu  Tue Apr 12 21:02:30 2011
+From: asr at ufl.edu (Allen S. Rout)
+Date: Tue, 12 Apr 2011 21:02:30 +0000
+Subject: Re: [Fedora-r-devel-list] R2rpm...
+In-Reply-To: <1302637141.26856.6.camel@ambre.pingoured.fr>
+Message-ID: <87ipujrxnd.fsf@ufl.edu>
+
+
+
+Pierre-Yves Chibon <pingou-E11Oz7VxvVOXCRStZZN3OA(a)public.gmane.org>
+writes:
+
+> On Tue, 2011-04-12 at 15:27 -0400, Allen S. Rout wrote:
+>> The dependency resolution in R2spec introduces loops.
+>> 
+>> Try to build foreach or iterators.  In R2spec's calculation of deps,
+>> they depend on each other.  This appears to be because R2spec promotes
+>> a 'suggests' to a 'depends'.
+>> 
+>> This might be because the 'suggests' is used in the vigniettes? 
+>
+> As per Fedora R-packaging guidelines 'suggests' and 'depends' are
+> treated in the same way. 
+
+This is simply broken.  It is broken in two directions: It elevates to a
+dependency the things which are only declared to be necessary for CHECK,
+and it fails to account for 'Imports', which is an _actual_ dependency. 
+
+Try ggplot2 for an example of this. 
+
+
+
+- Allen S. Rout
+
+From pingou at pingoured.fr  Tue Apr 12 21:14:55 2011
+From: pingou at pingoured.fr (Pierre-Yves Chibon)
+Date: Tue, 12 Apr 2011 21:14:55 +0000
+Subject: Re: [Fedora-r-devel-list] Errors in constructing SPEC from local source.
+In-Reply-To: <87zknvrxvp.fsf@ufl.edu>
+Message-ID: <1302642895.26856.17.camel@ambre.pingoured.fr>
+
+On Tue, 2011-04-12 at 16:57 -0400, Allen S. Rout wrote:
+> 
+> I have the opinion that the current manner of failing doesn't
+> communicate what's going on very well.  Would you consider documenting
+> this requirement in the usage message, or even failing with an
+> informative message?
+
+As in print the error message in the console rather than in the build
+file ? Or do you have something else in mind ?
+
+> I also think that there are other sources of packages than the various
+> repos.  It seems incorrect to me to insist that we name one.
+
+For this I had few ideas but I do not know how far I went with them:
+- One idea was to be able to add repositories on the ~/.R2spec.
+Now that I am thinking about it, I guess something like:
+[repository]
+bioc = http://bioconductor.org
+cran = http://cran.r-project.org
+mine = http://pingoured.fr
+where one could then call R2spec/R2rpm with --repo=mine or --repo=bioc
+or something like this.
+
+- Another idea might be to just specify the repository via an argument
+--URL="http://pingoured.fr"
+
+R2spec was designed to easily create spec file which would then be
+reviewed and corrected by human. It has evolved to include rpm building
+but I have the feeling that it might need a good redesign, maybe a
+version 3.0.0 ;-)
+
+Best regards,
+Pierre
+
+From asr at ufl.edu  Tue Apr 12 21:34:47 2011
+From: asr at ufl.edu (Allen S. Rout)
+Date: Tue, 12 Apr 2011 21:34:47 +0000
+Subject: Re: [Fedora-r-devel-list] Errors in constructing SPEC from local source.
+In-Reply-To: <1302642895.26856.17.camel@ambre.pingoured.fr>
+Message-ID: <87aafvnog8.fsf@ufl.edu>
+
+
+
+Pierre-Yves Chibon <pingou-E11Oz7VxvVOXCRStZZN3OA(a)public.gmane.org>
+writes:
+> On Tue, 2011-04-12 at 16:57 -0400, Allen S. Rout wrote:
+>> 
+>> I have the opinion that the current manner of failing doesn't
+>> communicate what's going on very well.  Would you consider documenting
+>> this requirement in the usage message, or even failing with an
+>> informative message?
+>
+> As in print the error message in the console rather than in the build
+> file ? Or do you have something else in mind ?
+
+Well, the error message is something along the lines of "Blank URL
+field".  This doesn't lead me to assume "I should specify a repo, for
+this file that I have locally". 
+
+On the one hand, for the -source case, you could specify a file:/// URL
+ (and source0) if the user doesn't give one.
+
+If you don't like that, you could detect "Oh, they set a source but no
+repo", and give a diagnostic like "Must set a repo; please use one of
+--[... yadda yadda " 
+
+
+
+
+
+>> I also think that there are other sources of packages than the various
+>> repos.  It seems incorrect to me to insist that we name one.
+>
+> For this I had few ideas but I do not know how far I went with them:
+> - One idea was to be able to add repositories on the ~/.R2spec.
+> Now that I am thinking about it, I guess something like:
+> [repository]
+> bioc = http://bioconductor.org
+> cran = http://cran.r-project.org
+> mine = http://pingoured.fr
+> where one could then call R2spec/R2rpm with --repo=mine or --repo=bioc
+> or something like this.
+>
+> - Another idea might be to just specify the repository via an argument
+> --URL="http://pingoured.fr"
+
+
+I understand your repo-centric perspective, but I would encourage you to
+let people build from files without forcing them to invent a repo.  But
+this is an aesthetic call; If you permit an escape valve like --URL, and
+an error message to point to its use, then the usability concerns are
+well answered.
+
+
+
+> R2spec was designed to easily create spec file which would then be
+> reviewed and corrected by human. It has evolved to include rpm building
+> but I have the feeling that it might need a good redesign, maybe a
+> version 3.0.0 ;-)
+
+The version I got from EPEL was 3.0.3.. ? 
+
+
+I would be delighted to help if you are interested in it.  My previous
+wave of changes did not meet with your approval, and I inferred that
+this meant you look at the problem differently than I do.  I am not
+offended by this, it's your project.  But I did stop trying to
+contribute.
+
+I definitely look at the problem from the perspective of "Automatic
+production of entire dependency chains".  If you think that is a
+worthwhile direction to go, I would be happy to help get there.
+
+
+
+- Allen S. Rout
+
+From pingou at pingoured.fr  Wed Apr 13 06:29:46 2011
+From: pingou at pingoured.fr (Pierre-Yves Chibon)
+Date: Wed, 13 Apr 2011 06:29:46 +0000
+Subject: Re: [Fedora-r-devel-list] Errors in constructing SPEC from local source.
+In-Reply-To: <87aafvnog8.fsf@ufl.edu>
+Message-ID: <1302676186.16063.4.camel@lab.pingoured.fr>
+
+On Tue, 2011-04-12 at 17:34 -0400, Allen S. Rout wrote:
+> 
+> 
+> > R2spec was designed to easily create spec file which would then be
+> > reviewed and corrected by human. It has evolved to include rpm
+> building
+> > but I have the feeling that it might need a good redesign, maybe a
+> > version 3.0.0 ;-)
+> 
+> The version I got from EPEL was 3.0.3.. ? 
+
+Sorry I meant 4.0.0
+
+> I would be delighted to help if you are interested in it.  My previous
+> wave of changes did not meet with your approval, and I inferred that
+> this meant you look at the problem differently than I do.  I am not
+> offended by this, it's your project.  But I did stop trying to
+> contribute.
+> 
+> I definitely look at the problem from the perspective of "Automatic
+> production of entire dependency chains".  If you think that is a
+> worthwhile direction to go, I would be happy to help get there.
+
+R2spec remains a project designed to make the life of Fedora's R
+packager's easier, so it has to remain guideline compliant. That is a
+reason why putting the source0 as URL also is not *in my opinion* a good
+approach (while I actually do like the --URL option).
+
+There was a time when I thought I would try to get an "automatic cran
+builder" working but atm I have other priorities.
+
+Pierre
+
+From jamatos at fc.up.pt  Wed Apr 13 12:40:23 2011
+From: jamatos at fc.up.pt (=?utf-8?q?Jos=C3=A9_Ab=C3=ADlio_Matos?=)
+Date: Wed, 13 Apr 2011 12:40:23 +0000
+Subject: Re: [Fedora-r-devel-list] R2rpm...
+In-Reply-To: <87ipujz3nl.fsf@ufl.edu>
+Message-ID: <201104131340.23719.jamatos@fc.up.pt>
+
+On Tuesday 12 April 2011 20:10:54 Allen S. Rout wrote:
+> 'An error occured at build time, see the log in
+> /usr/src/redhat/SPECS/build-R-plyr.spec.log'
+
+Beware that running rpmbuild as root is problematic (been there done that). 
+:-)
+
+The easy part is to run it as normal user, either with your account or a new 
+account. In order to set the directories layout you can create a ~/.rpmmacros 
+files with the new directories.
+
+The easier setup is just:
+$ cat ~/.rpmmacros 
+%_topdir                /home/<user>/rpmbuild/
+
+with the <user> replaced by the users name.
+-- 
+José Abílio
+
+From asr at ufl.edu  Wed Apr 13 19:06:40 2011
+From: asr at ufl.edu (Allen S. Rout)
+Date: Wed, 13 Apr 2011 19:06:40 +0000
+Subject: Re: [Fedora-r-devel-list] Errors in constructing SPEC from local source.
+In-Reply-To: <1302676186.16063.4.camel@lab.pingoured.fr>
+Message-ID: <87vcyij7i7.fsf@ufl.edu>
+
+
+
+Pierre-Yves Chibon <pingou-E11Oz7VxvVOXCRStZZN3OA(a)public.gmane.org>
+writes:
+
+>
+> R2spec remains a project designed to make the life of Fedora's R
+> packager's easier, so it has to remain guideline compliant. That is a
+> reason why putting the source0 as URL also is not *in my opinion* a good
+> approach (while I actually do like the --URL option).
+
+Well, like I said, from my perspective it's aesthetic, so I'd be
+delighted with it.
+
+
+> There was a time when I thought I would try to get an "automatic cran
+> builder" working but atm I have other priorities.
+
+Are you willing to record your preferences on this, especially with
+respect to how my previous work didn't fit your picture?  If you did,
+then if I get around to it I could work in ways aligned with your plans.
+
+
+
+- Allen S. Rout
+
+From pingou at pingoured.fr  Wed Apr 13 21:10:21 2011
+From: pingou at pingoured.fr (Pierre-Yves Chibon)
+Date: Wed, 13 Apr 2011 21:10:21 +0000
+Subject: Re: [Fedora-r-devel-list] Errors in constructing SPEC from local source.
+In-Reply-To: <87vcyij7i7.fsf@ufl.edu>
+Message-ID: <1302729021.24859.23.camel@ambre.pingoured.fr>
+
+On Wed, 2011-04-13 at 15:06 -0400, Allen S. Rout wrote:
+> >
+> > R2spec remains a project designed to make the life of Fedora's R
+> > packager's easier, so it has to remain guideline compliant. That is 
+> > a reason why putting the source0 as URL also is not *in my opinion* 
+> > a good approach (while I actually do like the --URL option).
+> 
+> Well, like I said, from my perspective it's aesthetic, so I'd be
+> delighted with it.
+
+I'll try to push this on the git by the end of the week-end then :)
+
+> > There was a time when I thought I would try to get an "automatic 
+> > cran  builder" working but atm I have other priorities.
+> 
+> Are you willing to record your preferences on this, especially with
+> respect to how my previous work didn't fit your picture?  If you did,
+> then if I get around to it I could work in ways aligned with your
+> plans.
+
+Well at the moment I see more R2rpm/R2spec has a tool to generate rpm or
+spec individually as one would have to do to incorporate them into
+Fedora. It is a spec generator tool which push the work up to building
+the rpm (which it needs to fill the %file section anyway).
+Specs needs manual inspection and curation sometime, one needs to run
+rpmlint and so on.
+
+My thoughts were that there was space for a tool to build the whole
+dependency tree and run R2spec/R2rpm in the right order.
+In my attempts to build CRAN I used your R script for that. I could this
+way create 7 files and then I was just running these 7 files on after
+the other.
+My problem was more or less:
+- Takes time to build (~1 week for the whole run)
+
+- Lack of resources (although I improved on these but not enough)
+
+- I did it the dirty way by doing : build all R packages in fileX in
+mock - Install all rpm - build all R packages in fileX+1 in mock -
+install all rpm.... - restart for another arch/release
+I actually wonder, if one wants to give a shot at such project in a long
+term, if looking into koji would not be a nice alternative: build all
+the R packages from fileX for all arch/release - populate the repo as
+they are build - build all the R packages from fileX+1 for all
+arch/release... And this way at the end you have a repo which you know
+works.
+I always had the wish to support at least i686 and x86_64 on Fedora n
+and n-1 RHEL 5 and 6, so 6 to 8 (if I added rawhide) build for each
+packages. For this I though koji would make sense, but I never got
+around to try to install it and configure vm builders.
+
+- Not all the packages build, sometime because of the lack of outside
+dependencies.
+For this reason all the packages that fails have to be inspected by
+hand.
+
+- I have a script to update existing spec file but it does not check for
+changes in the dependency tree and cran as well as bioconductor are so
+good at changing the dependency tree at every releases...
+So for every release of bioconductor, we have to update all the spec
+files for most of their elements but the changelog basically (sounds
+easy when I say it this way ^^).
+
+Basically I would keep R2spec at a single package level and build on the
+top a cran2rpm or so.
+
+
+All this makes me think that I still have few thousands spec files
+hanging somewhere and that I should actually make them accessible
+somewhere (with a warning that a significant part of it is probably
+outdated).
+
+
+These were my thoughts when I was looking into it.
+
+Hope this help,
+
+Pierre
+
+From jamatos at fc.up.pt  Thu Apr 14 14:22:46 2011
+From: jamatos at fc.up.pt (=?utf-8?q?Jos=C3=A9_Ab=C3=ADlio_Matos?=)
+Date: Thu, 14 Apr 2011 14:22:46 +0000
+Subject: Re: [Fedora-r-devel-list] Errors in constructing SPEC from local source.
+In-Reply-To: <1302729021.24859.23.camel@ambre.pingoured.fr>
+Message-ID: <201104141522.46888.jamatos@fc.up.pt>
+
+On Wednesday 13 April 2011 22:10:21 Pierre-Yves Chibon wrote:
+> All this makes me think that I still have few thousands spec files
+> hanging somewhere and that I should actually make them accessible
+> somewhere (with a warning that a significant part of it is probably
+> outdated).
+> 
+> 
+> These were my thoughts when I was looking into it.
+> 
+> Hope this help,
+> 
+> Pierre
+
+It would be nice to have a plan for this.
+
+A boostrap stage where the dependencies are reduced just to build 
+dependencies.
+
+The identification of core packages required by other packages.
+
+Debian has done it before, Dirk can provide feedback for specific issues we 
+get.
+
+-- 
+José Abílio
+
+From pingou at pingoured.fr  Tue Apr 19 09:58:43 2011
+From: pingou at pingoured.fr (Pierre-Yves Chibon)
+Date: Tue, 19 Apr 2011 09:58:43 +0000
+Subject: Re: [Fedora-r-devel-list] Errors in constructing SPEC from local source.
+In-Reply-To: <1302729021.24859.23.camel@ambre.pingoured.fr>
+Message-ID: <1303207123.2768.0.camel@cyan.pingoured.fr>
+
+On Wed, 2011-04-13 at 23:10 +0200, Pierre-Yves Chibon wrote:
+> On Wed, 2011-04-13 at 15:06 -0400, Allen S. Rout wrote:
+> > > R2spec remains a project designed to make the life of Fedora's R
+> > > packager's easier, so it has to remain guideline compliant. That
+> is 
+> > > a reason why putting the source0 as URL also is not *in my
+> opinion* 
+> > > a good approach (while I actually do like the --URL option).
+> > 
+> > Well, like I said, from my perspective it's aesthetic, so I'd be
+> > delighted with it.
+> 
+> I'll try to push this on the git by the end of the week-end then :)
+
+A bit late, but I just pushed the changes. Testers are welcome :)
+
+Pierre
+

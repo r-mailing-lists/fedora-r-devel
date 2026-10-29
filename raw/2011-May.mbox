@@ -1,0 +1,84 @@
+From asr at ufl.edu  Tue May  3 13:24:57 2011
+From: asr at ufl.edu (Allen S. Rout)
+Date: Tue, 03 May 2011 13:24:57 +0000
+Subject: Re: [Fedora-r-devel-list] Errors in constructing SPEC from local source.
+In-Reply-To: <201104141522.46888.jamatos@fc.up.pt>
+Message-ID: <87fwov532u.fsf@ufl.edu>
+
+
+
+José Matos <jamatos-BxEiAy0842I(a)public.gmane.org> writes:
+
+> It would be nice to have a plan for this.
+>
+> A boostrap stage where the dependencies are reduced just to build 
+> dependencies.
+
+So here 
+
+http://article.gmane.org/gmane.linux.redhat.fedora.r.devel/177
+
+is the farthest I've gotten in formalizing that path.  I've waved that
+around a few times; it doesn't seem to pick up a lot of traction.  If
+the topic were simple, I'd tl;dr it, but I don't think it can really be
+done.
+
+
+> The identification of core packages required by other packages.
+
+I think that's what I'd call the "Narrow dependency graph"; that is,
+"packages which are needed to install other packages", as opposed to
+"Packages which are needed to CMD CHECK other packages".
+
+
+So; if we take R2rpm as a building block, then I suggest the following
+pseudocode, to build a repo:
+
+
+build_a_repo()
+
+Make a list from CRAN, consult some local metadata about busted
+packages.
+
+Pick an unbuilt package at random, and build it, until done. 
+
+-----
+
+build_a_package()
+
+ generate the narrow and wide dependency graphs for your package. 
+ 
+ generate the narrow graph of your wide dependencies.  
+ (everything you need to install to run (everything you need to check (package p ))) 
+ I'll call that G'.
+
+ Remove from G' everything already installed. 
+
+ Build everything in G' , disabling CHECK and ignoring Suggests,
+ Enhances.  [ Can we also avoid the build-it-once, check %files, build
+ it again step at this stage? ]
+
+ Install everything in G'. 
+
+ Build everything in G', enabling CHECK.   
+
+ Packages that build and CHECK may be signed, and removed from the list
+ of packages to be built.
+
+-----
+
+
+I split it up this way because it permits also the "Build this package
+and its depgraph", which is where I came in. :)
+
+This process also suggests some additional caching, at least the package
+metadata from all the repos; It's going to be necessary to trace deps
+across repos, of course.  If anyone has opinions about where that ought
+to go, fire away.  I figure it'd go in /var/tmp/[something] , and not
+expire for a week or more.  Since the build process is going to be
+multi-day, anthing shorter than that will just be insane.
+
+
+
+- Allen S. Rout
+

@@ -1,0 +1,86 @@
+From jamatos at fc.up.pt  Thu Nov  8 21:56:36 2007
+From: jamatos at fc.up.pt (=?utf-8?q?Jos=C3=A9_Ab=C3=ADlio_Matos?=)
+Date: Thu, 08 Nov 2007 21:56:36 +0000
+Subject: [Fedora-r-devel-list] R-patched in Fedora (feedback from R-devel)
+Message-ID: <200711082156.36123.jamatos@fc.up.pt>
+
+Hi,
+	while reading the Rdevel list I found this quote from Peter Dalgaard:
+https://stat.ethz.ch/pipermail/r-devel/2007-November/047366.html
+
+"(Fedora incorporated patches in their RPM updates for a while, which I
+was beginning to believe was a good idea, all things considered, but
+they haven't done it (yet?) for 2.6.0.)"
+
+	Funny. :-)
+-- 
+José Abílio
+
+From jamatos at fc.up.pt  Mon Nov 19 10:09:23 2007
+From: jamatos at fc.up.pt (=?utf-8?q?Jos=C3=A9_Ab=C3=ADlio_Matos?=)
+Date: Mon, 19 Nov 2007 10:09:23 +0000
+Subject: [Fedora-r-devel-list] [Idea]: pre 2.6.1 in updates-testing?
+Message-ID: <200711191009.24826.jamatos@fc.up.pt>
+
+There are release candidates for R 2.6.1 that is expected to be release next 
+Monday (26).
+
+Those daily release candidates are placed here 
+http://cran.r-project.org/src/base-prerelease/
+
+I think that we could push those release candidates to updates-testing to 
+detect earlier problems. In any case we have to deal in the first push of the 
+new version with the dependency of rpy.
+
+Regards,
+
+-- 
+José Abílio
+
+From tcallawa at redhat.com  Tue Nov 20 19:41:34 2007
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Tue, 20 Nov 2007 19:41:34 +0000
+Subject: Re: [Fedora-r-devel-list] [Idea]: pre 2.6.1 in updates-testing?
+In-Reply-To: <200711191009.24826.jamatos@fc.up.pt>
+Message-ID: <1195587694.27963.49.camel@localhost.localdomain>
+
+
+On Mon, 2007-11-19 at 10:09 +0000, José Matos wrote:
+> There are release candidates for R 2.6.1 that is expected to be release next 
+> Monday (26).
+> 
+> Those daily release candidates are placed here 
+> http://cran.r-project.org/src/base-prerelease/
+> 
+> I think that we could push those release candidates to updates-testing to 
+> detect earlier problems. In any case we have to deal in the first push of the 
+> new version with the dependency of rpy.
+
+I think, given the holidays, we're not going to see any additional
+testing. I'll just bump to 2.6.1 when it releases, and handle rpy at the
+same time.
+
+~spot
+
+From jamatos at fc.up.pt  Wed Nov 21 13:22:46 2007
+From: jamatos at fc.up.pt (=?utf-8?q?Jos=C3=A9_Ab=C3=ADlio_Matos?=)
+Date: Wed, 21 Nov 2007 13:22:46 +0000
+Subject: Re: [Fedora-r-devel-list] [Idea]: pre 2.6.1 in updates-testing?
+In-Reply-To: <1195587694.27963.49.camel@localhost.localdomain>
+Message-ID: <200711211322.47637.jamatos@fc.up.pt>
+
+On Tuesday 20 November 2007 19:41:34 Tom "spot" Callaway wrote:
+> I think, given the holidays, we're not going to see any additional
+> testing. I'll just bump to 2.6.1 when it releases, and handle rpy at the
+> same time.
+
+  That is fair. Enjoy the holidays. :-)
+
+  I will take the change to update the rpy version, to 1.0.0, released 
+yesterday (for F8+) but this is orthogonal to the new R version.
+
+> ~spot
+
+-- 
+José Abílio
+

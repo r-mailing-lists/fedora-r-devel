@@ -1,0 +1,435 @@
+From tom at moertel.com  Wed May 23 19:17:48 2007
+From: tom at moertel.com (Tom Moertel)
+Date: Wed, 23 May 2007 19:17:48 +0000
+Subject: [Fedora-r-devel-list] Package R-Matrix submitted for review
+Message-ID: <4654935C.6020800@moertel.com>
+
+Fellow R-module packagers,
+
+I wanted to let you know that I have (finally) submitted the first of my 
+R packages for review:
+
+     https://bugzilla.redhat.com/bugzilla/show_bug.cgi?id=241052
+
+Please take a look and let me know if there is anything I can do to 
+improve this package.
+
+Once all the wrinkles are ironed out and the package is accepted, I will 
+submit my other packages for review.
+
+Thanks for your help!
+
+Past discussion:
+https://www.redhat.com/archives/fedora-r-devel-list/2007-April/msg00003.html
+
+Cheers,
+Tom
+
+From pingoufc4 at yahoo.fr  Wed May 23 20:22:51 2007
+From: pingoufc4 at yahoo.fr (pingou)
+Date: Wed, 23 May 2007 20:22:51 +0000
+Subject: [Fedora-r-devel-list] Presentation
+Message-ID: <4654A29B.6090805@yahoo.fr>
+
+Hello,
+
+My name is Pierre-Yves Chibon, I am one of the french ambassadors.
+I have just discovered this mailing list but I am glad to see that I am 
+not the only one using R under Fedora :-) (not lot of french do so)
+
+To shortly introduce myself, I am student doing a master in 
+bioinformatics. And i will have to program under R so I have already 
+done the RPMs needed for the software on which I will have to work.
+These RPMs are Biobase, Multtest, and Maanova (but this one was to try), 
+they are all from the bioconductor website.
+Biobase and Multtest are waiting for reviews on bugzilla. And I am 
+waiting for their review to make other RPMs :-)
+
+I hope to be helpful in what I can do...
+
+Sincerely yours,
+Pierre-Yves
+
+	
+
+	
+		
+___________________________________________________________________________ 
+Yahoo! Mail réinvente le mail ! Découvrez le nouveau Yahoo! Mail et son interface révolutionnaire.
+http://fr.mail.yahoo.com
+
+From tcallawa at redhat.com  Wed May 23 20:23:50 2007
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Wed, 23 May 2007 20:23:50 +0000
+Subject: Re: [Fedora-r-devel-list] Presentation
+In-Reply-To: <4654A29B.6090805@yahoo.fr>
+Message-ID: <1179951831.6254.328.camel@localhost.localdomain>
+
+On Wed, 2007-05-23 at 22:22 +0200, pingou wrote:
+> Hello,
+> 
+> My name is Pierre-Yves Chibon, I am one of the french ambassadors.
+> I have just discovered this mailing list but I am glad to see that I am 
+> not the only one using R under Fedora :-) (not lot of french do so)
+> 
+> To shortly introduce myself, I am student doing a master in 
+> bioinformatics. And i will have to program under R so I have already 
+> done the RPMs needed for the software on which I will have to work.
+> These RPMs are Biobase, Multtest, and Maanova (but this one was to try), 
+> they are all from the bioconductor website.
+> Biobase and Multtest are waiting for reviews on bugzilla. And I am 
+> waiting for their review to make other RPMs :-)
+> 
+> I hope to be helpful in what I can do...
+
+Post the links to the bugzilla tickets? :)
+
+~spot
+
+From tcallawa at redhat.com  Wed May 23 21:13:54 2007
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Wed, 23 May 2007 21:13:54 +0000
+Subject: Re: [Fedora-r-devel-list] Presentation
+In-Reply-To: <1179951831.6254.328.camel@localhost.localdomain>
+Message-ID: <1179954834.6254.339.camel@localhost.localdomain>
+
+On Wed, 2007-05-23 at 15:23 -0500, Tom "spot" Callaway wrote:
+> On Wed, 2007-05-23 at 22:22 +0200, pingou wrote:
+> > Hello,
+> > 
+> > My name is Pierre-Yves Chibon, I am one of the french ambassadors.
+> > I have just discovered this mailing list but I am glad to see that I am 
+> > not the only one using R under Fedora :-) (not lot of french do so)
+> > 
+> > To shortly introduce myself, I am student doing a master in 
+> > bioinformatics. And i will have to program under R so I have already 
+> > done the RPMs needed for the software on which I will have to work.
+> > These RPMs are Biobase, Multtest, and Maanova (but this one was to try), 
+> > they are all from the bioconductor website.
+> > Biobase and Multtest are waiting for reviews on bugzilla. And I am 
+> > waiting for their review to make other RPMs :-)
+> > 
+> > I hope to be helpful in what I can do...
+> 
+> Post the links to the bugzilla tickets? :)
+
+OK, so when I looked at R-Biobase:
+https://bugzilla.redhat.com/bugzilla/show_bug.cgi?id=240500
+
+I noted that it was missing R CMD check in a %check section.
+
+Of course, now I remember why. There is a circular "dependency" loop
+between Biobase, tkWidgets and widgetTools when running R CMD check.
+
+Biobase says it needs tkWidgets, tkWidgets says it needs Biobase.
+Neither is really true, but I'd rather have Biobase running the check
+than tkWidgets, so thats how I resolved the loop.
+
+Occasionally, it is necessary to resolve this "check dependency loop" by
+not running check on a package. In those cases, please DOCUMENT in the
+spec file that the check command is commented out, and explain the loop
+you're breaking.
+
+I whipped up the necessary missing packages here:
+
+DynDoc:
+http://www.auroralinux.org/people/spot/review/R-DynDoc-1.14.0-1.fc7.src.rpm
+http://www.auroralinux.org/people/spot/review/R-DynDoc.spec
+
+widgetTools:
+http://www.auroralinux.org/people/spot/review/R-widgetTools-1.12.0-1.fc7.src.rpm
+http://www.auroralinux.org/people/spot/review/R-widgetTools.spec
+
+tkWidgets:
+http://www.auroralinux.org/people/spot/review/R-tkWidgets-1.14.0-1.fc7.src.rpm
+http://www.auroralinux.org/people/spot/review/R-tkWidgets.spec
+
+Pingou, if you'd like to own these packages in Fedora, that is fine by
+me. If not, I'll put them up for review.
+
+~spot
+
+From pingoufc4 at yahoo.fr  Wed May 23 21:37:07 2007
+From: pingoufc4 at yahoo.fr (pingou)
+Date: Wed, 23 May 2007 21:37:07 +0000
+Subject: Re: [Fedora-r-devel-list] Presentation
+In-Reply-To: <1179954834.6254.339.camel@localhost.localdomain>
+Message-ID: <4654B403.1070403@yahoo.fr>
+
+Tom "spot" Callaway a écrit :
+> On Wed, 2007-05-23 at 15:23 -0500, Tom "spot" Callaway wrote:
+>> On Wed, 2007-05-23 at 22:22 +0200, pingou wrote:
+>>> Hello,
+>>>
+>>> My name is Pierre-Yves Chibon, I am one of the french ambassadors.
+>>> I have just discovered this mailing list but I am glad to see that I am 
+>>> not the only one using R under Fedora :-) (not lot of french do so)
+>>>
+>>> To shortly introduce myself, I am student doing a master in 
+>>> bioinformatics. And i will have to program under R so I have already 
+>>> done the RPMs needed for the software on which I will have to work.
+>>> These RPMs are Biobase, Multtest, and Maanova (but this one was to try), 
+>>> they are all from the bioconductor website.
+>>> Biobase and Multtest are waiting for reviews on bugzilla. And I am 
+>>> waiting for their review to make other RPMs :-)
+>>>
+>>> I hope to be helpful in what I can do...
+>> Post the links to the bugzilla tickets? :)
+> 
+> OK, so when I looked at R-Biobase:
+> https://bugzilla.redhat.com/bugzilla/show_bug.cgi?id=240500
+> 
+> I noted that it was missing R CMD check in a %check section.
+> 
+> Of course, now I remember why. There is a circular "dependency" loop
+> between Biobase, tkWidgets and widgetTools when running R CMD check.
+> 
+> Biobase says it needs tkWidgets, tkWidgets says it needs Biobase.
+> Neither is really true, but I'd rather have Biobase running the check
+> than tkWidgets, so thats how I resolved the loop.
+> 
+> Occasionally, it is necessary to resolve this "check dependency loop" by
+> not running check on a package. In those cases, please DOCUMENT in the
+> spec file that the check command is commented out, and explain the loop
+> you're breaking.
+> 
+> I whipped up the necessary missing packages here:
+> 
+> DynDoc:
+> http://www.auroralinux.org/people/spot/review/R-DynDoc-1.14.0-1.fc7.src.rpm
+> http://www.auroralinux.org/people/spot/review/R-DynDoc.spec
+> 
+> widgetTools:
+> http://www.auroralinux.org/people/spot/review/R-widgetTools-1.12.0-1.fc7.src.rpm
+> http://www.auroralinux.org/people/spot/review/R-widgetTools.spec
+> 
+> tkWidgets:
+> http://www.auroralinux.org/people/spot/review/R-tkWidgets-1.14.0-1.fc7.src.rpm
+> http://www.auroralinux.org/people/spot/review/R-tkWidgets.spec
+> 
+> Pingou, if you'd like to own these packages in Fedora, that is fine by
+> me. If not, I'll put them up for review.
+> 
+> ~spot
+>  
+I do not mind to maintain them as I have no package yet.
+But it is up to you as you have just made them... (much faster than I 
+did actually :-D)
+
+I am checking my others RPMs to see if I have any mistake with the %check
+
+Pingou
+
+
+	
+
+	
+		
+___________________________________________________________________________ 
+Yahoo! Mail réinvente le mail ! Découvrez le nouveau Yahoo! Mail et son interface révolutionnaire.
+http://fr.mail.yahoo.com
+
+From tcallawa at redhat.com  Wed May 23 21:43:28 2007
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Wed, 23 May 2007 21:43:28 +0000
+Subject: Re: [Fedora-r-devel-list] Presentation
+In-Reply-To: <4654B403.1070403@yahoo.fr>
+Message-ID: <1179956608.6254.346.camel@localhost.localdomain>
+
+On Wed, 2007-05-23 at 23:37 +0200, pingou wrote:
+
+> I do not mind to maintain them as I have no package yet.
+> But it is up to you as you have just made them... (much faster than I 
+> did actually :-D)
+
+Well, they're easy packages to make/maintain, since they're all off a
+basic template. I'll let you own them, as I have enough packages
+already.
+
+Go ahead and put them up for review, and post the bugzilla numbers back
+to this thread.
+
+~spot
+
+From pingoufc4 at yahoo.fr  Wed May 23 22:39:24 2007
+From: pingoufc4 at yahoo.fr (pingou)
+Date: Wed, 23 May 2007 22:39:24 +0000
+Subject: Re: [Fedora-r-devel-list] Presentation
+In-Reply-To: <1179956608.6254.346.camel@localhost.localdomain>
+Message-ID: <4654C29C.5080403@yahoo.fr>
+
+Tom "spot" Callaway a écrit :
+
+> Go ahead and put them up for review, and post the bugzilla numbers back
+> to this thread.
+> 
+> ~spot
+> 
+It is done :-)
+R-DynDoc https://bugzilla.redhat.com/bugzilla/show_bug.cgi?id=241079
+R-widgetTools https://bugzilla.redhat.com/bugzilla/show_bug.cgi?id=241081
+R-tkWidgets https://bugzilla.redhat.com/bugzilla/show_bug.cgi?id=241082
+
+I have also updated my first package with the %check section (it works)
+https://bugzilla.redhat.com/bugzilla/show_bug.cgi?id=240497
+
+Pingou
+
+(btw I am seeking for a sponsor)
+
+	
+
+	
+		
+___________________________________________________________________________ 
+Yahoo! Mail réinvente le mail ! Découvrez le nouveau Yahoo! Mail et son interface révolutionnaire.
+http://fr.mail.yahoo.com
+
+From tom at moertel.com  Fri May 25 16:05:18 2007
+From: tom at moertel.com (Tom Moertel)
+Date: Fri, 25 May 2007 16:05:18 +0000
+Subject: [Fedora-r-devel-list] R-Matrix ready for more review [was: Package R-Matrix submitted for review]
+In-Reply-To: <4654935C.6020800@moertel.com>
+Message-ID: <4657093E.1090100@moertel.com>
+
+Fellow R-module packagers,
+
+I believe I have resolved the outstanding problems with the submission 
+of R-Matrix.  Please take a look and let me know if there is anything 
+else I ought to do:
+
+     https://bugzilla.redhat.com/bugzilla/show_bug.cgi?id=241052
+
+Thanks for your help!
+
+Cheers,
+Tom
+
+From jamatos at fc.up.pt  Fri May 25 16:09:46 2007
+From: jamatos at fc.up.pt (=?utf-8?q?Jos=C3=A9_Ab=C3=ADlio_Matos?=)
+Date: Fri, 25 May 2007 16:09:46 +0000
+Subject: Re: [Fedora-r-devel-list] R-Matrix ready for more review [was: Package R-Matrix submitted for review]
+In-Reply-To: <4657093E.1090100@moertel.com>
+Message-ID: <200705251709.46467.jamatos@fc.up.pt>
+
+On Friday 25 May 2007 17:05:18 Tom Moertel wrote:
+> Fellow R-module packagers,
+>
+> I believe I have resolved the outstanding problems with the submission
+> of R-Matrix.  Please take a look and let me know if there is anything
+> else I ought to do:
+>
+>      https://bugzilla.redhat.com/bugzilla/show_bug.cgi?id=241052
+>
+> Thanks for your help!
+
+  I will try to have a look at them next week.
+  I still have to release the first release candidate of lyx 1.5 
+meanwhile. :-)
+
+> Cheers,
+> Tom
+
+-- 
+José Abílio
+
+From tom at moertel.com  Fri May 25 19:21:56 2007
+From: tom at moertel.com (Tom Moertel)
+Date: Fri, 25 May 2007 19:21:56 +0000
+Subject: [Fedora-r-devel-list] Which branches should I apply for? FC-6 and F-7? [was: R-Matrix ready for more review]
+In-Reply-To: <4657093E.1090100@moertel.com>
+Message-ID: <46573754.4060101@moertel.com>
+
+Fellow R-module packagers,
+
+Sorry for all questions.  I'm still trying to navigate my away through 
+the nooks and crannies of the submission process.
+
+While following the instructions in
+
+   http://fedoraproject.org/wiki/PackageMaintainers/Join
+
+the "Add Package to CVS and Set Owner" step referred me to
+
+   http://fedoraproject.org/wiki/PackageMaintainers/CVSAdminProcedure
+
+I'm presently following the "New Packages" instructions of the second 
+document.  They tell me that I must make a Bugzilla comment (presumably 
+to my approved package-review-request ticket), containing the following:
+
+   New Package CVS Request
+   =======================
+   Package Name: R-Matrix
+   Short Description: R module, Classes etc. for dense and sparse
+     matrices and matrix ops
+   Owners: tom(a)moertel.com
+   Branches: FC-6 F-7
+   InitialCC: tom(a)moertel.com
+
+It's pretty clear to me what ought to go in each of the required fields 
+except Branches.  I guessed "FC-6 F-7", but the 
+PackageMaintainers/CVSAdminProcedure page says:
+
+   Valid branch names currently used for Fedora:
+   FC-5 FC-6 F-7 EL-4 EL-5.
+
+Should I list them all?  Only the ones for which I have personally 
+tested the package?  Some other combination?  What's the guiding 
+philosophy here -- more, fewer, or something else?
+
+Thanks again for all your help!
+
+Cheers,
+Tom
+
+From tcallawa at redhat.com  Fri May 25 19:39:14 2007
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Fri, 25 May 2007 19:39:14 +0000
+Subject: Re: [Fedora-r-devel-list] Which branches should I apply for? FC-6 and F-7? [was: R-Matrix ready for more review]
+In-Reply-To: <46573754.4060101@moertel.com>
+Message-ID: <1180121954.6254.389.camel@localhost.localdomain>
+
+On Fri, 2007-05-25 at 15:21 -0400, Tom Moertel wrote:
+
+> It's pretty clear to me what ought to go in each of the required fields 
+> except Branches.  I guessed "FC-6 F-7", but the 
+> PackageMaintainers/CVSAdminProcedure page says:
+> 
+>    Valid branch names currently used for Fedora:
+>    FC-5 FC-6 F-7 EL-4 EL-5.
+> 
+> Should I list them all?  Only the ones for which I have personally 
+> tested the package?  Some other combination?  What's the guiding 
+> philosophy here -- more, fewer, or something else?
+
+Decide which branches you're able to test and maintain. R is pretty
+consistent across FC-5, FC-6, and F-7. I can't vouch for EL-4, EL-5, as
+I've never built R there yet. I'll probably end up doing it, as I'm sure
+there is interest from the .edus.
+
+You can always add branches later.
+
+~spot
+
+From tom at moertel.com  Mon May 28 17:52:10 2007
+From: tom at moertel.com (Tom Moertel)
+Date: Mon, 28 May 2007 17:52:10 +0000
+Subject: [Fedora-r-devel-list] Waiting on 'fedorabugs' membership [was: Which branches ... ?]
+In-Reply-To: <1180121954.6254.389.camel@localhost.localdomain>
+Message-ID: <465B16CA.8020500@moertel.com>
+
+Tom "spot" Callaway wrote:
+> On Fri, 2007-05-25 at 15:21 -0400, Tom Moertel wrote:
+> Decide which branches you're able to test and maintain. [...]
+
+I'm going for FC-6 and F-7, then.  Thanks for your response.
+
+Now I'm just waiting for my 'fedorabugs' group membership to clear so I 
+can set the fedora-cvs flag on my ticket in order to get the CVS module 
+created.
+
+Thanks again for all your help.
+
+Cheers,
+Tom
+

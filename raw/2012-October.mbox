@@ -1,0 +1,81 @@
+From jamatos at fc.up.pt  Wed Oct 17 15:30:36 2012
+From: jamatos at fc.up.pt (=?utf-8?q?Jos=C3=A9_Ab=C3=ADlio_Matos?=)
+Date: Wed, 17 Oct 2012 15:30:36 +0000
+Subject: Re: [Fedora-r-devel-list] Building RPMs for Fedora with circular "suggest" dependencies
+In-Reply-To: <1370054582-1339766864-cardhu_decombobulator_blackberry.rim.net-1456546733-@b2.c1.bise3.blackberry>
+Message-ID: <507ECF1C.5020704@fc.up.pt>
+
+On 06/15/2012 02:25 PM, William Emmanuel S. Yu wrote:
+> Hi Allen,
+>
+> Thanks for the quick reply.
+>
+> I actually encountered this point of yours and that is why I found this mailing list.
+>
+> On your solution, I did try putting 'export _R_CHECK_FORCE_SUGGESTS_ = false; R CMD check' in the spec file. But now, it fails again again doing a test that requires foreach while building iterator. 
+>
+> Thanks again.
+> "Sent via BlackBerry from Smart"
+
+Hi,
+    have you been able to proceed here?
+
+I suppose that the only real option is to proceed in several steps in a
+kind of bootstrapping setup, first ignoring the suggests and the checks
+and on a second round adding those back. Probably this is easier said
+then done. :-)
+
+Regards,
+
+-- 
+José Matos
+
+From wyu at ateneo.edu  Wed Oct 17 21:24:25 2012
+From: wyu at ateneo.edu (William Emmanuel S. Yu)
+Date: Wed, 17 Oct 2012 21:24:25 +0000
+Subject: Re: [Fedora-r-devel-list] Building RPMs for Fedora with circular "suggest" dependencies
+In-Reply-To: <507ECF1C.5020704@fc.up.pt>
+Message-ID: <1699522191-1350509085-cardhu_decombobulator_blackberry.rim.net-1095701399-@b4.c1.bise3.blackberry>
+
+Well. I just built the RPMs to ignore the depedencies and installed them manually (force). Not elegant but it works and still uses RPM.
+"Sent on the move."
+
+-----Original Message-----
+From: José Matos <jamatos(a)fc.up.pt>
+Sender: r-devel-bounces(a)lists.fedoraproject.org
+Date: Wed, 17 Oct 2012 16:30:36 
+To: <r-devel(a)lists.fedoraproject.org>
+Reply-To: r-devel(a)lists.fedoraproject.org
+Subject: Re: [Fedora-r-devel-list] Building RPMs for Fedora with circular
+ "suggest" dependencies
+
+On 06/15/2012 02:25 PM, William Emmanuel S. Yu wrote:
+> Hi Allen,
+>
+> Thanks for the quick reply.
+>
+> I actually encountered this point of yours and that is why I found this mailing list.
+>
+> On your solution, I did try putting 'export _R_CHECK_FORCE_SUGGESTS_ = false; R CMD check' in the spec file. But now, it fails again again doing a test that requires foreach while building iterator. 
+>
+> Thanks again.
+> "Sent via BlackBerry from Smart"
+
+Hi,
+    have you been able to proceed here?
+
+I suppose that the only real option is to proceed in several steps in a
+kind of bootstrapping setup, first ignoring the suggests and the checks
+and on a second round adding those back. Probably this is easier said
+then done. :-)
+
+Regards,
+
+-- 
+José Matos
+
+_______________________________________________
+r-devel mailing list
+r-devel(a)lists.fedoraproject.org
+https://admin.fedoraproject.org/mailman/listinfo/r-devel
+

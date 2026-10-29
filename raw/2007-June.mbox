@@ -1,0 +1,270 @@
+From pingoufc4 at yahoo.fr  Tue Jun 12 21:37:32 2007
+From: pingoufc4 at yahoo.fr (pingou)
+Date: Tue, 12 Jun 2007 21:37:32 +0000
+Subject: [Fedora-r-devel-list] spectemplate-R.spec
+Message-ID: <466F121C.1000505@yahoo.fr>
+
+Hello,
+
+I was thinking tonight to make a template of a R spec file to be able to
+build R rpm faster.
+I have indeed observed that most of the spec file look the same (until
+they arrive to the rpmlint verification :-D )
+
+I wanted to ask for your comment on that template.
+
+If it is fine feel free to use it of course
+Put it in /etc/rpmdevtools/
+The command to create the spec is then
+ rpmdev-newspec -t R foo.spec
+
+You can also remove the French summary and description ;-)
+
+Regards,
+
+Pingou
+
+%define packname 
+
+Name:           R-%{packname}
+Version:        
+Release:        1%{?dist}
+Summary:        
+Summary(fr):    
+
+Group:          
+License:        
+URL:            
+Source0:         
+BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
+
+BuildRequires:  R 
+
+%description
+
+%description -l fr
+
+%prep
+%setup -q -n %{packname}
+
+%build
+
+%install
+%{__rm} -rf %{buildroot}
+
+
+cd ..;
+mkdir -p %{buildroot}%{_libdir}/R/library ; R CMD INSTALL %{packname} -l %{buildroot}%{_libdir}/R/library
+%{__rm} -rf %{buildroot}%{_libdir}/R/library/R.css
+
+%clean
+%{__rm} -rf %{buildroot}
+
+%post
+%{__cat} %{_libdir}/R/library/*/CONTENTS > %{_libdir}/R/doc/html/search/index.txt
+
+%postun
+%{__cat} %{_libdir}/R/library/*/CONTENTS > %{_libdir}/R/doc/html/search/index.txt
+
+%files
+%defattr(-, root, root, -)
+%{_libdir}/R/library/%{packname}
+%doc inst/doc/*
+
+
+%changelog
+
+From pingoufc4 at yahoo.fr  Wed Jun 13 16:15:24 2007
+From: pingoufc4 at yahoo.fr (pingou)
+Date: Wed, 13 Jun 2007 16:15:24 +0000
+Subject: Re: [Fedora-r-devel-list] spectemplate-R.spec
+In-Reply-To: <466F121C.1000505@yahoo.fr>
+Message-ID: <4670181C.3090708@yahoo.fr>
+
+pingou wrote:
+> Hello,
+> 
+> I was thinking tonight to make a template of a R spec file to be able to
+> build R rpm faster.
+
+As I forgot to put the %check part in the spec, there is a corrected
+version.
+I have also include the group as default value as I usually put the group.
+
+Any mind ?
+
+Regards,
+
+pingou
+
+%define packname 
+
+Name:           R-%{packname}
+Version:        
+Release:        1%{?dist}
+Summary:        
+Summary(fr):    
+
+Group:         Applications/Productivity 
+License:        
+URL:            
+Source0:         
+BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
+
+BuildRequires:  R 
+
+%description
+
+%description -l fr
+
+%prep
+%setup -q -n %{packname}
+
+%build
+
+%install
+%{__rm} -rf %{buildroot}
+
+
+cd ..;
+mkdir -p %{buildroot}%{_libdir}/R/library ; R CMD INSTALL %{packname} -l %{buildroot}%{_libdir}/R/library
+%{__rm} -rf %{buildroot}%{_libdir}/R/library/R.css
+
+%check
+cd ..;%{_bindir}/R CMD check %{packname}
+
+%clean
+%{__rm} -rf %{buildroot}
+
+%post
+%{__cat} %{_libdir}/R/library/*/CONTENTS > %{_libdir}/R/doc/html/search/index.txt
+
+%postun
+%{__cat} %{_libdir}/R/library/*/CONTENTS > %{_libdir}/R/doc/html/search/index.txt
+
+%files
+%defattr(-, root, root, -)
+%{_libdir}/R/library/%{packname}
+%doc 
+
+
+%changelog
+
+From pingoufc4 at yahoo.fr  Wed Jun 13 16:43:15 2007
+From: pingoufc4 at yahoo.fr (pingou)
+Date: Wed, 13 Jun 2007 16:43:15 +0000
+Subject: [Fedora-r-devel-list] Desktop file 
+Message-ID: <46701EA3.8020902@yahoo.fr>
+
+Hello,
+
+I realised today that GNU-Octave has a .desktop file in the rpm, I was
+guessing that it might be nice to have one for R to.
+I briefly made one using the GNU-Octave one.
+I also use the Cran logo to do a R logo.
+
+What do you think of it ?
+
+Best regards,
+
+pingou
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: R.desktop
+Type: application/x-desktop
+Size: 284 bytes
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: Rlogo2.jpg
+Type: image/jpeg
+Size: 1221 bytes
+
+From tcallawa at redhat.com  Wed Jun 13 16:45:59 2007
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Wed, 13 Jun 2007 16:45:59 +0000
+Subject: Re: [Fedora-r-devel-list] Desktop file
+In-Reply-To: <46701EA3.8020902@yahoo.fr>
+Message-ID: <1181753159.4593.21.camel@localhost.localdomain>
+
+On Wed, 2007-06-13 at 18:43 +0200, pingou wrote:
+> Hello,
+> 
+> I realised today that GNU-Octave has a .desktop file in the rpm, I was
+> guessing that it might be nice to have one for R to.
+> I briefly made one using the GNU-Octave one.
+> I also use the Cran logo to do a R logo.
+
+R isn't a graphical application. Doesn't really make much sense to have
+a desktop entry for it.
+
+~spot
+
+From pingoufc4 at yahoo.fr  Thu Jun 14 17:28:44 2007
+From: pingoufc4 at yahoo.fr (pingou)
+Date: Thu, 14 Jun 2007 17:28:44 +0000
+Subject: [Fedora-r-devel-list] R-pls et R-maanova
+Message-ID: <46717ACC.5030901@yahoo.fr>
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Hey,
+
+I have asked for review on bugzilla 2 new R RPMs,
+R-pls https://bugzilla.redhat.com/bugzilla/show_bug.cgi?id=244237
+R-maanova https://bugzilla.redhat.com/bugzilla/show_bug.cgi?id=244234
+
+Kind regards,
+
+pingou
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.7 (GNU/Linux)
+Comment: Using GnuPG with Remi - http://enigmail.mozdev.org
+
+iD8DBQFGcXrMMywLXnSiMyoRAi71AJ4i8JqzilaUInRGXFjd02ONbb48nACglxPu
+AE5gQiJ4WFiu6pHZ6efU8GY=
+=gDKg
+-----END PGP SIGNATURE-----
+
+	
+
+	
+		
+___________________________________________________________________________ 
+Yahoo! Mail réinvente le mail ! Découvrez le nouveau Yahoo! Mail et son interface révolutionnaire.
+http://fr.mail.yahoo.com
+
+From pingoufc4 at yahoo.fr  Sun Jun 17 22:08:18 2007
+From: pingoufc4 at yahoo.fr (pingou)
+Date: Sun, 17 Jun 2007 22:08:18 +0000
+Subject: [Fedora-r-devel-list] RKWard
+Message-ID: <4675B0D2.1030806@yahoo.fr>
+
+Hi,
+
+Looking at the wish list of Fedora [1], I have discover this
+application: RKWard
+
+I decided to make it, and I submited it for review:
+Bug 244597 [2]
+
+If you use it, I hope you will enjoy it :-)
+
+Best regards,
+
+~pingou
+
+[1]
+http://fedoraproject.org/wiki/PackageMaintainers/WishList?action=show&redirect=Extras%2FWishList
+[2] https://bugzilla.redhat.com/bugzilla/show_bug.cgi?id=244597
+
+	
+
+	
+		
+___________________________________________________________________________ 
+Yahoo! Mail réinvente le mail ! Découvrez le nouveau Yahoo! Mail et son interface révolutionnaire.
+http://fr.mail.yahoo.com
+

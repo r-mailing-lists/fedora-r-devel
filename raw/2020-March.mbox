@@ -1,0 +1,96 @@
+From orlandomontreal at yahoo.com  Sun Mar 15 21:05:46 2020
+From: orlandomontreal at yahoo.com (Orlando Ramirez)
+Date: Sun, 15 Mar 2020 21:05:46 +0000
+Subject: [Fedora-r-devel-list] " Rstudio " on my fedora desktop  disapear of my programs.....why  ????
+In-Reply-To: <574125130.1043716.1584306346673.ref@mail.yahoo.com>
+Message-ID: <574125130.1043716.1584306346673@mail.yahoo.com>
+
+Hi i installed 4 times " Rstudio " on my fedora desktop in the last 2 weeks...i don't know why   " Rstudio " disapear of my programs...........i install it again , it works between 3 or 6 times and then disapear of my programs again...why ???? can you please help me...and thanks again
+
+From jamatos at fc.up.pt  Sun Mar 15 21:24:13 2020
+From: jamatos at fc.up.pt (=?utf-8?q?Jos=C3=A9_Ab=C3=ADlio_Matos?=)
+Date: Sun, 15 Mar 2020 21:24:13 +0000
+Subject: [Fedora-r-devel-list] Re: " Rstudio " on my fedora desktop  disapear of my  programs.....why ????
+In-Reply-To: <574125130.1043716.1584306346673@mail.yahoo.com>
+Message-ID: <5487135.MhkbZ0Pkbq@myth>
+
+On Sunday, 15 March 2020 21.05.46 WET Orlando Ramirez wrote:
+> Hi i installed 4 times " Rstudio " on my fedora desktop in the last 2
+> weeks...i don't know why  " Rstudio " disapear of my programs....... ....i
+> install it again , it works between 3 or 6 times and then disapear of my
+> programs again...why ???? can you please help me...and thanks again
+
+What do you mean by disappear?
+Does it disappears from the menu, from the installed programs?
+
+How did you install it?
+
+By the way do you know that you can install it from Fedora (starting from 
+Fedora 31)?
+
+sudo dnf install rstudio-desktop
+
+-- 
+José Abílio
+
+From orlandomontreal at yahoo.com  Sun Mar 15 21:54:53 2020
+From: orlandomontreal at yahoo.com (Orlando Ramirez)
+Date: Sun, 15 Mar 2020 21:54:53 +0000
+Subject: [Fedora-r-devel-list] Re: " Rstudio " on my fedora desktop   disapear of my programs.....why ????
+In-Reply-To: <5487135.MhkbZ0Pkbq@myth>
+Message-ID: <1307720628.1055534.1584309293820@mail.yahoo.com>
+
+Hi Jose:when i said disappear is ....disappear... i can start R on my console and that's works ok...... but Rstudio icon is not longer, even the .R files have no more Rstudio icons i try use the search window and there is not  Rstudio  program, at my left bar (favorites) the Rstudio icon is not more and when i open my "Show Applications" icon in my favorites bar the Rstudio  icon is gone...so i go to Rstudio web site, i install it again and the icon stay at  my favorites bar 1 week or 2....thaks lot of
+
+                                              orlandomontreal(a)yahoo.com             
+
+    On Sunday, March 15, 2020, 5:24:38 p.m. EDT, José Abílio Matos <jamatos(a)fc.up.pt> wrote:  
+ 
+ On Sunday, 15 March 2020 21.05.46 WET Orlando Ramirez wrote:
+> Hi i installed 4 times " Rstudio " on my fedora desktop in the last 2
+> weeks...i don't know why  " Rstudio " disapear of my programs....... ....i
+> install it again , it works between 3 or 6 times and then disapear of my
+> programs again...why ???? can you please help me...and thanks again
+
+What do you mean by disappear?
+Does it disappears from the menu, from the installed programs?
+
+How did you install it?
+
+By the way do you know that you can install it from Fedora (starting from 
+Fedora 31)?
+
+sudo dnf install rstudio-desktop
+
+-- 
+José Abílio
+
+_______________________________________________
+r-devel mailing list -- r-devel(a)lists.fedoraproject.org
+To unsubscribe send an email to r-devel-leave(a)lists.fedoraproject.org
+Fedora Code of Conduct: https://docs.fedoraproject.org/en-US/project/code-of-conduct/
+List Guidelines: https://fedoraproject.org/wiki/Mailing_list_guidelines
+List Archives: https://lists.fedoraproject.org/archives/list/r-devel(a)lists.fedoraproject.org
+
+From orlandomontreal at yahoo.com  Fri Mar 20 08:46:39 2020
+From: orlandomontreal at yahoo.com (Orlando Ramirez)
+Date: Fri, 20 Mar 2020 08:46:39 +0000
+Subject: [Fedora-r-devel-list] no copy and paste
+In-Reply-To: <1023816298.1278932.1584693999089.ref@mail.yahoo.com>
+Message-ID: <1023816298.1278932.1584693999089@mail.yahoo.com>
+
+Fedora version :
+[root(a)ACERORESCRITORIO ~]# uname -a 
+Linux ACERORESCRITORIO 5.5.9-200.fc31.x86_64 #1 SMP Thu Mar 12 13:55:19 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux 
+[root(a)ACERORESCRITORIO ~]#  
+
+Rstudio Version:Version 1.2.5033
+© 2009-2020 RStudio, Inc.
+"Orange Blossom" (330255dd, 2020-02-28)
+Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) QtWebEngine/5.13.2 Chrome/73.0.3683.105 Safari/537.36
+
+Good Morning :these are my versions (fedora and Rstudio), but i can not make  " copy and paste " from firefox to Rstudio, neither  from .pdf file  to Rstudio, neither  from   libre office to Rstudio.its like  " copy and paste " is working ok between all the programs under linux but  all the programs under linux no connection whith  Rstudio....why ????even when i start R from terminal   " copy and paste " is working ok between all the programs under linux and R console....its like the problem only happend whith Rstudio,,......thanks
+
+
+                                              orlandomontreal(a)yahoo.com
+

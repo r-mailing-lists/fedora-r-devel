@@ -1,0 +1,827 @@
+From pingou at pingoured.fr  Tue Mar  2 11:58:06 2010
+From: pingou at pingoured.fr (Pierre-Yves Chibon)
+Date: Tue, 02 Mar 2010 11:58:06 +0000
+Subject: [Fedora-r-devel-list] R packages update
+Message-ID: <1267531087.16355.38.camel@localhost.localdomain>
+
+Dear all,
+
+I have been quickly playing with [1] to generate a kind of report on the
+package that would need work.
+There is the report:
+
+spot -- R-nws            is outdated, 2.0.0.3 vs 1.7.0.0 upstream
+denisarnaud -- R-msm     is outdated, 0.9.5 vs 0.9.6 upstream
+orion -- R-car           is outdated, 1.2 vs 1.2.16 upstream
+orion -- R-lmtest        is outdated, 0.9 vs 0.9.26 upstream
+orion -- R-multcomp      is outdated, 1.1 vs 1.1.6 upstream
+orion -- R-mvtnorm       is outdated, 0.9 vs 0.9.9 upstream
+orion -- R-systemfit     is outdated, 1.1 vs 1.1.4 upstream
+orion -- R-zoo           is outdated, 1.6 vs 1.6.2 upstream
+pingou -- R-Biostrings   is outdated, 2.14.10 vs 2.14.12 upstream
+jamatos -- R-mAr         is outdated, 1.1.1 vs 1.1.2 upstream
+jamatos -- R-waveslim    is outdated, 1.6.1 vs 1.6.3 upstream
+nigelj -- R-RSQLite      is outdated, 0.8.1 vs 0.8.3 upstream
+Total: 12 packages outdated/needing some work
+
+I believe all the packages of orion are false positive (it is the issue
+of the - in the version number).
+I believe R-nws is also wrong, but the page on the cran is not been
+updated since 1.7.0.0.
+
+We could imagine a monthly reminder if you are interested.
+
+Best regards,
+
+Pierre
+
+
+
+[1] http://rpms.famillecollet.com/rpmphp/rpm.php?type=R
+
+From jamatos at fc.up.pt  Wed Mar  3 17:36:30 2010
+From: jamatos at fc.up.pt (=?utf-8?q?Jos=C3=A9_Ab=C3=ADlio_Matos?=)
+Date: Wed, 03 Mar 2010 17:36:30 +0000
+Subject: Re: [Fedora-r-devel-list] R packages update
+In-Reply-To: <1267531087.16355.38.camel@localhost.localdomain>
+Message-ID: <201003031736.30371.jamatos@fc.up.pt>
+
+On Tuesday 02 March 2010 11:58:06 Pierre-Yves wrote:
+> We could imagine a monthly reminder if you are interested.
+
+A once a month reminder is perfect. :-)
+
+> Best regards,
+> 
+> Pierre
+
+-- 
+José Abílio
+
+From tcallawa at redhat.com  Wed Mar  3 19:32:59 2010
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Wed, 03 Mar 2010 19:32:59 +0000
+Subject: Re: [Fedora-r-devel-list] R packages update
+In-Reply-To: <1267531087.16355.38.camel@localhost.localdomain>
+Message-ID: <4B8EB96B.4030001@redhat.com>
+
+On 03/02/2010 06:58 AM, Pierre-Yves wrote:
+> I believe R-nws is also wrong, but the page on the cran is not been
+> updated since 1.7.0.0.
+
+Well, its an odd situation. There is a newer R-nws, but it depends on
+code that Revolution Computing didn't ever properly release. Ubuntu has
+copies of the deps, but I don't think they're built from source, and I
+couldn't find upstream locations for them.
+
+I put in a query a few months ago and heard back from Danese Cooper at
+Revolution Computing, who was going to find the sources and get them to
+me so I could properly package up the new dependencies, but she was
+fired before it got any farther, and she informed me that they were
+backing away from their open source strategies and would not be making
+the source available.
+
+The whole deal left a very bad taste in my mouth, so I'm content to
+leave R-nws where it is.
+
+~spot
+
+From pingou at pingoured.fr  Sun Mar  7 15:59:02 2010
+From: pingou at pingoured.fr (Pierre-Yves Chibon)
+Date: Sun, 07 Mar 2010 15:59:02 +0000
+Subject: [Fedora-r-devel-list] R2rpm call for tester
+Message-ID: <1267977542.2480.6.camel@localhost.localdomain>
+
+Dear all,
+
+I have been working on R2spec fixing a couple of bugs here and there and
+switching to a template engine (jinja2) for the creation of the spec
+(based on the idea from Allen S. Rout).
+
+I have also spent some time today to get a first R2rpm script working.
+Of course it uses the class from R2spec, so I have put them together in
+one rpm.
+I would like to have some feedback before pushing these through the
+repo, so if you could quickly test them and give me feed back it would
+be really nice :)
+
+sources:
+https://fedorahosted.org/releases/r/2/r2spec/R2spec-3.0.0pre.tar.gz
+src.rpm:
+https://fedorahosted.org/releases/r/2/r2spec/R2spec-3.0.0-1.fc12.src.rpm
+rpm:
+https://fedorahosted.org/releases/r/2/r2spec/R2spec-3.0.0-1.fc12.noarch.rpm
+
+
+Have a nice sunday,
+
+Pierre
+
+From pingou at pingoured.fr  Sun Mar  7 16:26:34 2010
+From: pingou at pingoured.fr (Pierre-Yves Chibon)
+Date: Sun, 07 Mar 2010 16:26:34 +0000
+Subject: Re: [Fedora-r-devel-list] R2rpm call for tester
+In-Reply-To: <1267977542.2480.6.camel@localhost.localdomain>
+Message-ID: <1267979194.2480.7.camel@localhost.localdomain>
+
+On Sun, 2010-03-07 at 16:59 +0100, Pierre-Yves wrote:
+> Dear all,
+> 
+> I have been working on R2spec fixing a couple of bugs here and there and
+> switching to a template engine (jinja2) for the creation of the spec
+> (based on the idea from Allen S. Rout).
+> 
+> I have also spent some time today to get a first R2rpm script working.
+> Of course it uses the class from R2spec, so I have put them together in
+> one rpm.
+> I would like to have some feedback before pushing these through the
+> repo, so if you could quickly test them and give me feed back it would
+> be really nice :)
+Just because the question might shows-up, the option -d (build the
+missing dependencies of the package) is not implemented yet ;-)
+
+Pierre
+
+From jamatos at fc.up.pt  Tue Mar 16 14:56:49 2010
+From: jamatos at fc.up.pt (=?utf-8?q?Jos=C3=A9_Ab=C3=ADlio_Matos?=)
+Date: Tue, 16 Mar 2010 14:56:49 +0000
+Subject: Re: [Fedora-r-devel-list] R2rpm call for tester
+In-Reply-To: <1267977542.2480.6.camel@localhost.localdomain>
+Message-ID: <201003161456.49816.jamatos@fc.up.pt>
+
+On Sunday 07 March 2010 15:59:02 Pierre-Yves wrote:
+> Dear all,
+> 
+> I have been working on R2spec fixing a couple of bugs here and there and
+> switching to a template engine (jinja2) for the creation of the spec
+> (based on the idea from Allen S. Rout).
+> 
+> I have also spent some time today to get a first R2rpm script working.
+> Of course it uses the class from R2spec, so I have put them together in
+> one rpm.
+> I would like to have some feedback before pushing these through the
+> repo, so if you could quickly test them and give me feed back it would
+> be really nice :)
+
+I am sorry for a late reply but I have been busy. (Actually I should add this 
+to my signature, it works all the time).
+
+> sources:
+> https://fedorahosted.org/releases/r/2/r2spec/R2spec-3.0.0pre.tar.gz
+> src.rpm:
+> https://fedorahosted.org/releases/r/2/r2spec/R2spec-3.0.0-1.fc12.src.rpm
+> rpm:
+> https://fedorahosted.org/releases/r/2/r2spec/R2spec-3.0.0-1.fc12.noarch.rpm
+
+One small nitpick, I was expecting to have this spec with release 0.1 and not 
+1. :-)
+
+As in R2spec-3.0.0-0.1.fc12.src.rpm since this is a pre-release. :-)
+
+I have setup a machine to test this and I will give feedback as I have it.
+
+> Have a nice sunday,
+> 
+> Pierre
+
+-- 
+José Abílio
+
+From jamatos at fc.up.pt  Tue Mar 16 15:14:26 2010
+From: jamatos at fc.up.pt (=?utf-8?q?Jos=C3=A9_Ab=C3=ADlio_Matos?=)
+Date: Tue, 16 Mar 2010 15:14:26 +0000
+Subject: Re: [Fedora-r-devel-list] R2rpm call for tester
+In-Reply-To: <1267979194.2480.7.camel@localhost.localdomain>
+Message-ID: <201003161514.26953.jamatos@fc.up.pt>
+
+On Sunday 07 March 2010 16:26:34 Pierre-Yves wrote:
+> Just because the question might shows-up, the option -d (build the
+> missing dependencies of the package) is not implemented yet ;-)
+> 
+> Pierre
+
+If I am not asking too much it would be nice if r2rpm could fetch the sources 
+directly from CRAN if we pass only the package name (or with a special option 
+for that matter).
+
+-- 
+José Abílio
+
+From jamatos at fc.up.pt  Tue Mar 16 20:18:32 2010
+From: jamatos at fc.up.pt (=?utf-8?q?Jos=C3=A9_Ab=C3=ADlio_Matos?=)
+Date: Tue, 16 Mar 2010 20:18:32 +0000
+Subject: Re: [Fedora-r-devel-list] R2rpm call for tester
+In-Reply-To: <1267977542.2480.6.camel@localhost.localdomain>
+Message-ID: <201003162018.32881.jamatos@fc.up.pt>
+
+On Sunday 07 March 2010 15:59:02 Pierre-Yves wrote:
+> Dear all,
+> 
+> I have been working on R2spec fixing a couple of bugs here and there and
+> switching to a template engine (jinja2) for the creation of the spec
+> (based on the idea from Allen S. Rout).
+> 
+> I have also spent some time today to get a first R2rpm script working.
+> Of course it uses the class from R2spec, so I have put them together in
+> one rpm.
+> I would like to have some feedback before pushing these through the
+> repo, so if you could quickly test them and give me feed back it would
+> be really nice :)
+
+One request, would it be possible for R2rpm to read the personal rpmmacros 
+instead of forcing a given directory layout?
+
+Case in point, I have a given structure in the ~/.rpmmacros yet R2rpm insists 
+on writing the spec files on specdir + "/SPECS/"...
+
+I suspect that you accept patches. ;-)
+
+> Have a nice sunday,
+> 
+> Pierre
+
+-- 
+José Abílio
+
+From pingou at pingoured.fr  Mon Mar 22 09:25:16 2010
+From: pingou at pingoured.fr (Pierre-Yves Chibon)
+Date: Mon, 22 Mar 2010 09:25:16 +0000
+Subject: Re: [Fedora-r-devel-list] R2rpm call for tester
+In-Reply-To: <201003162018.32881.jamatos@fc.up.pt>
+Message-ID: <1269249916.2426.46.camel@localhost.localdomain>
+
+On Tue, 2010-03-16 at 20:18 +0000, José Matos wrote:
+> One request, would it be possible for R2rpm to read the personal rpmmacros 
+> instead of forcing a given directory layout?
+> 
+> Case in point, I have a given structure in the ~/.rpmmacros yet R2rpm insists 
+> on writing the spec files on specdir + "/SPECS/"...
+
+Sounds reasonable to me. The current behavior uses the
+default .rpmmacros which only contains:
+
+%_topdir      %(echo $HOME)/rpmbuild
+%_smp_mflags  -j3
+%
+__arch_install_post   /usr/lib/rpm/check-rpaths   /usr/lib/rpm/check-buildroot
+
+> 
+> I suspect that you accept patches. ;-)
+Surely do ;-)
+
+Thanks,
+
+Pierre
+
+From pingou at pingoured.fr  Mon Mar 22 09:25:40 2010
+From: pingou at pingoured.fr (Pierre-Yves Chibon)
+Date: Mon, 22 Mar 2010 09:25:40 +0000
+Subject: Re: [Fedora-r-devel-list] R2rpm call for tester
+In-Reply-To: <201003161514.26953.jamatos@fc.up.pt>
+Message-ID: <1269249940.2426.47.camel@localhost.localdomain>
+
+On Tue, 2010-03-16 at 15:14 +0000, José Matos wrote:
+> On Sunday 07 March 2010 16:26:34 Pierre-Yves wrote:
+> > Just because the question might shows-up, the option -d (build the
+> > missing dependencies of the package) is not implemented yet ;-)
+> > 
+> > Pierre
+> 
+> If I am not asking too much it would be nice if r2rpm could fetch the sources 
+> directly from CRAN if we pass only the package name (or with a special option 
+> for that matter).
+> 
+I have this idea in my mind for some time, I will look into this :-)
+
+Pierre
+
+From pingou at pingoured.fr  Mon Mar 22 09:31:43 2010
+From: pingou at pingoured.fr (Pierre-Yves Chibon)
+Date: Mon, 22 Mar 2010 09:31:43 +0000
+Subject: Re: [Fedora-r-devel-list] R2rpm call for tester
+In-Reply-To: <1269249940.2426.47.camel@localhost.localdomain>
+Message-ID: <1269250303.2426.49.camel@localhost.localdomain>
+
+On Mon, 2010-03-22 at 10:25 +0100, Pierre-Yves wrote:
+> On Tue, 2010-03-16 at 15:14 +0000, José Matos wrote:
+> > On Sunday 07 March 2010 16:26:34 Pierre-Yves wrote:
+> > > Just because the question might shows-up, the option -d (build the
+> > > missing dependencies of the package) is not implemented yet ;-)
+> > > 
+> > > Pierre
+> > 
+> > If I am not asking too much it would be nice if r2rpm could fetch the sources 
+> > directly from CRAN if we pass only the package name (or with a special option 
+> > for that matter).
+> > 
+> I have this idea in my mind for some time, I will look into this :-)
+Actually I need this for building the dependencies of a given package.
+At the moment I am thinking to parse the html page of the different
+repository to extract the url of the sources. 
+
+Would anyone know a better way to do it ?
+
+Thanks,
+
+Pierre
+
+From pingou at pingoured.fr  Tue Mar 23 14:12:36 2010
+From: pingou at pingoured.fr (Pierre-Yves Chibon)
+Date: Tue, 23 Mar 2010 14:12:36 +0000
+Subject: Re: [Fedora-r-devel-list] R2rpm call for tester
+In-Reply-To: <1269249940.2426.47.camel@localhost.localdomain>
+Message-ID: <1269353556.9434.40.camel@localhost.localdomain>
+
+On Mon, 2010-03-22 at 10:25 +0100, Pierre-Yves wrote:
+> On Tue, 2010-03-16 at 15:14 +0000, José Matos wrote:
+> > On Sunday 07 March 2010 16:26:34 Pierre-Yves wrote:
+> > > Just because the question might shows-up, the option -d (build the
+> > > missing dependencies of the package) is not implemented yet ;-)
+> > > 
+> > > Pierre
+> > 
+> > If I am not asking too much it would be nice if r2rpm could fetch the sources 
+> > directly from CRAN if we pass only the package name (or with a special option 
+> > for that matter).
+> > 
+> I have this idea in my mind for some time, I will look into this :-)
+
+Ok this is implemented in the new release (0.2)
+sources:
+https://fedorahosted.org/releases/r/2/r2spec/R2spec-3.0.0pre2.tar.gz
+src.rpm:
+https://fedorahosted.org/releases/r/2/r2spec/R2spec-3.0.0-0.2.fc12.src.rpm
+rpm:
+https://fedorahosted.org/releases/r/2/r2spec/R2spec-3.0.0-0.2.fc12.noarch.rpm
+
+As you see I changed the release number so I believe rpm will complain.
+
+The -p option works for cran, bioconductor and the
+r-forge.r-project.org.
+
+I'll look into %{_specdir} and %{_sourcedir} for the release 0.3 ;-)
+
+For the rest, does it work properly for you ?
+
+
+Thanks for the feed back,
+
+Pierre
+
+From pingou at pingoured.fr  Tue Mar 23 16:06:46 2010
+From: pingou at pingoured.fr (Pierre-Yves Chibon)
+Date: Tue, 23 Mar 2010 16:06:46 +0000
+Subject: Re: [Fedora-r-devel-list] R2rpm call for tester
+In-Reply-To: <201003162018.32881.jamatos@fc.up.pt>
+Message-ID: <1269360406.9434.58.camel@localhost.localdomain>
+
+On Tue, 2010-03-16 at 20:18 +0000, José Matos wrote:
+> One request, would it be possible for R2rpm to read the personal
+> rpmmacros 
+> instead of forcing a given directory layout? 
+I have just commit this change to the git, could you test it ?
+
+Thanks,
+
+Pierre
+
+From jamatos at fc.up.pt  Tue Mar 23 16:23:49 2010
+From: jamatos at fc.up.pt (=?utf-8?q?Jos=C3=A9_Ab=C3=ADlio_Matos?=)
+Date: Tue, 23 Mar 2010 16:23:49 +0000
+Subject: Re: [Fedora-r-devel-list] R2rpm call for tester
+In-Reply-To: <1269360406.9434.58.camel@localhost.localdomain>
+Message-ID: <201003231623.49353.jamatos@fc.up.pt>
+
+On Tuesday 23 March 2010 16:06:46 Pierre-Yves wrote:
+> On Tue, 2010-03-16 at 20:18 +0000, José Matos wrote:
+> > One request, would it be possible for R2rpm to read the personal
+> > rpmmacros
+> > instead of forcing a given directory layout?
+> 
+> I have just commit this change to the git, could you test it ?
+
+I will test it tomorrow. Thanks.
+
+> Thanks,
+> 
+> Pierre
+
+-- 
+José Abílio
+
+From pingou at pingoured.fr  Wed Mar 24 08:35:03 2010
+From: pingou at pingoured.fr (Pierre-Yves Chibon)
+Date: Wed, 24 Mar 2010 08:35:03 +0000
+Subject: Re: [Fedora-r-devel-list] R2rpm call for tester
+In-Reply-To: <201003231623.49353.jamatos@fc.up.pt>
+Message-ID: <1269419703.31820.16.camel@localhost.localdomain>
+
+On Tue, 2010-03-23 at 16:23 +0000, José Matos wrote:
+> On Tuesday 23 March 2010 16:06:46 Pierre-Yves wrote:
+> > On Tue, 2010-03-16 at 20:18 +0000, José Matos wrote:
+> > > One request, would it be possible for R2rpm to read the personal
+> > > rpmmacros
+> > > instead of forcing a given directory layout?
+> > 
+> > I have just commit this change to the git, could you test it ?
+> 
+> I will test it tomorrow. Thanks.
+Testing it this morning I found some bugs, corrected in a release 0.3
+which also fixes the building process.
+
+sources:
+https://fedorahosted.org/releases/r/2/r2spec/R2spec-3.0.0pre3.tar.gz
+src.rpm:
+https://fedorahosted.org/releases/r/2/r2spec/R2spec-3.0.0-0.3.fc12.src.rpm
+rpm:
+https://fedorahosted.org/releases/r/2/r2spec/R2spec-3.0.0-0.3.fc12.noarch.rpm
+
+
+I have tested it with various package from CRAN which do not depends on
+any other package and I worked.
+
+I believe we should be able to generate RPM for something like 669
+packages on the CRAN, 22 on Bioconductor and 145 on the r-forge of the
+r-project using this implementation of R2rpm.
+Of course the rpm are not directly fully compliant with rpmlint due to
+formatting issues (on the %description, the %summary, the %license) and
+some encoding or wrong end-line issue.
+
+Thanks for testing it,
+
+Pierre
+
+From jamatos at fc.up.pt  Fri Mar 26 19:50:29 2010
+From: jamatos at fc.up.pt (=?utf-8?q?Jos=C3=A9_Ab=C3=ADlio_Matos?=)
+Date: Fri, 26 Mar 2010 19:50:29 +0000
+Subject: Re: [Fedora-r-devel-list] R2rpm call for tester
+In-Reply-To: <1269353556.9434.40.camel@localhost.localdomain>
+Message-ID: <201003261950.30354.jamatos@fc.up.pt>
+
+On Tuesday 23 March 2010 14:12:36 Pierre-Yves wrote:
+> > > If I am not asking too much it would be nice if r2rpm could fetch the
+> > > sources directly from CRAN if we pass only the package name (or with a
+> > > special option for that matter).
+> > 
+> > I have this idea in my mind for some time, I will look into this :-)
+> 
+> Ok this is implemented in the new release (0.2)
+> sources:
+> https://fedorahosted.org/releases/r/2/r2spec/R2spec-3.0.0pre2.tar.gz
+> src.rpm:
+> https://fedorahosted.org/releases/r/2/r2spec/R2spec-3.0.0-0.2.fc12.src.rpm
+> rpm:
+> https://fedorahosted.org/releases/r/2/r2spec/R2spec-3.0.0-0.2.fc12.noarch.r
+> pm
+> 
+> As you see I changed the release number so I believe rpm will complain.
+> 
+> The -p option works for cran, bioconductor and the
+> r-forge.r-project.org.
+> 
+> I'll look into %{_specdir} and %{_sourcedir} for the release 0.3 ;-)
+> 
+> For the rest, does it work properly for you ?
+
+OK, I am catching on all the mail after a busy week. I have not yet tried to 
+apply the latest version 0.3 here are my comments from previous versions.
+
+I had to use the following patch.
+
+Some notes on the elements of the diff:
+
+* emacs refuses to address the UTF-8 encoding it only recognizes utf-8. That 
+is why I have changed it for every file I had to edit.
+
+* in R2spec I have the following snippet:
+-            self.version = self.file['version']
++            self.version = self.file['version'].replace("-",".")
+
+The purpose as we have discussed before is to harmonize the versions used 
+where in R the - (dash?) and point are equal as far as the package version is 
+concerned.
+
+As you can imagine I got an error with a package that has this version.
+(mAr_1.1-2.tar.gz)
+
+It would be easier to coerce the author to change the name but this only works 
+for my wife, not necessarily for all the other R packages authors. :-)
+
+* in RPackage.py I have delegated to rpm the interpretation of rpm macros 
+using a pipe. The only exception to this rule is the %{name} macro that is not 
+set at that time.
+
+> Thanks for the feed back,
+> 
+> Pierre
+
+Other than those issues pointed the package works really well, it is nice to 
+set back and watch it do all the work. :-)
+
+-- 
+José Abílio
+
+-------------- next part --------------
+diff --git a/devel/r2spec/Build.py b/devel/r2spec/Build.py
+index 9dfe578..da42c29 100644
+--- a/devel/r2spec/Build.py
++++ b/devel/r2spec/Build.py
+@@ -1,4 +1,4 @@
+-#-*- coding: UTF-8 -*-
++#-*- coding: utf-8 -*-
+ 
+ #***********************************************
+ # R2rpm
+diff --git a/devel/r2spec/Description.py b/devel/r2spec/Description.py
+index bdc1b77..eaeab70 100644
+--- a/devel/r2spec/Description.py
++++ b/devel/r2spec/Description.py
+@@ -1,4 +1,4 @@
+-#-*- coding: UTF-8 -*-
++#-*- coding: utf-8 -*-
+ 
+ #**********************************************
+ # R2spec 
+@@ -31,7 +31,7 @@ class Description:
+         ''' Set the version of the package '''
+         # Retrieve the Version number
+         try:
+-            self.version = self.file['version']
++            self.version = self.file['version'].replace("-",".")
+         except KeyError, err:
+             print "No version set"
+             self.version = ""
+diff --git a/devel/r2spec/R2rpm.py b/devel/r2spec/R2rpm.py
+index 60bc994..7f1735c 100644
+--- a/devel/r2spec/R2rpm.py
++++ b/devel/r2spec/R2rpm.py
+@@ -1,4 +1,4 @@
+-#-*- coding: UTF-8 -*-
++#-*- coding: utf-8 -*-
+ 
+ #***********************************************
+ # R2rpm
+@@ -61,11 +61,9 @@ class R2rpm:
+         
+         # Generate the spec file
+         r = RPackage()
+-        specdir = r.getRPMTopDirectory()
+-        if specdir != None:
+-            os.chdir(specdir + "/SPECS/")
+         # Enforce the copyfile and the force option
+         specname = R2spec().main(source, url, bioc, cran, rforge, rproject, True, name, email, True)
++        specdir = r.getRPMTopDirectory("_specdir", specname)
+         specname = specname + ".spec"
+         self.build.append(specname)
+         
+diff --git a/devel/r2spec/RPackage.py b/devel/r2spec/RPackage.py
+index 7526aa8..69c34d8 100644
+--- a/devel/r2spec/RPackage.py
++++ b/devel/r2spec/RPackage.py
+@@ -1,4 +1,4 @@
+-#-*- coding: UTF-8 -*-
++#-*- coding: utf-8 -*-
+ 
+ #**********************************************
+ # R2spec 
+@@ -14,6 +14,7 @@
+ from Packager import *
+ from Description import *
+ from Spec import *
++from subprocess import Popen, PIPE
+ 
+ import os, sys, re, datetime
+ 
+@@ -247,28 +248,27 @@ class RPackage:
+         spec.writeSpec(specname)
+         spec.writeOut()
+ 
+-    def getRPMTopDirectory(self):
+-        try:
+-            f = open(os.path.expanduser("~")+"/.rpmmacros", "r")
+-            rpm = f.read()
+-            f.close()
+-            try:
+-                topdir = re.compile('%_topdir(.*)').findall(rpm)[0].strip()
+-                topdir = topdir.replace('%(echo $HOME)', os.path.expanduser("~"))
+-            except IndexError, err:
+-                print 'No %_topdir defined in ~/.rpmmacros'
+-                topdir = None
+-        except IOError, err:
+-            print 'Cannot read the file .rpmmacros'
+-            print err
+-        
+-        return topdir
++    def getRPMTopDirectory(self, tag, name = None):
++        ''' Parses the rpm macros to get directory locations '''
++        dirname = Popen(["rpm", "-E", '%' + tag], stdout=PIPE).stdout.read()[:-1]
++        specname = name
++        if self.name:
++            specname = "R-" + self.name
++
++        if specname:
++            dirname = dirname.replace("%{name}", specname)
++            dirname = dirname.replace("%name", specname)
++
++        for i in range(10):
++            print "#"*80
++        print dirname
++        return dirname
+ 
+     def moveSource(self, copyFile):
+         ''' Moves the tarball to where it should be to build the RPM '''
+-        topdir = self.getRPMTopDirectory()
++        topdir =  self.getRPMTopDirectory("_srcrpmdir")
++
+         if topdir != None:
+-            topdir = topdir+"/SOURCES/"
+             if copyFile == False:
+                 text = "Do you want to copy the source (" + self.source + ") to " + topdir + "? Y/N [Y]\n"
+                 answer = raw_input(text)
+
+From pingou at pingoured.fr  Fri Mar 26 20:02:37 2010
+From: pingou at pingoured.fr (Pierre-Yves Chibon)
+Date: Fri, 26 Mar 2010 20:02:37 +0000
+Subject: Re: [Fedora-r-devel-list] R2rpm call for tester
+In-Reply-To: <201003261950.30354.jamatos@fc.up.pt>
+Message-ID: <1269633757.29460.12.camel@localhost.localdomain>
+
+On Fri, 2010-03-26 at 19:50 +0000, José Matos wrote:
+> > For the rest, does it work properly for you ?
+> 
+> OK, I am catching on all the mail after a busy week. I have not yet tried to 
+> apply the latest version 0.3 here are my comments from previous versions.
+> 
+> I had to use the following patch.
+> 
+> Some notes on the elements of the diff:
+> 
+> * emacs refuses to address the UTF-8 encoding it only recognizes utf-8. That 
+> is why I have changed it for every file I had to edit.
+Ok I will fix this.
+
+> * in R2spec I have the following snippet:
+> -            self.version = self.file['version']
+> +            self.version = self.file['version'].replace("-",".")
+This should be fixed already in Description.py
+
+> * in RPackage.py I have delegated to rpm the interpretation of rpm macros 
+> using a pipe. The only exception to this rule is the %{name} macro that is not 
+> set at that time.
+This looks much nicer than the dirty solution I was using :-)
+
+> Other than those issues pointed the package works really well, it is nice to 
+> set back and watch it do all the work. :-)
+Cool :-)
+
+FYI, I am playing with R2rpm on cran and I have:
+$ ll rpmbuild/SRPMS/R-* |wc -l
+857
+
+I think I'll be looking for space for a repo and a i686 builder :-)
+
+Thanks again,
+
+Pierre
+
+From pingou at pingoured.fr  Fri Mar 26 20:21:46 2010
+From: pingou at pingoured.fr (Pierre-Yves Chibon)
+Date: Fri, 26 Mar 2010 20:21:46 +0000
+Subject: Re: [Fedora-r-devel-list] R2rpm call for tester
+In-Reply-To: <1269633757.29460.12.camel@localhost.localdomain>
+Message-ID: <1269634906.29460.14.camel@localhost.localdomain>
+
+On Fri, 2010-03-26 at 21:02 +0100, Pierre-Yves wrote:
+> On Fri, 2010-03-26 at 19:50 +0000, José Matos wrote:
+> > > For the rest, does it work properly for you ?
+> > 
+> > OK, I am catching on all the mail after a busy week. I have not yet tried to 
+> > apply the latest version 0.3 here are my comments from previous versions.
+> > 
+> > I had to use the following patch.
+> > 
+> > Some notes on the elements of the diff:
+> > 
+> > * emacs refuses to address the UTF-8 encoding it only recognizes utf-8. That 
+> > is why I have changed it for every file I had to edit.
+> Ok I will fix this.
+> 
+> > * in R2spec I have the following snippet:
+> > -            self.version = self.file['version']
+> > +            self.version = self.file['version'].replace("-",".")
+> This should be fixed already in Description.py
+> 
+> > * in RPackage.py I have delegated to rpm the interpretation of rpm macros 
+> > using a pipe. The only exception to this rule is the %{name} macro that is not 
+> > set at that time.
+> This looks much nicer than the dirty solution I was using :-)
+
+Version 0.5 available at the usual location :-)
+
+If you manage to find other bugs or if you have other wishes, let me
+know !
+(No it will not do ice-cube)
+
+Pierre
+
+From jamatos at fc.up.pt  Fri Mar 26 21:12:15 2010
+From: jamatos at fc.up.pt (=?utf-8?q?Jos=C3=A9_Ab=C3=ADlio_Matos?=)
+Date: Fri, 26 Mar 2010 21:12:15 +0000
+Subject: Re: [Fedora-r-devel-list] R2rpm call for tester
+In-Reply-To: <1269633757.29460.12.camel@localhost.localdomain>
+Message-ID: <201003262112.16247.jamatos@fc.up.pt>
+
+On Friday 26 March 2010 20:02:37 Pierre-Yves wrote:
+> > * in R2spec I have the following snippet:
+> > -            self.version = self.file['version']
+> > +            self.version = self.file['version'].replace("-",".")
+> 
+> This should be fixed already in Description.py
+
+For some reason it did not for me (I suspect that you meant in a later 
+revision). FWIW I was calling it like this:
+
+python /path/to/R2rpm --cran -u url_to_package
+
+Calling this with the later version does not work anymore, I get:
+
+$ python ~/fedora/r2spec/devel/R2rpm --cran -u http://cran.r-
+project.org/src/contrib/mAr_1.1-2.tar.gz
+Traceback (most recent call last):
+  File "/home/jamatos/fedora/r2spec/devel/R2rpm", line 51, in <module>
+    R2rpm().main(source, url, package, bioc, cran, rforge, rproject, copyFile, 
+dependencies, name, email, force)
+  File "/home/jamatos/fedora/r2spec/devel/r2spec/R2rpm.py", line 65, in main
+    r.getRpmMacroDirectory()
+AttributeError: RPackage instance has no attribute 'getRpmMacroDirectory'
+
+-- 
+José Abílio
+
+From pingou at pingoured.fr  Fri Mar 26 21:45:06 2010
+From: pingou at pingoured.fr (Pierre-Yves Chibon)
+Date: Fri, 26 Mar 2010 21:45:06 +0000
+Subject: Re: [Fedora-r-devel-list] R2rpm call for tester
+In-Reply-To: <201003262112.16247.jamatos@fc.up.pt>
+Message-ID: <1269639906.29460.17.camel@localhost.localdomain>
+
+On Fri, 2010-03-26 at 21:12 +0000, José Matos wrote:
+> On Friday 26 March 2010 20:02:37 Pierre-Yves wrote:
+> > > * in R2spec I have the following snippet:
+> > > -            self.version = self.file['version']
+> > > +            self.version = self.file['version'].replace("-",".")
+> > 
+> > This should be fixed already in Description.py
+> 
+> For some reason it did not for me (I suspect that you meant in a later 
+> revision).
+Yes, I know I changed this but I can't remember in which revision it
+was. 
+
+>  FWIW I was calling it like this:
+> 
+> python /path/to/R2rpm --cran -u url_to_package
+> 
+> Calling this with the later version does not work anymore, I get:
+> 
+> $ python ~/fedora/r2spec/devel/R2rpm --cran -u http://cran.r-
+> project.org/src/contrib/mAr_1.1-2.tar.gz
+> Traceback (most recent call last):
+>   File "/home/jamatos/fedora/r2spec/devel/R2rpm", line 51, in <module>
+>     R2rpm().main(source, url, package, bioc, cran, rforge, rproject, copyFile, 
+> dependencies, name, email, force)
+>   File "/home/jamatos/fedora/r2spec/devel/r2spec/R2rpm.py", line 65, in main
+>     r.getRpmMacroDirectory()
+> AttributeError: RPackage instance has no attribute 'getRpmMacroDirectory'
+I just fixed it on the git, I'll upload in a few minutes a revision 0.6.
+
+Thanks,
+
+Pierre
+
+From pingou at pingoured.fr  Sat Mar 27 14:30:12 2010
+From: pingou at pingoured.fr (Pierre-Yves Chibon)
+Date: Sat, 27 Mar 2010 14:30:12 +0000
+Subject: Re: [Fedora-r-devel-list] R2rpm call for tester
+In-Reply-To: <1267977542.2480.6.camel@localhost.localdomain>
+Message-ID: <1269700212.26690.12.camel@localhost.localdomain>
+
+On Sun, 2010-03-07 at 16:59 +0100, Pierre-Yves wrote:
+> 
+> Dear all,
+> 
+> I have been working on R2spec fixing a couple of bugs here and there
+> and
+> switching to a template engine (jinja2) for the creation of the spec
+> (based on the idea from Allen S. Rout). 
+
+I have just put together a version 0.7 which give the option to use mock
+to build the rpm.
+See R2rpm for the usage.
+
+Feel free to poke me if it doesn't work for you.
+
+Thanks for testing,
+
+Pierre
+

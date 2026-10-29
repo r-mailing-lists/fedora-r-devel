@@ -1,0 +1,25 @@
+From pingou at pingoured.fr  Sat Jan 29 14:46:12 2011
+From: pingou at pingoured.fr (Pierre-Yves Chibon)
+Date: Sat, 29 Jan 2011 14:46:12 +0000
+Subject: [Fedora-r-devel-list] review request
+Message-ID: <1296312372.2949.6.camel@cyan.pingoured.fr>
+
+Hi,
+
+I have submitted 4 new reviews which are (directly or not) needed update
+the R-GenomicFeatures package (which if not done will lead to a FTBFS at
+some point).
+
+R-Rcompression:
+https://bugzilla.redhat.com/show_bug.cgi?id=673658
+R-RCurl:
+https://bugzilla.redhat.com/show_bug.cgi?id=673660
+R-ALL:
+https://bugzilla.redhat.com/show_bug.cgi?id=673661
+R-XML:
+https://bugzilla.redhat.com/show_bug.cgi?id=673665
+
+Thanks for the help,
+Cheers,
+Pierre
+

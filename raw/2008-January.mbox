@@ -1,0 +1,334 @@
+From alexl at users.sourceforge.net  Mon Jan  7 08:37:35 2008
+From: alexl at users.sourceforge.net (Alex Lancaster)
+Date: Mon, 07 Jan 2008 08:37:35 +0000
+Subject: [Fedora-r-devel-list] problems with building R packages on rawhide
+Message-ID: <693ataf2uo.fsf@allele2.eebweb.arizona.edu>
+
+Hey folks,
+
+There seems to be problems with building any R packages with the
+version of R currently in rawhide.  These packages build fine on F-8,
+e.g.:
+
+R-multtest (in review):
+http://koji.fedoraproject.org/koji/taskinfo?taskID=330245
+
+R-Biobase (already in CVS):
+http://koji.fedoraproject.org/koji/taskinfo?taskID=330288
+
+Alex
+
+From escobarebio at yahoo.com  Mon Jan  7 17:49:28 2008
+From: escobarebio at yahoo.com (D.Enrique ESCOBAR ESPINOZA)
+Date: Mon, 07 Jan 2008 17:49:28 +0000
+Subject: [Fedora-r-devel-list] R packages
+In-Reply-To: <20080107170033.F2F1673945@hormel.redhat.com>
+Message-ID: <3857.47379.qm@web30505.mail.mud.yahoo.com>
+
+Hi
+
+I am happy to see your constant effort to improve fedora distro.
+
+Happy new year 2008 and I hope all your projects will be completed.
+
+Personally, I will be extremely happy seeing the following useful
+modules packaged:
+
+abind
+adSplit
+affxparser
+affy
+affycomp
+affydata
+affyio
+affylmGUI
+affypdnn
+affyPLM
+annaffy
+annotate
+arrayMagic
+Biobase
+bioDist
+Biostrings
+Bolstad
+BufferedMatrix
+BufferedMatrixMethods
+Category
+cMAP
+cyp450cdf
+DBI
+DynDoc
+ellipse
+gcrma
+genefilter
+GeneMeta
+geneplotter
+GeneR
+GGtools
+globaltest
+GO
+GOstats
+goTools
+gp53cdf
+gpls
+graph
+hgfocus
+hgfocuscdf
+hgfocusprobe
+hgu133a
+hgu133acdf
+hgu133aprobe
+hgu95av2
+hgu95av2cdf
+hgu95av2probe
+Icens
+IDPmisc
+impute
+KEGG
+limma
+limmaGUI
+maanova
+makecdfenv
+marray
+matchprobes
+Matrix
+mgu74av2
+mgu74av2cdf
+mgu74av2probe
+multtest
+pamr
+PFAM
+pvclust
+R2HTML
+RankProd
+RBGL
+R-BioC.sh
+R.cache
+RColorBrewer
+RCurl
+Rdbi
+RdbiPgSQL
+reposTools
+Rgraphviz
+R.huge
+RMySQL
+ROC
+R.oo
+RSPerl
+RSPython
+RSQLite
+RSvgDevice
+RSVGTipsDevice
+RUnit
+R.utils
+samr
+scatterplot3d
+siggenes
+sma
+som
+SparseM
+statmod
+tkrplot
+tkWidgets
+VR
+vsn
+widgetTools
+XML
+xtable
+YEAST
+
+cheers, Enrique
+
+
+
+      ____________________________________________________________________________________
+Be a better friend, newshound, and 
+know-it-all with Yahoo! Mobile.  Try it now.  http://mobile.yahoo.com/;_ylt=Ahu06i62sR8HDtDypao8Wcj9tAcJ
+
+From pingoufc4 at yahoo.fr  Mon Jan  7 17:54:39 2008
+From: pingoufc4 at yahoo.fr (pingou)
+Date: Mon, 07 Jan 2008 17:54:39 +0000
+Subject: Re: [Fedora-r-devel-list] R packages
+In-Reply-To: <3857.47379.qm@web30505.mail.mud.yahoo.com>
+Message-ID: <4782675F.2090206@yahoo.fr>
+
+D.Enrique ESCOBAR ESPINOZA wrote:
+> Personally, I will be extremely happy seeing the following useful
+> modules packaged:
+> 
+> abind
+> adSplit
+> affxparser
+> affy
+done
+> affycomp
+> affydata
+done
+> affyio
+done
+> affylmGUI
+> affypdnn
+> affyPLM
+done
+> annaffy
+done
+> annotate
+done
+> arrayMagic
+> Biobase
+done and present on fedora repo
+> bioDist
+> Biostrings
+done
+> Bolstad
+> BufferedMatrix
+done and present on fedora repo
+> BufferedMatrixMethods
+done and present on fedora repo
+> Category
+> cMAP
+> cyp450cdf
+> DBI
+> DynDoc
+done and present on fedora repo
+> ellipse
+> gcrma
+done
+> genefilter
+done
+> GeneMeta
+> geneplotter
+done
+> GeneR
+> GGtools
+> globaltest
+> GO
+done
+> GOstats
+> goTools
+> gp53cdf
+> gpls
+> graph
+> hgfocus
+> hgfocuscdf
+> hgfocusprobe
+> hgu133a
+done
+> hgu133acdf
+done
+> hgu133aprobe
+done
+> hgu95av2
+done
+> hgu95av2cdf
+done
+> hgu95av2probe
+done
+> Icens
+> IDPmisc
+> impute
+> KEGG
+done
+> limma
+> limmaGUI
+> maanova
+done and approved for fedora repo
+> makecdfenv
+> marray
+> matchprobes
+done
+> Matrix
+> mgu74av2
+> mgu74av2cdf
+> mgu74av2probe
+> multtest
+done
+> pamr
+> PFAM
+> pvclust
+> R2HTML
+done
+> RankProd
+> RBGL
+> R-BioC.sh
+> R.cache
+> RColorBrewer
+done
+> RCurl
+> Rdbi
+> RdbiPgSQL
+> reposTools
+> Rgraphviz
+done but not sure it works fine
+> R.huge
+> RMySQL
+> ROC
+> R.oo
+> RSPerl
+> RSPython
+> RSQLite
+done
+> RSvgDevice
+> RSVGTipsDevice
+> RUnit
+done
+> R.utils
+> samr
+> scatterplot3d
+> siggenes
+done
+> sma
+> som
+> SparseM
+> statmod
+> tkrplot
+> tkWidgets
+done and present on fedora repo
+> VR
+> vsn
+> widgetTools
+> XML
+done
+> xtable
+done
+
+I probably forgot some...
+You can find them there
+http://pingoured.dyndns.org/public/fedora/
+
+Feel free to package the other :)
+
+Regards,
+P.Yves
+
+	
+
+	
+		
+___________________________________________________________________________ 
+Yahoo! Mail réinvente le mail ! Découvrez le nouveau Yahoo! Mail et son interface révolutionnaire.
+http://fr.mail.yahoo.com
+
+From tcallawa at redhat.com  Mon Jan  7 18:24:24 2008
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Mon, 07 Jan 2008 18:24:24 +0000
+Subject: Re: [Fedora-r-devel-list] problems with building R packages on rawhide
+In-Reply-To: <693ataf2uo.fsf@allele2.eebweb.arizona.edu>
+Message-ID: <1199730264.22969.1.camel@localhost.localdomain>
+
+
+On Mon, 2008-01-07 at 01:37 -0700, Alex Lancaster wrote:
+> Hey folks,
+> 
+> There seems to be problems with building any R packages with the
+> version of R currently in rawhide. 
+
+Tracked this down as due to a change I made, where the INSTALL binary
+moved into R-devel in rawhide. I gave it some thought, and moved it back
+to R, because I can see that some users installing noarch bits from CRAN
+might expect that to work without the other R-devel bits installed.
+
+Fedora packages should still BuildRequires: R-devel though.
+
+~spot
+

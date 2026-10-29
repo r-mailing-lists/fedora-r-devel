@@ -1,0 +1,605 @@
+From pingou at pingoured.fr  Sun Aug  2 16:56:47 2009
+From: pingou at pingoured.fr (Pierre-Yves Chibon)
+Date: Sun, 02 Aug 2009 16:56:47 +0000
+Subject: Re: [Fedora-r-devel-list] Update the guidelines
+In-Reply-To: <1237661999.3243.23.camel@localhost.localdomain>
+Message-ID: <1249232207.2573.16.camel@red.localdomain>
+
+On Sat, 2009-03-21 at 19:59 +0100, Pierre-Yves wrote:
+> Dear all,
+> 
+> I would like to propose to update (or mention) some points in the R
+> packaging guidelines.
+> 
+> * Mention something about the tex files which are not utf-8 and don't
+> necessarily have to be converted
+> see:
+> https://www.redhat.com/archives/fedora-devel-list/2009-January/msg00741.html
+> 
+> * Mention something about the -devel package where the headers don't
+> necessarily have to moved to %{_datadir} since R looks for them in
+> %{_libdir}.
+> see:
+> https://www.redhat.com/archives/fedora-r-devel-list/2009-March/msg00001.html
+
+I am planning on writing down a proposal to add those remarks to the
+guidelines.
+
+In addition I though we could also :
+ - Mention about the version which in R might contains '-' which should
+be replaced in Fedora
+ - Mention R2spec as tool to create spec file
+ - Mention the new sources of library (the two r-forges)
+
+Do you see any other points to be added/changed ?
+
+I will send to the list the proposal once done.
+
+Best regards,
+
+Pierre
+
+From pingou at pingoured.fr  Sun Aug  2 19:50:00 2009
+From: pingou at pingoured.fr (Pierre-Yves Chibon)
+Date: Sun, 02 Aug 2009 19:50:00 +0000
+Subject: [Fedora-r-devel-list] R2spec v2.5.3
+Message-ID: <1249242600.2573.22.camel@red.localdomain>
+
+Dear list,
+
+As just announced on my blog I released a new version of R2spec and
+there is the changelog for this version:
+
+Version 2.5.3 -- 02nd Aug 2009
+- Features added
+  * Prints warning if summary is empty
+  * Prints warning if description is empty
+  * Add support for r-forge.net (option --rforge)
+  * Add support for r-forge.r-project.org (option --rproject)
+  * Add the prefix R- to the list of dependencies with a list of package
+to ignore (ie: R)
+  * Add a default source0 and url if the bioconductor release is not set
+- Bugs correction
+  * Does not add the 'Requires:' to the spec if they are empty
+  * Changes the '-' into '.' if the version of the R library contains
+any '-'
+
+Package is available for F-10, F-11, rawhide, EPEL-4 and EPEL-5.
+
+Feel free to add some karma if you test it :)
+
+Thanks,
+
+Best regards,
+
+Pierre
+
+From pingou at pingoured.fr  Tue Aug  4 16:49:51 2009
+From: pingou at pingoured.fr (Pierre-Yves Chibon)
+Date: Tue, 04 Aug 2009 16:49:51 +0000
+Subject: Re: [Fedora-r-devel-list] Update the guidelines
+In-Reply-To: <1249232207.2573.16.camel@red.localdomain>
+Message-ID: <1249404591.5658.1.camel@red.localdomain>
+
+On Sun, 2009-08-02 at 18:56 +0200, Pierre-Yves wrote:
+> On Sat, 2009-03-21 at 19:59 +0100, Pierre-Yves wrote:
+> > Dear all,
+> > 
+> > I would like to propose to update (or mention) some points in the R
+> > packaging guidelines.
+> > 
+> > * Mention something about the tex files which are not utf-8 and don't
+> > necessarily have to be converted
+> > see:
+> > https://www.redhat.com/archives/fedora-devel-list/2009-January/msg00741.html
+> > 
+> > * Mention something about the -devel package where the headers don't
+> > necessarily have to moved to %{_datadir} since R looks for them in
+> > %{_libdir}.
+> > see:
+> > https://www.redhat.com/archives/fedora-r-devel-list/2009-March/msg00001.html
+> 
+> I am planning on writing down a proposal to add those remarks to the
+> guidelines.
+> 
+> In addition I though we could also :
+>  - Mention about the version which in R might contains '-' which should
+> be replaced in Fedora
+>  - Mention R2spec as tool to create spec file
+>  - Mention the new sources of library (the two r-forges)
+> 
+> Do you see any other points to be added/changed ?
+
+I put all this together here:
+https://fedoraproject.org/wiki/ProposalUpdateRGuidelines
+and also there thus:
+https://fedoraproject.org/wiki/PackagingDrafts/DraftsTodo
+
+I put target date as 'Discuss' waiting to hear from you but there is a
+meeting tomorrow if we make it on time :)
+
+Feel free to react of it :)
+
+Best regards,
+
+Pierre
+
+From pingou at pingoured.fr  Sat Aug  8 09:47:37 2009
+From: pingou at pingoured.fr (Pierre-Yves Chibon)
+Date: Sat, 08 Aug 2009 09:47:37 +0000
+Subject: [Fedora-r-devel-list] version corrected
+Message-ID: <1249724857.2600.2.camel@red.localdomain>
+
+Dear list,
+
+Remi and I have patched the website to correct the version number that
+contained a '-'.
+
+You can thus go to [1] to check if you are up-to-date.
+
+Let me know if you face an error or a problem :)
+
+
+Best regards,
+
+Pierre
+
+
+[1] http://rpms.famillecollet.com/rpmphp/rpm.php?type=R
+
+From pingou at pingoured.fr  Thu Aug 20 20:20:58 2009
+From: pingou at pingoured.fr (Pierre-Yves Chibon)
+Date: Thu, 20 Aug 2009 20:20:58 +0000
+Subject: [Fedora-r-devel-list] [Fwd: Re: TeX Live 2009 for Fedora]
+Message-ID: <1250799658.11515.0.camel@red.localdomain>
+
+FYI
+
+I will update R2spec to meet the new guidelines soon.
+
+Best regards,
+
+Pierre
+
+-------------- next part --------------
+WzxlbWFpbC5tZXNzYWdlLk1lc3NhZ2UgaW5zdGFuY2UgYXQgMHgzZjA1NWYwPl0=
+
+From jamatos at fc.up.pt  Thu Aug 20 20:34:02 2009
+From: jamatos at fc.up.pt (=?utf-8?q?Jos=C3=A9_Ab=C3=ADlio_Matos?=)
+Date: Thu, 20 Aug 2009 20:34:02 +0000
+Subject: Re: [Fedora-r-devel-list] [Fwd: Re: TeX Live 2009 for Fedora]
+In-Reply-To: <1250799658.11515.0.camel@red.localdomain>
+Message-ID: <200908202134.03638.jamatos@fc.up.pt>
+
+On Thursday 20 August 2009 21:20:58 Pierre-Yves wrote:
+> FYI
+>
+> I will update R2spec to meet the new guidelines soon.
+>
+> Best regards,
+>
+> Pierre
+
+The only conflict that I get, for R packages I have installed, when updating 
+the new latex is with R-devel.
+
+At the same time as Jason stated the possible complication that comes from the 
+change is the difference between Fedora and EPEL packages. That means one more 
+conditional in the file, perhaps. :-)
+
+-- 
+José Abílio
+
+From pingou at pingoured.fr  Thu Aug 20 20:42:17 2009
+From: pingou at pingoured.fr (Pierre-Yves Chibon)
+Date: Thu, 20 Aug 2009 20:42:17 +0000
+Subject: Re: [Fedora-r-devel-list] [Fwd: Re: TeX Live 2009 for Fedora]
+In-Reply-To: <200908202134.03638.jamatos@fc.up.pt>
+Message-ID: <1250800937.11515.16.camel@red.localdomain>
+
+On Thu, 2009-08-20 at 21:34 +0100, José Matos wrote:
+> On Thursday 20 August 2009 21:20:58 Pierre-Yves wrote:
+> > FYI
+> >
+> > I will update R2spec to meet the new guidelines soon.
+> >
+> > Best regards,
+> >
+> > Pierre
+> 
+> The only conflict that I get, for R packages I have installed, when updating 
+> the new latex is with R-devel.
+> 
+> At the same time as Jason stated the possible complication that comes from the 
+> change is the difference between Fedora and EPEL packages. That means one more 
+> conditional in the file, perhaps. :-)
+> 
+
+Jindrich replied:
+> Thanks for updating the packaging guidelines. I will add te tetex-* 
+> provides to be compatible with the legacy packages.
+
+I guess this solve the issue, but then I'm curious on whether it makes
+any difference to change the specs (or did I understand it wrongly ?)
+
+Regards,
+
+Pierre
+
+From ihok at hotmail.com  Sun Aug 23 17:11:38 2009
+From: ihok at hotmail.com (Jack Tanner)
+Date: Sun, 23 Aug 2009 17:11:38 +0000
+Subject: [Fedora-r-devel-list] RMySQL spec file
+Message-ID: <BLU0-SMTP3691002BCD2C015488C439CAFA0@phx.gbl>
+
+Hi, here's a spec file in case anyone wants to package up RMySQL. I'm 
+hereby placing it in the public domain, so please modify as necessary, 
+and don't even bother giving me credit. I'm not volunteering to be a 
+maintainer myself.
+
+It passes rpmlint, it's tested only on CentOS 5, and it works for me. 
+YMMV. I'm somewhat unsure about the BuildRequires.
+
+By the way, R2spec was a really good starting point, but I had to 
+deviate from its suggestions in a couple of places. You could diff an 
+R2spec-generated file and the one below if you're curious.
+
+-- CUT HERE --
+
+%global packname  RMySQL
+%global packrel 1
+
+Name:             R-%{packname}
+Version:          0.7
+Release:          4%{?dist}
+Summary:          R interface to the MySQL database
+
+Group:            Applications/Engineering
+License:          GPLv2
+URL:              http://cran.r-project.org/web/packages/RMySQL/
+Source0:          
+ftp://cran.r-project.org/pub/R/contrib/main/%{packname}_%{version}-%{release}.tar.gz
+BuildRoot:        
+%{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
+
+Requires(post):   R
+Requires(postun): R
+BuildRequires:    R-devel tetex-latex R >= R-2.8.0 R-methods R-DBI >= 
+R-0.2-2 R-utils mysql-devel
+
+%description
+Database interface and MySQL driver for R. This version complies with 
+the database interface definition as implemented in the package DBI 0.2-2.
+
+%prep
+%setup -q -c -n %{packname}
+
+%build
+
+%install
+rm -rf %{buildroot}
+mkdir -p %{buildroot}%{_libdir}/R/library
+%{_bindir}/R CMD INSTALL -l %{buildroot}%{_libdir}/R/library %{packname}
+test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
+rm -rf %{buildroot}%{_libdir}/R/library/R.css
+
+%check
+%{_bindir}/R CMD check %{packname}
+
+%clean
+rm -rf %{buildroot}
+
+%post
+%{_R_make_search_index}
+
+%postun
+%{_R_make_search_index}
+
+%files
+%defattr(-, root, root, -)
+%dir %{_libdir}/R/library/%{packname}
+
+%doc %{_libdir}/R/library/%{packname}/latex
+%doc %{_libdir}/R/library/%{packname}/doc
+%doc %{_libdir}/R/library/%{packname}/html
+%doc %{_libdir}/R/library/%{packname}/DESCRIPTION
+%doc %{_libdir}/R/library/%{packname}/man
+%doc %{_libdir}/R/library/%{packname}/NEWS
+%doc %{_libdir}/R/library/%{packname}/GPL
+%doc %{_libdir}/R/library/%{packname}/GPL
+%doc %{_libdir}/R/library/%{packname}/INSTALL
+%doc %{_libdir}/R/library/%{packname}/INSTALL.win
+%doc %{_libdir}/R/library/%{packname}/README
+%doc %{_libdir}/R/library/%{packname}/README.windows
+%doc %{_libdir}/R/library/%{packname}/THANKS
+%doc %{_libdir}/R/library/%{packname}/TODO
+%doc %{_libdir}/R/library/%{packname}/WindowsPath.txt
+%doc %{_libdir}/R/library/%{packname}/newFunctionNames.txt
+
+%{_libdir}/R/library/%{packname}/CONTENTS
+%{_libdir}/R/library/%{packname}/INDEX
+%{_libdir}/R/library/%{packname}/NAMESPACE
+%{_libdir}/R/library/%{packname}/Meta
+%{_libdir}/R/library/%{packname}/R
+%{_libdir}/R/library/%{packname}/R-ex
+%{_libdir}/R/library/%{packname}/help
+%{_libdir}/R/library/%{packname}/FindMySQLhome.R
+%{_libdir}/R/library/%{packname}/libs/RMySQL.so
+
+%changelog
+* Sun Aug 23 2009 Name <Mail> 0.7.4-1
+- initial package for Fedora
+
+From dan.bolser at gmail.com  Sun Aug 23 20:26:22 2009
+From: dan.bolser at gmail.com (Dan Bolser)
+Date: Sun, 23 Aug 2009 20:26:22 +0000
+Subject: Re: [Fedora-r-devel-list] RMySQL spec file
+In-Reply-To: <BLU0-SMTP3691002BCD2C015488C439CAFA0@phx.gbl>
+Message-ID: <2c8757af0908231326s63dd83a5v5e707b648442461d@mail.gmail.com>
+
+Thanks very much for providing this Jack!
+
+
+
+2009/8/23 Jack Tanner <ihok(a)hotmail.com>:
+> Hi, here's a spec file in case anyone wants to package up RMySQL. I'm hereby
+> placing it in the public domain, so please modify as necessary, and don't
+> even bother giving me credit. I'm not volunteering to be a maintainer
+> myself.
+>
+> It passes rpmlint, it's tested only on CentOS 5, and it works for me. YMMV.
+> I'm somewhat unsure about the BuildRequires.
+>
+> By the way, R2spec was a really good starting point, but I had to deviate
+> from its suggestions in a couple of places. You could diff an
+> R2spec-generated file and the one below if you're curious.
+>
+> -- CUT HERE --
+>
+> %global packname  RMySQL
+> %global packrel 1
+>
+> Name:             R-%{packname}
+> Version:          0.7
+> Release:          4%{?dist}
+> Summary:          R interface to the MySQL database
+>
+> Group:            Applications/Engineering
+> License:          GPLv2
+> URL:              http://cran.r-project.org/web/packages/RMySQL/
+> Source0:
+>  ftp://cran.r-project.org/pub/R/contrib/main/%{packname}_%{version}-%{release}.tar.gz
+> BuildRoot:        %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u}
+> -n)
+>
+> Requires(post):   R
+> Requires(postun): R
+> BuildRequires:    R-devel tetex-latex R >= R-2.8.0 R-methods R-DBI >=
+> R-0.2-2 R-utils mysql-devel
+>
+> %description
+> Database interface and MySQL driver for R. This version complies with the
+> database interface definition as implemented in the package DBI 0.2-2.
+>
+> %prep
+> %setup -q -c -n %{packname}
+>
+> %build
+>
+> %install
+> rm -rf %{buildroot}
+> mkdir -p %{buildroot}%{_libdir}/R/library
+> %{_bindir}/R CMD INSTALL -l %{buildroot}%{_libdir}/R/library %{packname}
+> test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
+> rm -rf %{buildroot}%{_libdir}/R/library/R.css
+>
+> %check
+> %{_bindir}/R CMD check %{packname}
+>
+> %clean
+> rm -rf %{buildroot}
+>
+> %post
+> %{_R_make_search_index}
+>
+> %postun
+> %{_R_make_search_index}
+>
+> %files
+> %defattr(-, root, root, -)
+> %dir %{_libdir}/R/library/%{packname}
+>
+> %doc %{_libdir}/R/library/%{packname}/latex
+> %doc %{_libdir}/R/library/%{packname}/doc
+> %doc %{_libdir}/R/library/%{packname}/html
+> %doc %{_libdir}/R/library/%{packname}/DESCRIPTION
+> %doc %{_libdir}/R/library/%{packname}/man
+> %doc %{_libdir}/R/library/%{packname}/NEWS
+> %doc %{_libdir}/R/library/%{packname}/GPL
+> %doc %{_libdir}/R/library/%{packname}/GPL
+> %doc %{_libdir}/R/library/%{packname}/INSTALL
+> %doc %{_libdir}/R/library/%{packname}/INSTALL.win
+> %doc %{_libdir}/R/library/%{packname}/README
+> %doc %{_libdir}/R/library/%{packname}/README.windows
+> %doc %{_libdir}/R/library/%{packname}/THANKS
+> %doc %{_libdir}/R/library/%{packname}/TODO
+> %doc %{_libdir}/R/library/%{packname}/WindowsPath.txt
+> %doc %{_libdir}/R/library/%{packname}/newFunctionNames.txt
+>
+> %{_libdir}/R/library/%{packname}/CONTENTS
+> %{_libdir}/R/library/%{packname}/INDEX
+> %{_libdir}/R/library/%{packname}/NAMESPACE
+> %{_libdir}/R/library/%{packname}/Meta
+> %{_libdir}/R/library/%{packname}/R
+> %{_libdir}/R/library/%{packname}/R-ex
+> %{_libdir}/R/library/%{packname}/help
+> %{_libdir}/R/library/%{packname}/FindMySQLhome.R
+> %{_libdir}/R/library/%{packname}/libs/RMySQL.so
+>
+> %changelog
+> * Sun Aug 23 2009 Name <Mail> 0.7.4-1
+> - initial package for Fedora
+>
+> _______________________________________________
+> Fedora-r-devel-list mailing list
+> Fedora-r-devel-list(a)redhat.com
+> http://www.redhat.com/mailman/listinfo/fedora-r-devel-list
+>
+
+From tcallawa at redhat.com  Tue Aug 25 15:27:46 2009
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Tue, 25 Aug 2009 15:27:46 +0000
+Subject: [Fedora-r-devel-list] R 2.9.2 updates are ready
+Message-ID: <4A9402F2.8020205@redhat.com>
+
+Fedora 10:
+https://admin.fedoraproject.org/updates/rpy-1.0.3-10.fc10,R-2.9.2-1.fc10
+Fedora 11:
+https://admin.fedoraproject.org/updates/rpy-2.0.3-4.fc11,R-2.9.2-1.fc11
+
+(Note: EPEL updates sit in testing for two weeks, or until enough people
+give them positive karma to push to stable)
+EL-4: https://admin.fedoraproject.org/updates/R-2.9.2-1.el4
+EL-5: https://admin.fedoraproject.org/updates/R-2.9.2-1.el5
+
+~spot
+
+From jamatos at fc.up.pt  Thu Aug 27 07:05:47 2009
+From: jamatos at fc.up.pt (=?utf-8?q?Jos=C3=A9_Ab=C3=ADlio_Matos?=)
+Date: Thu, 27 Aug 2009 07:05:47 +0000
+Subject: [Fedora-r-devel-list] small issue with yum-presto and R update (config files changed)
+Message-ID: <200908270805.48473.jamatos@fc.up.pt>
+
+While updating to R-2.9.2 I noticed the following in yum:
+
+Downloading Packages:
+Setting up and reading Presto delta metadata
+updates-testing/prestodelta                         | 111 kB     00:00
+updates/prestodelta                                 | 487 kB     00:01
+Processing delta metadata
+/usr/lib/R/etc/Makeconf: contents have been changed
+/usr/lib/R/etc/ldpaths: contents have been changed
+/usr/share/doc/R-2.9.1/html/search/index.txt: contents have been changed
+delta does not match installed data
+
+FWIW I did not change those files other than updating other R packages trough 
+yum.
+
+I remember to have the same problem ever since I have installed yum-
+presto when updating R.
+
+Is it possible to solve this in the spec file? Should I report this to 
+bugzilla?
+
+Regards,
+
+--
+José Abílio
+
+From martyn.plummer at r-project.org  Fri Aug 28 15:45:38 2009
+From: martyn.plummer at r-project.org (Martyn Plummer)
+Date: Fri, 28 Aug 2009 15:45:38 +0000
+Subject: Re: [Fedora-r-devel-list] R 2.9.2 updates are ready
+In-Reply-To: <1251453428.2585.6.camel@seurat.iarc.fr>
+Message-ID: <1251474338.5903.29.camel@seurat.iarc.fr>
+
+Up until now we have been building our own R RPMS for EL4 and EL5 for
+distribution via CRAN.  To be precise, Bob Kinney at Harvard (cc'ed) has
+been building them. Lately I stepped in to rebuild the 32-bit EL4/5 RPMS
+using mock.  
+
+With R 2.9.1 and R 2.9.2 you have built EPEL RPMS for R at the same time
+as the Fedora ones. Does this mean we can give up building our own?
+ 
+Is it OK for me to grab the EPEL RPMS and put them on CRAN before they
+get pushed to stable? 
+
+Thanks
+Martyn
+
+On Tue, 2009-08-25 at 11:27 -0400, Tom "spot" Callaway wrote:
+> Fedora 10:
+> https://admin.fedoraproject.org/updates/rpy-1.0.3-10.fc10,R-2.9.2-1.fc10
+> Fedora 11:
+> https://admin.fedoraproject.org/updates/rpy-2.0.3-4.fc11,R-2.9.2-1.fc11
+> 
+> (Note: EPEL updates sit in testing for two weeks, or until enough people
+> give them positive karma to push to stable)
+> EL-4: https://admin.fedoraproject.org/updates/R-2.9.2-1.el4
+> EL-5: https://admin.fedoraproject.org/updates/R-2.9.2-1.el5
+> 
+> ~spot
+
+
+-----------------------------------------------------------------------
+This message and its attachments are strictly confidential. If you are
+not the intended recipient of this message, please immediately notify 
+the sender and delete it. Since its integrity cannot be guaranteed, 
+its content cannot involve the sender's responsibility. Any misuse, 
+any disclosure or publication of its content, either whole or partial, 
+is prohibited, exception made of formally approved use
+-----------------------------------------------------------------------
+
+From tcallawa at redhat.com  Fri Aug 28 17:58:39 2009
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Fri, 28 Aug 2009 17:58:39 +0000
+Subject: Re: [Fedora-r-devel-list] R 2.9.2 updates are ready
+In-Reply-To: <1251474338.5903.29.camel@seurat.iarc.fr>
+Message-ID: <4A981ACF.3060803@redhat.com>
+
+On 08/28/2009 11:45 AM, Martyn Plummer wrote:
+> Up until now we have been building our own R RPMS for EL4 and EL5 for
+> distribution via CRAN.  To be precise, Bob Kinney at Harvard (cc'ed) has
+> been building them. Lately I stepped in to rebuild the 32-bit EL4/5 RPMS
+> using mock.  
+> 
+> With R 2.9.1 and R 2.9.2 you have built EPEL RPMS for R at the same time
+> as the Fedora ones. Does this mean we can give up building our own?
+
+Sure. It doesn't really take much time for me to do these additional
+targets.
+
+> Is it OK for me to grab the EPEL RPMS and put them on CRAN before they
+> get pushed to stable? 
+
+Sure, assuming you see no problems with them (and if you do, please let
+me know).
+
+~tom
+
+From ihok at hotmail.com  Sat Aug 29 02:10:54 2009
+From: ihok at hotmail.com (Jack Tanner)
+Date: Sat, 29 Aug 2009 02:10:54 +0000
+Subject: [Fedora-r-devel-list] collaborating on ggplot2 ?
+Message-ID: <BLU0-SMTP7E1ED6815EE0E28A8408FCAF40@phx.gbl>
+
+Howdy,
+
+I'd like to get the ggplot2 library package-able. I cannot sign up as a 
+maintainer, but I can work on spec files. ggplot2 has a whole bunch of 
+dependencies:
+
+According to http://cran.r-project.org/web/packages/ggplot2/ ,
+
+Imports: 	reshape 
+<http://cran.r-project.org/web/packages/reshape/index.html> (≥ 0.8.0), 
+plyr <http://cran.r-project.org/web/packages/plyr/index.html> (≥ 0.1.6), 
+splines, MASS <http://cran.r-project.org/web/packages/VR/index.html>, 
+RColorBrewer 
+<http://cran.r-project.org/web/packages/RColorBrewer/index.html>, grid, 
+proto <http://cran.r-project.org/web/packages/proto/index.html>
+Suggests: 	quantreg 
+<http://cran.r-project.org/web/packages/quantreg/index.html>, Hmisc 
+<http://cran.r-project.org/web/packages/Hmisc/index.html>, mapproj 
+<http://cran.r-project.org/web/packages/mapproj/index.html>, maps 
+<http://cran.r-project.org/web/packages/maps/index.html>, digest 
+<http://cran.r-project.org/web/packages/digest/index.html>, colorspace 
+<http://cran.r-project.org/web/packages/colorspace/index.html>, hexbin 
+<http://cran.r-project.org/web/packages/hexbin/index.html>, gpclib 
+<http://cran.r-project.org/web/packages/gpclib/index.html>, maptools 
+<http://cran.r-project.org/web/packages/maptools/index.html>
+
+
+Would anyone be interested in taking this on with me and writing spec 
+files for some of the ggplot2 prereqs?
+

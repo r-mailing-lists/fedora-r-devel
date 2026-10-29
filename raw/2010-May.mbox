@@ -1,0 +1,70 @@
+From pingou at pingoured.fr  Wed May  5 12:52:53 2010
+From: pingou at pingoured.fr (Pierre-Yves Chibon)
+Date: Wed, 05 May 2010 12:52:53 +0000
+Subject: [Fedora-r-devel-list] R2spec - 3.0.0
+Message-ID: <1273063973.14245.9.camel@cyan.pingoured.fr>
+
+Hi all,
+
+As announced on my blog, I have released the new version of R2spec
+(version 3.0.0) containing R2rpm.
+
+Below[2] is the full changelog for this release.
+
+Thanks for your comments/feedbacks on this release.
+Feel free to test it again and add karma on Bodhi [1]
+
+Thanks to all of you again,
+
+Pierre
+
+
+[1]
+https://admin.fedoraproject.org/updates/R2spec-3.0.0-1.fc13
+https://admin.fedoraproject.org/updates/R2spec-3.0.0-1.fc12
+https://admin.fedoraproject.org/updates/R2spec-3.0.0-1.fc11
+https://admin.fedoraproject.org/updates/R2spec-3.0.0-1.el4
+https://admin.fedoraproject.org/updates/R2spec-3.0.0-1.el5
+
+[2]
+Changelog:
+----------
+Version 3.0.0 -- 05th May 2019
+- Features added
+  * R2spec can now be called from an external script
+  * Use template via jinja2 to generate the spec files (Based on an idea
+of Allen S. Rout)
+  * Create the R2rpm script which directly builds the rpm
+  * Add a man page for R2rpm
+  * Add the -p option which enable to build a spec from a package name
+  * Parse the PACKAGES file from the repositories to find the
+information for the packages
+  * Make the print of the TODO optional in the API
+  * Give the opportunity to use mock to build the RPMs (rpmbuild being
+the default)
+  * Enable to specify the mock command in the conf file
+  * Enable to change the argument given to rpmbuild via the conf file 
+      (to build srpm instead of rpm for example)
+- Bugs correction
+  * Fix the addition of the R- prefix to the dependencies
+  * Rewrite the reading of the DESCRIPTION file from R
+  * Do not enforce the spec and the source directory, reads the
+rpmmacros instead
+     Thanks to José Matos for this function
+  * Fix the summary if it ends with a dot "."
+  * Capitalize the summary by default
+  * Change UTF-8 to utf-8 to make emacs happy
+  * Fix the spec file for the dependencies of this new release
+  * Fix some bugs while trying to generate the RPM/SPEC from a tarball
+
+From pingou at pingoured.fr  Mon May 31 09:36:00 2010
+From: pingou at pingoured.fr (Pierre-Yves Chibon)
+Date: Mon, 31 May 2010 09:36:00 +0000
+Subject: [Fedora-r-devel-list] [Fwd: [R] R 2.11.1 is released]
+Message-ID: <1275298560.8580.28.camel@lab.localdomain>
+
+
+
+-------------- next part --------------
+WzxlbWFpbC5tZXNzYWdlLk1lc3NhZ2UgaW5zdGFuY2UgYXQgMHgzZjA1NzU4Pl0=
+

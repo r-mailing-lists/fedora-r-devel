@@ -1,0 +1,182 @@
+From alexl at users.sourceforge.net  Tue May 13 09:49:16 2008
+From: alexl at users.sourceforge.net (Alex Lancaster)
+Date: Tue, 13 May 2008 09:49:16 +0000
+Subject: [Fedora-r-devel-list] Re: Plans for R-2.7.0?
+In-Reply-To: <1208957476.12717.151.camel@localhost.localdomain>
+Message-ID: <otfxsmy1nn.fsf@allele2.eebweb.arizona.edu>
+
+>>>>> "TC" == Tom \"spot\" Callaway  writes:
+
+TC> On Wed, 2008-04-23 at 02:56 -0700, Alex Lancaster wrote:
+>> I agree, wait for F-9.  Then we can put it through updates-testing,
+>> have time to push dependent packages that might need rebuilding,
+>> including (but probably not limited to) rpy.
+>> 
+>> Meanwhile we could push versions for F-7 & F-8 to updates-testing
+>> to shake out potential problems.  Then push them all to stable
+>> after F-9 is released.
+
+TC> Ehhh, i don't want to break the upgrade path. We'll just sit on
+TC> this until after F-9.
+
+I just noticed that some packages fail to rebuild with R 2.7.0, e.g.
+
+http://koji.fedoraproject.org/koji/taskinfo?taskID=606646
+
+the build.log has the following:
+
+checking for unpackaged file(s): /usr/lib/rpm/check-files
+/var/tmp/R-zoo-1.5-3.fc10-root-mockbuild
+error: 
+Installed (but unpackaged) file(s) found:
+   /usr/share/R/library/zoo/NEWS
+RPM build errors:
+    Installed (but unpackaged) file(s) found:
+   /usr/share/R/library/zoo/NEWS
+
+Does 2.7.0 somehow attempt to compile/provide a NEWS file even if the
+actual package does not?
+
+Alex
+
+From alexl at users.sourceforge.net  Tue May 13 10:01:39 2008
+From: alexl at users.sourceforge.net (Alex Lancaster)
+Date: Tue, 13 May 2008 10:01:39 +0000
+Subject: [Fedora-r-devel-list] Re: Plans for R-2.7.0?
+In-Reply-To: <otfxsmy1nn.fsf@allele2.eebweb.arizona.edu>
+Message-ID: <4rbq3ay130.fsf@allele2.eebweb.arizona.edu>
+
+>>>>> "AL" == Alex Lancaster  writes:
+
+>>>>> "TC" == Tom \"spot\" Callaway  writes:
+TC> On Wed, 2008-04-23 at 02:56 -0700, Alex Lancaster wrote:
+>>> I agree, wait for F-9.  Then we can put it through
+>>> updates-testing, have time to push dependent packages that might
+>>> need rebuilding, including (but probably not limited to) rpy.
+>>> 
+>>> Meanwhile we could push versions for F-7 & F-8 to updates-testing
+>>> to shake out potential problems.  Then push them all to stable
+>>> after F-9 is released.
+
+TC> Ehhh, i don't want to break the upgrade path. We'll just sit on
+TC> this until after F-9.
+
+AL> I just noticed that some packages fail to rebuild with R 2.7.0,
+AL> e.g.
+
+AL> http://koji.fedoraproject.org/koji/taskinfo?taskID=606646
+
+AL> the build.log has the following:
+
+AL> checking for unpackaged file(s): /usr/lib/rpm/check-files
+AL> /var/tmp/R-zoo-1.5-3.fc10-root-mockbuild error: Installed (but
+AL> unpackaged) file(s) found: /usr/share/R/library/zoo/NEWS RPM build
+AL> errors: Installed (but unpackaged) file(s) found:
+AL> /usr/share/R/library/zoo/NEWS
+
+AL> Does 2.7.0 somehow attempt to compile/provide a NEWS file even if
+AL> the actual package does not?
+
+Actually looking at it a bit closer it seems that R 2.7.0 is a bit
+smarter about installing the NEWS file if it's present, see:
+
+https://bugzilla.redhat.com/show_bug.cgi?id=445635#c11
+
+for more details.  This might affect a few packages that don't
+explicitly include NEWS in their %files list.  If this is so, it would
+probably be useful if the sample spec files in the R packaging
+guidelines:
+
+http://fedoraproject.org/wiki/Packaging/R
+
+were also updated accordingly, as many people use those as templates
+to create new R packages.
+
+Alex
+
+From tcallawa at redhat.com  Tue May 13 13:55:40 2008
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Tue, 13 May 2008 13:55:40 +0000
+Subject: Re: [Fedora-r-devel-list] Re: Plans for R-2.7.0?
+In-Reply-To: <4rbq3ay130.fsf@allele2.eebweb.arizona.edu>
+Message-ID: <1210686940.1920.12.camel@localhost.localdomain>
+
+On Tue, 2008-05-13 at 03:01 -0700, Alex Lancaster wrote:
+> This might affect a few packages that don't
+> explicitly include NEWS in their %files list.  If this is so, it would
+> probably be useful if the sample spec files in the R packaging
+> guidelines:
+
+Good catch, I've updated the guidelines.
+
+~spot
+
+From pingou at pingoured.fr  Sat May 17 11:23:20 2008
+From: pingou at pingoured.fr (Pierre-Yves Chibon)
+Date: Sat, 17 May 2008 11:23:20 +0000
+Subject: Re: [Fedora-r-devel-list] Re: Plans for R-2.7.0?
+In-Reply-To: <1208957476.12717.151.camel@localhost.localdomain>
+Message-ID: <482EC028.5050808@pingoured.fr>
+
+Tom "spot" Callaway wrote:
+> On Wed, 2008-04-23 at 02:56 -0700, Alex Lancaster wrote:
+> 
+>> I agree, wait for F-9.  Then we can put it through updates-testing,
+>> have time to push dependent packages that might need rebuilding,
+>> including (but probably not limited to) rpy.
+>>
+>> Meanwhile we could push versions for F-7 & F-8 to updates-testing to
+>> shake out potential problems.  Then push them all to stable after F-9
+>> is released.
+> 
+> Ehhh, i don't want to break the upgrade path. We'll just sit on this
+> until after F-9.
+> 
+
+What about pushing it now ? :)
+
+I have started to look at the new bioconductor release, some of them 
+will require R >= 2.7.0.
+
+Cheers
+
+Pierre
+
+From tcallawa at redhat.com  Sat May 17 13:09:12 2008
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Sat, 17 May 2008 13:09:12 +0000
+Subject: Re: [Fedora-r-devel-list] Re: Plans for R-2.7.0?
+In-Reply-To: <482EC028.5050808@pingoured.fr>
+Message-ID: <1211029752.3801.148.camel@localhost.localdomain>
+
+On Sat, 2008-05-17 at 13:23 +0200, pingou wrote:
+> Tom "spot" Callaway wrote:
+> > On Wed, 2008-04-23 at 02:56 -0700, Alex Lancaster wrote:
+> > 
+> >> I agree, wait for F-9.  Then we can put it through updates-testing,
+> >> have time to push dependent packages that might need rebuilding,
+> >> including (but probably not limited to) rpy.
+> >>
+> >> Meanwhile we could push versions for F-7 & F-8 to updates-testing to
+> >> shake out potential problems.  Then push them all to stable after F-9
+> >> is released.
+> > 
+> > Ehhh, i don't want to break the upgrade path. We'll just sit on this
+> > until after F-9.
+> > 
+> 
+> What about pushing it now ? :)
+> 
+> I have started to look at the new bioconductor release, some of them 
+> will require R >= 2.7.0.
+
+It is now in testing for all active releases (F-7, F-8, F-9):
+
+https://admin.fedoraproject.org/updates/F7/pending/rpy-0.4.6-25.fc7,R-2.7.0-2.fc7.1
+https://admin.fedoraproject.org/updates/F8/pending/rpy-1.0.1-4.fc8,R-2.7.0-2.fc8.1
+https://admin.fedoraproject.org/updates/F9/pending/rpy-1.0.1-6.fc9,R-2.7.0-2.fc9.1
+
+I'm not sure why these haven't pushed yet, I did them several days ago.
+
+~spot
+

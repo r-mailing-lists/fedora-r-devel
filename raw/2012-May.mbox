@@ -1,0 +1,256 @@
+From jamatos at fc.up.pt  Fri May 11 19:43:12 2012
+From: jamatos at fc.up.pt (=?utf-8?q?Jos=C3=A9_Ab=C3=ADlio_Matos?=)
+Date: Fri, 11 May 2012 19:43:12 +0000
+Subject: [Fedora-r-devel-list] problems while building R-rJava
+Message-ID: <4FAD6BD0.5040208@fc.up.pt>
+
+Hello,
+    while chasing the several dependencies to build R-Sim-DiffProc I had
+to build R-rJava, at moment that is failing while testing the examples.
+Are there any suggestions to overcome this?
+
+* checking examples ... ERROR
+Running examples in 'rJava-Ex.R' failed
+The error most likely occurred in:
+
+
+> ### Name: J
+> ### Title: High level API for accessing Java
+> ### Aliases: J
+> ### Keywords: interface
+>
+> ### ** Examples
+>
+> ## Don't show:
+> .jinit()
+[1] 0
+
+> ## End Don't show
+>
+> if (!nzchar(Sys.getenv("NOAWT"))) {
++   f <- new(J("java.awt.Frame"), "Hello")
++   f$setVisible(TRUE)
++ }
+Error in .jcall("RJavaTools", "Ljava/lang/Object;", "newInstance",
+.jfindClass(class),  :
+  java.awt.HeadlessException:
+No X11 DISPLAY variable was set, but this program performed an operation
+which requires it.
+Calls: new -> new -> .J -> .jcall -> .jcheck -> .Call
+Execution halted
+error: Bad exit status from /tmp/rpmbuild/rpm-tmp.DdN0bT (%check)
+
+
+Regards,
+
+-- 
+José Matos
+
+From jamatos at fc.up.pt  Fri May 11 20:00:13 2012
+From: jamatos at fc.up.pt (=?utf-8?q?Jos=C3=A9_Ab=C3=ADlio_Matos?=)
+Date: Fri, 11 May 2012 20:00:13 +0000
+Subject: Re: [Fedora-r-devel-list] problems while building R-rJava
+In-Reply-To: <4FAD6BD0.5040208@fc.up.pt>
+Message-ID: <4FAD6FCD.6010400@fc.up.pt>
+
+On 2012-05-11 20:43, José Matos wrote:
+> Hello,
+>     while chasing the several dependencies to build R-Sim-DiffProc I had
+> to build R-rJava, at moment that is failing while testing the examples.
+> Are there any suggestions to overcome this?
+
+Right, I got over this by installing R-java-devel.
+
+Regards,
+
+-- 
+José Matos
+
+From jamatos at fc.up.pt  Sat May 12 12:45:18 2012
+From: jamatos at fc.up.pt (=?utf-8?q?Jos=C3=A9_Ab=C3=ADlio_Matos?=)
+Date: Sat, 12 May 2012 12:45:18 +0000
+Subject: Re: [Fedora-r-devel-list] R-repo
+In-Reply-To: <1330550479.12592.34.camel@ambre.pingoured.fr>
+Message-ID: <4FAE5B5E.8050400@fc.up.pt>
+
+On 2012-02-29 21:21, Pierre-Yves Chibon wrote:
+> On Wed, 2012-02-29 at 19:21 +0000, José Matos wrote:
+>> After almost two months going on what is the outcome of this project?
+> Well the structure is there and a number of rpms available.
+> I have started on the update mechanism but I have only got around the
+> first round.
+> The spec are on github and I have no problem giving the rights to commit
+> if people are interested (<hint>, <hint> ;-)).
+
+After June 11th sure, until there I have 18h of classes per week for
+undergrads, master and phd students and with a seven months old lovely
+daughter there is not much of free time, oh and surely the scouts
+work... :-)
+
+My last surge for build R packages for Fedora is due to the academic work.
+I have several students doing their master thesis using stochastic
+differential equations in several domains and for that I suggested them
+to use R packages since R is a language they learn in the course.
+
+One of the packages that is appropriate is the Sim.DiffProc package. For
+that package the chain dependency is relatively simple.
+
+So if you do not mind I have several questions regarding this issue.
+
+1) Why is r-repo.org not available for Fedora? Lack of time is a fair
+answer. :-)
+
+2) I noticed that you have R-xlsxjars packaged in r-repo, from a quick
+glance it looks like it just packages a set of jar files. I am clueless
+when it comes to java but are not those some kind of binary files that
+could be replaced using dependencies for system libraries? I am aware
+that jars can have different purposes but I am asking anyway.
+
+
+>> Back in September I wanted to package some R libraries and it took
+>> some time to get all the packages due to the build requirement of each
+>> package, I had to unravel the dependencies while deciding what was
+>> necessary to bootstrap the process, and not even speaking about
+>> circular references. Clearly a fun project... :-) 
+> <irony>hm R ? circular dependencies? I think I've heard about that once
+> or twice </irony>
+
+Do you have any idea of how R install.packages deals with these cases?
+
+While searching for further information I noticed that the corresponding
+effort on the debian side is cran2deb
+http://r-forge.r-project.org/scm/?group_id=247
+
+and the active repository is available at http://debian-r.debian.net/
+
+>>From the available discussion and from my previous work I know that
+there are several issues to be tracked. One of them is the package
+license and the other are the external (system libraries) dependencies.
+Is this information stored in any central place (database)?
+
+> Pierre
+
+Thank for all your hard work and regards,
+
+-- 
+José Matos
+
+From pingou at pingoured.fr  Sun May 13 17:23:24 2012
+From: pingou at pingoured.fr (Pierre-Yves Chibon)
+Date: Sun, 13 May 2012 17:23:24 +0000
+Subject: Re: [Fedora-r-devel-list] R-repo
+In-Reply-To: <4FAE5B5E.8050400@fc.up.pt>
+Message-ID: <1336929804.12240.16.camel@ambre.pingoured.fr>
+
+On Sat, 2012-05-12 at 13:45 +0100, José Matos wrote:
+> On 2012-02-29 21:21, Pierre-Yves Chibon wrote:
+> > On Wed, 2012-02-29 at 19:21 +0000, José Matos wrote:
+> >> After almost two months going on what is the outcome of this project?
+> > Well the structure is there and a number of rpms available.
+> > I have started on the update mechanism but I have only got around the
+> > first round.
+> > The spec are on github and I have no problem giving the rights to commit
+> > if people are interested (<hint>, <hint> ;-)).
+> 
+> After June 11th sure, until there I have 18h of classes per week for
+> undergrads, master and phd students and with a seven months old lovely
+> daughter there is not much of free time, oh and surely the scouts
+> work... :-)
+> 
+> My last surge for build R packages for Fedora is due to the academic work.
+> I have several students doing their master thesis using stochastic
+> differential equations in several domains and for that I suggested them
+> to use R packages since R is a language they learn in the course.
+> 
+> One of the packages that is appropriate is the Sim.DiffProc package. For
+> that package the chain dependency is relatively simple.
+> 
+> So if you do not mind I have several questions regarding this issue.
+> 
+> 1) Why is r-repo.org not available for Fedora? Lack of time is a fair
+> answer. :-)
+
+Time is definitively part of the answer the other part being the
+challenge of rebuilding the repo once in a while when necessary.
+
+> 2) I noticed that you have R-xlsxjars packaged in r-repo, from a quick
+> glance it looks like it just packages a set of jar files. I am clueless
+> when it comes to java but are not those some kind of binary files that
+> could be replaced using dependencies for system libraries? I am aware
+> that jars can have different purposes but I am asking anyway.
+
+R can be coupled with java as it can be with C/C++/fortran &so on, I
+*assume* that this is what was done in this package (again, *assumed*).
+If it is not the case, then for sure it should not be this way and it
+should rely on system libraries.
+
+R-repo is/was aiming at automatically generated RPM which mean that a
+number of them are not 100% valid. At least it gives us a basis for
+further improvement.
+
+I have to say that from my side time is truly limiting and the situation
+won't change (it will even get worse) with the fact that I am starting
+the last year of my PhD but at least this time everything is publicly
+available on github if there are people interested in the
+maintenance/development of the project.
+
+> >> Back in September I wanted to package some R libraries and it took
+> >> some time to get all the packages due to the build requirement of each
+> >> package, I had to unravel the dependencies while deciding what was
+> >> necessary to bootstrap the process, and not even speaking about
+> >> circular references. Clearly a fun project... :-) 
+> > <irony>hm R ? circular dependencies? I think I've heard about that once
+> > or twice </irony>
+> 
+> Do you have any idea of how R install.packages deals with these cases?
+
+To be honest, I do not know, but I am not sure install.packages runs the
+tests and thus it likely doesn't run into the circular dependency
+problem which are most of the time of the type: A requires B which
+suggests A (or similar).
+
+> While searching for further information I noticed that the corresponding
+> effort on the debian side is cran2deb
+> http://r-forge.r-project.org/scm/?group_id=247
+> 
+> and the active repository is available at http://debian-r.debian.net/
+> 
+> From the available discussion and from my previous work I know that
+> there are several issues to be tracked. One of them is the package
+> license and the other are the external (system libraries) dependencies.
+> Is this information stored in any central place (database)?
+
+There are no form of license check done atm in R-repo and it doesn't
+rely on a central database.
+The dependency tree is built by parsing the PACKAGES files from the
+different repository. 
+The R-repo-utility [1] contains the script doing the work (building the
+tree, building the RPMs, checking for updates and so on).
+
+
+Let me know if I can be of any help.
+
+Regards,
+Pierre
+
+[1] https://github.com/pypingou/R-repo-utility
+
+From pingou at pingoured.fr  Sun May 13 17:47:02 2012
+From: pingou at pingoured.fr (Pierre-Yves Chibon)
+Date: Sun, 13 May 2012 17:47:02 +0000
+Subject: [Fedora-r-devel-list] Review request
+Message-ID: <1336931222.12240.25.camel@ambre.pingoured.fr>
+
+Hi,
+
+In order to update some Bioconductor R libraries to their latest version
+I have a new dependency that has to be packaged.
+
+The review request is there:
+https://bugzilla.redhat.com/show_bug.cgi?id=821267
+
+If someone has sometime to look into it :-)
+
+Thanks in advance!
+Pierre
+

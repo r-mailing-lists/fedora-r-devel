@@ -1,0 +1,18 @@
+From tcallawa at redhat.com  Wed Mar 12 22:12:04 2008
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Wed, 12 Mar 2008 22:12:04 +0000
+Subject: [Fedora-r-devel-list] R 2.6.2 on F-7 and F-8
+Message-ID: <1205359924.2998.117.camel@localhost.localdomain>
+
+I just did testing updates for R 2.6.2 (and a rpy rebuild to match) for
+F-7 and F-8.
+
+Please test them out and give the updates positive karma if they work:
+
+https://admin.fedoraproject.org/updates/F7/pending/rpy-0.4.6-24.fc7,R-2.6.2-1.fc7.1
+https://admin.fedoraproject.org/updates/F8/pending/rpy-1.0.1-3.fc8,R-2.6.2-1.fc8.1
+
+Thanks,
+
+~spot
+

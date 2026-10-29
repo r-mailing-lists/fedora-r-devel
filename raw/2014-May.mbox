@@ -1,0 +1,24 @@
+From jamatos at fc.up.pt  Fri May 16 18:06:31 2014
+From: jamatos at fc.up.pt (=?utf-8?q?Jos=C3=A9_Ab=C3=ADlio_Matos?=)
+Date: Fri, 16 May 2014 18:06:31 +0000
+Subject: [Fedora-r-devel-list] default location for R_LIBS_USER
+Message-ID: <6936289.5XVFEZb6qa@ulysses>
+
+Hi,
+	recently I have installed rstudio in my machine to see how it works, it insists to install two packages rstudio and another.
+
+I found then later that R created a directory called R in my home directory. I find that behavior annoying to have a program installing a directory right in my home directory.
+
+The solution, is to add a line in .Renviron, in my case:
+
+R_LIBS_USER=~/.local/R/x86_64-redhat-linux-gnu-library/3.1
+
+Is there any reason to not have this as the default?
+I can think of historical reasons, status-quo, R developers insisting in having the directory visible...
+
+What do others think?
+
+Regards,
+-- 
+José Abílio
+

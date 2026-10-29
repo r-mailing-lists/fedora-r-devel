@@ -1,0 +1,200 @@
+From tcallawa at redhat.com  Tue Jul  8 14:47:36 2008
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Tue, 08 Jul 2008 14:47:36 +0000
+Subject: [Fedora-r-devel-list] R 2.7.1
+Message-ID: <1215528456.3214.15.camel@localhost.localdomain>
+
+R 2.7.1 is coming real soon now. It's built for F-8, F-9, and rawhide
+now, rpy is building against it for F-8 and F-9 now (its done in
+rawhide).
+
+When the updates hit testing, it would be helpful if you guys could test
+and give karma so it can go into stable quickly. I will post the links
+when they are done.
+
+Thanks,
+
+~spot
+
+From tcallawa at redhat.com  Tue Jul  8 14:49:14 2008
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Tue, 08 Jul 2008 14:49:14 +0000
+Subject: [Fedora-r-devel-list] New CRAN packages in Fedora need reviews
+Message-ID: <1215528554.3214.17.camel@localhost.localdomain>
+
+I built a few CRAN packages today that looked useful. If anyone wants to
+help review these, I'd appreciate it:
+
+https://bugzilla.redhat.com/show_bug.cgi?id=454439 (R-nws)
+https://bugzilla.redhat.com/show_bug.cgi?id=454440 (R-biglm)
+https://bugzilla.redhat.com/show_bug.cgi?id=454441 (R-bigmemory)
+
+Thanks in advance,
+
+~spot
+
+From tcallawa at redhat.com  Tue Jul  8 17:02:30 2008
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Tue, 08 Jul 2008 17:02:30 +0000
+Subject: Re: [Fedora-r-devel-list] R 2.7.1
+In-Reply-To: <1215528456.3214.15.camel@localhost.localdomain>
+Message-ID: <1215536550.3214.63.camel@localhost.localdomain>
+
+On Tue, 2008-07-08 at 10:47 -0400, Tom "spot" Callaway wrote:
+> R 2.7.1 is coming real soon now. It's built for F-8, F-9, and rawhide
+> now, rpy is building against it for F-8 and F-9 now (its done in
+> rawhide).
+> 
+> When the updates hit testing, it would be helpful if you guys could test
+> and give karma so it can go into stable quickly. I will post the links
+> when they are done.
+
+F-8:
+https://admin.fedoraproject.org/updates/F8/pending/rpy-1.0.3-2.fc8,R-2.7.1-1.fc8
+
+F-9: 
+https://admin.fedoraproject.org/updates/F9/pending/rpy-1.0.3-2.fc9,R-2.7.1-1.fc9
+
+~spot
+
+From pingou at pingoured.fr  Sat Jul 19 16:03:25 2008
+From: pingou at pingoured.fr (Pierre-Yves Chibon)
+Date: Sat, 19 Jul 2008 16:03:25 +0000
+Subject: Re: [Fedora-r-devel-list] Bioconductor in Fedora
+In-Reply-To: <ttlk8cadjp.fsf@allele2.eebweb.arizona.edu>
+Message-ID: <4882104D.8060705@pingoured.fr>
+
+Alex Lancaster wrote:
+> This is just a heads-up about packaging of Bioconductor.  
+
+This last email was some time ago and the situation evolved a bit.
+
+We have now more R libraries in Fedora and 15 libraries from 
+Bioconductor. I have been talking about Bioconductor with Alex and we 
+end with the idea that having at least the most important libraries of 
+bioconductor available on Fedora would probably be a nice feature for 
+bioinformaticians.
+
+I have made a draft version of this feature :
+https://fedoraproject.org/wiki/Features/Bioconductor
+
+But I think some point should be discussed about bioconductor :
+* What should we do about the metadata and the experiment data packages 
+that are required (well in fact suggested most of the time)?
+Those libraries contain only data. For the couple of package of this 
+type that we have already in Fedora the solution until now has been to 
+ask real-eng to inherit the tag between the version (from F-7 to devel). 
+This process would solved quite some place on the server but have the 
+problem that we have to annoy the real-eng for each package/update.
+
+* Would it be possible to have a group package such as users just have 
+to type /yum install bioconductor/ to get the basis package of 
+bioconductor ?
+
+* Is there a way to categorize the packages such as the user can easily 
+found what packages from Bioconductor are available on the repo ?
+
+* The list of packages to do in order to have the main packages of 
+Bioconductor is (I expect, I have not checked yet) around 60 to 70.
+I can maintain some but I don't want to do all myself, especially since 
+my situation might change quite a bit in January.
+Creating the specfile is not hard, here is a small python script that 
+helps to generate the specfile [1]
+Maintaining those packages is not really difficult, there is 1 release 
+every 6 month (for each major release of R).
+I developed a small python script [2] that handle most of the work, I 
+still have some ideas to improve it (I want to really personalize it for 
+Bioconductor packages).
+
+So to conclude
+* I think having Bioconductor in Fedora is a nice Feature
+* I cannot make it on my own, but I have no problem to coordinate things 
+in order that we build a group that could handle both the packaging and 
+the maintaining of the packages.
+
+
+Thanks to have read my bad English all the way to here :)
+Let me know what you think of this,
+
+Best regards,
+
+Pierre
+
+
+P.S. If you think that the project is nice, maybe we could look for more 
+people through the devel mailing list ?
+
+[1] http://pingoured.fr/public/R2spec_1.3.py
+[2] http://pingoured.fr/public/updateCVS_0.2.py
+
+From pingou at pingoured.fr  Mon Jul 28 11:54:53 2008
+From: pingou at pingoured.fr (Pierre-Yves Chibon)
+Date: Mon, 28 Jul 2008 11:54:53 +0000
+Subject: Re: [Fedora-r-devel-list] Bioconductor in Fedora
+In-Reply-To: <4882104D.8060705@pingoured.fr>
+Message-ID: <488DB38D.2040709@pingoured.fr>
+
+Pierre-Yves wrote:
+> Alex Lancaster wrote:
+>> This is just a heads-up about packaging of Bioconductor.  
+> 
+> This last email was some time ago and the situation evolved a bit.
+<snip />
+> * The list of packages to do in order to have the main packages of 
+> Bioconductor is (I expect, I have not checked yet) around 60 to 70.
+> I can maintain some but I don't want to do all myself, especially since 
+> my situation might change quite a bit in January.
+> Creating the specfile is not hard, here is a small python script that 
+> helps to generate the specfile [1]
+> Maintaining those packages is not really difficult, there is 1 release 
+> every 6 month (for each major release of R).
+> I developed a small python script [2] that handle most of the work, I 
+> still have some ideas to improve it (I want to really personalize it for 
+> Bioconductor packages).
+
+
+I have been looking a bit at the dependencies question.
+There is 20 main libraries of Bioconductor  (based on what the biocLite 
+script install by default). The list is presented here
+https://fedoraproject.org/wiki/Features/Bioconductor#Scope
+
+With the help of Torbjorn on #R (irc.freenode.net) I modified a small 
+perl script[1] that goes on the bioconductor SVN and for each packages 
+retrieve both the depends and suggests dependencies.
+The results is available here:
+http://pingou.fedorapeople.org/Bioconductor/Dependencies2
+To compare with
+http://pingou.fedorapeople.org/Bioconductor/Dependencies
+When there is only the Depends taken into account.
+
+ From that list I used this script[2] to process the dependencies and 
+sub-dependencies that we would need to package.
+The results are presented here:
+Depends+Suggests:
+http://pingou.fedorapeople.org/Bioconductor/Dependencies-Depends_Suggests.txt
+Depends only:
+http://pingou.fedorapeople.org/Bioconductor/Depedencies-Depends.txt
+
+The number of libraries to package jump from 36 to 75 if we take into 
+account the Suggests dependencies.
+This only takes into account the dependencies of the software part of 
+Bioconductor, the libraries called 'metadata' or 'experiment data' which 
+I believe can also have sub-dependencies are not presented here.
+
+This can give us some insight on where to start.
+However I would like to know what you, guys, think of the question 
+dependencies "Depends" vs "Depends+Suggests".
+"Suggests" add more work and leads to the problem of circular references 
+quite often...
+
+I have not heard from you about the global idea, do you 
+like/appreciate/don't care about it ? (cross out the wrong option)
+
+Regards,
+
+Pierre
+
+
+[1] http://pingou.fedorapeople.org/Bioconductor/bio.pl
+[2] http://pingou.fedorapeople.org/Bioconductor/showDep_1.1.py
+

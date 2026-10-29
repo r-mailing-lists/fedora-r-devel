@@ -1,0 +1,278 @@
+From tcallawa at redhat.com  Tue Sep  2 15:36:12 2008
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Tue, 02 Sep 2008 15:36:12 +0000
+Subject: Re: [Fedora-r-devel-list] R2spec new release
+In-Reply-To: <2c8757af0808311012m5f6c4d1dm26a929c949d58c9c@mail.gmail.com>
+Message-ID: <1220369772.26352.36.camel@localhost.localdomain>
+
+On Sun, 2008-08-31 at 18:12 +0100, Dan Bolser wrote:
+
+> Now is there any way to cross check these against what R actually has
+> installed? I am trying to think about ways that the R-installer could
+> be used in combination with the packages... or is the idea to package
+> the whole of CRAN? Where would such a repo be maintained? How would it
+> be kept in sync with CRAN?
+
+Well, I'm certainly not so bored as to want to repackage all of CRAN. :)
+
+I think the safest thing is to query R for what it has installed, and
+not be concerned about whether it was built manually from CRAN, or
+provided pre-built by Fedora.
+
+~spot
+
+From dan.bolser at gmail.com  Mon Sep 15 09:13:26 2008
+From: dan.bolser at gmail.com (Dan Bolser)
+Date: Mon, 15 Sep 2008 09:13:26 +0000
+Subject: Re: [Fedora-r-devel-list] R2spec new release
+In-Reply-To: <1220369772.26352.36.camel@localhost.localdomain>
+Message-ID: <2c8757af0809150213j128ae0ebg59013fb9c9b3308f@mail.gmail.com>
+
+2008/9/2 Tom spot Callaway <tcallawa(a)redhat.com>:
+> On Sun, 2008-08-31 at 18:12 +0100, Dan Bolser wrote:
+>
+>> Now is there any way to cross check these against what R actually has
+>> installed? I am trying to think about ways that the R-installer could
+>> be used in combination with the packages... or is the idea to package
+>> the whole of CRAN? Where would such a repo be maintained? How would it
+>> be kept in sync with CRAN?
+>
+> Well, I'm certainly not so bored as to want to repackage all of CRAN. :)
+>
+> I think the safest thing is to query R for what it has installed, and
+> not be concerned about whether it was built manually from CRAN, or
+> provided pre-built by Fedora.
+
+OK, and then packages from Fedora with deps in CRAN that have been
+locally built can be installed right? Can we set up the RPM so that it
+can 'query R for what it has installed' for the purposes of resolving
+such deps?
+
+Is this what happens already?
+
+>
+> ~spot
+>
+> _______________________________________________
+> Fedora-r-devel-list mailing list
+> Fedora-r-devel-list(a)redhat.com
+> http://www.redhat.com/mailman/listinfo/fedora-r-devel-list
+>
+
+
+
+-- 
+http://network.nature.com/profile/dan
+
+From gnwiii at gmail.com  Mon Sep 15 11:11:00 2008
+From: gnwiii at gmail.com (George N. White III)
+Date: Mon, 15 Sep 2008 11:11:00 +0000
+Subject: Re: [Fedora-r-devel-list] R2spec new release
+In-Reply-To: <2c8757af0809150213j128ae0ebg59013fb9c9b3308f@mail.gmail.com>
+Message-ID: <22af238a0809150411v641540d1nf7e8775d3ea1b54@mail.gmail.com>
+
+On Mon, Sep 15, 2008 at 6:13 AM, Dan Bolser <dan.bolser(a)gmail.com> wrote:
+
+> 2008/9/2 Tom spot Callaway <tcallawa(a)redhat.com>:
+>> On Sun, 2008-08-31 at 18:12 +0100, Dan Bolser wrote:
+>>
+>>> Now is there any way to cross check these against what R actually has
+>>> installed? I am trying to think about ways that the R-installer could
+>>> be used in combination with the packages... or is the idea to package
+>>> the whole of CRAN? Where would such a repo be maintained? How would it
+>>> be kept in sync with CRAN?
+>>
+>> Well, I'm certainly not so bored as to want to repackage all of CRAN. :)
+>>
+>> I think the safest thing is to query R for what it has installed, and
+>> not be concerned about whether it was built manually from CRAN, or
+>> provided pre-built by Fedora.
+
+In researching the possibility of having userland rpm, there was a
+suggestion that
+dummy packages be created for the base system rpms, so that dependencies will
+be resolved against the system versions.   This raises the possibility of a
+tool to create dummy rpm's for packages installed by R.   That way, rather than
+the user having to check dependencies across 2 different package management
+systems, there could a command to create dummy rpms for manually built CRAN
+packages.  These could be "installed" so they would be used by rpm to resolve
+dependencies in pre-built Fedora rpms.
+
+> OK, and then packages from Fedora with deps in CRAN that have been
+> locally built can be installed right? Can we set up the RPM so that it
+> can 'query R for what it has installed' for the purposes of resolving
+> such deps?
+>
+> Is this what happens already?
+
+With R, users can manually install CRAN package from source to
+$HOME/R/library...
+I doubt that can be handled using the system rpm database -- you would need a
+database owned by each user.  Since some sites are moving to a model that
+separates user applications from the base system, there is a need for packaging
+that does not require root access simply to maintain the rpm database.
+
+-- 
+George N. White III <aa056(a)chebucto.ns.ca>
+Head of St. Margarets Bay, Nova Scotia
+
+From pingou at pingoured.fr  Mon Sep 15 11:33:38 2008
+From: pingou at pingoured.fr (Pierre-Yves Chibon)
+Date: Mon, 15 Sep 2008 11:33:38 +0000
+Subject: Re: [Fedora-r-devel-list] R2spec new release
+In-Reply-To: <22af238a0809150411v641540d1nf7e8775d3ea1b54@mail.gmail.com>
+Message-ID: <48CE4812.1030407@pingoured.fr>
+
+George N. White III wrote:
+<snip />
+> In researching the possibility of having userland rpm, there was a
+> suggestion that
+> dummy packages be created for the base system rpms, so that dependencies will
+> be resolved against the system versions.   This raises the possibility of a
+> tool to create dummy rpm's for packages installed by R.   That way, rather than
+> the user having to check dependencies across 2 different package management
+> systems, there could a command to create dummy rpms for manually built CRAN
+> packages.  These could be "installed" so they would be used by rpm to resolve
+> dependencies in pre-built Fedora rpms.
+
+Would make a fake/dummy RPM be any better than directly package the RPM ?
+I don't think it decrease the amount of work :/
+
+Or we need something that add the entry to rpmdb while we set up a 
+package using R. But then what about the package installed in 
+$HOME/R/library ?
+Two users will not have the same libraries available while the database 
+will say that the library is installed.
+
+I know I bring more questions than answers here, but I don't what the 
+best solution would be.
+
+Best regards,
+
+Pierre
+
+From pertusus at free.fr  Mon Sep 15 14:46:06 2008
+From: pertusus at free.fr (Patrice Dumas)
+Date: Mon, 15 Sep 2008 14:46:06 +0000
+Subject: Re: [Fedora-r-devel-list] R2spec new release
+In-Reply-To: <2c8757af0809150213j128ae0ebg59013fb9c9b3308f@mail.gmail.com>
+Message-ID: <20080915144606.GB2849@free.fr>
+
+On Mon, Sep 15, 2008 at 10:13:26AM +0100, Dan Bolser wrote:
+> 
+> OK, and then packages from Fedora with deps in CRAN that have been
+> locally built can be installed right? Can we set up the RPM so that it
+> can 'query R for what it has installed' for the purposes of resolving
+> such deps?
+> 
+> Is this what happens already?
+
+No, dependencies of a rpm package are set up at build time. And if a
+dependency is not in the rpm database it won't be considered to be
+fulfilled. This design doesn't allow rpm to track something that was not
+installed as a rpm, but the reason is that when installed as a rpm there
+is a 'promise' that the package is available for all users, while other
+kind of installations cannot make that 'promise'. Maybe there are ways,
+in some case to be sure that a package is available for all users
+although it wasn't installed through rpm (for example in R, maybe there
+are ways to know if a package is installed for every users by not
+searching in user paths, only in system paths), but these are not taken 
+into account in the rpm design. And there are good reasons, indeed, a R
+package could be installed system-wide, which is not only R noarch code but
+contains some C code linked against a library, and this library isn't on
+the loader search path for all the users. rpm would track down the
+library too, while R may or may not, in any case it cannot be counted
+on, and things become much too complicated in rpm if a knowledge of 3rd
+party languages has to be embedded in rpm for things not installed
+through rpm.
+
+That being said, a way to create a package without actual files that has
+the dependencies can workaround the fact that rpm doesn't know about
+packages not installed through rpm.
+
+--
+Pat
+
+From gnwiii at gmail.com  Mon Sep 15 22:24:21 2008
+From: gnwiii at gmail.com (George N. White III)
+Date: Mon, 15 Sep 2008 22:24:21 +0000
+Subject: Re: [Fedora-r-devel-list] R2spec new release
+In-Reply-To: <20080915144606.GB2849@free.fr>
+Message-ID: <22af238a0809151524u205cb151p28d5c9adeceb3f47@mail.gmail.com>
+
+On Mon, Sep 15, 2008 at 11:46 AM, Patrice Dumas <pertusus(a)free.fr> wrote:
+
+> On Mon, Sep 15, 2008 at 10:13:26AM +0100, Dan Bolser wrote:
+>>
+>> OK, and then packages from Fedora with deps in CRAN that have been
+>> locally built can be installed right? Can we set up the RPM so that it
+>> can 'query R for what it has installed' for the purposes of resolving
+>> such deps?
+>>
+>> Is this what happens already?
+>
+> No, dependencies of a rpm package are set up at build time. And if a
+> dependency is not in the rpm database it won't be considered to be
+> fulfilled. This design doesn't allow rpm to track something that was not
+> installed as a rpm, but the reason is that when installed as a rpm there
+> is a 'promise' that the package is available for all users, while other
+> kind of installations cannot make that 'promise'. Maybe there are ways,
+> in some case to be sure that a package is available for all users
+> although it wasn't installed through rpm (for example in R, maybe there
+> are ways to know if a package is installed for every users by not
+> searching in user paths, only in system paths), but these are not taken
+> into account in the rpm design. And there are good reasons, indeed, a R
+> package could be installed system-wide, which is not only R noarch code but
+> contains some C code linked against a library, and this library isn't on
+> the loader search path for all the users. rpm would track down the
+> library too, while R may or may not, in any case it cannot be counted
+> on, and things become much too complicated in rpm if a knowledge of 3rd
+> party languages has to be embedded in rpm for things not installed
+> through rpm.
+
+Yes, unless you prohibit installs using, e.g.  "R CMD INSTALL"  tools
+to  inform
+rpm of what has been installed should be provided.   Even with such a
+prohibition,
+the tools may be needed to migrate an existing install to the rpm
+regime. Since R can
+install to various libraries, you have to consider the problem of
+maintaining multiple
+corresponding rpm databases, one for each library used by R.   One approach
+would be to discourage installs to /usr/lib/R/library except via rpm packages.
+In practice this means casual experimentation with new packages can continue
+as before using some other location, but that a bit more discipline
+will be imposed
+for installs to the system-wide location.   In return, there is more hope that
+R libraries packaged as rpm's will "just work" without the problems
+that sometimes
+occur (configure fails due to differences over versions or locations
+for include files)
+using R source libraries.
+
+> That being said, a way to create a package without actual files that has
+> the dependencies can workaround the fact that rpm doesn't know about
+> packages not installed through rpm.
+
+This is the issue that arises for rpm installs to a user directory, e.g.,
+
+$ rpm -ivh myfile.rpm --relocate /oldlocation=/newlocation
+
+The mkVirtualrpm shell script (German): <http://ojkastl.de/pub/LinuxClub/>
+is supposed to solve the problem of ensuring that the rpm database in
+/newlocation is informed of things already installed to /oldlocation.
+
+<http://wiki.linux-club.de/opensuse/Wie_erstelle_ich_ein_virtuelles_RPM_Paket>
+
+I haven't had time to investigate, but I hope this can provide a
+starting point for creating
+virtual rpm's to go with R packages.  In principle, these virtual
+rpm's could also do some
+post-install processing to make documentation mimic the distro's
+standards, update
+index files, etc.
+
+-- 
+George N. White III <aa056(a)chebucto.ns.ca>
+Head of St. Margarets Bay, Nova Scotia
+

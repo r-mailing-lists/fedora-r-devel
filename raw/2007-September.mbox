@@ -1,0 +1,36 @@
+From pingoufc4 at yahoo.fr  Tue Sep 25 21:37:03 2007
+From: pingoufc4 at yahoo.fr (pingou)
+Date: Tue, 25 Sep 2007 21:37:03 +0000
+Subject: [Fedora-r-devel-list] How to handle already installed libraries ?
+Message-ID: <46F97F7F.8030704@yahoo.fr>
+
+Hi all,
+
+Making some packages, and having "some" problems with the dependencies,
+I was wondering if it possible to increment a sort of R CMD check2 that
+do all the steps of the R CMD check except the "* checking package
+dependencies".
+
+That would help to process all the check command and avoid the circular
+references problem, which is quite common.
+This command would obviously be used only if the normal command can not
+be used.
+
+What do you think of ?
+Is it possible ?
+
+Thanks in advance
+~pingou
+
+	
+
+	
+
+	
+
+	
+		
+___________________________________________________________________________ 
+Yahoo! Mail réinvente le mail ! Découvrez le nouveau Yahoo! Mail et son interface révolutionnaire.
+http://fr.mail.yahoo.com
+

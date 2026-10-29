@@ -1,0 +1,21 @@
+From pingou at pingoured.fr  Mon Mar  4 18:05:59 2013
+From: pingou at pingoured.fr (Pierre-Yves Chibon)
+Date: Mon, 04 Mar 2013 18:05:59 +0000
+Subject: [Fedora-r-devel-list] R package ownership changed
+Message-ID: <1362420359.24893.33.camel@ambre.pingoured.fr>
+
+Hi,
+
+For the record, I took over the ownership of the following package from
+Sandro (aka red):
+R-ROC
+R-affydata 
+R-fibroEset
+R-hgu133acdf
+R-hgu95av2cdf
+R-statmod
+R-timeDate
+R-xtable
+
+Pierre
+

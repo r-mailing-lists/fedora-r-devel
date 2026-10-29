@@ -1,0 +1,411 @@
+From pingoufc4 at yahoo.fr  Wed Oct  3 23:09:33 2007
+From: pingoufc4 at yahoo.fr (pingou)
+Date: Wed, 03 Oct 2007 23:09:33 +0000
+Subject: Re: [Fedora-r-devel-list] How to handle already installed libraries ?
+In-Reply-To: <46F97F7F.8030704@yahoo.fr>
+Message-ID: <4704212D.8050403@yahoo.fr>
+
+Hi all,
+
+I have just realized that I made a mistake sending my new question
+instead I send the previous one... My apologizes for that.
+
+Please find here, the original question.
+
+
+Speaking with some people on the #R chan on irc (freenode) one
+question shows up,
+What happened if a library is installed by RPM but was already
+installed before through the R cmd install command ?
+Which one of the 2 libraries is used ?
+
+Quite some libraries that I have made are noarch libraries, I install
+them in /usr/share whereas the r cmd install install them in /usr/lib.
+Which mean that we can have twice the same library.
+
+Then, I was wondering whether we should include a way to check for the
+presence of a library before install it.
+
+What do you think of it ??
+
+Other question, in the case that the library has not been installed at
+the right place should we remove it ? (before install it through the rpm)
+
+Best regards,
+~pingou
+
+
+	
+
+	
+		
+___________________________________________________________________________ 
+Yahoo! Mail réinvente le mail ! Découvrez le nouveau Yahoo! Mail et son interface révolutionnaire.
+http://fr.mail.yahoo.com
+
+From pertusus at free.fr  Wed Oct  3 23:18:12 2007
+From: pertusus at free.fr (Patrice Dumas)
+Date: Wed, 03 Oct 2007 23:18:12 +0000
+Subject: Re: [Fedora-r-devel-list] How to handle already installed libraries ?
+In-Reply-To: <4704212D.8050403@yahoo.fr>
+Message-ID: <20071003231812.GA2602@free.fr>
+
+On Thu, Oct 04, 2007 at 01:09:33AM +0200, pingou wrote:
+> Hi all,
+> 
+> Which one of the 2 libraries is used ?
+
+I guess that R has a search path with both locations?
+
+> Quite some libraries that I have made are noarch libraries, I install
+> them in /usr/share whereas the r cmd install install them in /usr/lib.
+
+/usr/share is the right place for noarch libraries.
+
+> Then, I was wondering whether we should include a way to check for the
+> presence of a library before install it.
+
+We shouldn't. 
+
+> Other question, in the case that the library has not been installed at
+> the right place should we remove it ? (before install it through the rpm)
+
+We shouldn't either. 
+
+If the user mixes rpm installed and hand installed softwares he should
+know what he is doing, doing things automatically is not right when we
+don't know the user intentions.
+
+Now maybe there could be some facilities in R in fedora to help user 
+install his stuff in a specific path (for example /usr/local/lib or 
+/usr/local/share) in order not to install stuff in directories that are 
+traditionnally under rpm conrol, like /usr/lib and /usr/share. But I
+don't know if it is feasible, nor easy, and I am not sure that it is
+desirable either.
+
+--
+Pat
+
+From jamatos at fc.up.pt  Thu Oct  4 07:01:10 2007
+From: jamatos at fc.up.pt (=?utf-8?q?Jos=C3=A9_Ab=C3=ADlio_Matos?=)
+Date: Thu, 04 Oct 2007 07:01:10 +0000
+Subject: [Fedora-r-devel-list] Plans for R 2.6
+Message-ID: <200710040801.11025.jamatos@fc.up.pt>
+
+Hi,
+	now that R 2.6 is out what is the work plan? :-)
+https://stat.ethz.ch/pipermail/r-announce/2007/000832.html
+
+	Regards,
+-- 
+José Abílio
+
+From pingoufc4 at yahoo.fr  Thu Oct  4 10:07:45 2007
+From: pingoufc4 at yahoo.fr (pingou)
+Date: Thu, 04 Oct 2007 10:07:45 +0000
+Subject: Re: [Fedora-r-devel-list] How to handle already installed libraries ?
+In-Reply-To: <20071003231812.GA2602@free.fr>
+Message-ID: <4704BB71.10207@yahoo.fr>
+
+Patrice Dumas wrote:
+> On Thu, Oct 04, 2007 at 01:09:33AM +0200, pingou wrote:
+>> Hi all,
+>> Other question, in the case that the library has not been installed at
+>> the right place should we remove it ? (before install it through the rpm)
+> 
+> We shouldn't either. 
+> 
+Maybe the new feature of R 2.6 could help on that point...
+
+> R CMD INSTALL --preclean cleans up the sources after a
+> previous installation (as if that had used --clean) before
+> attempting to install.
+
+Should we use it ? (in the sense that now that R implements it)
+
+Regards,
+~Pingou
+
+[1]https://stat.ethz.ch/pipermail/r-announce/2007/000832.html
+
+	
+
+	
+		
+___________________________________________________________________________ 
+Yahoo! Mail réinvente le mail ! Découvrez le nouveau Yahoo! Mail et son interface révolutionnaire.
+http://fr.mail.yahoo.com
+
+From pertusus at free.fr  Thu Oct  4 10:41:05 2007
+From: pertusus at free.fr (Patrice Dumas)
+Date: Thu, 04 Oct 2007 10:41:05 +0000
+Subject: Re: [Fedora-r-devel-list] How to handle already installed libraries ?
+In-Reply-To: <4704BB71.10207@yahoo.fr>
+Message-ID: <20071004104105.GA4111@free.fr>
+
+On Thu, Oct 04, 2007 at 12:07:45PM +0200, pingou wrote:
+> > 
+> Maybe the new feature of R 2.6 could help on that point...
+> 
+> > R CMD INSTALL --preclean cleans up the sources after a
+> > previous installation (as if that had used --clean) before
+> > attempting to install.
+> 
+> Should we use it ? (in the sense that now that R implements it)
+
+Then R CMD INSTALL --preclean would be called in a pre script or the
+like? rpm already takes care of removing old files?
+
+--
+Pat
+
+From pingoufc4 at yahoo.fr  Thu Oct  4 10:50:13 2007
+From: pingoufc4 at yahoo.fr (pingou)
+Date: Thu, 04 Oct 2007 10:50:13 +0000
+Subject: Re: [Fedora-r-devel-list] How to handle already installed libraries ?
+In-Reply-To: <20071004104105.GA4111@free.fr>
+Message-ID: <4704C565.3020203@yahoo.fr>
+
+Patrice Dumas wrote:
+> On Thu, Oct 04, 2007 at 12:07:45PM +0200, pingou wrote:
+>> Maybe the new feature of R 2.6 could help on that point...
+>>
+>>> R CMD INSTALL --preclean cleans up the sources after a
+>>> previous installation (as if that had used --clean) before
+>>> attempting to install.
+>> Should we use it ? (in the sense that now that R implements it)
+> 
+> Then R CMD INSTALL --preclean would be called in a pre script or the
+> like? rpm already takes care of removing old files?
+> 
+I was more thinking to change our command
+>R CMD INSTALL %{packname} -l %{buildroot}%{_datadir}/R/library
+to something like
+>R CMD INSTALL --preclean %{packname} -l %{buildroot}%{_datadir}/R/library
+
+I have the feeling that it will not solve the problems of the two
+libraries, but I might help to clean before updated...
+
+~pingou
+
+	
+
+	
+		
+___________________________________________________________________________ 
+Yahoo! Mail réinvente le mail ! Découvrez le nouveau Yahoo! Mail et son interface révolutionnaire.
+http://fr.mail.yahoo.com
+
+From pertusus at free.fr  Thu Oct  4 11:33:29 2007
+From: pertusus at free.fr (Patrice Dumas)
+Date: Thu, 04 Oct 2007 11:33:29 +0000
+Subject: Re: [Fedora-r-devel-list] How to handle already installed libraries ?
+In-Reply-To: <4704C565.3020203@yahoo.fr>
+Message-ID: <20071004113329.GC4490@free.fr>
+
+On Thu, Oct 04, 2007 at 12:50:13PM +0200, pingou wrote:
+> >R CMD INSTALL %{packname} -l %{buildroot}%{_datadir}/R/library
+> to something like
+> >R CMD INSTALL --preclean %{packname} -l %{buildroot}%{_datadir}/R/library
+> 
+> I have the feeling that it will not solve the problems of the two
+> libraries, but I might help to clean before updated...
+
+What is cleaned in that  case? Things below
+
+1. %{buildroot}%{_datadir}/R/library
+
+or 
+
+2. %{_datadir}/R/library
+
+Or 
+3. in source?
+
+In case 1. I can't see the interest of doing it, in case 2. it is very
+wrong, and in case 3. I also can't see what it would be needed for.
+
+Doing it in pre script may have more sense, but once again the user
+should do it by hand, it shouldn't be automatic.
+
+--
+Pat
+
+From pingoufc4 at yahoo.fr  Thu Oct  4 11:36:57 2007
+From: pingoufc4 at yahoo.fr (pingou)
+Date: Thu, 04 Oct 2007 11:36:57 +0000
+Subject: Re: [Fedora-r-devel-list] How to handle already installed libraries ?
+In-Reply-To: <20071004113329.GC4490@free.fr>
+Message-ID: <4704D059.7080601@yahoo.fr>
+
+Patrice Dumas wrote:
+
+> 
+> Doing it in pre script may have more sense, but once again the user
+> should do it by hand, it shouldn't be automatic.
+> 
+Then I believe that we should just leave things as they are now :)
+
+	
+
+	
+		
+___________________________________________________________________________ 
+Yahoo! Mail réinvente le mail ! Découvrez le nouveau Yahoo! Mail et son interface révolutionnaire.
+http://fr.mail.yahoo.com
+
+From tcallawa at redhat.com  Thu Oct  4 13:30:02 2007
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Thu, 04 Oct 2007 13:30:02 +0000
+Subject: Re: [Fedora-r-devel-list] Plans for R 2.6
+In-Reply-To: <200710040801.11025.jamatos@fc.up.pt>
+Message-ID: <1191504602.3634.17.camel@localhost.localdomain>
+
+
+On Thu, 2007-10-04 at 08:01 +0100, José Matos wrote:
+> Hi,
+> 	now that R 2.6 is out what is the work plan? :-)
+> https://stat.ethz.ch/pipermail/r-announce/2007/000832.html
+
+I'm going to package it up today for F-7, F-8 and devel (I'm going to
+request an F-8 branch, so it gets picked up as a 0-day update).
+
+I'll throw an email out to this list when the package is built.
+
+~spot
+
+From jamatos at fc.up.pt  Thu Oct  4 15:08:19 2007
+From: jamatos at fc.up.pt (=?utf-8?q?Jos=C3=A9_Ab=C3=ADlio_Matos?=)
+Date: Thu, 04 Oct 2007 15:08:19 +0000
+Subject: Re: [Fedora-r-devel-list] Plans for R 2.6
+In-Reply-To: <1191504602.3634.17.camel@localhost.localdomain>
+Message-ID: <200710041608.19760.jamatos@fc.up.pt>
+
+On Thursday 04 October 2007 14:30:02 Tom "spot" Callaway wrote:
+> I'll throw an email out to this list when the package is built.
+
+  OK. Thanks.
+
+> ~spot
+
+-- 
+José Abílio
+
+From tcallawa at redhat.com  Thu Oct  4 20:38:14 2007
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Thu, 04 Oct 2007 20:38:14 +0000
+Subject: Re: [Fedora-r-devel-list] Plans for R 2.6
+In-Reply-To: <200710041608.19760.jamatos@fc.up.pt>
+Message-ID: <1191530294.3634.50.camel@localhost.localdomain>
+
+
+On Thu, 2007-10-04 at 16:08 +0100, José Matos wrote:
+> On Thursday 04 October 2007 14:30:02 Tom "spot" Callaway wrote:
+> > I'll throw an email out to this list when the package is built.
+> 
+>   OK. Thanks.
+
+They're all built. I'm going to go push the update for F-7 into testing
+now.
+
+~spot
+
+From pingoufc4 at yahoo.fr  Thu Oct 25 22:52:13 2007
+From: pingoufc4 at yahoo.fr (pingou)
+Date: Thu, 25 Oct 2007 22:52:13 +0000
+Subject: [Fedora-r-devel-list] Guidelines and R cmd check
+Message-ID: <47211E1D.9010400@yahoo.fr>
+
+Dear all
+
+Please find here the answer that I had from somebody from the 
+bioconductor-devel mailing list.
+
+The subject was (originally) more or less related to the R CMD check 
+that we use by default on the spec :
+
+ >A lot of packages also use a Suggest field (e.g. Biobase suggests ALL,
+ >Biostrings suggests BSgenome.Celegans.UCSC.ce2). Most of the times, 
+ >people
+ >don't need the suggested stuff. It could be that this stuff is only 
+ >used in
+ >the vignette or in some of the man pages (in the example section).
+ >That's the case for Biostrings. Forcing people to install all the stuff
+ >suggested by Biostrings (by putting it in the Depends field) would be a
+ >bad idea. First it would introduce circular dependencies. Second it >would
+ >force them to download gigabytes of data that they don't need!
+ >
+ >All this to say that I don't think that people using the RPM version of
+ >Bioconductor should be forced to install the suggested stuff.
+
+Packaging quite some libraries from that repository, I would say that 
+the resolution of the dependences is quite an important issue for that 
+repository.
+I addition, I believe that he is true when he stands that most of the 
+suggest dependences are only of interest for examples or so...
+
+My question is then, should we stick to the present packaging guidelines 
+or should we take this into account ?
+
+I agree that the r cmd check make sure that all the dependencies are 
+present, but make sure that they are is (to my opinion) also a packager 
+and reviewer job, and is also quite easy with the DESCRIPTION file.
+
+What is your opinion on that point ?
+
+Thanks for your help,
+Best regards
+~pingou
+
+
+	
+
+	
+		
+___________________________________________________________________________ 
+Yahoo! Mail réinvente le mail ! Découvrez le nouveau Yahoo! Mail et son interface révolutionnaire.
+http://fr.mail.yahoo.com
+
+From tcallawa at redhat.com  Fri Oct 26 13:08:55 2007
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Fri, 26 Oct 2007 13:08:55 +0000
+Subject: Re: [Fedora-r-devel-list] Guidelines and R cmd check
+In-Reply-To: <47211E1D.9010400@yahoo.fr>
+Message-ID: <1193404135.3400.11.camel@localhost.localdomain>
+
+
+On Fri, 2007-10-26 at 00:52 +0200, pingou wrote:
+> I agree that the r cmd check make sure that all the dependencies are 
+> present, but make sure that they are is (to my opinion) also a
+> packager 
+> and reviewer job, and is also quite easy with the DESCRIPTION file.
+> 
+> What is your opinion on that point ?
+
+I say, use your best judgement. If the dependencies are really
+"suggestions", then don't force them as BuildRequires/Requires just to
+make R CMD CHECK happy. Comment out the check, and explain why in a spec
+file comment.
+
+~spot
+
+From jamatos at fc.up.pt  Fri Oct 26 17:30:03 2007
+From: jamatos at fc.up.pt (=?utf-8?q?Jos=C3=A9_Ab=C3=ADlio_Matos?=)
+Date: Fri, 26 Oct 2007 17:30:03 +0000
+Subject: Re: [Fedora-r-devel-list] Guidelines and R cmd check
+In-Reply-To: <1193404135.3400.11.camel@localhost.localdomain>
+Message-ID: <200710261830.03436.jamatos@fc.up.pt>
+
+On Friday 26 October 2007 14:08:55 Tom "spot" Callaway wrote:
+> I say, use your best judgement. If the dependencies are really
+> "suggestions", then don't force them as BuildRequires/Requires just to
+> make R CMD CHECK happy. Comment out the check, and explain why in a spec
+> file comment.
+
+  I agree.
+
+> ~spot
+
+-- 
+José Abílio
+

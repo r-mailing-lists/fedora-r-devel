@@ -1,0 +1,772 @@
+From pingou at pingoured.fr  Wed Apr  1 09:05:15 2009
+From: pingou at pingoured.fr (Pierre-Yves Chibon)
+Date: Wed, 01 Apr 2009 09:05:15 +0000
+Subject: [Fedora-r-devel-list] License
+Message-ID: <1238576715.4587.19.camel@localhost.localdomain>
+
+Dear all,
+
+I am having a small question/problem for the review [1].
+Upstream updated the sources [2]-[3] which now mention in the
+description file:
+--------------------------
+License: Artistic-2.0
+ExtraLicenses: The following files in the 'src' directory are licensed
+for all
+  use by Jim Kent, in a manner compatible with the Artistic 2.0 license:
+  common.c/h, memalloc.c/h, localmem.c/h, hash.c/h, errabort.c/h,
+rbTree.c/h,
+  dlist.c/h, errCatch.h 
+----------------------------
+
+How should I mention that in the spec file ?
+Should I keep Artistic 2.0 ?
+
+Thanks for your help,
+
+Best regards,
+
+Pierre
+
+
+[1] https://bugzilla.redhat.com/show_bug.cgi?id=490723
+[2] http://bioconductor.org/packages/2.4/bioc/html/IRanges.html
+[3]
+http://bioconductor.org/packages/2.4/bioc/src/contrib/IRanges_1.1.55.tar.gz
+
+From tcallawa at redhat.com  Wed Apr  1 13:01:13 2009
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Wed, 01 Apr 2009 13:01:13 +0000
+Subject: Re: [Fedora-r-devel-list] License
+In-Reply-To: <1238576715.4587.19.camel@localhost.localdomain>
+Message-ID: <49D36599.5080602@redhat.com>
+
+On 04/01/2009 05:05 AM, Pierre-Yves wrote:
+> Dear all,
+> 
+> I am having a small question/problem for the review [1].
+> Upstream updated the sources [2]-[3] which now mention in the
+> description file:
+> --------------------------
+> License: Artistic-2.0
+> ExtraLicenses: The following files in the 'src' directory are licensed
+> for all
+>   use by Jim Kent, in a manner compatible with the Artistic 2.0 license:
+>   common.c/h, memalloc.c/h, localmem.c/h, hash.c/h, errabort.c/h,
+> rbTree.c/h,
+>   dlist.c/h, errCatch.h 
+> ----------------------------
+> 
+> How should I mention that in the spec file ?
+> Should I keep Artistic 2.0 ?
+
+Those files have an extremely permissive license on them. If that
+license was the only license in the package, we would use "Copyright
+only" to reflect that. I'd recommend changing the tag to:
+
+License: Artistic 2.0 and Copyright only
+
+~spot
+
+From martyn.plummer at r-project.org  Fri Apr  3 07:31:32 2009
+From: martyn.plummer at r-project.org (Martyn Plummer)
+Date: Fri, 03 Apr 2009 07:31:32 +0000
+Subject: Re: [Fedora-r-devel-list] R-java and R-java-devel
+In-Reply-To: <49C8D6B2.90709@redhat.com>
+Message-ID: <1238743892.17682.2.camel@localhost.localdomain>
+
+On Tue, 2009-03-24 at 08:48 -0400, Tom "spot" Callaway wrote:
+> On 03/24/2009 05:30 AM, Pierre-Yves wrote:
+> 
+> > While we are at this, could we add something in /etc/profile.d/ to set
+> > R_HOME to /usr/lib{64}/R ?
+> > 
+> > I can also include it in R-rJava to make user's life easier :)
+> 
+> R_HOME should always be determined by asking R (R RHOME), so this isn't
+> necessary.
+> 
+> ~spot
+
+I see that you put this in. But it breaks the testing suite in the
+current development version. Can we go back over this decision to see
+what the original problem was?
+
+Martyn
+
+
+-----------------------------------------------------------------------
+This message and its attachments are strictly confidential. If you are
+not the intended recipient of this message, please immediately notify 
+the sender and delete it. Since its integrity cannot be guaranteed, 
+its content cannot involve the sender's responsibility. Any misuse, 
+any disclosure or publication of its content, either whole or partial, 
+is prohibited, exception made of formally approved use
+-----------------------------------------------------------------------
+
+From tcallawa at redhat.com  Fri Apr  3 13:31:08 2009
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Fri, 03 Apr 2009 13:31:08 +0000
+Subject: Re: [Fedora-r-devel-list] R-java and R-java-devel
+In-Reply-To: <1238743892.17682.2.camel@localhost.localdomain>
+Message-ID: <49D60F9C.7080306@redhat.com>
+
+On 04/03/2009 03:31 AM, Martyn Plummer wrote:
+> On Tue, 2009-03-24 at 08:48 -0400, Tom "spot" Callaway wrote:
+>> On 03/24/2009 05:30 AM, Pierre-Yves wrote:
+>>
+>>> While we are at this, could we add something in /etc/profile.d/ to set
+>>> R_HOME to /usr/lib{64}/R ?
+>>>
+>>> I can also include it in R-rJava to make user's life easier :)
+>> R_HOME should always be determined by asking R (R RHOME), so this isn't
+>> necessary.
+>>
+>> ~spot
+> 
+> I see that you put this in. But it breaks the testing suite in the
+> current development version. Can we go back over this decision to see
+> what the original problem was?
+
+Pierre is maintaining an R module (rJava, I think if memory serves),
+where it refuses to build/function unless R_HOME is set properly. He
+should be able to provide more specifics.
+
+Alternately, might I suggest that the testing suite unset any R related
+env variables before running? Seems like a logical catch-all.
+
+~spot
+
+From martyn.plummer at r-project.org  Fri Apr  3 17:03:33 2009
+From: martyn.plummer at r-project.org (Martyn Plummer)
+Date: Fri, 03 Apr 2009 17:03:33 +0000
+Subject: Re: [Fedora-r-devel-list] R-java and R-java-devel
+In-Reply-To: <49D60F9C.7080306@redhat.com>
+Message-ID: <1238778213.26461.3.camel@localhost.localdomain>
+
+On Fri, 2009-04-03 at 09:31 -0400, Tom "spot" Callaway wrote:
+> On 04/03/2009 03:31 AM, Martyn Plummer wrote:
+> > On Tue, 2009-03-24 at 08:48 -0400, Tom "spot" Callaway wrote:
+> >> On 03/24/2009 05:30 AM, Pierre-Yves wrote:
+> >>
+> >>> While we are at this, could we add something in /etc/profile.d/ to set
+> >>> R_HOME to /usr/lib{64}/R ?
+> >>>
+> >>> I can also include it in R-rJava to make user's life easier :)
+> >> R_HOME should always be determined by asking R (R RHOME), so this isn't
+> >> necessary.
+> >>
+> >> ~spot
+> > 
+> > I see that you put this in. But it breaks the testing suite in the
+> > current development version. Can we go back over this decision to see
+> > what the original problem was?
+> 
+> Pierre is maintaining an R module (rJava, I think if memory serves),
+> where it refuses to build/function unless R_HOME is set properly. He
+> should be able to provide more specifics.
+
+Both the CRAN version of the rJava package, and the latest snapshot from
+rforge build correctly without having R_HOME set.  This must be
+something that happens inside R2spec. I've found Pierre's blog post
+where he talks about the problem and will take a look.
+
+M.
+
+[Sorry I keep forgetting that I need to reply to this list using my
+r-project.org address. I apologize for the admin messages this
+generates]
+
+> Alternately, might I suggest that the testing suite unset any R related
+> env variables before running? Seems like a logical catch-all.
+> 
+> ~spot
+
+
+-----------------------------------------------------------------------
+This message and its attachments are strictly confidential. If you are
+not the intended recipient of this message, please immediately notify 
+the sender and delete it. Since its integrity cannot be guaranteed, 
+its content cannot involve the sender's responsibility. Any misuse, 
+any disclosure or publication of its content, either whole or partial, 
+is prohibited, exception made of formally approved use
+-----------------------------------------------------------------------
+
+From pingou at pingoured.fr  Sat Apr  4 17:44:50 2009
+From: pingou at pingoured.fr (Pierre-Yves Chibon)
+Date: Sat, 04 Apr 2009 17:44:50 +0000
+Subject: Re: [Fedora-r-devel-list] R-java and R-java-devel
+In-Reply-To: <1238778213.26461.3.camel@localhost.localdomain>
+Message-ID: <1238867090.3596.6.camel@localhost.localdomain>
+
+On Fri, 2009-04-03 at 19:03 +0200, Martyn Plummer wrote:
+> On Fri, 2009-04-03 at 09:31 -0400, Tom "spot" Callaway wrote:
+> > On 04/03/2009 03:31 AM, Martyn Plummer wrote:
+> > > On Tue, 2009-03-24 at 08:48 -0400, Tom "spot" Callaway wrote:
+> > >> On 03/24/2009 05:30 AM, Pierre-Yves wrote:
+> > >>> I can also include it in R-rJava to make user's life easier :)
+> > >> R_HOME should always be determined by asking R (R RHOME), so this isn't
+> > >> necessary.
+
+> > > I see that you put this in. But it breaks the testing suite in the
+> > > current development version. Can we go back over this decision to see
+> > > what the original problem was?
+> > 
+> > Pierre is maintaining an R module (rJava, I think if memory serves),
+> > where it refuses to build/function unless R_HOME is set properly. He
+> > should be able to provide more specifics.
+> 
+> Both the CRAN version of the rJava package, and the latest snapshot from
+> rforge build correctly without having R_HOME set.  This must be
+> something that happens inside R2spec. I've found Pierre's blog post
+> where he talks about the problem and will take a look.
+
+The problem does not come from the build itself.
+I managed to build rJava correctly with the change made by spot, the
+problem of R_HOME comes when you try to run a R session within Java.
+I first met the error I reported in my blog is fixed by moving the file
+libjri.so to /usr/lib(64)/, so the RPM now handle it by himself.
+But after this problem Java is asking for the R_HOME to be set in the
+environment variable (I found the piece of the code that handles this
+part, but I don't have it here with me).
+
+Discussing with spot we thought that R_HOME should be set and that it
+should be set within the main R package.
+
+I hope that help to understand the problem,
+
+Best regards,
+
+Pierre
+
+From martyn.plummer at r-project.org  Mon Apr  6 14:09:59 2009
+From: martyn.plummer at r-project.org (Martyn Plummer)
+Date: Mon, 06 Apr 2009 14:09:59 +0000
+Subject: Re: [Fedora-r-devel-list] R-java and R-java-devel
+In-Reply-To: <1238867090.3596.6.camel@localhost.localdomain>
+Message-ID: <1239026999.32283.43.camel@localhost.localdomain>
+
+On Sat, 2009-04-04 at 19:44 +0200, Pierre-Yves wrote:
+> On Fri, 2009-04-03 at 19:03 +0200, Martyn Plummer wrote:
+> > On Fri, 2009-04-03 at 09:31 -0400, Tom "spot" Callaway wrote:
+> > > On 04/03/2009 03:31 AM, Martyn Plummer wrote:
+> > > > On Tue, 2009-03-24 at 08:48 -0400, Tom "spot" Callaway wrote:
+> > > >> On 03/24/2009 05:30 AM, Pierre-Yves wrote:
+> > > >>> I can also include it in R-rJava to make user's life easier :)
+> > > >> R_HOME should always be determined by asking R (R RHOME), so this isn't
+> > > >> necessary.
+> 
+> > > > I see that you put this in. But it breaks the testing suite in the
+> > > > current development version. Can we go back over this decision to see
+> > > > what the original problem was?
+> > > 
+> > > Pierre is maintaining an R module (rJava, I think if memory serves),
+> > > where it refuses to build/function unless R_HOME is set properly. He
+> > > should be able to provide more specifics.
+> > 
+> > Both the CRAN version of the rJava package, and the latest snapshot from
+> > rforge build correctly without having R_HOME set.  This must be
+> > something that happens inside R2spec. I've found Pierre's blog post
+> > where he talks about the problem and will take a look.
+> 
+> The problem does not come from the build itself.
+> I managed to build rJava correctly with the change made by spot, the
+> problem of R_HOME comes when you try to run a R session within Java.
+> I first met the error I reported in my blog is fixed by moving the file
+> libjri.so to /usr/lib(64)/, so the RPM now handle it by himself.
+> But after this problem Java is asking for the R_HOME to be set in the
+> environment variable (I found the piece of the code that handles this
+> part, but I don't have it here with me).
+> 
+> Discussing with spot we thought that R_HOME should be set and that it
+> should be set within the main R package.
+
+This is using the JRI interface to call the R engine from within java.
+If you want to do this then you should write a wrapper script that sets
+all the necessary environment variables, the class path and so on.
+
+The rJava package contains two examples "rtest" and "rtest2", both of
+which are installed, along with a wrapper script called "run". These
+work perfectly for me:
+
+[martyn(a)seurat ~]$ cd /usr/lib64/R/library/rJava/jri/
+[martyn(a)seurat jri]$ ./run rtest
+...
+[martyn(a)seurat jri]$./run rtest2
+...
+
+A more extensive example is the JGR package which provides a Java GUI
+for R. The GUI can be launched from the shell by running a wrapper
+script - again called "run" - which is installed with the JGR package.
+This script also works perfectly for me. 
+
+This is not a reason to set R_HOME globally,
+
+Martyn
+
+> I hope that help to understand the problem,
+> 
+> Best regards,
+> 
+> Pierre
+
+
+-----------------------------------------------------------------------
+This message and its attachments are strictly confidential. If you are
+not the intended recipient of this message, please immediately notify 
+the sender and delete it. Since its integrity cannot be guaranteed, 
+its content cannot involve the sender's responsibility. Any misuse, 
+any disclosure or publication of its content, either whole or partial, 
+is prohibited, exception made of formally approved use
+-----------------------------------------------------------------------
+
+From tcallawa at redhat.com  Mon Apr  6 15:17:15 2009
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Mon, 06 Apr 2009 15:17:15 +0000
+Subject: Re: [Fedora-r-devel-list] R-java and R-java-devel
+In-Reply-To: <1239026999.32283.43.camel@localhost.localdomain>
+Message-ID: <49DA1CFB.1060704@redhat.com>
+
+On 04/06/2009 10:09 AM, Martyn Plummer wrote:
+>> Discussing with spot we thought that R_HOME should be set and that it
+>> > should be set within the main R package.
+> 
+> This is using the JRI interface to call the R engine from within java.
+> If you want to do this then you should write a wrapper script that sets
+> all the necessary environment variables, the class path and so on.
+> 
+> The rJava package contains two examples "rtest" and "rtest2", both of
+> which are installed, along with a wrapper script called "run". These
+> work perfectly for me:
+
+So... where does it fail? I only added the R_HOME exports on the grounds
+that there was a legitimate need for them. If there is not, I'm willing
+to drop them. (I didn't want R-rJava to carry the shell scripts, because
+I thought that if one R module needed them, another would inevitably
+need them as well, then we'd have odd dependency chains on R-rJava.)
+
+Of course, I still stand behind my point that R should unset all the
+environment variables that could cause it trouble before running its tests.
+
+~spot
+
+From pingou at pingoured.fr  Mon Apr  6 15:26:35 2009
+From: pingou at pingoured.fr (Pierre-Yves Chibon)
+Date: Mon, 06 Apr 2009 15:26:35 +0000
+Subject: Re: [Fedora-r-devel-list] R-java and R-java-devel
+In-Reply-To: <1239026999.32283.43.camel@localhost.localdomain>
+Message-ID: <1239031595.3156.28.camel@localhost.localdomain>
+
+On Mon, 2009-04-06 at 16:09 +0200, Martyn Plummer wrote:
+> This is using the JRI interface to call the R engine from within java.
+> If you want to do this then you should write a wrapper script that sets
+> all the necessary environment variables, the class path and so on.
+> 
+> The rJava package contains two examples "rtest" and "rtest2", both of
+> which are installed, along with a wrapper script called "run".
+Yes and their first step is:
+
+> #!/bin/sh
+> 
+> R_HOME=/usr/lib64/R
+
+even before running anything
+
+> A more extensive example is the JGR package which provides a Java GUI
+> for R. The GUI can be launched from the shell by running a wrapper
+> script - again called "run" - which is installed with the JGR package.
+> This script also works perfectly for me. 
+> 
+> This is not a reason to set R_HOME globally,
+
+I see two points, either we help the user by setting the R_HOME ourself
+directly within R and rjava works directly or we do not and let set
+R_HOME which he will do anyway to make rjava working...
+
+Is there not a way for the testing suite of the development version to
+test if R_HOME is already set ?
+
+Another solution could be to add the R_HOME only on the rjava package.
+
+If nothing is acceptable then we should roll back, I don't want to break
+R :)
+
+Best regards,
+
+Pierre
+
+From martyn.plummer at r-project.org  Tue Apr  7 10:09:29 2009
+From: martyn.plummer at r-project.org (Martyn Plummer)
+Date: Tue, 07 Apr 2009 10:09:29 +0000
+Subject: Re: [Fedora-r-devel-list] R-java and R-java-devel
+Message-ID: <1239098969.3054.114.camel@localhost.localdomain>
+
+On Mon, 2009-04-06 at 17:26 +0200, Pierre-Yves wrote:
+> On Mon, 2009-04-06 at 16:09 +0200, Martyn Plummer wrote:
+> > This is using the JRI interface to call the R engine from within java.
+> > If you want to do this then you should write a wrapper script that sets
+> > all the necessary environment variables, the class path and so on.
+> > 
+> > The rJava package contains two examples "rtest" and "rtest2", both of
+> > which are installed, along with a wrapper script called "run".
+> Yes and their first step is:
+> 
+> > #!/bin/sh
+> > 
+> > R_HOME=/usr/lib64/R
+> 
+> even before running anything
+> 
+> > A more extensive example is the JGR package which provides a Java GUI
+> > for R. The GUI can be launched from the shell by running a wrapper
+> > script - again called "run" - which is installed with the JGR package.
+> > This script also works perfectly for me. 
+> > 
+> > This is not a reason to set R_HOME globally,
+> 
+> I see two points, either we help the user by setting the R_HOME ourself
+> directly within R and rjava works directly or we do not and let set
+> R_HOME which he will do anyway to make rjava working...
+
+How does it help the user to set R_HOME? 
+
+The rJava package does two things:
+1) It allows the R user to call java functions from within R.
+2) It allows applications written in java to start an instance of the R
+engine and pass data and commands back and forth.
+
+It is the second use (the JRI interface) that concerns us.  There are
+three parties in this situation:
+1) R
+2) The user
+3) A third party java application.
+
+The responsibility for setting R_HOME lies firmly with the third-party
+application, which should launch from within its own shell, within which
+R_HOME is set to the appropriate value.  This value should be determined
+when the application is configured.  The user should never have to set
+it.
+
+> Is there not a way for the testing suite of the development version to
+> test if R_HOME is already set ?
+
+Setting R_HOME in the environment before launching R is the wrong
+thing to do. That is why the R shell script prints a warning, and it is
+the presence of this warning that is causing the test suite to fail.
+
+> Another solution could be to add the R_HOME only on the rjava package.
+> 
+> If nothing is acceptable then we should roll back, I don't want to break
+> R :)
+> 
+> Best regards,
+> 
+> Pierre
+
+
+-----------------------------------------------------------------------
+This message and its attachments are strictly confidential. If you are
+not the intended recipient of this message, please immediately notify 
+the sender and delete it. Since its integrity cannot be guaranteed, 
+its content cannot involve the sender's responsibility. Any misuse, 
+any disclosure or publication of its content, either whole or partial, 
+is prohibited, exception made of formally approved use
+-----------------------------------------------------------------------
+
+From pingou at pingoured.fr  Tue Apr  7 10:59:37 2009
+From: pingou at pingoured.fr (Pierre-Yves Chibon)
+Date: Tue, 07 Apr 2009 10:59:37 +0000
+Subject: Re: [Fedora-r-devel-list] R-java and R-java-devel
+In-Reply-To: <1239098969.3054.114.camel@localhost.localdomain>
+Message-ID: <1239101977.32051.13.camel@localhost.localdomain>
+
+On Tue, 2009-04-07 at 12:09 +0200, Martyn Plummer wrote:
+> > I see two points, either we help the user by setting the R_HOME ourself
+> > directly within R and rjava works directly or we do not and let set
+> > R_HOME which he will do anyway to make rjava working...
+> 
+> How does it help the user to set R_HOME? 
+By user I meant anyone who is willing to use rJava in any of its
+capacity (including the JRI interface).
+That mean: people that develop application using rJava or people that
+use that application.
+
+> 
+> The rJava package does two things:
+> 1) It allows the R user to call java functions from within R.
+> 2) It allows applications written in java to start an instance of the R
+> engine and pass data and commands back and forth.
+> 
+> It is the second use (the JRI interface) that concerns us.  There are
+> three parties in this situation:
+> 1) R
+> 2) The user
+> 3) A third party java application.
+> 
+> The responsibility for setting R_HOME lies firmly with the third-party
+> application, which should launch from within its own shell, within which
+> R_HOME is set to the appropriate value.  This value should be determined
+> when the application is configured.  
+Yes but since JRI does not do it automatically, the developer and thus
+the user have to set a R_HOME by hand.
+The proof is that this run scrip starts by setting R_HOME...
+
+> The user should never have to set
+> it.
+I totally agree.
+I would even say that the JRI interface should be able to determine what
+is R_HOME directly by asking R.
+> 
+> > Is there not a way for the testing suite of the development version to
+> > test if R_HOME is already set ?
+> 
+> Setting R_HOME in the environment before launching R is the wrong
+> thing to do. 
+Just out of curiosity, why ? R_HOME should be coherent between the
+environment and R itself, through a warning if they are different makes
+sense (IMHO), but if they are the same what is the problem ?
+
+Regards,
+
+Pierre
+
+From martyn.plummer at r-project.org  Tue Apr  7 16:53:02 2009
+From: martyn.plummer at r-project.org (Martyn Plummer)
+Date: Tue, 07 Apr 2009 16:53:02 +0000
+Subject: Re: [Fedora-r-devel-list] R-java and R-java-devel
+Message-ID: <1239123182.31492.29.camel@localhost.localdomain>
+
+On Tue, 2009-04-07 at 12:59 +0200, Pierre-Yves wrote:
+> On Tue, 2009-04-07 at 12:09 +0200, Martyn Plummer wrote:
+> 
+> > Setting R_HOME in the environment before launching R is the wrong
+> > thing to do. 
+> Just out of curiosity, why ? R_HOME should be coherent between the
+> environment and R itself, through a warning if they are different makes
+> sense (IMHO), but if they are the same what is the problem ?
+
+People can and do have multiple R installations. Most of these people
+are developers, but we also encourage users to download and test beta
+releases. You are currently breaking developer builds by setting R_HOME
+to point to the Fedora RPM.  Of course, the breakage is relatively
+minor, and takes the form of annoying warnings, but those warnings were
+put there for a reason.
+
+The user is not meant to set R_HOME. The system administrator is
+certainly not meant to set R_HOME.  R_HOME is meant to be set by the
+application that starts the R engine, and it does so in its own shell so
+that there are no side effects. This allows multiple versions of R to
+coexist on the same system.
+
+The only reason that the warning is silenced when the R_HOME environment
+variable matches the correct value is because the R script can
+recursively call itself, e.g.
+
+R CMD Sweave foo.Rnw
+
+will call two instances of the R shell script, and in the second call
+R_HOME is already set by the first call.
+
+Martyn
+
+-----------------------------------------------------------------------
+This message and its attachments are strictly confidential. If you are
+not the intended recipient of this message, please immediately notify 
+the sender and delete it. Since its integrity cannot be guaranteed, 
+its content cannot involve the sender's responsibility. Any misuse, 
+any disclosure or publication of its content, either whole or partial, 
+is prohibited, exception made of formally approved use
+-----------------------------------------------------------------------
+
+From pingou at pingoured.fr  Tue Apr  7 17:18:23 2009
+From: pingou at pingoured.fr (Pierre-Yves Chibon)
+Date: Tue, 07 Apr 2009 17:18:23 +0000
+Subject: Re: [Fedora-r-devel-list] R-java and R-java-devel
+In-Reply-To: <1239123182.31492.29.camel@localhost.localdomain>
+Message-ID: <1239124703.5904.4.camel@localhost.localdomain>
+
+On Tue, 2009-04-07 at 18:53 +0200, Martyn Plummer wrote:
+> On Tue, 2009-04-07 at 12:59 +0200, Pierre-Yves wrote:
+> > On Tue, 2009-04-07 at 12:09 +0200, Martyn Plummer wrote:
+> > 
+> > > Setting R_HOME in the environment before launching R is the wrong
+> > > thing to do. 
+> > Just out of curiosity, why ? R_HOME should be coherent between the
+> > environment and R itself, through a warning if they are different makes
+> > sense (IMHO), but if they are the same what is the problem ?
+> 
+> People can and do have multiple R installations. Most of these people
+> are developers, but we also encourage users to download and test beta
+> releases. You are currently breaking developer builds by setting R_HOME
+> to point to the Fedora RPM.  Of course, the breakage is relatively
+> minor, and takes the form of annoying warnings, but those warnings were
+> put there for a reason.
+> 
+> The user is not meant to set R_HOME. The system administrator is
+> certainly not meant to set R_HOME.  R_HOME is meant to be set by the
+> application that starts the R engine, and it does so in its own shell so
+> that there are no side effects. This allows multiple versions of R to
+> coexist on the same system.
+> 
+> The only reason that the warning is silenced when the R_HOME environment
+> variable matches the correct value is because the R script can
+> recursively call itself, e.g.
+> 
+> R CMD Sweave foo.Rnw
+> 
+> will call two instances of the R shell script, and in the second call
+> R_HOME is already set by the first call.
+
+Thanks for the explanation.
+
+Spot I think the decision is up to you but I think we should not break
+R :-)
+
+Martyn, are you in contact with the guys from rJava ?
+Would it be possible to ask then to make JRI asking R for the R_HOME
+instead of asking an shell variable ?
+
+Best regards,
+
+Pierre
+
+From martyn.plummer at r-project.org  Wed Apr  8 09:50:38 2009
+From: martyn.plummer at r-project.org (Martyn Plummer)
+Date: Wed, 08 Apr 2009 09:50:38 +0000
+Subject: Re: [Fedora-r-devel-list] R-java and R-java-devel
+In-Reply-To: <1239124703.5904.4.camel@localhost.localdomain>
+Message-ID: <1239184238.4579.41.camel@localhost.localdomain>
+
+On Tue, 2009-04-07 at 19:18 +0200, Pierre-Yves wrote:
+> On Tue, 2009-04-07 at 18:53 +0200, Martyn Plummer wrote:
+> > On Tue, 2009-04-07 at 12:59 +0200, Pierre-Yves wrote:
+> > > On Tue, 2009-04-07 at 12:09 +0200, Martyn Plummer wrote:
+> > > 
+> > > > Setting R_HOME in the environment before launching R is the wrong
+> > > > thing to do. 
+> > > Just out of curiosity, why ? R_HOME should be coherent between the
+> > > environment and R itself, through a warning if they are different makes
+> > > sense (IMHO), but if they are the same what is the problem ?
+> > 
+> > People can and do have multiple R installations. Most of these people
+> > are developers, but we also encourage users to download and test beta
+> > releases. You are currently breaking developer builds by setting R_HOME
+> > to point to the Fedora RPM.  Of course, the breakage is relatively
+> > minor, and takes the form of annoying warnings, but those warnings were
+> > put there for a reason.
+> > 
+> > The user is not meant to set R_HOME. The system administrator is
+> > certainly not meant to set R_HOME.  R_HOME is meant to be set by the
+> > application that starts the R engine, and it does so in its own shell so
+> > that there are no side effects. This allows multiple versions of R to
+> > coexist on the same system.
+> > 
+> > The only reason that the warning is silenced when the R_HOME environment
+> > variable matches the correct value is because the R script can
+> > recursively call itself, e.g.
+> > 
+> > R CMD Sweave foo.Rnw
+> > 
+> > will call two instances of the R shell script, and in the second call
+> > R_HOME is already set by the first call.
+> 
+> Thanks for the explanation.
+> 
+> Spot I think the decision is up to you but I think we should not break
+> R :-)
+> 
+> Martyn, are you in contact with the guys from rJava ?
+
+Yes of course. The mailing list for R JAVA development is here:
+
+http://mailman.rz.uni-augsburg.de/mailman/listinfo/stats-rosuda-devel
+
+> Would it be possible to ask then to make JRI asking R for the R_HOME
+> instead of asking an shell variable ?
+
+You can try, but you will probably be told that the recommended way to
+launch an application using JRI is with the "run" script that is
+installed with the rJava package, as  detailed in the FAQ:
+
+http://rosuda.org/JRI/
+
+It is the run script that sets up the environment for you.
+
+> Best regards,
+> 
+> Pierre
+> 
+> _______________________________________________
+> Fedora-r-devel-list mailing list
+> Fedora-r-devel-list(a)redhat.com
+> http://www.redhat.com/mailman/listinfo/fedora-r-devel-list
+> 
+
+-----------------------------------------------------------------------
+This message and its attachments are strictly confidential. If you are
+not the intended recipient of this message, please immediately notify 
+the sender and delete it. Since its integrity cannot be guaranteed, 
+its content cannot involve the sender's responsibility. Any misuse, 
+any disclosure or publication of its content, either whole or partial, 
+is prohibited, exception made of formally approved use
+-----------------------------------------------------------------------
+
+From tcallawa at redhat.com  Wed Apr  8 15:03:25 2009
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Wed, 08 Apr 2009 15:03:25 +0000
+Subject: Re: [Fedora-r-devel-list] R-java and R-java-devel
+In-Reply-To: <1239184238.4579.41.camel@localhost.localdomain>
+Message-ID: <49DCBCBD.70900@redhat.com>
+
+On 04/08/2009 05:50 AM, Martyn Plummer wrote:
+> Spot I think the decision is up to you but I think we should not break
+>> R :-)
+
+Yeah, I agree. I'm pushing updates this morning that revert the
+profile.d scripts (and clean up some of the unnecessary Requires that
+Martyn pointed out before).
+
+~spot
+
+From pingou at pingoured.fr  Thu Apr 23 13:34:43 2009
+From: pingou at pingoured.fr (Pierre-Yves Chibon)
+Date: Thu, 23 Apr 2009 13:34:43 +0000
+Subject: [Fedora-r-devel-list] R-2.9.0
+Message-ID: <1240493683.11240.1.camel@localhost.localdomain>
+
+Hi all,
+
+Spot next time could you advertise here a bit more before pushing a new
+R release into stable ? :)
+
+(It would have avoid me #497320)
+It's not a big deal not having it would have been nicer for the users :)
+
+Thanks,
+
+Best regards,
+Pierre
+
+From tcallawa at redhat.com  Thu Apr 23 14:22:58 2009
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Thu, 23 Apr 2009 14:22:58 +0000
+Subject: Re: [Fedora-r-devel-list] R-2.9.0
+In-Reply-To: <1240493683.11240.1.camel@localhost.localdomain>
+Message-ID: <49F079C2.40902@redhat.com>
+
+On 04/23/2009 09:34 AM, Pierre-Yves wrote:
+> Hi all,
+> 
+> Spot next time could you advertise here a bit more before pushing a new
+> R release into stable ? :)
+> 
+> (It would have avoid me #497320)
+> It's not a big deal not having it would have been nicer for the users :)
+
+Sorry about that. I'll be sure to announce in the future. I thought rpy
+was the only package that needed a rebuild for R versions... is rkward
+version specific as well? If so, maybe you should hardcode the versioned
+Requires like rpy does.
+
+~spot
+

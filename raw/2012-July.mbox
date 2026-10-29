@@ -1,0 +1,28 @@
+From jamatos at fc.up.pt  Wed Jul  4 15:36:37 2012
+From: jamatos at fc.up.pt (=?utf-8?q?Jos=C3=A9_Ab=C3=ADlio_Matos?=)
+Date: Wed, 04 Jul 2012 15:36:37 +0000
+Subject: [Fedora-r-devel-list] R packages that depend explicitly on texlive-latex
+Message-ID: <4FF46305.1030701@fc.up.pt>
+
+Such as R itself, fixed in the version present in updates-testing, there
+are R packages that depend explicitly on texlive-latex. Although that is
+not a problem now I would be better to replace that with a requirement
+on tex(latex) that also works now and it will work when tex is update to
+the latest texlive.
+
+FWIW I am having this problem because I have texlive-2012 installed from
+Jindrich Novy's repo.
+
+The affected packages are:
+
+R-RCurl
+R-rtracklayer
+R-biomaRt
+R-bigmemory
+R-Rcompression
+
+Regards,
+
+-- 
+José Matos
+

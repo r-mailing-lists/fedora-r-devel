@@ -1,0 +1,175 @@
+From pingou at pingoured.fr  Wed Jun  3 13:09:00 2009
+From: pingou at pingoured.fr (Pierre-Yves Chibon)
+Date: Wed, 03 Jun 2009 13:09:00 +0000
+Subject: Re: [Fedora-r-devel-list] R2spec and version number
+In-Reply-To: <200905291053.58554.jamatos@fc.up.pt>
+Message-ID: <1244034540.19270.21.camel@localhost.localdomain>
+
+On Fri, 2009-05-29 at 10:53 +0100, José Matos wrote:
+> On Friday 29 May 2009 06:53:54 Pierre-Yves wrote:
+> > Dear all,
+> >
+> > I would like your opinion regarding: [Bug 503108] New: R2spec-2.5.2
+> > loses Version information
+> >
+> > It basically says that when the package version is 2.3-50 R2spec only
+> > retrieve 2.3 as being the version number.
+> > To me and based on the packages R-abind, R-acepack, R-mAR (and some
+> > other that I didn't list) this is not a bug.
+> >
+> > Do you agree with me ?
+> 
+> I agree that we are loosing information in the version and that on the other 
+> hand the dash is just a fancy replacement for the dot.
+> 
+> So we could agree to replace all the dashes in R package versions by dots and 
+> be done with it.
+> 
+> Whatever we decide we should apply this uniformly to all R packages that have 
+> this numbering.
+
+Thanks for the feedback José :)
+
+Spot, does the guideline say something about this ?
+Should they ?
+Should we bring the discussion to a broader audience ?
+
+Regards,
+Pierre
+
+From martyn.plummer at r-project.org  Wed Jun  3 16:50:36 2009
+From: martyn.plummer at r-project.org (Martyn Plummer)
+Date: Wed, 03 Jun 2009 16:50:36 +0000
+Subject: Re: [Fedora-r-devel-list] R2spec and version number
+In-Reply-To: <1244034540.19270.21.camel@localhost.localdomain>
+Message-ID: <1244047836.9709.76.camel@localhost.localdomain>
+
+On Wed, 2009-06-03 at 15:09 +0200, Pierre-Yves wrote:
+> On Fri, 2009-05-29 at 10:53 +0100, José Matos wrote:
+> > On Friday 29 May 2009 06:53:54 Pierre-Yves wrote:
+> > > Dear all,
+> > >
+> > > I would like your opinion regarding: [Bug 503108] New: R2spec-2.5.2
+> > > loses Version information
+> > >
+> > > It basically says that when the package version is 2.3-50 R2spec only
+> > > retrieve 2.3 as being the version number.
+> > > To me and based on the packages R-abind, R-acepack, R-mAR (and some
+> > > other that I didn't list) this is not a bug.
+> > >
+> > > Do you agree with me ?
+> > 
+> > I agree that we are loosing information in the version and that on the other 
+> > hand the dash is just a fancy replacement for the dot.
+> > 
+> > So we could agree to replace all the dashes in R package versions by dots and 
+> > be done with it.
+> > 
+> > Whatever we decide we should apply this uniformly to all R packages that have 
+> > this numbering.
+> 
+> Thanks for the feedback José :)
+> 
+> Spot, does the guideline say something about this ?
+> Should they ?
+> Should we bring the discussion to a broader audience ?
+> 
+> Regards,
+> Pierre
+
+For R, there is no difference between "-" and "." in package version
+numbers. Here is what the R Extension manual says:
+
+"The version is a sequence of at least two (and usually three)
+non-negative integers separated by single ‘.’ or ‘-’ characters. The
+canonical form is as shown in the example [0.5-1 - Martyn], and a
+version such as ‘0.01’ or ‘0.01.0’ will be handled as if it were
+‘0.1-0’."
+
+So you should just replace dashes with dots.
+
+Martyn
+
+-----------------------------------------------------------------------
+This message and its attachments are strictly confidential. If you are
+not the intended recipient of this message, please immediately notify 
+the sender and delete it. Since its integrity cannot be guaranteed, 
+its content cannot involve the sender's responsibility. Any misuse, 
+any disclosure or publication of its content, either whole or partial, 
+is prohibited, exception made of formally approved use
+-----------------------------------------------------------------------
+
+From tcallawa at redhat.com  Wed Jun  3 21:07:19 2009
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Wed, 03 Jun 2009 21:07:19 +0000
+Subject: Re: [Fedora-r-devel-list] R2spec and version number
+In-Reply-To: <1244047836.9709.76.camel@localhost.localdomain>
+Message-ID: <4A26E607.90401@redhat.com>
+
+On 06/03/2009 12:50 PM, Martyn Plummer wrote:
+
+> For R, there is no difference between "-" and "." in package version
+> numbers. Here is what the R Extension manual says:
+> 
+> "The version is a sequence of at least two (and usually three)
+> non-negative integers separated by single ‘.’ or ‘-’ characters. The
+> canonical form is as shown in the example [0.5-1 - Martyn], and a
+> version such as ‘0.01’ or ‘0.01.0’ will be handled as if it were
+> ‘0.1-0’."
+> 
+> So you should just replace dashes with dots.
+
+Based on that, I'd say we should be embedding the whole version (with
+dot, not dash). Pretty much every R package is going to need to be fixed
+for this, include the core R.
+
+~spot
+
+From pingou at pingoured.fr  Thu Jun  4 05:52:28 2009
+From: pingou at pingoured.fr (Pierre-Yves Chibon)
+Date: Thu, 04 Jun 2009 05:52:28 +0000
+Subject: Re: [Fedora-r-devel-list] R2spec and version number
+In-Reply-To: <4A26E607.90401@redhat.com>
+Message-ID: <1244094748.3272.0.camel@red.localdomain>
+
+On Wed, 2009-06-03 at 17:07 -0400, Tom "spot" Callaway wrote:
+> On 06/03/2009 12:50 PM, Martyn Plummer wrote:
+> 
+> > For R, there is no difference between "-" and "." in package version
+> > numbers. Here is what the R Extension manual says:
+> > 
+> > "The version is a sequence of at least two (and usually three)
+> > non-negative integers separated by single ‘.’ or ‘-’ characters. The
+> > canonical form is as shown in the example [0.5-1 - Martyn], and a
+> > version such as ‘0.01’ or ‘0.01.0’ will be handled as if it were
+> > ‘0.1-0’."
+> > 
+> > So you should just replace dashes with dots.
+> 
+> Based on that, I'd say we should be embedding the whole version (with
+> dot, not dash). Pretty much every R package is going to need to be fixed
+> for this, include the core R.
+
+I'd also propose that we put a small note on the packaging guidelines :)
+
+Thanks all,
+
+Pierre
+
+From pingou at pingoured.fr  Thu Jun 11 22:52:13 2009
+From: pingou at pingoured.fr (Pierre-Yves Chibon)
+Date: Thu, 11 Jun 2009 22:52:13 +0000
+Subject: [Fedora-r-devel-list] [Fwd: [R-sig-Fedora] License quandry in the Fedora sub-space of all R packages]
+Message-ID: <1244760733.7027.9.camel@red.localdomain>
+
+Dear list,
+
+It seems that the address used originally for this mail was wrong there
+is therefore a forward from the r-sig-fedora mailing list.
+
+Regards,
+Pierre
+
+-------------- next part --------------
+WzxlbWFpbC5tZXNzYWdlLk1lc3NhZ2UgaW5zdGFuY2UgYXQgMHgzZjA1NzEwPl0=
+

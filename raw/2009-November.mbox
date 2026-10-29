@@ -1,0 +1,219 @@
+From tcallawa at redhat.com  Thu Nov  5 19:42:04 2009
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Thu, 05 Nov 2009 19:42:04 +0000
+Subject: [Fedora-r-devel-list] R 2.10.0 updates
+Message-ID: <4AF32A8C.6010904@redhat.com>
+
+Sorry that this one didn't make it in time to be tagged for Fedora 12,
+but it will be available as a 0day update.
+
+Fedora 10:
+https://admin.fedoraproject.org/updates/rpy-1.0.3-13.fc10,R-2.10.0-1.fc10
+
+Fedora 11:
+https://admin.fedoraproject.org/updates/rpy-2.0.6-7.fc11,R-2.10.0-1.fc11
+
+Fedora 12:
+https://admin.fedoraproject.org/updates/rpy-2.0.6-7.fc12,R-2.10.0-1.fc12
+
+EL-4: https://admin.fedoraproject.org/updates/R-2.10.0-1.el4
+
+EL-5: https://admin.fedoraproject.org/updates/R-2.10.0-1.el5
+
+Remember that EL-4 and EL-5 updates for R have to sit in updates-testing
+for 3 weeks, unless they receive 3 "positive" karma votes. If you use
+these packages and you want them to hit the updates repository sooner,
+please test them and give feedback at the above links.
+
+Thanks,
+
+~spot
+
+From tcallawa at redhat.com  Mon Nov  9 04:32:02 2009
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Mon, 09 Nov 2009 04:32:02 +0000
+Subject: Re: [Fedora-r-devel-list] R 2.10.0 updates
+In-Reply-To: <4AF32A8C.6010904@redhat.com>
+Message-ID: <4AF79B42.1010403@redhat.com>
+
+On 11/06/2009 05:42 AM, Tom "spot" Callaway wrote:
+> Sorry that this one didn't make it in time to be tagged for Fedora 12,
+> but it will be available as a 0day update.
+
+Brown-paper bag fix available to resolve scriptlet noise. With 2.10.0,
+we no longer need to generate search index.txt from the modules
+"CONTENTS" files.
+
+We can also stop using the macro for the %post/%postun scriptlets in all
+R module packages, but for now, the script checks the version of R and
+only runs the index.txt generation bits if R < 2.10.0 (basically, a noop
+for everything we care about).
+
+We probably need to coordinate a rebuild of all R modules as part of
+this, so it might not be a bad time to drop the %_R_make_search_index
+scriptlet macro everywhere.
+
+Here's the links to the new update:
+
+Fedora 10:
+https://admin.fedoraproject.org/updates/R-2.10.0-2.fc10
+
+Fedora 11:
+https://admin.fedoraproject.org/updates/R-2.10.0-2.fc11
+
+Fedora 12:
+https://admin.fedoraproject.org/updates/R-2.10.0-2.fc12
+
+EL-4:
+https://admin.fedoraproject.org/updates/R-2.10.0-2.el4
+
+EL-5:
+https://admin.fedoraproject.org/updates/R-2.10.0-2.el5
+
+Remember that EL-4 and EL-5 updates for R have to sit in updates-testing
+for 3 weeks, unless they receive 3 "positive" karma votes. If you use
+these packages and you want them to hit the updates repository sooner,
+please test them and give feedback at the above links.
+
+~spot
+
+From pingou at pingoured.fr  Thu Nov 19 21:43:28 2009
+From: pingou at pingoured.fr (Pierre-Yves Chibon)
+Date: Thu, 19 Nov 2009 21:43:28 +0000
+Subject: Re: [Fedora-r-devel-list] R 2.10.0 updates
+In-Reply-To: <4AF79B42.1010403@redhat.com>
+Message-ID: <1258667008.6413.1.camel@red.pingoured.fr>
+
+On Mon, 2009-11-09 at 14:32 +1000, Tom "spot" Callaway wrote:
+> We can also stop using the macro for the %post/%postun scriptlets in
+> all
+> R module packages, but for now, the script checks the version of R and
+> only runs the index.txt generation bits if R < 2.10.0 (basically, a
+> noop
+> for everything we care about).
+> 
+> We probably need to coordinate a rebuild of all R modules as part of
+> this, so it might not be a bad time to drop the %_R_make_search_index
+> scriptlet macro everywhere.
+
+I am planning on rebuilding all my bioconductor package to their latest
+version this week-end (hopefully fixing all the FTBFS, they all do!).
+I will kick out the %post and %postun at the same time.
+
+Shall I also fix this in R2spec ?
+
+Thanks,
+
+Pierre
+
+From tcallawa at redhat.com  Thu Nov 19 21:52:09 2009
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Thu, 19 Nov 2009 21:52:09 +0000
+Subject: Re: [Fedora-r-devel-list] R 2.10.0 updates
+In-Reply-To: <1258667008.6413.1.camel@red.pingoured.fr>
+Message-ID: <4B05BE09.3000007@redhat.com>
+
+On 11/19/2009 04:43 PM, Pierre-Yves wrote:
+> On Mon, 2009-11-09 at 14:32 +1000, Tom "spot" Callaway wrote:
+>> We can also stop using the macro for the %post/%postun scriptlets in
+>> all
+>> R module packages, but for now, the script checks the version of R and
+>> only runs the index.txt generation bits if R < 2.10.0 (basically, a
+>> noop
+>> for everything we care about).
+>>
+>> We probably need to coordinate a rebuild of all R modules as part of
+>> this, so it might not be a bad time to drop the %_R_make_search_index
+>> scriptlet macro everywhere.
+> 
+> I am planning on rebuilding all my bioconductor package to their latest
+> version this week-end (hopefully fixing all the FTBFS, they all do!).
+> I will kick out the %post and %postun at the same time.
+> 
+> Shall I also fix this in R2spec ?
+
+Sounds like a plan.
+
+~spot
+
+From jamatos at fc.up.pt  Thu Nov 19 23:30:38 2009
+From: jamatos at fc.up.pt (=?utf-8?q?Jos=C3=A9_Ab=C3=ADlio_Matos?=)
+Date: Thu, 19 Nov 2009 23:30:38 +0000
+Subject: Re: [Fedora-r-devel-list] R 2.10.0 updates
+In-Reply-To: <1258667008.6413.1.camel@red.pingoured.fr>
+Message-ID: <200911192330.38773.jamatos@fc.up.pt>
+
+On Thursday 19 November 2009 21:43:28 Pierre-Yves wrote:
+> Shall I also fix this in R2spec ?
+
+FWIW you have my moral support. ;-)
+
+Think of it as your good deed of the day. :-)
+
+> Thanks,
+> 
+> Pierre
+
+-- 
+José Abílio
+
+From ihok at hotmail.com  Sat Nov 21 06:05:05 2009
+From: ihok at hotmail.com (Jack Tanner)
+Date: Sat, 21 Nov 2009 06:05:05 +0000
+Subject: [Fedora-r-devel-list] 2.10 weirdness?
+Message-ID: <BLU106-W16F3FB94BC2B5C5DB75E07CAA00@phx.gbl>
+
+
+I'm trying to track down a bizarre R thing on 2.10-2; could someone try reproducing this (not necessarily under the same environment) and post if this works or not?
+
+library(ggplot2)
+
+# This works for me on CentOS w/ 2.10-2; there's a foo.png that has the plot
+
+png("foo.png", type="cairo")
+ qplot(factor(cyl), data=mtcars, geom="bar")
+dev.off()
+
+# This doesn't produce foo.png
+
+foo <- function() {
+  png("foo.png", type="cairo")
+  qplot(factor(cyl), data=mtcars, geom="bar")
+  dev.off()
+}
+foo()
+ 
+I'm stumped!
+ 		 	   		  
+_________________________________________________________________
+Bing brings you maps, menus, and reviews organized in one place.
+http://www.bing.com/search?q=restaurants&form=MFESRP&publ=WLHMTAG&crea=TEXT_MFESRP_Local_MapsMenu_Resturants_1x1
+
+From pingou at pingoured.fr  Sun Nov 22 13:05:52 2009
+From: pingou at pingoured.fr (Pierre-Yves Chibon)
+Date: Sun, 22 Nov 2009 13:05:52 +0000
+Subject: Re: [Fedora-r-devel-list] R 2.10.0 updates
+In-Reply-To: <1258667008.6413.1.camel@red.pingoured.fr>
+Message-ID: <1258895152.7430.4.camel@red.pingoured.fr>
+
+On Thu, 2009-11-19 at 22:43 +0100, Pierre-Yves wrote:
+> 
+> I am planning on rebuilding all my bioconductor package to their
+> latest
+> version this week-end (hopefully fixing all the FTBFS, they all do!).
+> I will kick out the %post and %postun at the same time.
+
+As you might have seen on the rawhide report, the updates are done at
+the CVS level. 13 packages are built and wait to be pushed on testing
+the other will come in the coming 2 weeks I think.
+
+Also, the list of package in Fedora has been updated by Remi for the
+latest version of bioconductor:
+http://rpms.famillecollet.com/rpmphp/rpm.php?type=R
+He also created a page per package with some information (for example:
+http://rpms.famillecollet.com/rpmphp/zoom.php?rpm=R-abind )
+
+Good week-end,
+
+Pierre
+

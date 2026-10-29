@@ -1,0 +1,157 @@
+From jamatos at fc.up.pt  Tue Apr 22 16:28:55 2008
+From: jamatos at fc.up.pt (=?utf-8?q?Jos=C3=A9_Ab=C3=ADlio_Matos?=)
+Date: Tue, 22 Apr 2008 16:28:55 +0000
+Subject: [Fedora-r-devel-list] Plans for R-2.7.0?
+Message-ID: <200804221728.56026.jamatos@fc.up.pt>
+
+Hi Tom,
+	what are your plans for R-2.7.0 that was released today? FWIW I am asking 
+just for curiosity. :-)
+
+	Regards,
+-- 
+José Abílio
+
+From tcallawa at redhat.com  Tue Apr 22 17:37:40 2008
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Tue, 22 Apr 2008 17:37:40 +0000
+Subject: Re: [Fedora-r-devel-list] Plans for R-2.7.0?
+In-Reply-To: <200804221728.56026.jamatos@fc.up.pt>
+Message-ID: <1208885860.12717.82.camel@localhost.localdomain>
+
+On Tue, 2008-04-22 at 17:28 +0100, José Matos wrote:
+> Hi Tom,
+> 	what are your plans for R-2.7.0 that was released today? FWIW I am asking 
+> just for curiosity. :-)
+
+I was going to look through the changelog and try to determine whether
+it merited a last minute tag for F-9 or not. Opinions welcome.
+
+~spot
+
+From pertusus at free.fr  Tue Apr 22 17:43:29 2008
+From: pertusus at free.fr (Patrice Dumas)
+Date: Tue, 22 Apr 2008 17:43:29 +0000
+Subject: Re: [Fedora-r-devel-list] Plans for R-2.7.0?
+In-Reply-To: <1208885860.12717.82.camel@localhost.localdomain>
+Message-ID: <20080422174329.GH24590@free.fr>
+
+On Tue, Apr 22, 2008 at 01:37:40PM -0400, Tom spot Callaway wrote:
+> On Tue, 2008-04-22 at 17:28 +0100, José Matos wrote:
+> > Hi Tom,
+> > 	what are your plans for R-2.7.0 that was released today? FWIW I am asking 
+> > just for curiosity. :-)
+> 
+> I was going to look through the changelog and try to determine whether
+> it merited a last minute tag for F-9 or not. Opinions welcome.
+
+I don't know about this particular case, but unless it fixes a known
+bug, I don't like last minute tags, I think the rawhide testing should
+not be bypassed.
+
+Only my opinion, and since I only run rawhide, no need to weigth it too
+much.
+
+--
+Pat
+
+From jamatos at fc.up.pt  Wed Apr 23 09:30:29 2008
+From: jamatos at fc.up.pt (=?utf-8?q?Jos=C3=A9_Ab=C3=ADlio_Matos?=)
+Date: Wed, 23 Apr 2008 09:30:29 +0000
+Subject: Re: [Fedora-r-devel-list] Plans for R-2.7.0?
+In-Reply-To: <1208885860.12717.82.camel@localhost.localdomain>
+Message-ID: <200804231030.29353.jamatos@fc.up.pt>
+
+On Tuesday 22 April 2008 18:37:40 Tom "spot" Callaway wrote:
+> I was going to look through the changelog and try to determine whether
+> it merited a last minute tag for F-9 or not. Opinions welcome.
+
+  AFAIK there is nothing so serious that can't wait for F-9 release. Also all 
+modules need to be recompiled, this can be done best after F-9.
+
+  Since the release schedule of R is 6 months I think that we should continue 
+the policy, that has been followed, to release the new version as soon as 
+feasible for all releases. This is different from the procedure used in perl, 
+python, tcl but I think that in this case it is justified. Just my 2 ¢ (euro) 
+on this issue. :-)
+ 
+> ~spot
+
+-- 
+José Abílio
+
+From pingou at pingoured.fr  Wed Apr 23 09:44:38 2008
+From: pingou at pingoured.fr (Pierre-Yves Chibon)
+Date: Wed, 23 Apr 2008 09:44:38 +0000
+Subject: Re: [Fedora-r-devel-list] Plans for R-2.7.0?
+In-Reply-To: <200804231030.29353.jamatos@fc.up.pt>
+Message-ID: <480F0506.80907@pingoured.fr>
+
+José Matos wrote:
+> On Tuesday 22 April 2008 18:37:40 Tom "spot" Callaway wrote:
+>> I was going to look through the changelog and try to determine whether
+>> it merited a last minute tag for F-9 or not. Opinions welcome.
+> 
+>   AFAIK there is nothing so serious that can't wait for F-9 release. Also all 
+> modules need to be recompiled, this can be done best after F-9.
+> 
+
+I need to recompile rkward against the new R, but this can be done via 
+devel and the testing done via the testing repo.
+
+Fine for me :)
+
+Pierre
+
+From alexl at users.sourceforge.net  Wed Apr 23 09:56:47 2008
+From: alexl at users.sourceforge.net (Alex Lancaster)
+Date: Wed, 23 Apr 2008 09:56:47 +0000
+Subject: [Fedora-r-devel-list] Re: Plans for R-2.7.0?
+In-Reply-To: <200804231030.29353.jamatos@fc.up.pt>
+Message-ID: <aj1w4wc2sg.fsf@allele2.eebweb.arizona.edu>
+
+
+
+>>>>> "JM" == José Matos  writes:
+
+JM> On Tuesday 22 April 2008 18:37:40 Tom "spot" Callaway wrote:
+>> I was going to look through the changelog and try to determine
+>> whether it merited a last minute tag for F-9 or not. Opinions
+>> welcome.
+
+JM>   AFAIK there is nothing so serious that can't wait for F-9
+JM> release. Also all modules need to be recompiled, this can be done
+JM> best after F-9.
+
+I agree, wait for F-9.  Then we can put it through updates-testing,
+have time to push dependent packages that might need rebuilding,
+including (but probably not limited to) rpy.
+
+Meanwhile we could push versions for F-7 & F-8 to updates-testing to
+shake out potential problems.  Then push them all to stable after F-9
+is released.
+
+Alex
+
+From tcallawa at redhat.com  Wed Apr 23 13:31:16 2008
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Wed, 23 Apr 2008 13:31:16 +0000
+Subject: Re: [Fedora-r-devel-list] Re: Plans for R-2.7.0?
+In-Reply-To: <aj1w4wc2sg.fsf@allele2.eebweb.arizona.edu>
+Message-ID: <1208957476.12717.151.camel@localhost.localdomain>
+
+On Wed, 2008-04-23 at 02:56 -0700, Alex Lancaster wrote:
+
+> I agree, wait for F-9.  Then we can put it through updates-testing,
+> have time to push dependent packages that might need rebuilding,
+> including (but probably not limited to) rpy.
+> 
+> Meanwhile we could push versions for F-7 & F-8 to updates-testing to
+> shake out potential problems.  Then push them all to stable after F-9
+> is released.
+
+Ehhh, i don't want to break the upgrade path. We'll just sit on this
+until after F-9.
+
+~spot
+

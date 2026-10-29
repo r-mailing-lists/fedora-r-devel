@@ -1,0 +1,149 @@
+From pingoufc4 at yahoo.fr  Thu Aug  2 21:28:01 2007
+From: pingoufc4 at yahoo.fr (pingou)
+Date: Thu, 02 Aug 2007 21:28:01 +0000
+Subject: [Fedora-r-devel-list] R CMD check
+Message-ID: <46B24C61.5070305@yahoo.fr>
+
+Hi all,
+
+Making some packages, and having "some" problems with the dependencies,
+I was wondering if it possible to increment a sort of R CMD check2 that
+do all the steps of the R CMD check except the "* checking package
+dependencies".
+
+That would help to process all the check command and avoid the circular
+references problem, which is quite common.
+This command would obviously be used only if the normal command can not
+be used.
+
+What do you think of ?
+Is it possible ?
+
+Thanks in advance
+~pingou
+
+	
+
+	
+		
+___________________________________________________________________________ 
+Yahoo! Mail réinvente le mail ! Découvrez le nouveau Yahoo! Mail et son interface révolutionnaire.
+http://fr.mail.yahoo.com
+
+From pertusus at free.fr  Thu Aug  2 21:33:26 2007
+From: pertusus at free.fr (Patrice Dumas)
+Date: Thu, 02 Aug 2007 21:33:26 +0000
+Subject: Re: [Fedora-r-devel-list] R CMD check
+In-Reply-To: <46B24C61.5070305@yahoo.fr>
+Message-ID: <20070802213326.GD2946@free.fr>
+
+On Thu, Aug 02, 2007 at 11:28:01PM +0200, pingou wrote:
+> Hi all,
+> 
+> What do you think of ?
+
+I agree that it would be very usefull. But I don't have any idea about 
+the feasability.
+
+--
+Pat
+
+From tcallawa at redhat.com  Fri Aug  3 12:45:07 2007
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Fri, 03 Aug 2007 12:45:07 +0000
+Subject: Re: [Fedora-r-devel-list] R CMD check
+In-Reply-To: <20070802213326.GD2946@free.fr>
+Message-ID: <1186145107.9748.235.camel@localhost.localdomain>
+
+
+On Thu, 2007-08-02 at 23:33 +0200, Patrice Dumas wrote:
+> On Thu, Aug 02, 2007 at 11:28:01PM +0200, pingou wrote:
+> > Hi all,
+> > 
+> > What do you think of ?
+> 
+> I agree that it would be very usefull. But I don't have any idea about 
+> the feasability.
+
+I'm buried in licensing at the moment, but if someone wanted to
+implement this, I'd be willing to look at a patch and throw it at
+upstream to get their thoughts.
+
+~spot
+
+From pingoufc4 at yahoo.fr  Fri Aug  3 13:53:50 2007
+From: pingoufc4 at yahoo.fr (pingou)
+Date: Fri, 03 Aug 2007 13:53:50 +0000
+Subject: Re: [Fedora-r-devel-list] R CMD check
+In-Reply-To: <1186145107.9748.235.camel@localhost.localdomain>
+Message-ID: <46B3336E.7090506@yahoo.fr>
+
+Tom "spot" Callaway wrote:
+> On Thu, 2007-08-02 at 23:33 +0200, Patrice Dumas wrote:
+>> On Thu, Aug 02, 2007 at 11:28:01PM +0200, pingou wrote:
+>>> Hi all,
+>>>
+>>> What do you think of ?
+>> I agree that it would be very usefull. But I don't have any idea about 
+>> the feasability.
+> 
+> I'm buried in licensing at the moment, but if someone wanted to
+> implement this, I'd be willing to look at a patch and throw it at
+> upstream to get their thoughts.
+> 
+Looking at the code I have found the paragraph following under in 
+/usr/lib/R/bin/check
+
+I believe there are tow ways to do what we would like,
+
+*either make a copy of the files in a check2 file and patch it to avoid 
+the check on suggested libraries ( I think it is a bit "dirty" to do it 
+in such a way)
+*or we can also either patch or sed the DESCRIPTION files in the spec to 
+  comment the lines "Suggests"
+
+I do not know what you think about these propositions and I do not know 
+if there are better ones but I believe these are not the optimal solution.
+My problems is that my knowledge are too low to be able to propose 
+directly the correct patch/solution.
+
+I hope this help, if one of you  would like to do it.
+
+Best regards,
+~pingou
+
+
+
+$log->checking("package dependencies");
+             ## Everything listed in Depends or Suggests or Imports
+             ## should be available for successfully running R CMD check.
+             ## \VignetteDepends{} entries not "required" by the package 
+code
+             ## must be in Suggests.  Note also that some of us think that a
+             ## package vignette must require its own package, which OTOH is
+             ## not required in the package DESCRIPTION file.
+             ## Namespace imports must really be in Depends.
+             my $Rcmd = "options(warn=1,warnEscapes=FALSE); 
+tools:::.check_package_depends(\"${pkgdir}\")\n";
+             my @out = R_runR($Rcmd, "${R_opts} --quiet",
+                              "R_DEFAULT_PACKAGES=NULL");
+             @out = grep(!/^\>/, @out);
+             if(scalar(@out) > 0) {
+                 $log->error();
+                 $log->print(join("\n", @out) . "\n");
+                 $log->print(wrap("", "", @msg_DESCRIPTION));
+                 exit(1);
+             } else {
+                 $log->result("OK");
+             }
+         }
+
+
+	
+
+	
+		
+___________________________________________________________________________ 
+Yahoo! Mail réinvente le mail ! Découvrez le nouveau Yahoo! Mail et son interface révolutionnaire.
+http://fr.mail.yahoo.com
+

@@ -1,0 +1,1834 @@
+From tom at moertel.com  Tue Sep  1 01:37:08 2009
+From: tom at moertel.com (Tom Moertel)
+Date: Tue, 01 Sep 2009 01:37:08 +0000
+Subject: Re: [Fedora-r-devel-list] collaborating on ggplot2 ?
+In-Reply-To: <BLU0-SMTP7E1ED6815EE0E28A8408FCAF40@phx.gbl>
+Message-ID: <4A9C7AC4.6090606@moertel.com>
+
+Jack Tanner wrote:
+> I'd like to get the ggplot2 library package-able. I cannot sign up as a 
+> maintainer, but I can work on spec files. ggplot2 has a whole bunch of 
+> dependencies: [...]
+> 
+> Would anyone be interested in taking this on with me and writing spec 
+> files for some of the ggplot2 prereqs?
+
+I'd also like to get ggplot2 into Fedora.  I'm in a similar situation to 
+you, however, in that my free time is scarce.  (Ever since joining the 
+world of startups, my Fedora-hacking time has gone to near zero.) 
+Still, if we can chip away at this task, we'll eventually get it done.  :-)
+
+Let's divide up the prerequisites and package 'em.  I'd like to claim 
+plyr because I have a need for that package on its own.
+
+Anybody else want to pile on ggplot2?
+
+Cheers,
+Tom
+
+From pingou at pingoured.fr  Tue Sep  1 07:04:42 2009
+From: pingou at pingoured.fr (Pierre-Yves Chibon)
+Date: Tue, 01 Sep 2009 07:04:42 +0000
+Subject: Re: [Fedora-r-devel-list] collaborating on ggplot2 ?
+In-Reply-To: <BLU0-SMTP7E1ED6815EE0E28A8408FCAF40@phx.gbl>
+Message-ID: <1251788682.375.4.camel@pingouLab.pingoured.fr>
+
+On Fri, 2009-08-28 at 22:10 -0400, Jack Tanner wrote:
+> Howdy,
+> 
+> I'd like to get the ggplot2 library package-able. I cannot sign up as a 
+> maintainer, but I can work on spec files. ggplot2 has a whole bunch of 
+> dependencies:
+> 
+> According to http://cran.r-project.org/web/packages/ggplot2/ ,
+> 
+
+I already have spec available for those two and eventually I can propose
+them for review.
+> RColorBrewer 
+> <http://cran.r-project.org/web/packages/RColorBrewer/index.html>,
+> maps 
+> <http://cran.r-project.org/web/packages/maps/index.html>,
+
+Did you look at the subdependencies ? I mean that for example quantreg
+requires  SparseM tripack, akima, MASS, survival, rgl, logspline
+(Which already points out a circular dependency on MASS)...
+
+Maybe worth to have a look at what R P Herrold did since I packaged most
+of the cran.
+
+Best regards,
+
+Pierre
+
+From pingou at pingoured.fr  Tue Sep  1 07:10:06 2009
+From: pingou at pingoured.fr (Pierre-Yves Chibon)
+Date: Tue, 01 Sep 2009 07:10:06 +0000
+Subject: Re: [Fedora-r-devel-list] collaborating on ggplot2 ?
+In-Reply-To: <1251788682.375.4.camel@pingouLab.pingoured.fr>
+Message-ID: <1251789006.375.5.camel@pingouLab.pingoured.fr>
+
+On Tue, 2009-09-01 at 09:04 +0200, Pierre-Yves wrote:
+> On Fri, 2009-08-28 at 22:10 -0400, Jack Tanner wrote:
+> > Howdy,
+> > 
+> > I'd like to get the ggplot2 library package-able. I cannot sign up as a 
+> > maintainer, but I can work on spec files. ggplot2 has a whole bunch of 
+> > dependencies:
+> > 
+> > According to http://cran.r-project.org/web/packages/ggplot2/ ,
+> > 
+> 
+> I already have spec available for those two and eventually I can propose
+> them for review.
+> > RColorBrewer 
+> > <http://cran.r-project.org/web/packages/RColorBrewer/index.html>,
+> > maps 
+> > <http://cran.r-project.org/web/packages/maps/index.html>,
+> 
+> Did you look at the subdependencies ? I mean that for example quantreg
+> requires  SparseM tripack, akima, MASS, survival, rgl, logspline
+> (Which already points out a circular dependency on MASS)...
+> 
+> Maybe worth to have a look at what R P Herrold did since I packaged most
+> of the cran.
+
+Might be worth to have a look at what R P Herrold did since *he*
+packaged most of the cran.
+
+Time for coffee...
+
+Pierre
+
+From ihok at hotmail.com  Tue Sep  1 14:17:47 2009
+From: ihok at hotmail.com (Jack Tanner)
+Date: Tue, 01 Sep 2009 14:17:47 +0000
+Subject: Re: [Fedora-r-devel-list] collaborating on ggplot2 ?
+In-Reply-To: <1251789006.375.5.camel@pingouLab.pingoured.fr>
+Message-ID: <BLU0-SMTP994CFEADA6AF3AA925742CCAF10@phx.gbl>
+
+Pierre-Yves wrote:
+>> Did you look at the subdependencies ? I mean that for example quantreg
+>> requires  SparseM tripack, akima, MASS, survival, rgl, logspline
+>> (Which already points out a circular dependency on MASS)...
+>>     
+I did not look at the subdependencies. Whoops. Thanks for pointing that out.
+> Might be worth to have a look at what R P Herrold did since *he*
+> packaged most of the cran.
+>   
+I found this: http://article.gmane.org/gmane.comp.lang.r.fedora/17 , 
+which is very informative, but doesn't link to the SPECs or SRPMs for 
+any of those things he packaged up. There's nothing at his FTP site 
+either, ftp://ftp.owlriver.com/pub/local/ORC/R/ . Is there another source?
+
+From tom at moertel.com  Wed Sep  2 02:17:44 2009
+From: tom at moertel.com (Tom Moertel)
+Date: Wed, 02 Sep 2009 02:17:44 +0000
+Subject: [Fedora-r-devel-list] R-plyr preview [was: collaborating on ggplot2 ?]
+In-Reply-To: <4A9C7AC4.6090606@moertel.com>
+Message-ID: <4A9DD5C8.60401@moertel.com>
+
+Tom Moertel wrote:
+> Let's divide up the prerequisites and package 'em.  I'd like to claim 
+> plyr because I have a need for that package on its own.
+
+I packaged plyr tonight:
+
+http://community.moertel.com/rpms/fedora/10/SPECS/R-plyr.spec
+http://community.moertel.com/rpms/fedora/10/SRPMS/R-plyr-0.1.9-1.fc10.src.rpm
+
+I had to disable the %check because it tried to do some Tk stuff that 
+required a valid DISPLAY.  The Tk stuff does appear to work, however, 
+once the package is installed.
+
+If anybody would give the package a quick review, I'd appreciate it. 
+Tomorrow or the next day, I'll submit R-plyr as a new package unless 
+there are any objections.
+
+Cheers,
+Tom
+
+From ihok at hotmail.com  Wed Sep  2 02:46:38 2009
+From: ihok at hotmail.com (Jack Tanner)
+Date: Wed, 02 Sep 2009 02:46:38 +0000
+Subject: Re: [Fedora-r-devel-list] R-plyr preview [was: collaborating on ggplot2 ?]
+In-Reply-To: <4A9DD5C8.60401@moertel.com>
+Message-ID: <BLU0-SMTP70D11DA2EA8431985DEEBFCAF00@phx.gbl>
+
+Tom Moertel wrote:
+> I packaged plyr tonight:
+>
+> http://community.moertel.com/rpms/fedora/10/SPECS/R-plyr.spec
+
+Thanks for taking a stab at plyr. I'm a very inexperienced packager, but 
+these are the questions that I'd be asking if I were a reviewer.
+
+- Do you need to worry about the requires (R-RUnit R-abind R-tcltk)?
+- It seems wrong to hard-code Source0 rather than making it conditional 
+on the variables defined in the spec. See my RMySQL spec (which could be 
+totally goofy, and I've had no feedback on it) here: 
+https://www.redhat.com/archives/fedora-r-devel-list/2009-August/msg00007.html
+- Since plyr is noarch, you could remove the commented-out arch-specific 
+stuff.
+
+From pingou at pingoured.fr  Wed Sep  2 06:21:08 2009
+From: pingou at pingoured.fr (Pierre-Yves Chibon)
+Date: Wed, 02 Sep 2009 06:21:08 +0000
+Subject: Re: [Fedora-r-devel-list] R-plyr preview [was: collaborating on ggplot2 ?]
+In-Reply-To: <BLU0-SMTP70D11DA2EA8431985DEEBFCAF00@phx.gbl>
+Message-ID: <1251872468.2642.6.camel@red.localdomain>
+
+On Tue, 2009-09-01 at 22:46 -0400, Jack Tanner wrote:
+> Tom Moertel wrote:
+> > I packaged plyr tonight:
+> >
+> > http://community.moertel.com/rpms/fedora/10/SPECS/R-plyr.spec
+> 
+> Thanks for taking a stab at plyr. I'm a very inexperienced packager, but 
+> these are the questions that I'd be asking if I were a reviewer.
+> 
+> - Do you need to worry about the requires (R-RUnit R-abind R-tcltk)?
+Two out of three are already done and in the repo
+R-tcltk will have to be done.
+
+> - It seems wrong to hard-code Source0 rather than making it conditional 
+> on the variables defined in the spec. See my RMySQL spec (which could be 
+> totally goofy, and I've had no feedback on it) here: 
+> https://www.redhat.com/archives/fedora-r-devel-list/2009-August/msg00007.html
+The Source0 is not wrong, changing it to use the macro make just the
+maintenance of the package easier (you won't have to change the Source0)
+
+> - Since plyr is noarch, you could remove the commented-out arch-specific 
+> stuff.
++1 to clean the spec
+You have also the:
+- change the BR tetex-latex to tex(latex)
+
+Regards,
+
+Pierre
+
+From pingou at pingoured.fr  Wed Sep  2 07:03:30 2009
+From: pingou at pingoured.fr (Pierre-Yves Chibon)
+Date: Wed, 02 Sep 2009 07:03:30 +0000
+Subject: Re: [Fedora-r-devel-list] R-plyr preview [was: collaborating on ggplot2 ?]
+In-Reply-To: <1251872468.2642.6.camel@red.localdomain>
+Message-ID: <1251875010.3418.11.camel@pingouLab.pingoured.fr>
+
+On Wed, 2009-09-02 at 08:21 +0200, Pierre-Yves wrote:
+> On Tue, 2009-09-01 at 22:46 -0400, Jack Tanner wrote:
+> > Tom Moertel wrote:
+> > > http://community.moertel.com/rpms/fedora/10/SPECS/R-plyr.spec
+> > - Do you need to worry about the requires (R-RUnit R-abind R-tcltk)?
+> Two out of three are already done and in the repo
+> R-tcltk will have to be done.
+In fact R-tcltk does not exist, the spec should be corrected.
+The Requires is on tcltk itself.
+
+Pierre
+
+From tom at moertel.com  Wed Sep  2 12:57:48 2009
+From: tom at moertel.com (Tom Moertel)
+Date: Wed, 02 Sep 2009 12:57:48 +0000
+Subject: Re: [Fedora-r-devel-list] R-plyr preview [was: collaborating on	ggplot2 ?]
+In-Reply-To: <1251875010.3418.11.camel@pingouLab.pingoured.fr>
+Message-ID: <4A9E6BCC.90307@moertel.com>
+
+Pierre-Yves wrote:
+>> R-tcltk will have to be done.
+> In fact R-tcltk does not exist, the spec should be corrected.
+> The Requires is on tcltk itself.
+
+R-tcltk does exist; it's provided by R-core:
+
+     $ rpm -q --whatprovides R-tcltk
+     R-core-2.9.2-1.fc10.x86_64
+
+And R-core is what requires tk:
+
+     $ rpm -q --requires R-core | fgrep tk
+     libtk8.5.so()(64bit)
+
+So, should I leave in the requirement (in case, for example, the R-tcltk 
+bindings are later moved into a separate package), or should I remove 
+the requirement under the assumption that R-tcltk will always be 
+provided by R-core?
+
+Cheers,
+Tom
+
+From tcallawa at redhat.com  Wed Sep  2 13:56:00 2009
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Wed, 02 Sep 2009 13:56:00 +0000
+Subject: Re: [Fedora-r-devel-list] R-plyr preview [was: collaborating	on	ggplot2 ?]
+In-Reply-To: <4A9E6BCC.90307@moertel.com>
+Message-ID: <4A9E7970.8050500@redhat.com>
+
+On 09/02/2009 08:57 AM, Tom Moertel wrote:
+> So, should I leave in the requirement (in case, for example, the R-tcltk
+> bindings are later moved into a separate package), or should I remove
+> the requirement under the assumption that R-tcltk will always be
+> provided by R-core?
+
+I think it is safer to depend on R-tcltk. It is theoretically possible
+that at some point, the base R will stop supporting older GUI toolkits,
+such as tcltk, and the package will be broken off into its own CRAN module.
+
+~spot
+
+From tom at moertel.com  Wed Sep  2 14:16:17 2009
+From: tom at moertel.com (Tom Moertel)
+Date: Wed, 02 Sep 2009 14:16:17 +0000
+Subject: Re: [Fedora-r-devel-list] R-plyr preview [was:	collaborating	on	ggplot2 ?]
+In-Reply-To: <4A9E7970.8050500@redhat.com>
+Message-ID: <4A9E7E31.3000007@moertel.com>
+
+Tom "spot" Callaway wrote:
+> I think it is safer to depend on R-tcltk.  [...]
+
+I'll leave the R-tcltk requirement in, then.
+
+With that in mind, here's take 2:
+
+http://community.moertel.com/rpms/fedora/10/SPECS/R-plyr.spec
+http://community.moertel.com/rpms/fedora/10/SRPMS/R-plyr-0.1.9-2.fc10.src.rpm
+
+Cheers,
+Tom
+
+From tcallawa at redhat.com  Wed Sep  2 15:03:42 2009
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Wed, 02 Sep 2009 15:03:42 +0000
+Subject: Re: [Fedora-r-devel-list] collaborating on ggplot2 ?
+In-Reply-To: <BLU0-SMTP7E1ED6815EE0E28A8408FCAF40@phx.gbl>
+Message-ID: <4A9E894E.3040505@redhat.com>
+
+On 08/28/2009 10:10 PM, Jack Tanner wrote:
+> quantreg <http://cran.r-project.org/web/packages/quantreg/index.html>
+
+I took a shot at this one (and its depends/suggests), and I ran into
+SparseM. It claims to be GPL on its CRAN page, but that is not entirely
+true, as its LICENSE file admits:
+
+== LICENSE ==
+
+All R code and documentation in this package is licensed under the terms
+of the GPL license -- see COPYING in the top level of the R directory
+tree for further details.
+
+All fortran and C code in the src directory, with the exception of
+cholesky.f is also licensed on the GPL license, see
+
+        http://www.cs.umn.edu/Research/arpa/SPARSKIT/sparskit.html
+
+for explicit stipulation for sparskit.f.  The code in cholesky.f  is a
+modified version of code originally written by Esmond Ng and Barry
+Peyton.  The modified version is distributed as part of PCx by Czyzyk,
+Mehrotra, Wagner, and Wright and is copywrite by the University
+of Chicago.  The PCx distribution makes the following stipulation:
+
+        This software discloses material protectable under copyright
+        laws of the United States. Permission is hereby granted to use,
+        reproduce, prepare derivative works, and redistribute to others
+        at no charge, provided that the original PCx copyright notice,
+        Government license and disclaimer are retained and any changes
+        are clearly documented; however, any entity desiring permission
+        to use this software within a commercial organization or to
+        incorporate this software or a work based on the software into
+        a product for sale must contact Paul Betten at the Industrial
+        Technology Development Center, Argonne National Laboratory.
+
+                PAUL BETTEN
+                betten(a)anl.gov
+                Industrial Technology Development Center,
+                Argonne National Laboratory,
+                Argonne, IL 60439
+                (630) 252-4962
+                FAX: (630) 252-5230
+
+== EOF ==
+
+That PCx license from ANL is non-free, due to its commercial use
+restriction clause. That license is also incompatible with the GPL, so
+the entire work is almost certainly not redistributable when compiled
+together.
+
+In order to include this package in Fedora, we would need to get
+permission from Paul Betten to use that file under a GPL compatible
+license (or the GPL itself). I have sent an email to Mr. Betten, and I
+am hopeful that he is still at ANL, and that he is willing/able to
+resolve this licensing issue.
+
+~spot
+
+From martyn.plummer at r-project.org  Thu Sep  3 08:27:40 2009
+From: martyn.plummer at r-project.org (Martyn Plummer)
+Date: Thu, 03 Sep 2009 08:27:40 +0000
+Subject: Re: [Fedora-r-devel-list] collaborating on ggplot2 ?
+In-Reply-To: <4A9E894E.3040505@redhat.com>
+Message-ID: <1251966460.2653.3.camel@seurat.iarc.fr>
+
+Thanks for finding this.  I passed this message on to the CRAN
+maintainers (CRAN also distributes binaries for Windows and Mac OS X)
+who also contacted the SparseM package author.
+
+Martyn
+
+On Wed, 2009-09-02 at 11:03 -0400, Tom "spot" Callaway wrote:
+> On 08/28/2009 10:10 PM, Jack Tanner wrote:
+> > quantreg <http://cran.r-project.org/web/packages/quantreg/index.html>
+> 
+> I took a shot at this one (and its depends/suggests), and I ran into
+> SparseM. It claims to be GPL on its CRAN page, but that is not entirely
+> true, as its LICENSE file admits:
+> 
+> == LICENSE ==
+> 
+> All R code and documentation in this package is licensed under the terms
+> of the GPL license -- see COPYING in the top level of the R directory
+> tree for further details.
+> 
+> All fortran and C code in the src directory, with the exception of
+> cholesky.f is also licensed on the GPL license, see
+> 
+>         http://www.cs.umn.edu/Research/arpa/SPARSKIT/sparskit.html
+> 
+> for explicit stipulation for sparskit.f.  The code in cholesky.f  is a
+> modified version of code originally written by Esmond Ng and Barry
+> Peyton.  The modified version is distributed as part of PCx by Czyzyk,
+> Mehrotra, Wagner, and Wright and is copywrite by the University
+> of Chicago.  The PCx distribution makes the following stipulation:
+> 
+>         This software discloses material protectable under copyright
+>         laws of the United States. Permission is hereby granted to use,
+>         reproduce, prepare derivative works, and redistribute to others
+>         at no charge, provided that the original PCx copyright notice,
+>         Government license and disclaimer are retained and any changes
+>         are clearly documented; however, any entity desiring permission
+>         to use this software within a commercial organization or to
+>         incorporate this software or a work based on the software into
+>         a product for sale must contact Paul Betten at the Industrial
+>         Technology Development Center, Argonne National Laboratory.
+> 
+>                 PAUL BETTEN
+>                 betten(a)anl.gov
+>                 Industrial Technology Development Center,
+>                 Argonne National Laboratory,
+>                 Argonne, IL 60439
+>                 (630) 252-4962
+>                 FAX: (630) 252-5230
+> 
+> == EOF ==
+> 
+> That PCx license from ANL is non-free, due to its commercial use
+> restriction clause. That license is also incompatible with the GPL, so
+> the entire work is almost certainly not redistributable when compiled
+> together.
+> 
+> In order to include this package in Fedora, we would need to get
+> permission from Paul Betten to use that file under a GPL compatible
+> license (or the GPL itself). I have sent an email to Mr. Betten, and I
+> am hopeful that he is still at ANL, and that he is willing/able to
+> resolve this licensing issue.
+> 
+> ~spot
+> 
+> _______________________________________________
+> Fedora-r-devel-list mailing list
+> Fedora-r-devel-list(a)redhat.com
+> http://www.redhat.com/mailman/listinfo/fedora-r-devel-list
+> 
+
+-----------------------------------------------------------------------
+This message and its attachments are strictly confidential. If you are
+not the intended recipient of this message, please immediately notify 
+the sender and delete it. Since its integrity cannot be guaranteed, 
+its content cannot involve the sender's responsibility. Any misuse, 
+any disclosure or publication of its content, either whole or partial, 
+is prohibited, exception made of formally approved use
+-----------------------------------------------------------------------
+
+From tcallawa at redhat.com  Thu Sep  3 14:32:12 2009
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Thu, 03 Sep 2009 14:32:12 +0000
+Subject: Re: [Fedora-r-devel-list] collaborating on ggplot2 ?
+In-Reply-To: <1251966460.2653.3.camel@seurat.iarc.fr>
+Message-ID: <4A9FD36C.2020309@redhat.com>
+
+On 09/03/2009 04:27 AM, Martyn Plummer wrote:
+> Thanks for finding this.  I passed this message on to the CRAN
+> maintainers (CRAN also distributes binaries for Windows and Mac OS X)
+> who also contacted the SparseM package author.
+
+The good news is that Mr. Betten is still at ANL, and he replied that he
+is looking into my request for relicensing.
+
+~spot
+
+From asr at ufl.edu  Thu Sep  3 18:22:21 2009
+From: asr at ufl.edu (Allen S. Rout)
+Date: Thu, 03 Sep 2009 18:22:21 +0000
+Subject: [Fedora-r-devel-list] Introduction; was Re: collaborating on ggplot2 ?
+Message-ID: <200909031822.n83IMLEg417926@nersp.osg.ufl.edu>
+
+
+Well, it didn't get through GMANE.  So I'm re-sending directly. 
+
+
+Pierre-Yves <pingou-E11Oz7VxvVOXCRStZZN3OA(a)public.gmane.org> writes:
+
+> Did you look at the subdependencies ? I mean that for example quantreg
+> requires  SparseM tripack, akima, MASS, survival, rgl, logspline
+> (Which already points out a circular dependency on MASS)...
+
+I'm also working on this problem, albeit from a slightly different
+perspective.
+
+I started out wanting to just get ggplot2 installed. :)
+
+I found r2spec, and have been folding, spindling, and mutilating it
+for somewhere under a month.  Pierre-Yves, somewhere in the ether
+between me and you are several messages along the lines of "I've got
+some suggestions, will you entertain them?"
+
+I've also been talking with other R developer types; I came up with a
+similar chunk of code to make "Ebuilds" (Gentoo artifact mostly like a
+specfile) a few years back.
+
+So, Hi, there!
+
+I've got several different topics queued up, I figure I'll wait to see
+if this gets through GMANE before I start on them.
+
+
+
+- Allen S. Rout
+
+From asr at ufl.edu  Thu Sep  3 20:42:14 2009
+From: asr at ufl.edu (Allen S. Rout)
+Date: Thu, 03 Sep 2009 20:42:14 +0000
+Subject: [Fedora-r-devel-list] r2spec
+Message-ID: <44wpftyzjep5l.fsf@crepe.osg.ufl.edu>
+
+
+
+So, I've modified r2spec fairly heavily on my own.  Pierre-Yves
+suggested I bring conversation straight here, so I'm doing that.
+
+I'll put a SRPM of my r2spec up at the next point when it works.  It
+worked earlier today, but of course I'm doing more surgery right now.
+
+
+Here are the most visible changes I've made so far; Please hear them
+as suggestions, not demands. :)
+
+
++ Takes R package metadata from repositories directly through
+  available.packages.  Can load from many repos at once.
+
++ Cleanly handles multi-line fields in package metadata
+
++ Recursively chases Depends
+  + including across repositories (i.e. CRAN depends on BioC)
+  + Or Depends and Suggests, and Imports and Extends.
+
+There's a lot more to this.  Separate topic, separate post. 
+
++ Uses a single template for specfile, instead of two long functions
+  with literal strings.
+
+  + Permits template to be specified on the command line
+
+
++ String manipulation by regexp instead of iterated 'replace' and such.
+
+
++ Maintains a dependency graph to permit building an automated rpmbuild order.
+
+
+
+[ toy additions ] 
+
+outputs GraphViz (dot format) illustrations of dependency graphs.
+
+
+I know this is lots and lots of change. I hope you don't see it as
+encroaching.
+
+
+
+
+- Allen S. Rout
+
+From pingou at pingoured.fr  Fri Sep  4 06:58:19 2009
+From: pingou at pingoured.fr (Pierre-Yves Chibon)
+Date: Fri, 04 Sep 2009 06:58:19 +0000
+Subject: Re: [Fedora-r-devel-list] r2spec
+In-Reply-To: <44wpftyzjep5l.fsf@crepe.osg.ufl.edu>
+Message-ID: <1252047499.6407.10.camel@pingoured.dyndns.org>
+
+Hi Allen
+
+Thanks for all the work done :-)
+
+On Thu, 2009-09-03 at 16:42 -0400, Allen S. Rout wrote:
+> + Takes R package metadata from repositories directly through
+>   available.packages.  Can load from many repos at once.
+
+Is it still able to fetch information from the package itself (if you
+suddenly want to build the spec without internet connection) ?
+
+> + Cleanly handles multi-line fields in package metadata
+> 
+> + Uses a single template for specfile, instead of two long functions
+>   with literal strings.
+> 
+>   + Permits template to be specified on the command line
+> 
+> 
+> + String manipulation by regexp instead of iterated 'replace' and such.
+That's for sure better than the crap I was using :)
+
+> + Recursively chases Depends
+>   + including across repositories (i.e. CRAN depends on BioC)
+>   + Or Depends and Suggests, and Imports and Extends.
+> 
+> There's a lot more to this.  Separate topic, separate post. 
+I'm not sure here, why recursively chase the depends when you want to
+build a single RPM ?
+
+> + Maintains a dependency graph to permit building an automated rpmbuild order.
+That's a cool feature :)
+
+> [ toy additions ] 
+> 
+> outputs GraphViz (dot format) illustrations of dependency graphs.
+
+I have a script that does it for the entire bioconductor repo.
+
+> I know this is lots and lots of change. I hope you don't see it as
+> encroaching.
+It's not GPL for nothing ;-)
+
+
+IMHO R2spec is really a tool that should keep doing what it is good at,
+generating spec file.
+However I could see the need for another tool that allows to
+generate/build spec/rpm in a recursive manner. Basically allowing
+sysadmin to build an entire repo easily.
+Something for which you would do:
+tool --build http://link/to/some/package.tar.gz
+and which would generate all the spec file needed in order to be able to
+build this package.
+
+But then again, it's just my opinion and it can be worth to just have
+everything in one tool instead of splitting :-)
+
+Best regards,
+
+Pierre
+
+From jamatos at fc.up.pt  Fri Sep  4 07:35:44 2009
+From: jamatos at fc.up.pt (=?utf-8?q?Jos=C3=A9_Ab=C3=ADlio_Matos?=)
+Date: Fri, 04 Sep 2009 07:35:44 +0000
+Subject: Re: [Fedora-r-devel-list] r2spec
+In-Reply-To: <44wpftyzjep5l.fsf@crepe.osg.ufl.edu>
+Message-ID: <200909040835.45290.jamatos@fc.up.pt>
+
+On Thursday 03 September 2009 Allen S. Rout wrote:
+> So, I've modified r2spec fairly heavily on my own.  Pierre-Yves
+> suggested I bring conversation straight here, so I'm doing that.
+>
+> I'll put a SRPM of my r2spec up at the next point when it works.  It
+> worked earlier today, but of course I'm doing more surgery right now.
+
+Just for curiosity, do you create the %test section on the first passage? I 
+had to comment that section for bootstrap because I had cyclic dependencies 
+where test section of package  A would depend on package B, and the test of 
+package B would depend on A.
+
+> - Allen S. Rout
+
+-- 
+José Abílio
+
+From asr at ufl.edu  Fri Sep  4 19:25:07 2009
+From: asr at ufl.edu (Allen S. Rout)
+Date: Fri, 04 Sep 2009 19:25:07 +0000
+Subject: [Fedora-r-devel-list] R package dependencies, translated into RPM land.
+Message-ID: <44wpfk50e3430.fsf@crepe.osg.ufl.edu>
+
+
+
+OK; I've been chewing and debating on this with several folks, in
+several fora, for some time.  Here are the facts as I've been able to
+determine them so far; at least some of them will be stupidly obvious
+to most of you.  Please tear them apart as indicated.
+
+
++ The R community is much sysadmin-y and progammer-y than other
+  language communities.  Several positions about correctness which
+  lots of admins take as Truth (i.e. dependency cycle == BAD) they
+  find to be more of an aesthetic call.  This is reasonable.
+
++ Different repositories in the R community have independant lives and
+  attitudes.  There is modest competition and grumbling between
+  maintainers associated with different repos. 
+
++ Package dependencies cross repo boundaries; sticking with the
+  'Better' repositories just won't work, and discussion of these
+  variations tends to make R folks testy.
+
+ conclusion: The goal of evolving the R packages into a DAG is a
+ non-starter.
+
++ There are four classes of dependency in R-package land: Requires,
+  Imports, Suggests, and Enhances.
+
++ Requires and Imports are required to load the package. [1]
+
++ Suggests may be required to fully CMD CHECK the package [1]
+
++ The need for suggests at CMD CHECK can be deactivated by build
+  config file. [2]
+
++ Many of the dependency cycles can be avoided if we ignore Suggests
+  as an RPM dependency. 
+
+
+Now, on to opinion: 
+
++ We would like all official packages to have passed a full R CMD CHECK 
+
++ We would like an absolute minimum of manual special case handling.
+  It may not be possible to make that amount zero. 
+
+
+So: Here's my suggested procedure for building any single package,
+gangked from a message I sent to R-core:
+
+
+1) Express binary package dependencies according to Depends and Imports.
+   I'll call this the 'narrow dependency graph'. 
+
+2) As part of the binary package build process, run CHECK
+   with R_CHECK_FORCE_SUGGESTS = false. 
+
+I'll pull nomenclature out of my ear and call these "built" but not
+"checked".
+
+3) Build all binary packages which are downstream according to all of
+   Depends, Imports, Suggests, and Extends.  I'll call this the 'broad
+   dependency graph'.
+
+4) Install all the packages in the broad dependency graph.
+
+5) for each package in the broad graph, run CHECK with
+   R_CHECK_FORCE_SUGGESTS=true.
+
+Then the affected packages are "checked".  Perhaps this can be noted
+with a signature.
+
+
+.... Whew!
+
+
+
+- Allen S. Rout
+
+
+[1] http://cran.r-project.org/doc/manuals/R-exts.html#The-DESCRIPTION-file
+
+[2] http://cran.r-project.org/doc/manuals/R-exts.html#Customizing-checking-and-building
+
+From tom at moertel.com  Mon Sep  7 15:26:36 2009
+From: tom at moertel.com (Tom Moertel)
+Date: Mon, 07 Sep 2009 15:26:36 +0000
+Subject: [Fedora-r-devel-list] Review request: R-plyr
+Message-ID: <4AA5262C.5040702@moertel.com>
+
+Fedora R hackers,
+
+I have submitted a review request for R-plyr:
+
+     https://bugzilla.redhat.com/show_bug.cgi?id=521671
+
+This package is a prerequisite of the much-desired ggplot2 package, so 
+if anybody has a few moments to review it, I would be grateful.  Thanks!
+
+Cheers,
+Tom
+
+From tom at moertel.com  Mon Sep  7 15:51:22 2009
+From: tom at moertel.com (Tom Moertel)
+Date: Mon, 07 Sep 2009 15:51:22 +0000
+Subject: Good timing: Ggplot2 book is out [was: [Fedora-r-devel-list] collaborating on ggplot2 ?]
+In-Reply-To: <4A9C7AC4.6090606@moertel.com>
+Message-ID: <4AA52BFA.9010708@moertel.com>
+
+Tom Moertel wrote:
+> Jack Tanner wrote:
+>> I'd like to get the ggplot2 library package-able. [...]
+> 
+> I'd also like to get ggplot2 into Fedora.  [...]
+
+Having used ggplot2 for a few days now, I am impressed.  It is flexible, 
+capable, and produces great statistical graphics.  Now that the Ggplot2 
+book[1] is finally shipping, I predict that ggplot2 will rapidly become 
+the tool of choice for most R users who need to produce statistical 
+graphics.  (The book is great, BTW.)
+
+It is good timing, then, that we are working to get ggplot2 into Fedora. 
+  Pretty soon, most R users will expect it.
+
+Cheers,
+Tom
+
+[1] http://had.co.nz/ggplot2/book/
+
+From asr at ufl.edu  Tue Sep 15 14:21:35 2009
+From: asr at ufl.edu (Allen S. Rout)
+Date: Tue, 15 Sep 2009 14:21:35 +0000
+Subject: [Fedora-r-devel-list] GMANE postings held in limbo? 
+Message-ID: <200909151421.n8FELaI5581920@nersp.osg.ufl.edu>
+
+
+I got this: 
+
+
+
+> Your mail to 'Fedora-r-devel-list' with the subject
+
+>     Re: r2spec
+
+> Is being held until the list moderator can review it for approval.
+
+> The reason it is being held:
+
+>     Message has implicit destination
+
+
+when I posted from GMANE. 
+
+Would it be possible to set the mailing list to permit these messages?
+Here's another example of a similar config change.
+
+
+http://www.mail-archive.com/tortoisehg-discuss(a)lists.sourceforge.net/msg00960.html
+
+
+
+
+
+- Allen S. Rout
+
+From tcallawa at redhat.com  Tue Sep 15 15:06:57 2009
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Tue, 15 Sep 2009 15:06:57 +0000
+Subject: Re: [Fedora-r-devel-list] GMANE postings held in limbo?
+In-Reply-To: <200909151421.n8FELaI5581920@nersp.osg.ufl.edu>
+Message-ID: <4AAFAD91.9070600@redhat.com>
+
+On 09/15/2009 10:21 AM, Allen S. Rout wrote:
+> I got this: 
+> 
+> 
+> 
+>> Your mail to 'Fedora-r-devel-list' with the subject
+> 
+>>     Re: r2spec
+> 
+>> Is being held until the list moderator can review it for approval.
+> 
+>> The reason it is being held:
+> 
+>>     Message has implicit destination
+> 
+> 
+> when I posted from GMANE. 
+> 
+> Would it be possible to set the mailing list to permit these messages?
+
+Sure, that's now done.
+
+~spot
+
+From asr at ufl.edu  Wed Sep  9 02:13:15 2009
+From: asr at ufl.edu (Allen S. Rout)
+Date: Wed, 09 Sep 2009 02:13:15 +0000
+Subject: [Fedora-r-devel-list] Re: r2spec
+In-Reply-To: <1252047499.6407.10.camel@pingoured.dyndns.org>
+Message-ID: <44wpf7hw86f2c.fsf@crepe.osg.ufl.edu>
+
+
+
+Pierre-Yves <pingou-E11Oz7VxvVOXCRStZZN3OA(a)public.gmane.org> writes:
+
+> IMHO R2spec is really a tool that should keep doing what it is good
+> at, generating spec file.  However I could see the need for another
+> tool that allows to generate/build spec/rpm in a recursive
+> manner. Basically allowing sysadmin to build an entire repo easily.
+> Something for which you would do: tool --build
+> http://link/to/some/package.tar.gz and which would generate all the
+> spec file needed in order to be able to build this package.
+
+
+I haven't seen any responses to my package-deps thinking.  I'm hoping
+that's because everyone read it and said to themselves, "Wow, this
+Allen fellow is an utter genius: How profoundly correct he is! ".
+
+Yeah, right.
+
+OK, here's the SRPM of my current state.
+
+http://nersp.osg.ufl.edu/~asr/media/R2spec-2.6.0-asr.src.rpm
+
+When I run that against ggplot2, I get a "broad" dependency graph of
+152 packages.  That's the list of packages that "should" be installed
+to be able to R CMD CHECK all the packages, recursively.
+
+
+That fact, the recursive Suggests graph, is why I think any tool that
+builds a single spec needs to do the math; because there's no way we
+can CHECK a package without doing it.
+
+
+
+
+- Allen S. Rout
+
+From asr at ufl.edu  Mon Sep 14 19:16:31 2009
+From: asr at ufl.edu (Allen S. Rout)
+Date: Mon, 14 Sep 2009 19:16:31 +0000
+Subject: [Fedora-r-devel-list] Re: r2spec
+In-Reply-To: <200909040835.45290.jamatos@fc.up.pt>
+Message-ID: <44wpf8wgh8hgw.fsf@crepe.osg.ufl.edu>
+
+
+
+José Matos <jamatos-BxEiAy0842I(a)public.gmane.org> writes:
+
+> Just for curiosity, do you create the %test section on the first
+> passage? I had to comment that section for bootstrap because I had
+> cyclic dependencies where test section of package A would depend on
+> package B, and the test of package B would depend on A.
+
+
+I'm hoping my previous message about dependencies has kind of answered
+this question.  I've tried to be clear, but the topic is twisty and
+complex, and rife with politics.
+
+My "branch" (If I may so dignify it) is now doing the following:
+
+
++ Generating the specfiles for a broad dependency tree of a package
+
++ Generating a rpm build script which will go through the specs, and
+  - build a RPM
+  - install the RPM
+
+  in an order which satisfies the narrow dependency tree.
+
+
+I'm currently testing that one, it built the 162-package tree for
+ggplot2 with a relatively small number of RPM build errors, which I
+haven't yet solved.
+
+
+
+I'm testing the r2spec package now, once I smack the bugs in my RPM of
+it I'll stick it up for kibitzing.
+
+
+Once _that_ is complete, I intend to automate the running of the R CMD
+CHECKs. 
+
+
+- Allen S. Rout
+
+From asr at ufl.edu  Tue Sep 15 21:41:09 2009
+From: asr at ufl.edu (Allen S. Rout)
+Date: Tue, 15 Sep 2009 21:41:09 +0000
+Subject: [Fedora-r-devel-list] R2spec kibitzing.
+Message-ID: <44wpf63bjsx6y.fsf@crepe.osg.ufl.edu>
+
+
+Sorry, those messages were supposed to have come out periodically over
+the last week or two.
+
+I've got the next version ready, tested as I had alluded to in my previous. 
+
+http://nersp.osg.ufl.edu/~asr/media/R2spec-2.6.1-asr.src.rpm
+
+So, here's what I did to get more or less useful results out of it:
+
+After installing, I made a temp directory, /var/tmp/Rstuff.
+
+There, I ran (as root): 
+
+# clear; R2spec  -n "Allen S. Rout" -e "asr(a)ufl.edu"  -c   --force  --suggests  --verbose  --package  ggplot2
+
+
+This downloaded the CRAN-like lists of packages, downloaded source
+tarballs, and built (and copied) the specfiles and source.  
+
+It also generated a few dot files, including the broad and narrow
+dependency graphs for the requested package.
+
+It also generates a shell file: 'rpmbuild.sh'.  This is intended to
+make all the RPMs you need for the broad graph. 
+
+I haven't decided what the sane options are in terms of 'pwd'
+throughout all this process.  At the moment, the next step is:
+
+# cd /usr/src/redhat/SPECS
+# sh /var/tmp/Rstuff/rpmbuild.sh
+
+This will build and install all of the RPMs in the broad graph. ... If
+the individual builds work.
+
+This script uses a tempdir extensively, again I'm not sure what the
+Right Way is to do this, I haven't thought about it too much yet.
+It's statically defined at the beginning of the script to be
+
+/var/tmp/Rstuff
+
+that's obviously inappropriate for release, but will do for the
+moment.
+
+The script drops a build log and an install log for every package
+addressed. 
+
+
+
+Right now, for me to get the sysdeps to build and install all (most)
+of ggplot2's broad depgraph, I must:
+
+yum install openmpi openmpi-devel openmpi-libs unixODBC-devel pvm tcl tcl-devel perl-DateManip  perl-Date-Calc perl-version
+
+and then install from EPEL:
+
+environment-modules-3.2.6-4.el5.x86_64.rpm
+mpich2-1.1.1-1.el5.x86_64.rpm
+perl-IO-stringy-2.110-5.el5.noarch.rpm
+perl-Jcode-2.06-6.el5.noarch.rpm
+perl-OLE-Storage_Lite-0.14-9.el5.noarch.rpm
+perl-Parse-RecDescent-1.96-1.el5.noarch.rpm
+perl-Spreadsheet-WriteExcel-2.18-1.el5.noarch.rpm
+perl-Unicode-Map-0.112-12.el5.x86_64.rpm
+
+and then install from the graphviz people: 
+
+graphviz-2.24.0-1.el5.x86_64.rpm
+graphviz-devel-2.24.0-1.el5.x86_64.rpm
+
+
+With these things done, I still fail to build (and haven't
+investigated much yet):
+
+
+tcltk2:  Fails to install: need tclsh8.3, not 8.4 ? 
+
+multcomp: requires Survival >= 2.35.7 ? ...
+
+flexmix: dep on multcomp
+
+R-RandomFields, R-MCMCpack: uncaught debug files in the build tree.
+
+MPI, sprng
+
+
+
+
+As threatened, my next step will be a similar shell script to R CMD
+CHECK all the packages, and populate yet another family of logfiles.
+Once that is complete, I will re-announce and go back to try to figure
+out why individual packages fail.
+
+
+
+- Allen S. Rout
+
+From jamatos at fc.up.pt  Fri Sep 18 16:38:49 2009
+From: jamatos at fc.up.pt (=?utf-8?q?Jos=C3=A9_Ab=C3=ADlio_Matos?=)
+Date: Fri, 18 Sep 2009 16:38:49 +0000
+Subject: Re: [Fedora-r-devel-list] R2spec kibitzing.
+In-Reply-To: <44wpf63bjsx6y.fsf@crepe.osg.ufl.edu>
+Message-ID: <200909181738.49563.jamatos@fc.up.pt>
+
+On Tuesday 15 September 2009 Allen S. Rout wrote:
+> There, I ran (as root): 
+> 
+> # clear; R2spec  -n "Allen S. Rout" -e
+>  "asr(a)ufl.edu"  -c   --force  --suggests  --verbose  --package  ggplot2
+
+Don't run this script as root, use if necessary another account and set your 
+own ~/.rpmmacros
+
+Mine is like this:
+%_topdir                /home/jamatos/grifo/
+%_tmppath               /tmp/rpmbuild
+%_builddir              %{_tmppath}
+
+%_rpmtopdir             %{_topdir}/build/%{name}
+%_sourcedir             %{_rpmtopdir}
+%_specdir               %{_rpmtopdir}
+%_rpmdir                %{_rpmtopdir}
+%_srcrpmdir             %{_rpmtopdir}
+
+%_rpmfilename           %%{name}-%%{version}-%%{release}.%%{arch}.rpm
+
+%_smp_mflags            -j3
+%debug_package          %{nil}
+
+I like to have all the rpms in the same directory that is why all those dirs 
+above are equal.
+-- 
+José Abílio
+
+From jamatos at fc.up.pt  Fri Sep 18 17:10:00 2009
+From: jamatos at fc.up.pt (=?utf-8?q?Jos=C3=A9_Ab=C3=ADlio_Matos?=)
+Date: Fri, 18 Sep 2009 17:10:00 +0000
+Subject: Re: [Fedora-r-devel-list] Re: r2spec
+In-Reply-To: <44wpf7hw86f2c.fsf@crepe.osg.ufl.edu>
+Message-ID: <200909181810.00360.jamatos@fc.up.pt>
+
+On Wednesday 09 September 2009 Allen S. Rout wrote:
+> I haven't seen any responses to my package-deps thinking.  I'm hoping
+> that's because everyone read it and said to themselves, "Wow, this
+> Allen fellow is an utter genius: How profoundly correct he is! ".
+> 
+> Yeah, right.
+
+The probable cause is more like "everyone would like to comment but REAL LIFE 
+(tm) got in the way", at least it was for me.
+
+> OK, here's the SRPM of my current state.
+> 
+> http://nersp.osg.ufl.edu/~asr/media/R2spec-2.6.0-asr.src.rpm
+> 
+> When I run that against ggplot2, I get a "broad" dependency graph of
+> 152 packages.  That's the list of packages that "should" be installed
+> to be able to R CMD CHECK all the packages, recursively.
+
+Considering that cran has more than 1800 packages I would that this is small 
+subset. ;-)
+
+> That fact, the recursive Suggests graph, is why I think any tool that
+> builds a single spec needs to do the math; because there's no way we
+> can CHECK a package without doing it.
+
+What could be done, depending on the needs found, is to build a python library 
+where both R2spec and your tools use the code from.
+
+> - Allen S. Rout
+
+-- 
+José Abílio
+
+From jamatos at fc.up.pt  Fri Sep 18 17:12:25 2009
+From: jamatos at fc.up.pt (=?utf-8?q?Jos=C3=A9_Ab=C3=ADlio_Matos?=)
+Date: Fri, 18 Sep 2009 17:12:25 +0000
+Subject: Re: [Fedora-r-devel-list] Re: r2spec
+In-Reply-To: <44wpf8wgh8hgw.fsf@crepe.osg.ufl.edu>
+Message-ID: <200909181812.25398.jamatos@fc.up.pt>
+
+On Monday 14 September 2009 Allen S. Rout wrote:
+> Once that is complete, I intend to automate the running of the R CMD
+> CHECKs. 
+
+So you running a R CMD CHECK for all the newly installed packages? Clever. :-)
+
+> - Allen S. Rout
+
+-- 
+José Abílio
+
+From asr at ufl.edu  Fri Sep 18 19:00:48 2009
+From: asr at ufl.edu (Allen S. Rout)
+Date: Fri, 18 Sep 2009 19:00:48 +0000
+Subject: [Fedora-r-devel-list] Re: r2spec
+In-Reply-To: <200909181810.00360.jamatos@fc.up.pt>
+Message-ID: <44wpftyz0cc2n.fsf@crepe.osg.ufl.edu>
+
+
+
+José Matos <jamatos-BxEiAy0842I(a)public.gmane.org> writes:
+
+> The probable cause is more like "everyone would like to comment but REAL LIFE 
+> (tm) got in the way", at least it was for me.
+
+I understand entirely. :) 
+
+
+
+> Considering that cran has more than 1800 packages I would that this is small 
+> subset. ;-)
+
+yeah, but it's still honking huge compared to what I thought I'd be
+able to do.  It was when I saw that depgraph that I decided I would
+just work on building sets instead of singles.
+
+
+
+
+
+
+- Allen S. Rout
+
+From asr at ufl.edu  Fri Sep 18 19:04:15 2009
+From: asr at ufl.edu (Allen S. Rout)
+Date: Fri, 18 Sep 2009 19:04:15 +0000
+Subject: [Fedora-r-devel-list] Re: r2spec
+In-Reply-To: <200909181812.25398.jamatos@fc.up.pt>
+Message-ID: <44wpfhbv0axcg.fsf@crepe.osg.ufl.edu>
+
+
+
+José Matos <jamatos-BxEiAy0842I(a)public.gmane.org> writes:
+
+> So you running a R CMD CHECK for all the newly installed packages?
+> Clever. :-)
+
+Right.  Since by definition we know we can't "CHECK packages before
+using the RPM", the best I could come up with was "CHECK packages
+before considering them suitable for distribution".
+
+I would welcome some other theory; it totally squicks me to have the
+check facility available yet not use it before I get an RPM out of the
+process.
+
+When I suggested doing a conservative CHECK during build, and then the
+full CHECK afterwards, the R folks shrugged and asked "why bother with
+the first one?".  And I can't disagree.
+
+
+
+- Allen S. Rout
+
+From jamatos at fc.up.pt  Fri Sep 18 19:23:00 2009
+From: jamatos at fc.up.pt (=?utf-8?q?Jos=C3=A9_Ab=C3=ADlio_Matos?=)
+Date: Fri, 18 Sep 2009 19:23:00 +0000
+Subject: [Fedora-r-devel-list] Should rpy require R or R-core?
+Message-ID: <200909182023.01287.jamatos@fc.up.pt>
+
+Hi all,
+	I got a feature request in bugzilla where the user request that rpy requires 
+R-core and not R.
+
+	I don't have any good reason to choose one or the other, what do others 
+think?
+
+	Would anyone oppose to such a move?
+
+Regards,
+-- 
+José Abílio
+
+From asr at ufl.edu  Fri Sep 18 19:38:42 2009
+From: asr at ufl.edu (Allen S. Rout)
+Date: Fri, 18 Sep 2009 19:38:42 +0000
+Subject: [Fedora-r-devel-list] Reflections on R...
+Message-ID: <44wpfr5u49h6l.fsf@crepe.osg.ufl.edu>
+
+
+
+I've completed the "OK, now try to CMD CHECK all these" script, and
+seeing how well it functions.
+
+If you want to be impressed with what you can do with R, all out of
+proportion with what you thought was keen yesterday, run R CMD check
+on rgl.
+
+Dang.
+
+
+- Allen S. Rout
+
+From tcallawa at redhat.com  Fri Sep 18 19:51:15 2009
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Fri, 18 Sep 2009 19:51:15 +0000
+Subject: Re: [Fedora-r-devel-list] Should rpy require R or R-core?
+In-Reply-To: <200909182023.01287.jamatos@fc.up.pt>
+Message-ID: <4AB3E4B3.4000602@redhat.com>
+
+On 09/18/2009 03:23 PM, José Matos wrote:
+> Hi all,
+> 	I got a feature request in bugzilla where the user request that rpy requires 
+> R-core and not R.
+> 
+> 	I don't have any good reason to choose one or the other, what do others 
+> think?
+
+Unless rpy needs something outside of R-core, I think that makes sense.
+No reason to have the install footprint unnecessarily large.
+
+~spot
+
+From jamatos at fc.up.pt  Mon Sep 21 09:33:55 2009
+From: jamatos at fc.up.pt (=?utf-8?q?Jos=C3=A9_Ab=C3=ADlio_Matos?=)
+Date: Mon, 21 Sep 2009 09:33:55 +0000
+Subject: Re: [Fedora-r-devel-list] Should rpy require R or R-core?
+In-Reply-To: <4AB3E4B3.4000602@redhat.com>
+Message-ID: <200909211033.56219.jamatos@fc.up.pt>
+
+On Friday 18 September 2009 Tom "spot" Callaway wrote:
+> Unless rpy needs something outside of R-core, I think that makes sense.
+> No reason to have the install footprint unnecessarily large.
+
+OK, I have generated a new package for rawhide with the new requirement. This 
+change will be propagated to F-10 and F-11 when R-2.10 shows next month.
+
+> ~spot
+
+-- 
+José Abílio
+
+From jamatos at fc.up.pt  Mon Sep 21 09:40:07 2009
+From: jamatos at fc.up.pt (=?utf-8?q?Jos=C3=A9_Ab=C3=ADlio_Matos?=)
+Date: Mon, 21 Sep 2009 09:40:07 +0000
+Subject: Re: [Fedora-r-devel-list] Should rpy require R or R-core?
+In-Reply-To: <200909211033.56219.jamatos@fc.up.pt>
+Message-ID: <200909211040.07518.jamatos@fc.up.pt>
+
+On Monday 21 September 2009 José Matos wrote:
+> OK, I have generated a new package for rawhide with the new requirement.
+>  This  change will be propagated to F-10 and F-11 when R-2.10 shows next
+>  month.
+
+On a second thought and because the base for rpy is different for F-10 and 
+F-11 I will update the new version for those releases.
+-- 
+José Abílio
+
+From ron at ron.dk  Tue Sep 22 13:19:51 2009
+From: ron at ron.dk (Rasmus Ory Nielsen)
+Date: Tue, 22 Sep 2009 13:19:51 +0000
+Subject: Re: [Fedora-r-devel-list] Should rpy require R or R-core?
+In-Reply-To: <200909211040.07518.jamatos@fc.up.pt>
+Message-ID: <4AB8CEF7.6040606@ron.dk>
+
+On 21-09-2009 11:40, José Matos wrote:
+> On Monday 21 September 2009 José Matos wrote:
+>> OK, I have generated a new package for rawhide with the new requirement.
+>>   This  change will be propagated to F-10 and F-11 when R-2.10 shows next
+>>   month.
+>
+> On a second thought and because the base for rpy is different for F-10 and
+> F-11 I will update the new version for those releases.
+
+Thanks.
+
+BTW why is rpy2 not available on f10? (and why is rpy not available on f11?)
+
+Cheers,
+
+Rasmus
+
+From asr at ufl.edu  Wed Sep 23 19:04:45 2009
+From: asr at ufl.edu (Allen S. Rout)
+Date: Wed, 23 Sep 2009 19:04:45 +0000
+Subject: [Fedora-r-devel-list] Any feedback? any at all? 
+Message-ID: <44wpfvdj9xz1u.fsf@crepe.osg.ufl.edu>
+
+
+Hi, folks. 
+
+I've now got my script in such a form that I can generate, build, and
+check most of the 'broad' dependency tree for ggplot2.  There are
+several package build errors which I haven't started running down; I'm
+not sure if they're relevant to my case.
+
+Do any of you have any interest in this?  I was thinking it might help
+accellerate new R packages' introduction to e.g. EPEL, but my sense
+now is that you'd much rather hand-craft every one.  If our goals are
+just skew, I'm fine with that.
+
+I've put nearly a work week into this over the last few months, and am
+very near the end of what I need for my local concerns.  I can happily
+put a bit more time to address things you-all want done, if your
+perspective is something like "We could use this, if he'd just [x, y,
+z]".  Getting stuff accepted 'upstream' is worthwhile in my work
+environment.
+
+But if you're never going to be interested in the mass maintenance of
+these packages, I'll just stop bothering you.
+
+
+
+- Allen S. Rout
+
+From ihok at hotmail.com  Wed Sep 23 21:00:39 2009
+From: ihok at hotmail.com (Jack Tanner)
+Date: Wed, 23 Sep 2009 21:00:39 +0000
+Subject: RE: [Fedora-r-devel-list] Any feedback? any at all?
+In-Reply-To: <44wpfvdj9xz1u.fsf@crepe.osg.ufl.edu>
+Message-ID: <BLU129-W1620CFB2591EADF0F9F589CADB0@phx.gbl>
+
+
+This seems like it's going to be extremely useful when I get back to working on ggplot2. Thanks for your hard work. Unfortunately, that project just got punted down the priority list for me, so I can't really offer any constructive feedback right now.
+
+----------------------------------------
+> To: fedora-r-devel-list(a)redhat.com
+> From: asr(a)ufl.edu
+> Date: Wed, 23 Sep 2009 15:04:45 -0400
+> Subject: [Fedora-r-devel-list] Any feedback? any at all?
+>
+>
+> Hi, folks.
+>
+> I've now got my script in such a form that I can generate, build, and
+> check most of the 'broad' dependency tree for ggplot2. There are
+> several package build errors which I haven't started running down; I'm
+> not sure if they're relevant to my case.
+>
+> Do any of you have any interest in this? I was thinking it might help
+> accellerate new R packages' introduction to e.g. EPEL, but my sense
+> now is that you'd much rather hand-craft every one. If our goals are
+> just skew, I'm fine with that.
+>
+> I've put nearly a work week into this over the last few months, and am
+> very near the end of what I need for my local concerns. I can happily
+> put a bit more time to address things you-all want done, if your
+> perspective is something like "We could use this, if he'd just [x, y,
+> z]". Getting stuff accepted 'upstream' is worthwhile in my work
+> environment.
+>
+> But if you're never going to be interested in the mass maintenance of
+> these packages, I'll just stop bothering you.
+>
+>
+>
+> - Allen S. Rout
+>
+> _______________________________________________
+> Fedora-r-devel-list mailing list
+> Fedora-r-devel-list(a)redhat.com
+> http://www.redhat.com/mailman/listinfo/fedora-r-devel-list
+ 		 	   		  
+_________________________________________________________________
+Lauren found her dream laptop. Find the PC that’s right for you.
+http://www.microsoft.com/windows/choosepc/?ocid=ftp_val_wl_290
+
+From tom at moertel.com  Wed Sep 23 23:29:05 2009
+From: tom at moertel.com (Tom Moertel)
+Date: Wed, 23 Sep 2009 23:29:05 +0000
+Subject: Re: [Fedora-r-devel-list] Any feedback? any at all?
+In-Reply-To: <44wpfvdj9xz1u.fsf@crepe.osg.ufl.edu>
+Message-ID: <4ABAAF41.3080409@moertel.com>
+
+Allen S. Rout wrote:
+> I've now got my script in such a form that I can generate, build, and
+> check most of the 'broad' dependency tree for ggplot2.
+
+I am interested in seeing your script.  It sounds like it embodies a lot 
+of knowledge about building a bunch of R packages, and that knowledge is 
+  valuable.  I'd hope we can make some use of it.  :-)
+
+Cheers,
+Tom
+
+From asr at ufl.edu  Thu Sep 24 12:24:37 2009
+From: asr at ufl.edu (Allen S. Rout)
+Date: Thu, 24 Sep 2009 12:24:37 +0000
+Subject: [Fedora-r-devel-list] Re: Any feedback? any at all?
+In-Reply-To: <BLU129-W1620CFB2591EADF0F9F589CADB0@phx.gbl>
+Message-ID: <44wpfab0ky1h6.fsf@crepe.osg.ufl.edu>
+
+
+
+Jack Tanner <ihok-PkbjNfxxIARBDgjK7y7TUQ(a)public.gmane.org> writes:
+
+> This seems like it's going to be extremely useful when I get back to
+> working on ggplot2. Thanks for your hard work. Unfortunately, that
+> project just got punted down the priority list for me, so I can't
+> really offer any constructive feedback right now.
+
+
+OK, sounds like I should just get my undergarments unwadded, and wait
+for someone else to get a Round Tuit.
+
+
+- Allen S. Rout
+
+From asr at ufl.edu  Thu Sep 24 13:08:04 2009
+From: asr at ufl.edu (Allen S. Rout)
+Date: Thu, 24 Sep 2009 13:08:04 +0000
+Subject: [Fedora-r-devel-list] Re: Any feedback? any at all?
+In-Reply-To: <4ABAAF41.3080409@moertel.com>
+Message-ID: <44wpffxacqymj.fsf@crepe.osg.ufl.edu>
+
+
+
+Tom Moertel <tom-RKvYLT2W2Q9BDgjK7y7TUQ(a)public.gmane.org> writes:
+
+> I am interested in seeing your script.  It sounds like it embodies a
+> lot of knowledge about building a bunch of R packages, and that
+> knowledge is valuable.  I'd hope we can make some use of it.  :-)
+
+http://nersp.osg.ufl.edu/~asr/media/R2spec-2.6.2-asr.src.rpm
+
+It depends now on python-cheetah (available from EPEL).
+
+Updated instructions: 
+
+---- 
+
+for me to get the dependencies to build and install all (most) of
+ggplot2's broad depgraph, I must:
+
+yum install openmpi openmpi-devel openmpi-libs unixODBC-devel pvm tcl tcl-devel perl-DateManip  perl-Date-Calc perl-version
+
+and then install from EPEL:
+
+environment-modules-3.2.6-4.el5.x86_64.rpm
+mpich2-1.1.1-1.el5.x86_64.rpm
+perl-IO-stringy-2.110-5.el5.noarch.rpm
+perl-Jcode-2.06-6.el5.noarch.rpm
+perl-OLE-Storage_Lite-0.14-9.el5.noarch.rpm
+perl-Parse-RecDescent-1.96-1.el5.noarch.rpm
+perl-Spreadsheet-WriteExcel-2.18-1.el5.noarch.rpm
+perl-Unicode-Map-0.112-12.el5.x86_64.rpm
+
+and then install from the graphviz people: 
+
+graphviz-2.24.0-1.el5.x86_64.rpm
+graphviz-devel-2.24.0-1.el5.x86_64.rpm
+
+
+After installing the r2spec and the sysdeps, I made a temp directory,
+/var/tmp/Rbuild.  I've got every script running happily from '.'; so
+there's no specialness about the tempdir any more.
+
+There, I ran (as root): [...]
+
+I heard the 'prefer not running as root' from earlier: since step N
+below is to install all these packages, is that really practical?  In
+any case, the below can be run as a normal user, but the install steps
+below can't.
+
+# clear; R2spec  -n "Allen S. Rout" -e "asr-hnhdhkBXzx8(a)public.gmane.org"  -c   --force  --suggests  --verbose  --package  ggplot2
+
+
+This downloaded the CRAN-like lists of packages, downloaded source
+tarballs, and built (and copied) the specfiles and source.  
+
+It also generated a few dot files, including the broad and narrow
+dependency graphs for the requested package.
+
+It also generates a 'buildorderlist'; a path through the depgraph such
+that each package is attempted only after its dependencies are
+processed.
+
+Then I stripped out the packages I knew would not complete their RPM
+build (mentioned below)
+
+# mv buildorderlist buildorderlist.orig
+
+# egrep -v "R-Rmpi|R-rsprng|R-multcomp|R-flexmix|R-RandomFields|R-MCMCpack|R-tcltk2" buildorderlist.orig > buildorderlist
+
+Then I ran
+
+ /usr/lib/python2.4/site-packages/r2spec/buildfromlist.sh
+
+Is it evil for me to have put the script in there?  This is certainly
+not general-purpose; putting it in the default bin would be silly.
+
+This will build and install all of the RPMs in the broad graph. ... If
+the individual builds work.
+
+This script uses '.'  or environment variable 'RBUILDLOG' as a tempdir
+extensively; it drops a build log and an install log for every package
+addressed.  That way when things eventually bust you can see where
+they went wrong.
+
+Then I ran
+
+ /usr/lib/python2.4/site-packages/r2spec/checkfromlist.sh
+
+which runs 'R CMD check' on every package, again logging, and
+summarizing success or failure in 'checkresults'.
+
+The check step took about 5.5 hours for me.
+
+
+----
+
+I still fail to build (and haven't investigated much yet):
+
+tcltk2:  Fails to install: need tclsh8.3, not 8.4 ? 
+
+multcomp: requires Survival >= 2.35.7 ? ...
+
+flexmix: dep on multcomp
+
+R-RandomFields, R-MCMCpack: uncaught debug files in the build tree.
+
+MPI, sprng
+
+----
+
+
+
+
+- Allen S. Rout
+
+From tcallawa at redhat.com  Thu Sep 24 15:46:03 2009
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Thu, 24 Sep 2009 15:46:03 +0000
+Subject: Re: [Fedora-r-devel-list] Any feedback? any at all?
+In-Reply-To: <44wpfvdj9xz1u.fsf@crepe.osg.ufl.edu>
+Message-ID: <4ABB943B.8040802@redhat.com>
+
+On 09/23/2009 03:04 PM, Allen S. Rout wrote:
+> Do any of you have any interest in this?  I was thinking it might help
+> accellerate new R packages' introduction to e.g. EPEL, but my sense
+> now is that you'd much rather hand-craft every one.  If our goals are
+> just skew, I'm fine with that.
+
+This is very interesting, please keep at it!
+
+I think that there is no need to hand-craft every R package, but that
+each R spec file needs to be:
+
+* Sanity checked, and adjusted as necessary
+* Actively maintained
+
+I don't want to simply run any tool, generate a bunch of spec files, get
+them into Fedora/EPEL, and then let them stagnate because one person
+owns all of CRAN. :)
+
+With that said, a tool that can automate any portion of the process is
+very useful.
+
+~spot
+
+From asr at ufl.edu  Fri Sep 25 01:08:55 2009
+From: asr at ufl.edu (Allen S. Rout)
+Date: Fri, 25 Sep 2009 01:08:55 +0000
+Subject: [Fedora-r-devel-list] Re: Any feedback? any at all?
+In-Reply-To: <4ABB943B.8040802@redhat.com>
+Message-ID: <44wpfskebde54.fsf@crepe.osg.ufl.edu>
+
+
+
+"Tom \"spot\" Callaway" <tcallawa-H+wXaHxf7aLQT0dZR+AlfA(a)public.gmane.org> writes:
+
+> I think that there is no need to hand-craft every R package, but that
+> each R spec file needs to be:
+>
+> * Sanity checked, and adjusted as necessary
+> * Actively maintained
+
+> I don't want to simply run any tool, generate a bunch of spec files,
+> get them into Fedora/EPEL, and then let them stagnate because one
+> person owns all of CRAN. :)
+
+Keen; can you refine those statements?
+
+I might be able to address 'actively maintained' by analogy to the
+debian folks' efforts on this.  They regularly run basically an update
+which detects package availability changes, and builds the new ones.
+So, a "reasonable" time after a new package appears on CRAN, it
+appears in the apt repo Dirk's maintaining.  That's clearly one
+component of active maintenance; do you have more off the top of your
+head?
+
+As for 'sanity checked', I don't know what that means.  I'd like to
+pretend that any package for which R CMD check passes successfully has
+been sanity checked, but I know that to be a skewed persepctive. :) If
+you can give me criteria, I can start working to implement them.
+
+
+
+- Allen S. Rout
+
+From herrold at owlriver.com  Mon Sep 28 01:45:52 2009
+From: herrold at owlriver.com (R P Herrold)
+Date: Mon, 28 Sep 2009 01:45:52 +0000
+Subject: [Fedora-r-devel-list] r2spec
+In-Reply-To: <44wpftyzjep5l.fsf@crepe.osg.ufl.edu>
+Message-ID: <alpine.LRH.2.00.0909272141160.27075@arj.bjyevire.pbz>
+
+On Thu, 3 Sep 2009, Allen S. Rout wrote:
+
+> So, I've modified r2spec fairly heavily on my own.  Pierre-Yves
+> suggested I bring conversation straight here, so I'm doing that.
+>
+> I'll put a SRPM of my r2spec up at the next point when it works.  It
+> worked earlier today, but of course I'm doing more surgery right now.
+
+I checked the list subject, and do not see that the URL for a 
+new version has been mentioned.  Pierre-Yves' version worked 
+well for me with some mechanical edits to handle versioning 
+valued, and to break some R CMD CHECK dependency loops to 
+permit bootstrapping new package groups in.
+
+This was on a packaging effort for a couple hundred CRAN 
+financial and econometric R add on packages, earlier this year
+
+-- Russ herrold
+
+From asr at ufl.edu  Mon Sep 28 17:44:17 2009
+From: asr at ufl.edu (Allen S. Rout)
+Date: Mon, 28 Sep 2009 17:44:17 +0000
+Subject: [Fedora-r-devel-list] Re: r2spec
+In-Reply-To: <alpine.LRH.2.00.0909272141160.27075@arj.bjyevire.pbz>
+Message-ID: <44wpffxa7ynf2.fsf@crepe.osg.ufl.edu>
+
+
+
+R P Herrold <herrold-lD49m8UYmPxWk0Htik3J/w(a)public.gmane.org> writes:
+
+> On Thu, 3 Sep 2009, Allen S. Rout wrote:
+>
+>> So, I've modified r2spec fairly heavily on my own.  Pierre-Yves
+>> suggested I bring conversation straight here, so I'm doing that.
+>>
+>> I'll put a SRPM of my r2spec up at the next point when it works.  It
+>> worked earlier today, but of course I'm doing more surgery right now.
+>
+> I checked the list subject, and do not see that the URL for a new
+> version has been mentioned.  
+
+Wierd.  I've thought I've mentioned several of them now.  Have any of
+you seen any of those messages?
+
+http://article.gmane.org/gmane.linux.redhat.fedora.r.devel/200
+
+is the most recent, referring to my 2.6.2.
+
+
+
+> Pierre-Yves' version worked well for me with some mechanical edits
+> to handle versioning valued, and to break some R CMD CHECK
+> dependency loops to permit bootstrapping new package groups in.
+
+> This was on a packaging effort for a couple hundred CRAN financial
+> and econometric R add on packages, earlier this year
+
+I'm definitely focusing on building a whole dependency tree as a
+coordinated effort.  I've attempted to formalize the (IMO poor) fit
+between the R ideas about package deps, and the RPM ideas.
+
+http://article.gmane.org/gmane.linux.redhat.fedora.r.devel/177
+
+
+
+- Allen S. Rout
+
+From herrold at owlriver.com  Tue Sep 29 14:50:36 2009
+From: herrold at owlriver.com (R P Herrold)
+Date: Tue, 29 Sep 2009 14:50:36 +0000
+Subject: [Fedora-r-devel-list] Re: r2spec
+In-Reply-To: <44wpffxa7ynf2.fsf@crepe.osg.ufl.edu>
+Message-ID: <alpine.LRH.2.00.0909291048500.7045@arj.bjyevire.pbz>
+
+On Mon, 28 Sep 2009, Allen S. Rout wrote:
+
+> http://article.gmane.org/gmane.linux.redhat.fedora.r.devel/200
+>
+> is the most recent, referring to my 2.6.2.
+
+ 	http://nersp.osg.ufl.edu/~asr/media/R2spec-2.6.2-asr.src.rpm
+noted there is a dead link when I seek to pull it
+
+-- Russ herrold
+
+From asr at ufl.edu  Wed Sep 30 17:14:43 2009
+From: asr at ufl.edu (Allen S. Rout)
+Date: Wed, 30 Sep 2009 17:14:43 +0000
+Subject: [Fedora-r-devel-list] Re: r2spec
+In-Reply-To: <alpine.LRH.2.00.0909291048500.7045@arj.bjyevire.pbz>
+Message-ID: <44wpfvdj0xsl8.fsf@crepe.osg.ufl.edu>
+
+
+
+R P Herrold <herrold-lD49m8UYmPxWk0Htik3J/w(a)public.gmane.org> writes:
+
+> 	http://nersp.osg.ufl.edu/~asr/media/R2spec-2.6.2-asr.src.rpm
+> noted there is a dead link when I seek to pull it
+
+
+Well, crap.  Should be there now. 
+
+It looks like the last time I copied over the 'binary' rpm, and not
+the src.  They're both still there.
+
+
+
+
+- Allen S. Rout
+
+From herrold at owlriver.com  Wed Sep 30 17:27:32 2009
+From: herrold at owlriver.com (R P Herrold)
+Date: Wed, 30 Sep 2009 17:27:32 +0000
+Subject: [Fedora-r-devel-list] Re: r2spec
+In-Reply-To: <44wpfvdj0xsl8.fsf@crepe.osg.ufl.edu>
+Message-ID: <alpine.LRH.2.00.0909301326450.20644@arj.bjyevire.pbz>
+
+On Wed, 30 Sep 2009, Allen S. Rout wrote:
+
+> R P Herrold <herrold-lD49m8UYmPxWk0Htik3J/w(a)public.gmane.org> writes:
+>> 	http://nersp.osg.ufl.edu/~asr/media/R2spec-2.6.2-asr.src.rpm
+>> noted there is a dead link when I seek to pull it
+
+> Well, crap.  Should be there now.
+
+thank you ... looking at it now
+
+-- Russ herrold
+
+From jamatos at fc.up.pt  Wed Sep 30 17:51:27 2009
+From: jamatos at fc.up.pt (=?utf-8?q?Jos=C3=A9_Ab=C3=ADlio_Matos?=)
+Date: Wed, 30 Sep 2009 17:51:27 +0000
+Subject: Re: [Fedora-r-devel-list] R package dependencies, translated into RPM land.
+In-Reply-To: <44wpfk50e3430.fsf@crepe.osg.ufl.edu>
+Message-ID: <200909301851.27330.jamatos@fc.up.pt>
+
+On Friday 04 September 2009 Allen S. Rout wrote:
+> So: Here's my suggested procedure for building any single package,
+> gangked from a message I sent to R-core:
+> 
+> 
+> 1) Express binary package dependencies according to Depends and Imports.
+>    I'll call this the 'narrow dependency graph'.
+> 
+> 2) As part of the binary package build process, run CHECK
+>    with R_CHECK_FORCE_SUGGESTS = false.
+> 
+> I'll pull nomenclature out of my ear and call these "built" but not
+> "checked".
+> 
+> 3) Build all binary packages which are downstream according to all of
+>    Depends, Imports, Suggests, and Extends.  I'll call this the 'broad
+>    dependency graph'.
+> 
+> 4) Install all the packages in the broad dependency graph.
+> 
+> 5) for each package in the broad graph, run CHECK with
+>    R_CHECK_FORCE_SUGGESTS=true.
+> 
+> Then the affected packages are "checked".  Perhaps this can be noted
+> with a signature.
+> 
+> 
+> .... Whew!
+> 
+> 
+> 
+> - Allen S. Rout
+> 
+> 
+> [1] http://cran.r-project.org/doc/manuals/R-exts.html#The-DESCRIPTION-file
+> 
+> [2]
+>  http://cran.r-project.org/doc/manuals/R-exts.html#Customizing-checking-and
+> -building
+
+Nice work, BTW, in case I have not said this before. It would be interesting 
+to have this analysis in a wiki so it is not lost. What do others think?
+
+-- 
+José Abílio
+

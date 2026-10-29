@@ -1,0 +1,355 @@
+From tcallawa at redhat.com  Tue Jul  3 12:47:47 2007
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Tue, 03 Jul 2007 12:47:47 +0000
+Subject: [Fedora-r-devel-list] R 2.5.1
+Message-ID: <1183466867.4103.32.camel@localhost.localdomain>
+
+... is built for FC-6, F-7 (waiting for its push to stable), and devel.
+
+Also, I'm building it for EPEL too (for the first time).
+
+Other dependent packages (rpy, I'm looking at you) should do their
+thing.
+
+~spot
+
+From jamatos at fc.up.pt  Thu Jul  5 17:37:44 2007
+From: jamatos at fc.up.pt (=?utf-8?q?Jos=C3=A9_Ab=C3=ADlio_Matos?=)
+Date: Thu, 05 Jul 2007 17:37:44 +0000
+Subject: Re: [Fedora-r-devel-list] R 2.5.1
+In-Reply-To: <1183466867.4103.32.camel@localhost.localdomain>
+Message-ID: <20070705183744.v4m6p4lcargg8cgs@webmail.fc.up.pt>
+
+Quoting "Tom \"spot\" Callaway" <tcallawa(a)redhat.com>:
+> ... is built for FC-6, F-7 (waiting for its push to stable), and devel.
+>
+> Also, I'm building it for EPEL too (for the first time).
+>
+> Other dependent packages (rpy, I'm looking at you) should do their
+> thing.
+
+  I will do it later this week, for the moment I am in a Conference (until
+Saturday).
+
+> ~spot
+--
+José Abílio
+
+-------------------------------------------------------------
+A FCUP utiliza o sistema de webmail Horde/IMP (www.horde.org)
+
+Visite: http://www.fc.up.pt/
+
+From tcallawa at redhat.com  Thu Jul  5 19:15:36 2007
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Thu, 05 Jul 2007 19:15:36 +0000
+Subject: Re: [Fedora-r-devel-list] R 2.5.1
+In-Reply-To: <20070705183744.v4m6p4lcargg8cgs@webmail.fc.up.pt>
+Message-ID: <1183662936.3354.2.camel@dhcp-32-74.ord.redhat.com>
+
+On Thu, 2007-07-05 at 18:37 +0100, jamatos(a)fc.up.pt wrote:
+> Quoting "Tom \"spot\" Callaway" <tcallawa(a)redhat.com>:
+> > ... is built for FC-6, F-7 (waiting for its push to stable), and devel.
+> >
+> > Also, I'm building it for EPEL too (for the first time).
+> >
+> > Other dependent packages (rpy, I'm looking at you) should do their
+> > thing.
+> 
+>   I will do it later this week, for the moment I am in a Conference (until
+> Saturday).
+
+Do you want me to do it for you? I presume its just a rebuild...
+
+~spot
+
+From jamatos at fc.up.pt  Fri Jul  6 10:42:56 2007
+From: jamatos at fc.up.pt (=?utf-8?q?Jos=C3=A9_Ab=C3=ADlio_Matos?=)
+Date: Fri, 06 Jul 2007 10:42:56 +0000
+Subject: Re: [Fedora-r-devel-list] R 2.5.1
+In-Reply-To: <1183662936.3354.2.camel@dhcp-32-74.ord.redhat.com>
+Message-ID: <20070706114256.sulwk7slcnccgwgo@webmail.fc.up.pt>
+
+Quoting "Tom \"spot\" Callaway" <tcallawa(a)redhat.com>:
+>
+> Do you want me to do it for you?
+
+  Please do.
+
+> I presume its just a rebuild...
+
+  I don't have any reason to think otherwise.
+
+  I will start soon to test the new pre-release that uses numpy instead of
+Numeric. But for the moment this is OK.
+
+> ~spot
+
+--
+José Abílio
+
+
+-------------------------------------------------------------
+A FCUP utiliza o sistema de webmail Horde/IMP (www.horde.org)
+
+Visite: http://www.fc.up.pt/
+
+From tcallawa at redhat.com  Sat Jul  7 02:53:38 2007
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Sat, 07 Jul 2007 02:53:38 +0000
+Subject: [Fedora-r-devel-list] Guidelines for R packages
+Message-ID: <1183776818.3489.11.camel@localhost.localdomain>
+
+I worked up some guidelines for packaging R addon libraries/modules in
+Fedora:
+
+http://fedoraproject.org/wiki/PackagingDrafts/R
+
+I'm open to feedback from R packagers. I'm going to try to get this
+approved by the Fedora Packaging Committee next week, barring any
+serious complaints.
+
+Thanks,
+
+~spot
+
+From pertusus at free.fr  Sat Jul  7 08:48:43 2007
+From: pertusus at free.fr (Patrice Dumas)
+Date: Sat, 07 Jul 2007 08:48:43 +0000
+Subject: Re: [Fedora-r-devel-list] Guidelines for R packages
+In-Reply-To: <1183776818.3489.11.camel@localhost.localdomain>
+Message-ID: <20070707084843.GA3144@free.fr>
+
+On Fri, Jul 06, 2007 at 09:53:38PM -0500, Tom spot Callaway wrote:
+> I worked up some guidelines for packaging R addon libraries/modules in
+> Fedora:
+> 
+> http://fedoraproject.org/wiki/PackagingDrafts/R
+> 
+> I'm open to feedback from R packagers. I'm going to try to get this
+> approved by the Fedora Packaging Committee next week, barring any
+> serious complaints.
+
+If I remember well, Jose has a script similar with cpanspec, maybe there
+could be some reference to this script. And also maybe Jose could update 
+the script to be consistent with the packaging guidelines.
+
+Also I found when trying to package a number of packages that there
+are very frequently circular dependency in check parts. If there is 
+something generic that can be said about that point to help packagers, 
+I think it would be very helpful.
+
+--
+Pat
+
+From pingoufc4 at yahoo.fr  Sat Jul  7 21:26:10 2007
+From: pingoufc4 at yahoo.fr (pingou)
+Date: Sat, 07 Jul 2007 21:26:10 +0000
+Subject: Re: [Fedora-r-devel-list] Guidelines for R packages
+In-Reply-To: <1183776818.3489.11.camel@localhost.localdomain>
+Message-ID: <469004F2.6050903@yahoo.fr>
+
+Tom "spot" Callaway wrote:
+> I worked up some guidelines for packaging R addon libraries/modules in
+> Fedora:
+> 
+> http://fedoraproject.org/wiki/PackagingDrafts/R
+> 
+> I'm open to feedback from R packagers. I'm going to try to get this
+> approved by the Fedora Packaging Committee next week, barring any
+> serious complaints.
+> 
+> Thanks,
+> 
+> ~spot
+
+Hi,
+
+I have just one comment on it:
+What about the man pages ?
+I have marked them as %doc (like doc or html).
+Should we change this on the packaging guidelines ?
+
+Other question, is it feasible to add a R spectemplate in
+/etc/rpmdevtools/ like there is already for perl, python ?
+
+Anyway thanks for the work done :-)
+
+Regards,
+
+~pingou
+
+
+
+	
+
+	
+		
+___________________________________________________________________________ 
+Yahoo! Mail réinvente le mail ! Découvrez le nouveau Yahoo! Mail et son interface révolutionnaire.
+http://fr.mail.yahoo.com
+
+From pingoufc4 at yahoo.fr  Sun Jul  8 17:41:35 2007
+From: pingoufc4 at yahoo.fr (pingou)
+Date: Sun, 08 Jul 2007 17:41:35 +0000
+Subject: Re: [Fedora-r-devel-list] Guidelines for R packages
+In-Reply-To: <1183776818.3489.11.camel@localhost.localdomain>
+Message-ID: <469121CF.2050606@yahoo.fr>
+
+Tom "spot" Callaway wrote:
+> I worked up some guidelines for packaging R addon libraries/modules in
+> Fedora:
+> 
+> http://fedoraproject.org/wiki/PackagingDrafts/R
+> 
+> I'm open to feedback from R packagers. I'm going to try to get this
+> approved by the Fedora Packaging Committee next week, barring any
+> serious complaints.
+> 
+> Thanks,
+> 
+> ~spot
+
+Hi,
+
+I have just test the macro.
+We should change the
+
+%post
+%{_R_make_search_index}
+
+to
+
+%post -p %{_R_make_search_index}
+
+Without rpmlint returned me a warning.
+
+Thanks,
+Regards,
+~pingou
+
+	
+
+	
+		
+___________________________________________________________________________ 
+Yahoo! Mail réinvente le mail ! Découvrez le nouveau Yahoo! Mail et son interface révolutionnaire.
+http://fr.mail.yahoo.com
+
+From pingoufc4 at yahoo.fr  Sun Jul  8 21:06:20 2007
+From: pingoufc4 at yahoo.fr (pingou)
+Date: Sun, 08 Jul 2007 21:06:20 +0000
+Subject: Re: [Fedora-r-devel-list] Guidelines for R packages
+In-Reply-To: <469121CF.2050606@yahoo.fr>
+Message-ID: <469151CC.8090109@yahoo.fr>
+
+pingou wrote:
+> Tom "spot" Callaway wrote:
+>> I worked up some guidelines for packaging R addon libraries/modules in
+>> Fedora:
+>>
+>> http://fedoraproject.org/wiki/PackagingDrafts/R
+>>
+>> I'm open to feedback from R packagers. I'm going to try to get this
+>> approved by the Fedora Packaging Committee next week, barring any
+>> serious complaints.
+>>
+>> Thanks,
+>>
+>> ~spot
+> 
+> Hi,
+> 
+> I have just test the macro.
+> We should change the
+> 
+> %post
+> %{_R_make_search_index}
+> 
+> to
+> 
+> %post -p %{_R_make_search_index}
+> 
+> Without rpmlint returned me a warning.
+> 
+> Thanks,
+> Regards,
+> ~pingou
+
+Hi,
+
+I am facing two problems,
+Either we do:
+%post
+%{_R_make_search_index}
+Then we need to ignore the following warning from rpmlint:
+W: R-widgetTools one-line-command-in-%post
+/usr/lib/rpm/R-make-search-index.sh
+You should use %post -p <command> instead of using:
+
+%post
+<command>
+
+It will avoid the fork of a shell interpreter to execute your command as
+well as allows rpm to automatically mark the dependency on your command
+for the excecution of the scriptlet.
+
+or we go for
+%post -p %{_R_make_search_index}
+And then we are facing the following error from mock:
+$ mock ../SRPMS/R-widgetTools-1.12.0-10.fc6.src.rpm
+init
+clean
+prep
+This may take a while
+unpack cache
+setup
+No srpm created from specfile from srpm: R-widgetTools-1.12.0-10.fc6.src.rpm
+ending
+done
+
+With nothing in the /var/lib/mock/fedora-6-i386-core/result/build.log
+and this in the root.log http://rafb.net/p/GTEcKQ48.html (done for
+another package but R-widgetTools
+https://bugzilla.redhat.com/bugzilla/show_bug.cgi?id=241081 has the same
+error)
+
+I would go for the first solution if we have no way to correct it, but
+it that has it has to be precised in the packaging guidelines.
+
+Best regards,
+
+~pingou
+
+	
+
+	
+		
+___________________________________________________________________________ 
+Yahoo! Mail réinvente le mail ! Découvrez le nouveau Yahoo! Mail et son interface révolutionnaire.
+http://fr.mail.yahoo.com
+
+From pingoufc4 at yahoo.fr  Mon Jul 16 14:39:02 2007
+From: pingoufc4 at yahoo.fr (pingou)
+Date: Mon, 16 Jul 2007 14:39:02 +0000
+Subject: RE : Re: [Fedora-r-devel-list] Guidelines for R packages
+In-Reply-To: <469121CF.2050606@yahoo.fr>
+Message-ID: <581773.69862.qm@web27612.mail.ukl.yahoo.com>
+
+Hi all,
+   
+  I have been working in another type of package that might have to show up in the guidelines, it is about the metadata packages from the bioconductor website.
+  They are only set of data but as some libraries suggest them the R CMD check failed without.
+   
+  I have made a first draft version of a spec, with no return I will put it on the bugzilla, but if you have any comments/remarks I would be pleased to take them into account...
+   
+  The spec and the srpm are avalaible there:
+  http://pingoured.dyndns.org/public/RPM/R-hgu95av2
+   
+  Best regards
+  ~pingou
+
+       
+---------------------------------
+ Ne gardez plus qu'une seule adresse mail ! Copiez vos mails vers Yahoo! Mail
+

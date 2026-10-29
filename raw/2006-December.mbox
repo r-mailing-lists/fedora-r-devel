@@ -1,0 +1,30 @@
+From jamatos at fc.up.pt  Tue Dec 19 17:37:04 2006
+From: jamatos at fc.up.pt (=?utf-8?q?Jos=C3=A9_Ab=C3=ADlio_Matos?=)
+Date: Tue, 19 Dec 2006 17:37:04 +0000
+Subject: [Fedora-r-devel-list] R - 2.4.1. is out
+Message-ID: <200612191737.07444.jamatos@fc.up.pt>
+
+Just a nag note. It seems to be mostly bug fixes, so it was not important for 
+me to fill a bugzilla entry.
+
+None of the R packages needs a recompile AFAICS.
+-- 
+José Abílio
+
+From tcallawa at redhat.com  Tue Dec 19 22:32:15 2006
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Tue, 19 Dec 2006 22:32:15 +0000
+Subject: Re: [Fedora-r-devel-list] R - 2.4.1. is out
+In-Reply-To: <200612191737.07444.jamatos@fc.up.pt>
+Message-ID: <1166567535.6105.103.camel@dhcp-32-109.ord.redhat.com>
+
+On Tue, 2006-12-19 at 17:37 +0000, José Matos wrote:
+> Just a nag note. It seems to be mostly bug fixes, so it was not important for 
+> me to fill a bugzilla entry.
+> 
+> None of the R packages needs a recompile AFAICS.
+
+Yeah. Its on my todo list. :)
+
+~spot
+

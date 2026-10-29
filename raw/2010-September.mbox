@@ -1,0 +1,18 @@
+From pingou at pingoured.fr  Tue Sep 21 16:41:02 2010
+From: pingou at pingoured.fr (Pierre-Yves Chibon)
+Date: Tue, 21 Sep 2010 16:41:02 +0000
+Subject: [Fedora-r-devel-list] NeedsWork option
+Message-ID: <1285087262.7721.33.camel@cyan.pingoured.fr>
+
+Dear all,
+
+FYI, Remi has updated his scripts so we now have the following page
+summarizing the packages which need to be updated (+ the usual false
+positive).
+
+http://rpms.famillecollet.com/rpmphp/rpm.php?type=R&what=%25work
+
+Regards,
+
+Pierre
+

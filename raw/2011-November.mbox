@@ -1,0 +1,126 @@
+From jamatos at fc.up.pt  Tue Nov  1 11:30:50 2011
+From: jamatos at fc.up.pt (=?utf-8?q?Jos=C3=A9_Ab=C3=ADlio_Matos?=)
+Date: Tue, 01 Nov 2011 11:30:50 +0000
+Subject: [Fedora-r-devel-list] Plans for 2.14.0
+Message-ID: <4EAFD86A.8090509@fc.up.pt>
+
+Hi Tom,
+    what are your plans for 2.14.0? I am asking in light of the
+development plan of R.
+
+    Specifically, in this case, I am interested on the F-16 case.
+
+    Regards,
+
+-- 
+José Matos
+
+From johannes.lips at googlemail.com  Thu Nov  3 07:39:43 2011
+From: johannes.lips at googlemail.com (Johannes Lips)
+Date: Thu, 03 Nov 2011 07:39:43 +0000
+Subject: Re: [Fedora-r-devel-list] Plans for 2.14.0
+In-Reply-To: <4EAFD86A.8090509@fc.up.pt>
+Message-ID: <4EB2453F.30907@googlemail.com>
+
+Hi,
+
+I just filed a bug about this:
+https://bugzilla.redhat.com/show_bug.cgi?id=751003
+
+Johannes
+On 11/01/2011 12:30 PM, José Matos wrote:
+> Hi Tom,
+>      what are your plans for 2.14.0? I am asking in light of the
+> development plan of R.
+>
+>      Specifically, in this case, I am interested on the F-16 case.
+>
+>      Regards,
+>
+
+From pingou at pingoured.fr  Thu Nov  3 08:15:08 2011
+From: pingou at pingoured.fr (Pierre-Yves Chibon)
+Date: Thu, 03 Nov 2011 08:15:08 +0000
+Subject: Re: [Fedora-r-devel-list] Plans for 2.14.0
+In-Reply-To: <4EB2453F.30907@googlemail.com>
+Message-ID: <1320308108.30989.15.camel@pingouambre.dyndns.org>
+
+On Thu, 2011-11-03 at 08:39 +0100, Johannes Lips wrote:
+> Hi,
+> 
+> I just filed a bug about this:
+> https://bugzilla.redhat.com/show_bug.cgi?id=751003
+
+We were discussing about this yesterday with spot.
+The question was related to this:
+    o All packages must have a namespace, and one is created on
+      installation if not supplied in the sources.  This means that any
+      package without a namespace must be re-installed under this
+      version of R (but previously-installed data-only packages without
+      R code can still be used).
+
+So we have 64 (-1 false positive) R packages in Fedora and all the one
+which 
+1) are not data-only packages
+2) do not already contain a namespace
+have to be rebuilt.
+
+By first look, I think we have 6 data-only packages:
+R-affydata, R-BSgenome.Celegans.UCSC.ce2, R-fibroEset, R-hgu133acdf,
+R-hgu95av2cdf, R-hgu95av2probe 
+
+So 57 packages would be affected by condition one.
+By simple grep, 42 packages have a namespace from this 42 I can see that
+R-BSgenome.Celegans.UCSC.ce2 is in.
+
+So we would have to rebuild: 63 - 6 - 41 = 16 packages, sounds duable.
+
+I might have done an error or miss something but that gives us a first
+clue.
+
+Hope this helps,
+Pierre
+
+
+
+What I did:
+1) list of R packages:
+$ pkgdb-cli list R-\*
+... 
+Total: 64 packages
+2) Clone all of them:
+$ for pkg in `pkgdb-cli list R-\* --nameonly`; do fedpkg clone $pkg;
+done;
+3) Get all the packages with namespace:
+$ grep namespace -iR ./R-* |wc -l
+42
+
+From pingou at pingoured.fr  Sat Nov 12 20:38:30 2011
+From: pingou at pingoured.fr (Pierre-Yves Chibon)
+Date: Sat, 12 Nov 2011 20:38:30 +0000
+Subject: [Fedora-r-devel-list] Calls for tester
+Message-ID: <1321130310.2425.506.camel@pingouambre.dyndns.org>
+
+Good day everyone,
+
+As indicated on the planet, I just re-wrote almost completely R2spec,
+tried to make the code cleaner.
+
+This means that if you have code relying on it, it will most likely
+break with this update, but I hope you'll find the new code
+cleaner/easier to work with.
+
+On the other-side I added things like unit-tests so I am confident the
+code does what it's supposed to but I would appreciate if some of you
+had/took the time to test it.
+
+Feel free to shout any complains you may have,
+Thanks,
+Pierre
+
+Update are:
+F15: https://admin.fedoraproject.org/updates/R2spec-4.0.0-1.fc15
+F16: https://admin.fedoraproject.org/updates/R2spec-4.0.0-1.fc16
+EL5: https://admin.fedoraproject.org/updates/R2spec-4.0.0-1.el5
+EL6: https://admin.fedoraproject.org/updates/R2spec-4.0.0-1.el6
+

@@ -1,0 +1,100 @@
+From martyn.plummer at r-project.org  Wed Jul  8 13:48:22 2015
+From: martyn.plummer at r-project.org (Martyn Plummer)
+Date: Wed, 08 Jul 2015 13:48:22 +0000
+Subject: [Fedora-r-devel-list] Libcurl support
+Message-ID: <1436363302.17829.104.camel@r-project.org>
+
+R has support for libcurl (>= 7.28.0) since R version 3.2.0. This
+feature allows the functions functions url() and download.file() to
+access secure URLs. With the US government adopting an https-only policy
+for federal websites and web services it is increasingly important to
+offer secure download facilities to R users. Users will also benefit
+from the increased security of downloading and installing R packages
+from a CRAN mirror that supports https.
+
+Users can test whether libcurl is supported with:
+
+> capabilities("libcurl")
+libcurl 
+  FALSE 
+
+Fedora binaries for R do not currently support libcurl. It would be very
+helpful if they did. It suffices to have libcurl-devel as a build
+requirement and it will be picked up by the configure script.
+
+Martyn
+
+-----------------------------------------------------------------------
+This message and its attachments are strictly confidential. If you are
+not the intended recipient of this message, please immediately notify 
+the sender and delete it. Since its integrity cannot be guaranteed, 
+its content cannot involve the sender's responsibility. Any misuse, 
+any disclosure or publication of its content, either whole or partial, 
+is prohibited, exception made of formally approved use
+-----------------------------------------------------------------------
+
+From jamatos at fc.up.pt  Wed Jul  8 14:18:50 2015
+From: jamatos at fc.up.pt (=?utf-8?q?Jos=C3=A9_Ab=C3=ADlio_Matos?=)
+Date: Wed, 08 Jul 2015 14:18:50 +0000
+Subject: Re: [Fedora-r-devel-list] Libcurl support
+In-Reply-To: <1436363302.17829.104.camel@r-project.org>
+Message-ID: <2102028.PEIoAdGf3Q@ulysses>
+
+On Wednesday 08 July 2015 15:48:22 Martyn Plummer wrote:
+> Fedora binaries for R do not currently support libcurl. It would be very
+> helpful if they did. It suffices to have libcurl-devel as a build
+> requirement and it will be picked up by the configure script.
+> 
+> Martyn
+
+That seems quite straightforward and something that goes along our goals.
+
+Regarding this issue are there any other capabilities that you think would be worthwhile to include in Fedora packages that are not yet enabled?
+
+Regards,
+-- 
+José Abílio
+
+From jamatos at fc.up.pt  Wed Jul  8 14:25:20 2015
+From: jamatos at fc.up.pt (=?utf-8?q?Jos=C3=A9_Ab=C3=ADlio_Matos?=)
+Date: Wed, 08 Jul 2015 14:25:20 +0000
+Subject: Re: [Fedora-r-devel-list] Libcurl support
+In-Reply-To: <2102028.PEIoAdGf3Q@ulysses>
+Message-ID: <3326999.Zs0c9ggZqq@ulysses>
+
+On Wednesday 08 July 2015 15:18:50 José Matos wrote:
+> Regarding this issue are there any other capabilities that you think would be worthwhile to include in Fedora packages that are not yet enabled?
+
+Ignore that request. The answer is easy and obvious :-) :
+
+> capabilities()
+       jpeg         png        tiff       tcltk         X11        aqua 
+       TRUE        TRUE        TRUE        TRUE        TRUE       FALSE 
+   http/ftp     sockets      libxml        fifo      cledit       iconv 
+       TRUE        TRUE        TRUE        TRUE        TRUE        TRUE 
+        NLS     profmem       cairo         ICU long.double     libcurl 
+       TRUE       FALSE        TRUE        TRUE        TRUE       FALSE 
+
+Regards,
+-- 
+José Abílio
+
+From tcallawa at redhat.com  Fri Jul 10 17:46:42 2015
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Fri, 10 Jul 2015 17:46:42 +0000
+Subject: Re: [Fedora-r-devel-list] Libcurl support
+In-Reply-To: <1436363302.17829.104.camel@r-project.org>
+Message-ID: <55A00502.2040909@redhat.com>
+
+On 07/08/2015 09:48 AM, Martyn Plummer wrote:
+> Fedora binaries for R do not currently support libcurl. It would be very
+> helpful if they did. It suffices to have libcurl-devel as a build
+> requirement and it will be picked up by the configure script.
+
+This is now done in R-3.2.1-2. Thanks for the note.
+
+~tom
+
+==
+Red Hat
+

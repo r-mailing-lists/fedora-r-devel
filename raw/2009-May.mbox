@@ -1,0 +1,60 @@
+From pingou at pingoured.fr  Fri May 29 05:53:54 2009
+From: pingou at pingoured.fr (Pierre-Yves Chibon)
+Date: Fri, 29 May 2009 05:53:54 +0000
+Subject: [Fedora-r-devel-list] R2spec and version number
+Message-ID: <1243576434.2655.7.camel@localhost.localdomain>
+
+Dear all,
+
+I would like your opinion regarding: [Bug 503108] New: R2spec-2.5.2
+loses Version information
+
+It basically says that when the package version is 2.3-50 R2spec only
+retrieve 2.3 as being the version number.
+To me and based on the packages R-abind, R-acepack, R-mAR (and some
+other that I didn't list) this is not a bug.
+
+Do you agree with me ?
+
+Thanks,
+Best regards,
+
+Pierre
+
+From jamatos at fc.up.pt  Fri May 29 09:53:57 2009
+From: jamatos at fc.up.pt (=?utf-8?q?Jos=C3=A9_Ab=C3=ADlio_Matos?=)
+Date: Fri, 29 May 2009 09:53:57 +0000
+Subject: Re: [Fedora-r-devel-list] R2spec and version number
+In-Reply-To: <1243576434.2655.7.camel@localhost.localdomain>
+Message-ID: <200905291053.58554.jamatos@fc.up.pt>
+
+On Friday 29 May 2009 06:53:54 Pierre-Yves wrote:
+> Dear all,
+>
+> I would like your opinion regarding: [Bug 503108] New: R2spec-2.5.2
+> loses Version information
+>
+> It basically says that when the package version is 2.3-50 R2spec only
+> retrieve 2.3 as being the version number.
+> To me and based on the packages R-abind, R-acepack, R-mAR (and some
+> other that I didn't list) this is not a bug.
+>
+> Do you agree with me ?
+
+I agree that we are loosing information in the version and that on the other 
+hand the dash is just a fancy replacement for the dot.
+
+So we could agree to replace all the dashes in R package versions by dots and 
+be done with it.
+
+Whatever we decide we should apply this uniformly to all R packages that have 
+this numbering.
+
+> Thanks,
+> Best regards,
+>
+> Pierre
+
+-- 
+José Abílio
+

@@ -1,0 +1,6 @@
+{
+  "list": "fedora-r-devel",
+  "description": "Packaging R and R packages for Fedora",
+  "source_url": "https://lists.fedoraproject.org/archives/list/r-devel@lists.fedoraproject.org/",
+  "archive_type": "monthly"
+}

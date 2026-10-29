@@ -1,0 +1,555 @@
+From pingou at pingoured.fr  Wed Oct  8 08:01:45 2008
+From: pingou at pingoured.fr (Pierre-Yves Chibon)
+Date: Wed, 08 Oct 2008 08:01:45 +0000
+Subject: [Fedora-r-devel-list] R2spec version 2.5.1
+Message-ID: <48EC68E9.6090500@pingoured.fr>
+
+Dear list,
+
+As previously I am announcing here the new release of R2spec, the 
+version 2.5.1.
+
+Here is the changelog for this version:
+
+# Version 2.5.1 -- 07th Oct 2008
+# -Features added
+#   * Add the summary from Title in the DESCRIPTION file
+#   * Add the possibility to have a ~/.R2spec.conf which overrides the 
+/etc/R2spec.conf
+# -Bugs correction
+#   * Correct a typo SOURCES != SOURCE
+#   * Copy from ./ to ~/rpmbuild and not ../ Bug #1
+#   * Change "summary should be not be longer than that" to "summary 
+should be not be longer than this"
+#   * Create the function finishName in the spec class to avoid 
+redundancy in the code
+#   * Move the check of the specfile to Package.py to avoid redundancy 
+in the code
+#   * Change some layout in the output
+
+Feed back, bugs and suggestions welcome here or in :
+https://fedorahosted.org/r2spec
+
+Thanks,
+Have a nice day,
+
+Pierre
+
+From dan.bolser at gmail.com  Wed Oct  8 09:00:46 2008
+From: dan.bolser at gmail.com (Dan Bolser)
+Date: Wed, 08 Oct 2008 09:00:46 +0000
+Subject: Re: [Fedora-r-devel-list] R2spec version 2.5.1
+In-Reply-To: <48EC68E9.6090500@pingoured.fr>
+Message-ID: <2c8757af0810080200s1205dccak37094cce9224b494@mail.gmail.com>
+
+2008/10/8 Pierre-Yves <pingou(a)pingoured.fr>:
+> Dear list,
+>
+> As previously I am announcing here the new release of R2spec, the version
+> 2.5.1.
+>
+> Here is the changelog for this version:
+
+Also the web page - https://fedorahosted.org/r2spec - has been greatly
+improved (much more information on how to use R2spec)!
+
+
+All the best,
+
+Dan.
+
+
+> # Version 2.5.1 -- 07th Oct 2008
+> # -Features added
+> #   * Add the summary from Title in the DESCRIPTION file
+> #   * Add the possibility to have a ~/.R2spec.conf which overrides the
+> /etc/R2spec.conf
+> # -Bugs correction
+> #   * Correct a typo SOURCES != SOURCE
+> #   * Copy from ./ to ~/rpmbuild and not ../ Bug #1
+> #   * Change "summary should be not be longer than that" to "summary should
+> be not be longer than this"
+> #   * Create the function finishName in the spec class to avoid redundancy
+> in the code
+> #   * Move the check of the specfile to Package.py to avoid redundancy in
+> the code
+> #   * Change some layout in the output
+>
+> Feed back, bugs and suggestions welcome here or in :
+> https://fedorahosted.org/r2spec
+>
+> Thanks,
+> Have a nice day,
+>
+> Pierre
+>
+> _______________________________________________
+> Fedora-r-devel-list mailing list
+> Fedora-r-devel-list(a)redhat.com
+> http://www.redhat.com/mailman/listinfo/fedora-r-devel-list
+>
+
+
+
+-- 
+http://network.nature.com/profile/dan
+
+From pingou at pingoured.fr  Wed Oct  8 09:12:02 2008
+From: pingou at pingoured.fr (Pierre-Yves Chibon)
+Date: Wed, 08 Oct 2008 09:12:02 +0000
+Subject: Re: [Fedora-r-devel-list] R2spec version 2.5.1
+In-Reply-To: <2c8757af0810080200s1205dccak37094cce9224b494@mail.gmail.com>
+Message-ID: <48EC7962.9000109@pingoured.fr>
+
+Dan Bolser wrote:
+> 2008/10/8 Pierre-Yves <pingou(a)pingoured.fr>:
+>> Dear list,
+>>
+>> As previously I am announcing here the new release of R2spec, the version
+>> 2.5.1.
+>>
+>> Here is the changelog for this version:
+> 
+> Also the web page - https://fedorahosted.org/r2spec - has been greatly
+> improved (much more information on how to use R2spec)!
+> 
+Thanks to you for a good part :)
+
+Regards,
+
+Pierre
+
+From tcallawa at redhat.com  Thu Oct 23 13:55:08 2008
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Thu, 23 Oct 2008 13:55:08 +0000
+Subject: [Fedora-r-devel-list] R-devel going away
+Message-ID: <1224770108.3601.40.camel@localhost.localdomain>
+
+This email serves as an announcement that I plan to swallow up R-devel
+into the base R package. Why?
+
+* It is causing no end of user complaints. The typical R user expects to
+be able to do a "CPAN" (really, I should say "CRAN") style package
+install through the R interface:
+
+install.packages("RSQLite")
+
+This doesn't work unless you have R-devel installed. The average R user
+is a professor or a student, and neither of them are going to
+necessarily possess the necessary Linux/Fedora knowledge to be able to
+understand why this doesn't work like the R documentation says it
+should. 
+
+* The size of the R-devel is tiny, about 440K installed. It will not
+bloat the main package to absorb the .h files and a .pc file into the
+main package. There are no libraries in the R-devel package.
+
+* The primary users of R-devel are R addon packages. They can continue
+to BuildRequires: R-devel safely (hooray for Provides/Requires).
+
+* libRmath (the R shared library) will still be a separate package.
+libRmath-devel will still be a separate package. As far as I know,
+nothing in Fedora uses libRmath, nor is libRmath-devel necessary for
+building R addons.
+
+Now, I recognize that this is a violation of the Fedora Packaging
+Guidelines, and I've given a lot of thought to this over the last few
+days, and technically, this is a reversal of my earlier stance (which is
+to stick to the guidelines). However, I think this is a key
+functionality that Fedora R users expect to just work, and I want to try
+to make sure that they get the best R experience out of the box that
+they can. 
+
+As Martyn Plummer pointed out:
+
+   There are currently 1533 packages/bundles on CRAN, not counting the
+   recommended packages that are already distributed with R. Of these
+   packages, 420 require to the R headers. Fedora only supplies RPMs for
+9
+   of them.
+
+I'm not entirely sure if I need FESCo or FPC approval to take this
+action, if so, this is my notice of requesting it. ;)
+
+I'm also looking for feedback and comments, of course. 
+
+Thanks,
+
+~spot (Fedora R maintainer)
+
+From tcallawa at redhat.com  Thu Oct 23 14:42:19 2008
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Thu, 23 Oct 2008 14:42:19 +0000
+Subject: [Fedora-r-devel-list] Re: R-devel going away
+In-Reply-To: <87mygvcrd0.fsf@fc5.bigo.ensc.de>
+Message-ID: <1224772939.3601.54.camel@localhost.localdomain>
+
+On Thu, 2008-10-23 at 16:34 +0200, Enrico Scholz wrote:
+> Better solutions:
+> 
+> * add it to comps.xml
+> * move 'R' to R-core, and add 'R' which depends on 'R-core' +
+> 'R-devel'
+> 
+> 
+> > * The size of the R-devel is tiny, about 440K installed.
+> 
+> You miss its dependencies:
+> 
+> bzip2-devel
+> gcc-c++
+> gcc-gfortran
+> libICE-devel
+> libSM-devel
+> libX11-devel
+> libXmu-devel
+> libXt-devel
+> libjpeg-devel
+> libpng-devel
+> ncurses-devel
+> pkgconfig
+> readline-devel
+> tcl-devel
+> tetex-latex
+> texinfo
+> tk-devel
+
+These are very good points, thanks Enrico. What would people think about
+doing the suggested R/R-core/R-devel split instead? Users would still be
+able to get everything with yum install R, it would meet the guidelines,
+and minimal installs with R can simply have R-core.
+
+~spot
+
+From pingou at pingoured.fr  Thu Oct 23 14:46:09 2008
+From: pingou at pingoured.fr (Pierre-Yves Chibon)
+Date: Thu, 23 Oct 2008 14:46:09 +0000
+Subject: [Fedora-r-devel-list] Re: R-devel going away
+In-Reply-To: <1224772939.3601.54.camel@localhost.localdomain>
+Message-ID: <49008E31.7050204@pingoured.fr>
+
+Tom "spot" Callaway wrote:
+> These are very good points, thanks Enrico. What would people think about
+> doing the suggested R/R-core/R-devel split instead? Users would still be
+> able to get everything with yum install R, it would meet the guidelines,
+> and minimal installs with R can simply have R-core.
+
+Sounds like a good idea to me :)
+
+
+Pierre
+~ pingou
+
+From jamatos at fc.up.pt  Thu Oct 23 18:41:41 2008
+From: jamatos at fc.up.pt (=?utf-8?q?Jos=C3=A9_Ab=C3=ADlio_Matos?=)
+Date: Thu, 23 Oct 2008 18:41:41 +0000
+Subject: [Fedora-r-devel-list] Re: R-devel going away
+In-Reply-To: <1224786127.3898.97.camel@code.and.org>
+Message-ID: <200810231941.41824.jamatos@fc.up.pt>
+
+On Thursday 23 October 2008 19:22:07 James Antill wrote:
+>  Well it kinda fits the "people expect foo-core + additions" _assuming_
+> CRAN is a requirement, but really why don't we just package more of the
+> R modules so CRAN usage isn't a requirement?
+
+There are more than 1500 modules (the have been growing at an exponential rate 
+in the last years). So while we would like to see more R packages in Fedora in 
+are not even near to have a reasonable subset of R packaged.
+
+So for the moment CRAN is really a requirement to use R in Fedora.
+
+> --
+> James Antill <james(a)fedoraproject.org>
+> Fedora
+
+-- 
+José Abílio
+
+From gnwiii at gmail.com  Thu Oct 23 22:08:53 2008
+From: gnwiii at gmail.com (George N. White III)
+Date: Thu, 23 Oct 2008 22:08:53 +0000
+Subject: Re: [Fedora-r-devel-list] Re: R-devel going away
+In-Reply-To: <200810231941.41824.jamatos@fc.up.pt>
+Message-ID: <22af238a0810231508j183fd334m6a1dc272e518f6b0@mail.gmail.com>
+
+On Thu, Oct 23, 2008 at 3:41 PM, José Matos <jamatos(a)fc.up.pt> wrote:
+
+> On Thursday 23 October 2008 19:22:07 James Antill wrote:
+>>  Well it kinda fits the "people expect foo-core + additions" _assuming_
+>> CRAN is a requirement, but really why don't we just package more of the
+>> R modules so CRAN usage isn't a requirement?
+>
+> There are more than 1500 modules (the have been growing at an exponential rate
+> in the last years). So while we would like to see more R packages in Fedora in
+> are not even near to have a reasonable subset of R packaged.
+>
+> So for the moment CRAN is really a requirement to use R in Fedora.
+
+There have always been conflicts between the CRAN package system and
+Fedora or other linux packaging Guidelines.   Users can install CRAN packages
+without root privileges, but then the search function won't know about the
+user's packages, and packages that rely on other library (gsl, hdf5, etc)
+still need -dev RPM's.   Linux distros should not be trying to enforce
+guidelines
+for mainstream packages with their own robust package management and
+archive networks.  Instead, they should look for ways to improve support
+for users who rely on those 3rd party systems.  For example:
+
+R-base: basic runtime without dev dependencies, for sites that provide binary
+CRAN packages (e.g., on a shared directory) so users don't need to do compiles.
+
+R-core: R-base + -dev dependencies for those who want to install source packages
+from CRAN (e.g., most individual R users)
+
+R-X-sup(plement): -dev dependencies needed to build package X (e.g.,
+R-hdf5-sup requires hdf5-dev for the hdf5 package from CRAN, gsl-dev
+for gsl, etc.).  These aren't strictly necessary, but would serve to
+link package versions on CRAN with the versions of the support libs in
+Fed,
+something that can take some effort (e.g., peeking in the sources) to
+determine.   For sites
+where users need to ask admins to install libraries, this simplifies
+the problem of telling the admin which libs to install.
+
+In the long run, linux distros should look at devising ways to capture
+information from these
+3rd party package managers to help resolve dependencies automatically.
+
+-- 
+George N. White III <aa056(a)chebucto.ns.ca>
+Head of St. Margarets Bay, Nova Scotia
+
+From jamatos at fc.up.pt  Fri Oct 24 06:52:17 2008
+From: jamatos at fc.up.pt (=?utf-8?q?Jos=C3=A9_Ab=C3=ADlio_Matos?=)
+Date: Fri, 24 Oct 2008 06:52:17 +0000
+Subject: Re: [Fedora-r-devel-list] Re: R-devel going away
+In-Reply-To: <22af238a0810231508j183fd334m6a1dc272e518f6b0@mail.gmail.com>
+Message-ID: <200810240752.18594.jamatos@fc.up.pt>
+
+On Thursday 23 October 2008 23:08:53 George N. White III wrote:
+>
+> There have always been conflicts between the CRAN package system and
+> Fedora or other linux packaging Guidelines.   Users can install CRAN
+> packages without root privileges, but then the search function won't know
+> about the user's packages, and packages that rely on other library (gsl,
+> hdf5, etc) still need -dev RPM's.   Linux distros should not be trying to
+> enforce guidelines
+> for mainstream packages with their own robust package management and
+> archive networks.
+
+Playing devil's advocate I should remark that first each language is building 
+its own repository and packaging system in a sense we have lots of equivalents 
+of (yum+rpm) for each language (perl,  php, python, R, tex, ...).
+
+On the other hand for the system to be really useful it must use the least 
+possible denominator (read the dumbest wins- pun intended ;-) ).
+
+> Instead, they should look for ways to improve support
+> for users who rely on those 3rd party systems.  For example:
+>
+> R-base: basic runtime without dev dependencies, for sites that provide
+> binary CRAN packages (e.g., on a shared directory) so users don't need to
+> do compiles.
+>
+> R-core: R-base + -dev dependencies for those who want to install source
+> packages from CRAN (e.g., most individual R users)
+>
+> R-X-sup(plement): -dev dependencies needed to build package X (e.g.,
+> R-hdf5-sup requires hdf5-dev for the hdf5 package from CRAN, gsl-dev
+> for gsl, etc.).  These aren't strictly necessary, but would serve to
+> link package versions on CRAN with the versions of the support libs in
+> Fed,
+> something that can take some effort (e.g., peeking in the sources) to
+> determine.   For sites
+> where users need to ask admins to install libraries, this simplifies
+> the problem of telling the admin which libs to install.
+
+I am not sure if this is right path or the right balance.
+
+Another possible choice is to expand R2spec in scope and not only create rpm 
+spec files but to discover the different dependencies and how they are solved 
+inside.
+
+There is no reason that we can not rebuild the whole CRAN (or almost all of 
+it) automatically.
+
+> In the long run, linux distros should look at devising ways to capture
+> information from these
+> 3rd party package managers to help resolve dependencies automatically.
+
+As everything with free software the survival of the fittest means that this 
+will only happen if there are people interested in spending resources to make 
+this possible.
+-- 
+José Abílio
+
+From pingou at pingoured.fr  Fri Oct 24 07:43:19 2008
+From: pingou at pingoured.fr (Pierre-Yves Chibon)
+Date: Fri, 24 Oct 2008 07:43:19 +0000
+Subject: Re: [Fedora-r-devel-list] Re: R-devel going away
+In-Reply-To: <200810240752.18594.jamatos@fc.up.pt>
+Message-ID: <49017C97.6040808@pingoured.fr>
+
+José Matos wrote:
+> On Thursday 23 October 2008 23:08:53 George N. White III wrote:
+>> There have always been conflicts between the CRAN package system and
+>> Fedora or other linux packaging Guidelines.   Users can install CRAN
+>> packages without root privileges, but then the search function won't know
+>> about the user's packages, and packages that rely on other library (gsl,
+>> hdf5, etc) still need -dev RPM's.   Linux distros should not be trying to
+>> enforce guidelines
+>> for mainstream packages with their own robust package management and
+>> archive networks.
+> 
+> Playing devil's advocate I should remark that first each language is building 
+> its own repository and packaging system in a sense we have lots of equivalents 
+> of (yum+rpm) for each language (perl,  php, python, R, tex, ...).
+> 
+> On the other hand for the system to be really useful it must use the least 
+> possible denominator (read the dumbest wins- pun intended ;-) ).
+> 
+>> Instead, they should look for ways to improve support
+>> for users who rely on those 3rd party systems.  For example:
+>>
+>> R-base: basic runtime without dev dependencies, for sites that provide
+>> binary CRAN packages (e.g., on a shared directory) so users don't need to
+>> do compiles.
+>>
+>> R-core: R-base + -dev dependencies for those who want to install source
+>> packages from CRAN (e.g., most individual R users)
+>>
+>> R-X-sup(plement): -dev dependencies needed to build package X (e.g.,
+>> R-hdf5-sup requires hdf5-dev for the hdf5 package from CRAN, gsl-dev
+>> for gsl, etc.).  These aren't strictly necessary, but would serve to
+>> link package versions on CRAN with the versions of the support libs in
+>> Fed,
+>> something that can take some effort (e.g., peeking in the sources) to
+>> determine.   For sites
+>> where users need to ask admins to install libraries, this simplifies
+>> the problem of telling the admin which libs to install.
+> 
+> I am not sure if this is right path or the right balance.
+> 
+> Another possible choice is to expand R2spec in scope and not only create rpm 
+> spec files but to discover the different dependencies and how they are solved 
+> inside.
+> 
+> There is no reason that we can not rebuild the whole CRAN (or almost all of 
+> it) automatically.
+
+R2spec [1] can handles the generation of spec for R-libraries pretty 
+easily, but the spec always needs some revision behind.
+
+However, I had started some time ago a small script to update the spec 
+file when there is a new release of an already package R-library. This 
+might be something that I should develop maybe a bit more now 
+(especially since Bioconductor 2.3 has been released with R 2.8.0)
+
+Should that be included in R2spec or in a separate tool ?
+
+> 
+>> In the long run, linux distros should look at devising ways to capture
+>> information from these
+>> 3rd party package managers to help resolve dependencies automatically.
+> 
+> As everything with free software the survival of the fittest means that this 
+> will only happen if there are people interested in spending resources to make 
+> this possible.
+
+--
+For those who do not know it
+R2spec https://fedorahosted.org/r2spec
+Present in Fedora 8,9 and rawhide (10) and in EPEL 4 and 5.
+--
+
+Regards,
+Pierre
+
+From gnwiii at gmail.com  Fri Oct 24 10:13:35 2008
+From: gnwiii at gmail.com (George N. White III)
+Date: Fri, 24 Oct 2008 10:13:35 +0000
+Subject: Re: [Fedora-r-devel-list] Re: R-devel going away
+In-Reply-To: <200810240752.18594.jamatos@fc.up.pt>
+Message-ID: <22af238a0810240313t6c9aa737y98ceea53c2ef0118@mail.gmail.com>
+
+On Fri, Oct 24, 2008 at 3:52 AM, José Matos <jamatos(a)fc.up.pt> wrote:
+
+> On Thursday 23 October 2008 23:08:53 George N. White III wrote:
+>>
+>> There have always been conflicts between the CRAN package system and
+>> Fedora or other linux packaging Guidelines.   Users can install CRAN
+>> packages without root privileges, but then the search function won't know
+>> about the user's packages, and packages that rely on other library (gsl,
+>> hdf5, etc) still need -dev RPM's.   Linux distros should not be trying to
+>> enforce guidelines
+>> for mainstream packages with their own robust package management and
+>> archive networks.
+>
+> Playing devil's advocate I should remark that first each language is building
+> its own repository and packaging system in a sense we have lots of equivalents
+> of (yum+rpm) for each language (perl,  php, python, R, tex, ...).
+>
+> On the other hand for the system to be really useful it must use the least
+> possible denominator (read the dumbest wins- pun intended ;-) ).
+
+It is really a question of the minimal effort needed to learn how to install
+the desired package.  People will try to to use a tool they already know, then
+use the simplest tool.  There is an advantage to being able to use the same
+tools on more than one platform.  R and TeX are a bit different in that many
+users rely on them throughout their careers, using multiple platforms or
+working with colleagues who use different platforms.  A colleague using
+Windows says: "you should do (in R): install.packages('hdf5')".   When that
+fails, that colleague is unlikely to know how to solve the problem.
+
+There is another elephant in this room:  security policies are being revised
+to require that end-user apps be installed and managed with user privileges.
+In practice, large organizations are moving to a model where "root" must have
+training/certification, with chargebacks when users need rpm package installs.
+At such sites, users are going back to the pre-package days where apps are
+installed from sources, or adopting a system like openpkg that uses RPM
+packages but can (if used to manage only applications) be used without root
+privs.   Sooner or later, linux distros will have to deal with this.
+
+
+-- 
+George N. White III <aa056(a)chebucto.ns.ca>
+Head of St. Margarets Bay, Nova Scotia
+
+From pingou at pingoured.fr  Mon Oct 27 19:57:46 2008
+From: pingou at pingoured.fr (Pierre-Yves Chibon)
+Date: Mon, 27 Oct 2008 19:57:46 +0000
+Subject: [Fedora-r-devel-list] Re: Heads-up - Bioconductor - Requires R >= 2.x.y
+In-Reply-To: <49061CCD.6060404@yahoo.fr>
+Message-ID: <49061D3A.8030300@pingoured.fr>
+
+Dear all,
+
+I am currently updating the libraries from bioconductor to the version 
+2.3 of bioconductor made for R 2.8.0.
+
+I am adding to all these package a global variable Rversion which is 
+then used in the Requires and BuilRequires sections.
+This means that those packages will not be available for previous 
+version of R.
+
+I am planning to generalize this and to add this in R2spec.
+
+Regards,
+
+Pierre
+
+From jamatos at fc.up.pt  Tue Oct 28 13:33:22 2008
+From: jamatos at fc.up.pt (=?utf-8?q?Jos=C3=A9_Ab=C3=ADlio_Matos?=)
+Date: Tue, 28 Oct 2008 13:33:22 +0000
+Subject: Re: [Fedora-r-devel-list] Re: R-devel going away
+In-Reply-To: <49017C97.6040808@pingoured.fr>
+Message-ID: <200810281333.22426.jamatos@fc.up.pt>
+
+On Friday 24 October 2008 08:43:19 Pierre-Yves wrote:
+> Should that be included in R2spec or in a separate tool ?
+
+The former IMHO.
+
+-- 
+José Abílio
+

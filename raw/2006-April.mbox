@@ -1,0 +1,99 @@
+From tcallawa at redhat.com  Tue Apr 25 00:09:35 2006
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Tue, 25 Apr 2006 00:09:35 +0000
+Subject: [Fedora-r-devel-list] R 2.3.0 about to hit Fedora Extras
+Message-ID: <1145923775.22894.39.camel@localhost.localdomain>
+
+Since José and me are the only R maintainers, this only really affects
+us, but there is always the possibility that other people care:
+
+R 2.3.0 is about to hit Fedora Extras. I like to keep it current. The R
+folks like us to keep it current. :)
+
+Please test any addons against it, and report failures either in
+bugzilla or on fedora-r-devel-list.
+
+Thanks,
+
+~spot
+-- 
+Tom "spot" Callaway: Red Hat Senior Sales Engineer || GPG ID: 93054260
+Fedora Extras Steering Committee Member (RPM Standards and Practices)
+Aurora Linux Project Leader: http://auroralinux.org
+Lemurs, llamas, and sparcs, oh my!
+
+From jamatos at fc.up.pt  Wed Apr 26 11:18:30 2006
+From: jamatos at fc.up.pt (=?utf-8?q?Jos=C3=A9_Ab=C3=ADlio_Matos?=)
+Date: Wed, 26 Apr 2006 11:18:30 +0000
+Subject: [Fedora-r-devel-list] Re: rpy needs to be rebuilt in time for next push
+In-Reply-To: <bsvesxyy0v.fsf@allele2.biol.berkeley.edu>
+Message-ID: <200604261218.30503.jamatos@fc.up.pt>
+
+On Wednesday 26 April 2006 01:35, Alex Lancaster wrote:
+>
+> Well, it's broken again!  Grr.
+>
+> https://bugzilla.redhat.com/bugzilla/show_bug.cgi?id=189946
+>
+> Would it be possible to hold back the upgrade of the R release until
+> you have heard from maintainers of dependent packages like (JosÃ) that
+> they know to rebuild their packages, or rebuild it for them?
+>
+> Either way would prevent "yum upgrade" breaking, which it is right
+> now.
+
+  Yesterday was public holiday here...
+
+  The fix is not as straight forward as I would like:
+http://buildsys.fedoraproject.org/logs/fedora-development-extras/8338-rpy-0.4.6-8.fc6/
+
+  I will investigate further...
+
+> Alex
+
+  PS: I have subscribed to fedora-r-devel-list now.
+
+  PPS: It would be interesting to announce this mailing list in some of the 
+other lists. Just an idea.
+
+-- 
+José Abílio
+
+From jamatos at fc.up.pt  Wed Apr 26 15:06:24 2006
+From: jamatos at fc.up.pt (=?utf-8?q?Jos=C3=A9_Ab=C3=ADlio_Matos?=)
+Date: Wed, 26 Apr 2006 15:06:24 +0000
+Subject: Re: [Fedora-r-devel-list] Re: rpy needs to be rebuilt in time for next push
+In-Reply-To: <200604261218.30503.jamatos@fc.up.pt>
+Message-ID: <200604261606.24722.jamatos@fc.up.pt>
+
+On Wednesday 26 April 2006 12:18, Jose' Matos wrote:
+>   The fix is not as straight forward as I would like:
+> http://buildsys.fedoraproject.org/logs/fedora-development-extras/8338-rpy-0
+>.4.6-8.fc6/
+>
+>   I will investigate further...
+
+  Fixed. The fix was easy. :-)
+
+  As I suspected the cause is displayed in the release notes of R:
+
+ o   The version string shown in the startup message and by
+       "R --version", and that stored in variable R.version.string
+       are now in exactly the same format.
+
+$ R --version
+R version 2.3.0 (2006-04-24)
+...
+
+previously "version" was not there (first line).
+
+  I had also to fight with the (inter)dependence between texinfo and tetex.
+
+BuildRequires texinfo implies tetex for FC-4 and FC-5 but not for FC-3 and 
+FC-6. :-)
+
+  All versions have been built now and they should be available in the next 
+iteration of Extras.
+-- 
+José Abílio
+

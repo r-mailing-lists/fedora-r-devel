@@ -1,0 +1,94 @@
+From tcallawa at redhat.com  Fri Jul 10 15:51:10 2009
+From: tcallawa at redhat.com (Tom Callaway)
+Date: Fri, 10 Jul 2009 15:51:10 +0000
+Subject: [Fedora-r-devel-list] R 2.9.1 (and corresponding rpy)
+Message-ID: <4A57636E.3000802@redhat.com>
+
+I've pushed updates for R-2.9.1 for all branches (including EL-4 and
+EL-5). In Fedora, I've also pushed updates for rpy.
+
+Please let me know if there are any issues, as usual. :)
+
+~spot
+
+From pingou at pingoured.fr  Mon Jul 13 14:46:45 2009
+From: pingou at pingoured.fr (Pierre-Yves Chibon)
+Date: Mon, 13 Jul 2009 14:46:45 +0000
+Subject: [Fedora-r-devel-list] .deb
+Message-ID: <1247496405.10525.14.camel@localhost.localdomain>
+
+Dear list,
+
+I came across this post on the R planet[1]:
+http://dirk.eddelbuettel.com/blog/2009/07/13#cran2deb_announcement
+quote:
+
+"As I mentioned in my quick write-up of UseR 2009, one of my talks was
+about cran2deb: a system to turn (essentially) all CRAN packages into
+directly apt-get-able binary packages.
+
+[...]
+
+The CRAN hosts provided us with a (virtual Xen) machine to build on, and
+we are now ready to more publically announce the availability of the
+repositories for i386 and amd64
+"
+
+We are not there yet :)
+
+Regards,
+
+Pierre
+
+
+
+[1] http://planetr.stderr.org/
+
+From herrold at owlriver.com  Mon Jul 13 14:55:05 2009
+From: herrold at owlriver.com (R P Herrold)
+Date: Mon, 13 Jul 2009 14:55:05 +0000
+Subject: [Fedora-r-devel-list] .deb
+In-Reply-To: <1247496405.10525.14.camel@localhost.localdomain>
+Message-ID: <alpine.LRH.2.00.0907131052410.13293@arj.bjyevire.pbz>
+
+On Mon, 13 Jul 2009, Pierre-Yves wrote:
+
+> I came across this post on the R planet[1]:
+> http://dirk.eddelbuettel.com/blog/2009/07/13#cran2deb_announcement
+   ... snip
+
+> We are not there yet :)
+
+I saw it as well .. I have packaging R packages pretty well 
+down to an art
+
+[herrold(a)centos-5 ~]$ cd build
+[herrold(a)centos-5 build]$ cd R
+[herrold(a)centos-5 R]$ cd R2spec/
+[herrold(a)centos-5 R2spec]$ ls *.spec | wc -l
+284
+
+but it is not at all clear how the make check part is being 
+finnessed, as I get at least three solution path variants.
+
+Looking at Dirk's latest is on my docket.
+
+-- Russ herrold
+
+From ihok at hotmail.com  Fri Jul 24 21:01:02 2009
+From: ihok at hotmail.com (Jack Tanner)
+Date: Fri, 24 Jul 2009 21:01:02 +0000
+Subject: [Fedora-r-devel-list] rapache
+Message-ID: <BLU129-W210A385E64DF6DBAB335EECA190@phx.gbl>
+
+
+I assume this will be a somewhat ambitious packaging project... So if you have some time on your hands, please feel free. :)
+
+http://biostat.mc.vanderbilt.edu/rapache/
+
+I'd love to run R as a web service so that I can POST scripts & data to it, and get results over HTTP.
+
+_________________________________________________________________
+Windows Live™ Hotmail®: Celebrate the moment with your favorite sports pics. Check it out.
+http://www.windowslive.com/Online/Hotmail/Campaign/QuickAdd?ocid=TXT_TAGLM_WL_QA_HM_sports_photos_072009&cat=sports
+

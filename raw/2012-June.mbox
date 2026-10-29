@@ -1,0 +1,131 @@
+From wyu at ateneo.edu  Fri Jun 15 12:27:42 2012
+From: wyu at ateneo.edu (William Emmanuel S. Yu)
+Date: Fri, 15 Jun 2012 12:27:42 +0000
+Subject: [Fedora-r-devel-list] Building RPMs for Fedora with circular "suggest" dependencies
+Message-ID: <1587893079-1339763404-cardhu_decombobulator_blackberry.rim.net-1027785363-@b2.c1.bise3.blackberry>
+
+Hello,
+
+I am new to this list and in the process of building some RPMs for R packages. I have been rolling my own packages for a few years now and post them for public use. I am a heavy user of R2spec with spec file tweaks of course. Thanks for the author for making life easier.
+
+Every so often, I encounter the circular dependency issue with "suggest". For example, I am building R-reshape that depends on a bunch of packages including R-iterator and R-foreach. Unfortunately, R-iterator and R-foreach both suggest each other. 
+
+I used to be able to force ignoring suggests but this causes problems with check and test and skipping check and test isn't exactly what I want to do either.
+
+I would like to know what the "proper" way of building RPMs for the both of these R packages. 
+
+Thank you!
+"Sent via BlackBerry from Smart"
+
+From asr at ufl.edu  Fri Jun 15 13:09:24 2012
+From: asr at ufl.edu (Allen S. Rout)
+Date: Fri, 15 Jun 2012 13:09:24 +0000
+Subject: Re: [Fedora-r-devel-list] Building RPMs for Fedora with circular "suggest" dependencies
+In-Reply-To: <1587893079-1339763404-cardhu_decombobulator_blackberry.rim.net-1027785363-@b2.c1.bise3.blackberry>
+Message-ID: <4FDB3404.2050306@ufl.edu>
+
+On 06/15/2012 08:27 AM, William Emmanuel S. Yu wrote:
+> Hello,
+>
+> I am new to this list and in the process of building some RPMs for R packages. I have been rolling my own packages for a few years now and post them for public use. I am a heavy user of R2spec with spec file tweaks of course. Thanks for the author for making life easier.
+>
+> Every so often, I encounter the circular dependency issue with "suggest". For example, I am building R-reshape that depends on a bunch of packages including R-iterator and R-foreach. Unfortunately, R-iterator and R-foreach both suggest each other.
+>
+> I used to be able to force ignoring suggests but this causes problems with check and test and skipping check and test isn't exactly what I want to do either.
+>
+> I would like to know what the "proper" way of building RPMs for the both of these R packages.
+
+Hah.
+
+ From the perspective of a scientist or engineer, the 'proper' solution 
+would be to have a dependency _TREE_ instead of a dependency 
+plate-of-pasta.
+
+In short, your problem looks insane because the underlying reality is 
+insane.
+
+
+http://article.gmane.org/gmane.comp.lang.r.devel/21496
+
+includes my statement of the problem, ca. 2009.
+
+http://article.gmane.org/gmane.comp.lang.r.devel/21597
+
+for a stab at a solution.  It's not elegant, but I think it'd work.
+
+
+I've frankly been out of the loop on where Pierre-Yves is going on this 
+issue for some time.   I'm sure he's got some comments.
+
+
+
+- Allen S. Rout
+
+From wyu at ateneo.edu  Fri Jun 15 13:25:22 2012
+From: wyu at ateneo.edu (William Emmanuel S. Yu)
+Date: Fri, 15 Jun 2012 13:25:22 +0000
+Subject: Re: [Fedora-r-devel-list] Building RPMs for Fedora with circular "suggest" dependencies
+In-Reply-To: <4FDB3404.2050306@ufl.edu>
+Message-ID: <1370054582-1339766864-cardhu_decombobulator_blackberry.rim.net-1456546733-@b2.c1.bise3.blackberry>
+
+Hi Allen,
+
+Thanks for the quick reply.
+
+I actually encountered this point of yours and that is why I found this mailing list.
+
+On your solution, I did try putting 'export _R_CHECK_FORCE_SUGGESTS_ = false; R CMD check' in the spec file. But now, it fails again again doing a test that requires foreach while building iterator. 
+
+Thanks again.
+"Sent via BlackBerry from Smart"
+
+-----Original Message-----
+From: "Allen S. Rout" <asr(a)ufl.edu>
+Sender: r-devel-bounces(a)lists.fedoraproject.org
+Date: Fri, 15 Jun 2012 09:09:24 
+To: <r-devel(a)lists.fedoraproject.org>
+Reply-To: r-devel(a)lists.fedoraproject.org
+Subject: Re: [Fedora-r-devel-list] Building RPMs for Fedora with circular
+ "suggest" dependencies
+
+On 06/15/2012 08:27 AM, William Emmanuel S. Yu wrote:
+> Hello,
+>
+> I am new to this list and in the process of building some RPMs for R packages. I have been rolling my own packages for a few years now and post them for public use. I am a heavy user of R2spec with spec file tweaks of course. Thanks for the author for making life easier.
+>
+> Every so often, I encounter the circular dependency issue with "suggest". For example, I am building R-reshape that depends on a bunch of packages including R-iterator and R-foreach. Unfortunately, R-iterator and R-foreach both suggest each other.
+>
+> I used to be able to force ignoring suggests but this causes problems with check and test and skipping check and test isn't exactly what I want to do either.
+>
+> I would like to know what the "proper" way of building RPMs for the both of these R packages.
+
+Hah.
+
+ From the perspective of a scientist or engineer, the 'proper' solution 
+would be to have a dependency _TREE_ instead of a dependency 
+plate-of-pasta.
+
+In short, your problem looks insane because the underlying reality is 
+insane.
+
+
+http://article.gmane.org/gmane.comp.lang.r.devel/21496
+
+includes my statement of the problem, ca. 2009.
+
+http://article.gmane.org/gmane.comp.lang.r.devel/21597
+
+for a stab at a solution.  It's not elegant, but I think it'd work.
+
+
+I've frankly been out of the loop on where Pierre-Yves is going on this 
+issue for some time.   I'm sure he's got some comments.
+
+
+
+- Allen S. Rout
+_______________________________________________
+r-devel mailing list
+r-devel(a)lists.fedoraproject.org
+https://admin.fedoraproject.org/mailman/listinfo/r-devel
+
