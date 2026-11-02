@@ -25,4 +25,4 @@ tools/update.sh 2026-09 2026-10
 
 ## Viewer
 
-Browse these archives at [r-mailing-lists.thecoatlessprofessor.com](https://r-mailing-lists.thecoatlessprofessor.com/lists/fedora-r-devel/)
+Browse these archives at [archives.rstats.dev](https://archives.rstats.dev/lists/fedora-r-devel/)
